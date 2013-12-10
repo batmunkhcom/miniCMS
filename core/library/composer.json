@@ -1,0 +1,18 @@
+{
+    "require": {
+        "batmunkh/v3":              "dev-master",
+	"nesbot/Carbon":            "*"
+    },
+    "autoload": {
+        "classmap": [
+            "functions/"
+        ],
+        "exclude": [
+            "test"
+        ],
+        "psr-0": {
+            "": ["model/","mbm/"]
+        }
+    },
+    "minimum-stability": "stable"
+}

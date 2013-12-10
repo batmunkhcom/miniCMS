@@ -1,0 +1,11 @@
+RewriteEngine On
+
+
+#www ruu shideh
+RewriteCond %{HTTP_HOST} ^(?!www\.)(.+) [NC]
+RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
