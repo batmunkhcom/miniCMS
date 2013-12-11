@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'MINICMS' => $vendorDir . '/batmunkh/v3/src',
-    'Carbon' => $vendorDir . '/nesbot/carbon/src',
+    'M' => $vendorDir . '/batmunkh/v3/src',
     '' => array($baseDir . '/model', $baseDir . '/mbm'),
 );

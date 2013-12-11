@@ -1,10 +1,10 @@
-<?php define('APPMODE', 'prod') ?>
+<?php define('APPMODE', 'dev') ?>
 
 <?php require_once '../core/bootstrap.php'; ?>
 <?php echo 'Welcome!'; ?>
 <br />
 <?php
-$router = new Router();
+$router = new M\Router();
 
 // Define routes
 $router->get('/hello/(\w+)', function($name) {
@@ -14,9 +14,9 @@ $router->get('/hello/(\w+)', function($name) {
 // Run it!
 $router->run();
 
-$aa = new \B\Testing();
-echo $aa->a();
+
+print_r($router->get());
 echo '<hr />';
 
-$cc = new B\C\A();
-echo $cc->aa();
+$aa = new M\App();
+echo $aa->app;

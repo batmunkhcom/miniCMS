@@ -1,7 +1,6 @@
 {
     "require": {
-        "batmunkh/v3":              "dev-master",
-	"nesbot/Carbon":            "*"
+        "batmunkh/v3":              "dev-master"
     },
     "autoload": {
         "classmap": [

@@ -42,8 +42,8 @@ require_once (DIR_CORE . 'config' . DS . 'main.php');
 //load autoloader
 require DIR_CORE.'library/vendor/autoload.php';
 
-$core = new Core($mbm_config);
-$db = new DB();
+$core = new M\Core($mbm_config);
+$db = new M\DB();
 
 date_default_timezone_set(TIME_ZONE);
 //include_files(DIR_LIB.'functions'.DS);
