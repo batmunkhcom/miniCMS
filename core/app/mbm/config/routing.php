@@ -20,6 +20,12 @@ $router->get('/movies/(\d+)', function ($id) {
     echo 'Movie id:'.$id;
 });
 
+$router->get('/hello/(\w+)', function($name) {
+    echo 'Hello ' . htmlentities($name);
+    echo '<br />';
+});
+
+
 // Custom 404 Handler
 $router->set404(function() {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');

@@ -12,22 +12,6 @@
 $mbm_config ['protocol'] = 'http://';
 $mbm_config ['domain'] = $_SERVER['SERVER_NAME'];
 
-//Folder configuration
-$mbm_config ['dir_abs']     = '/home/web.me/';
-$mbm_config ['dir_web']     = 'web'.DS; //Ex: ABS_DIR.'public_html/'
-$mbm_config ['dir_www']     = ''; // http://www.mng.cc/www_dir/ helberteigeer suuriluulalt hiivel hereglene. : Ex: www_dir/ 
-$mbm_config ['dir_app']     = $mbm_config ['dir_core'].'app'.DS; 
-$mbm_config ['dir_core']    = $mbm_config ['dir_abs'].'core'.DS; 
-$mbm_config ['dir_cache']   = $mbm_config ['dir_core'].'cache'.DS; 
-$mbm_config ['dir_cli']   = $mbm_config ['dir_core'].'cli'.DS; 
-$mbm_config ['dir_config']   = $mbm_config ['dir_core'].'config'.DS; 
-$mbm_config ['dir_data']    = $mbm_config ['dir_core'].'data'.DS; 
-$mbm_config ['dir_lang']     = $mbm_config ['dir_core'].'lang'.DS; 
-$mbm_config ['dir_lib']     = $mbm_config ['dir_core'].'library'.DS; 
-$mbm_config ['dir_log']     = $mbm_config ['dir_core'].'log'.DS; 
-$mbm_config ['dir_template']     = $mbm_config ['dir_core'].'templates'.DS; 
-$mbm_config ['dir_tmp']     = $mbm_config ['dir_core'].'tmp'.DS; 
-$mbm_config ['dir_upload']     = $mbm_config ['dir_web'].'media'.DS; 
 
 /****************Default utguud*********************/
 $mbm_config ['default_charset'] = 'utf8';
