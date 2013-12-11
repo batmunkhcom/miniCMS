@@ -1,6 +1,7 @@
 {
     "require": {
-        "batmunkh/v3":              "dev-master"
+        "batmunkh/v3":              "dev-master",
+        "klein/klein":              "*"
     },
     "autoload": {
         "classmap": [

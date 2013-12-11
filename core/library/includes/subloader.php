@@ -10,9 +10,13 @@
 
 $is_enabled_module = array();
 
+//LIB dir dotorhi functions havtast bairlaj bgaa file uudiig include hiiv.
 M\File::getAndIncludePHPFiles(DIR_LIB.'functions'.DS);
- 
+
+//tohirgoog buh gazar shuud ashiglah bolomj olgohiin tuld ehleed duudav
 $config = new M\Config($mbm_config);
+
+//Core dotor router bolon busad shaardlagatai zuilsiig duudav
 $core = new M\Core($mbm_config);
 $db = new M\DB();
 

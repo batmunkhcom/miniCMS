@@ -8,14 +8,16 @@
  * file that was distributed with this source code.
  */
 
-function set_application(){
+function set_application($app){
     
+    \M\Config::set('app_current', $app);
 }
 
-function set_module(){
+function set_module($module){
     
+    \M\Config::set('module_current', $module);
 }
 
-function set_action(){
-    
+function set_action($action){
+    \M\Config::set('action_current', $action);
 }

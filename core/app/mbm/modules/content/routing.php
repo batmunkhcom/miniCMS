@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-$router->get('/read/(\d+)', function($id,$title = null) {
+$router->get('/read/(\d+)/(\w+)', function($id,$title = null) {
     echo 'content ' . htmlentities($id).' '.$title;
     echo '<br />';
 });

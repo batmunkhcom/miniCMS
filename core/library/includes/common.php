@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the miniCMS package.
  * (c) 2005-2012 BATMUNKH Moltov <contact@batmunkh.com>
@@ -62,14 +63,7 @@ function include_files($dir) {
     M\Log::save('testing.... loaded...');
 }
 
-function load_css($filepath) {
-    M\Config::$css_files[$filepath] = $filepath;
-}
-
-function load_js($filepath) {
-    M\Config::$js_files[$filepath] = $filepath;
-}
-
+//text iig boginsgoh
 function shrink_text($text = '', $max_length = 32) {
 
     if (strlen($text) > $max_length) {
@@ -79,3 +73,13 @@ function shrink_text($text = '', $max_length = 32) {
     return $text;
 }
 
+//debug hiih
+function dump($item, $die = false) {
+    $printString = '<pre>' . print_r($item, true) . '</pre>';
+
+    if ($die) {
+        die($printString);
+    } else {
+        echo $printString;
+    }
+}

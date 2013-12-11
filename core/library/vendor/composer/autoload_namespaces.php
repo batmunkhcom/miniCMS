@@ -7,5 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'M' => $vendorDir . '/batmunkh/v3/src',
+    'Klein' => $vendorDir . '/klein/klein',
+    'I' => $vendorDir . '/batmunkh/v3/src',
     '' => array($baseDir . '/model', $baseDir . '/mbm'),
 );

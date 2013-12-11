@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "12f9ddd5ac9baf79e2483ef03c19f2f6",
+    "hash": "f9dfac112afcac7b38de19fecb53f837",
     "packages": [
         {
             "name": "batmunkh/v3",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/batmunkhcom/mbm.git",
-                "reference": "45edc5f0a73fb95c5d8562ffe1bf256cc1e3c242"
+                "reference": "97c82a806fc270f33d7feac22c45482d96a907c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/45edc5f0a73fb95c5d8562ffe1bf256cc1e3c242",
-                "reference": "45edc5f0a73fb95c5d8562ffe1bf256cc1e3c242",
+                "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/97c82a806fc270f33d7feac22c45482d96a907c0",
+                "reference": "97c82a806fc270f33d7feac22c45482d96a907c0",
                 "shasum": ""
             },
             "require": {
@@ -25,7 +25,8 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "M": "src/"
+                    "M": "src/",
+                    "I": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -50,7 +51,61 @@
                 "miniCMS",
                 "miniCMSv3"
             ],
-            "time": "2013-12-11 05:39:49"
+            "time": "2013-12-11 22:52:01"
+        },
+        {
+            "name": "klein/klein",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chriso/klein.php.git",
+                "reference": "6e1f228ce82333b437402dafad049713eb3eeac6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chriso/klein.php/zipball/6e1f228ce82333b437402dafad049713eb3eeac6",
+                "reference": "6e1f228ce82333b437402dafad049713eb3eeac6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.x"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Klein": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris O'Hara",
+                    "email": "cohara87@gmail.com",
+                    "homepage": "http://chris6f.com/",
+                    "role": "Creator/Developer"
+                },
+                {
+                    "name": "Trevor Suarez",
+                    "email": "rican7@gmail.com",
+                    "homepage": "http://about.me/tnsuarez",
+                    "role": "Contributor/Developer"
+                }
+            ],
+            "description": "A lightning fast router for PHP",
+            "homepage": "https://github.com/chriso/klein.php",
+            "keywords": [
+                "boilerplate",
+                "router",
+                "routing",
+                "sinatra"
+            ],
+            "time": "2013-06-16 23:32:47"
         }
     ],
     "packages-dev": [
