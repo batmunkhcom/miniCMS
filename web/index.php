@@ -1,7 +1,7 @@
-<?php define('ENABLED_APP', 'mbm') ?>
+<?php define('APP_ENABLED', 'mbm') ?>
 <?php define('APPMODE', 'dev') ?>
 
-<?php require_once ('../core/app/'.ENABLED_APP.'/config/main.php'); ?>
+<?php require_once ('../core/app/'.APP_ENABLED.'/config/main.php'); ?>
 <?php require_once '../core/bootstrap.php'; ?>
 <?php echo 'Welcome!'; ?>
 <br />
@@ -11,30 +11,25 @@
 
 
 echo '<h2>All modules</h2>';
-print_r(\M\Config::get('modules'));
-echo '<hr />';
+dump(\M\Config::get('module_all'));
 echo '<hr />';
 echo '<h2>All enabled modules</h2>';
-print_r(\M\Config::get('module_enabled'));
-echo '<hr />';
-echo '<hr />';
+dump(\M\Config::get('module_enabled'));
+dump($is_enabled_module);
 echo '<hr />';
 echo '<h2>Config::get(apps)</h2>';
-print_r(\M\Config::get('apps'));
+dump(\M\Config::get('apps'));
 
 echo '<h2>Config::data</h2>';
-print_r($config->data);
+dump(\M\Config::$data);
 echo '<hr />';
-print_r(M\Config::$data);
-echo '<hr />';
-print_r(M\Config::get('db_host').'<br />');
-print_r($is_enabled_module);
+dump(M\Config::get('db_host').'<br />');
 echo '<hr />';
 echo '<h2>Current app dir</h2>';
-print_r(M\Module::$current_app_dir);
+dump(M\Module::$current_app_dir);
 echo '<hr />';
 echo '<h2>_GET</h2>';
-print_r($_GET);
+dump($_GET);
 echo '<hr />';
 
 

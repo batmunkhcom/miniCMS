@@ -16,6 +16,9 @@ M\File::getAndIncludePHPFiles(DIR_LIB.'functions'.DS);
 //tohirgoog buh gazar shuud ashiglah bolomj olgohiin tuld ehleed duudav
 $config = new M\Config($mbm_config);
 
+//Router ehlev
+$router = new M\Router();
+
 //Core dotor router bolon busad shaardlagatai zuilsiig duudav
 $core = new M\Core($mbm_config);
 $db = new M\DB();

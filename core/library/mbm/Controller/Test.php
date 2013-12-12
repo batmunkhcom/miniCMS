@@ -7,8 +7,19 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace Controller;
+/**
+ * Description here
+ *
+ * @package    miniCMS
+ * @subpackage -
+ * @author     BATMUNKH Moltov <contact@batmunkh.com>
+ * @version    SVN: $Id 
+ */
+class Test {
 
-$router->respond('GET', '/', function () {
-    echo  '<h3>Home page</h3>Hello World!<hr />';
-//    return 'Hello World!';
-});
+    public function Test() {
+        
+    }
+
+}

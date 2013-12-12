@@ -11,6 +11,7 @@
 /****************Webiin undsen tohirgoo*********************/
 $mbm_config ['protocol'] = 'http://';
 $mbm_config ['domain'] = $_SERVER['SERVER_NAME'];
+$mbm_config ['port'] = $_SERVER['SERVER_PORT'];
 
 
 /****************Default utguud*********************/
