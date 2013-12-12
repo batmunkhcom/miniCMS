@@ -1,366 +1,439 @@
+# Klein.php
 
+[![Build Status](https://travis-ci.org/chriso/klein.php.png?branch=master)](https://travis-ci.org/chriso/klein.php)
 
+**klein.php** is a lightning fast router for PHP 5.3+
 
-Another PHP Router
-===========================
+* Flexible regular expression routing (inspired by [Sinatra](http://www.sinatrarb.com/))
+* A set of [boilerplate methods](#api) for rapidly building web apps
+* Almost no overhead => [2500+ requests/second](https://gist.github.com/878833)
 
+## Getting started
 
-Introduction
------------------------------
+1. PHP 5.3.x is required
+2. Install Klein using [Composer](#composer-installation) (recommended) or manually
+3. Setup [URL rewriting](https://gist.github.com/874000) so that all requests are handled by **index.php**
+4. (Optional) Throw in some [APC](http://pecl.php.net/package/APC) for good measure
 
-it's another router class for php. read the rest of manual for the detailed features and sample codes.
+## Composer Installation
 
-License
------------------------------
+1. Get [Composer](http://getcomposer.org/)
+2. Require Klein with `php composer.phar require klein/klein v2.0.x`
+3. Install dependencies with `php composer.phar install`
 
-This is a free software and published under GPL v3.0 license. so you can freely use it, modify it to fit your needs and use it in your applications and finally share your changes with your friends and specially me. there is a plain text file containing the GPL v3.0 terms and definitions in the project or you can go online and check it for yourself at [www.gnu.org/copyleft/gpl.html](http://www.gnu.org/copyleft/gpl.html)
+## Example
 
-Features
------------------------------
+*Hello World* - Obligatory hello world example
 
-* Pattern based routing
-* powerful reverse routing include cross domain reverse routing
-* very flexible routing supporting different/user-defined protocols, subdomains, domanins, web server port and request methods
-* very simple to use
+```php
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
 
-Versions & Change Log
------------------------------
-* version 0.1
+$klein = new \Klein\Klein();
 
-How to [Simply] Use it
------------------------------
+$klein->respond('GET', '/hello-world', function () {
+    return 'Hello World!';
+});
 
-there are 3 entities that must be defined in Router class.
+$klein->dispatch();
+```
 
-### 1. Patterns
+*Example 1* - Respond to all requests
 
-a pattern defines how dynamic parts of a URL must look like. in fact, the patterns are essential to define dynamic routes. for example, the _post\_id_ and _published\_date_ in a url will be detected by three different patterns. 
+```php
+$klein->respond(function () {
+    return 'All the things';
+});
+```
 
-    // Syntax
-    Router::pattern($pattern_name, $pattern_regex);
+*Example 2* - Named parameters
 
-**Example**: consider these two URL schema: [/news/2013/12/](http://example.com/news/2012/12) and [/post/162/](http://example.com/post/162). the first URL consists of two dynamic part: **Year** and **Month** and the second one consists of one, **id**. these dynamic parts are naturally different, so we need to define 3 different patterns to detect them properly.
+```php
+$klein->respond('/[:name]', function ($request) {
+    return 'Hello ' . $request->name;
+});
+```
 
-    Router::pattern('year', '/^[1-2][0-9]{3}$/i');
-    Router::pattern('month', '/^[0-9]{1,2}$/i');
-    Router::pattern('id', '/^[1-9][0-9]+$/i');
+*Example 3* - [So RESTful](http://bit.ly/g93B1s)
 
+```php
+$klein->respond('GET', '/posts', $callback);
+$klein->respond('POST', '/posts/create', $callback);
+$klein->respond('PUT', '/posts/[i:id]', $callback);
+$klein->respond('DELETE', '/posts/[i:id]', $callback);
+$klein->respond('OPTIONS', null, $callback);
 
-### 2. defaults
+// To match multiple request methods:
+$klein->respond(array('POST','GET'), $route, $callback);
 
-a default value will be used for part of a URL when we don't want to mention every time we are defining a route or creating a link. 
-
-    // Syntax
-    Router::defaults($default_name, [$default_value[, $default_pattern]]);
-
-**Example**: consider these URL schema: [http://www.examlpe.com:80/](http://www.examlpe.com:80/)
-there are 5 different default value available. 
-
-    Router::defaults('method', 'GET|POST');
-    Router::defaults('protocol', 'http');
-    Router::defaults('subdomain', 'www');
-    Router::defaults('domain', 'example.com');
-    Router::defaults('port', 80);
-
-### 2. Routes
-
-finally we need to define routes.
-
-    // Syntax
-    Router::route($route_name, $route_array, $route_value);
-
-**Example**: consider defining routes for the same URL schema we mentioned before: [/news/2013/12/](http://example.com/news/2012/12) and [/post/162/](http://example.com/post/162).
-
-    Router::route('archive', array('url'=>'/news/:year/:month'), array('class'=>'news', 'method'=>'archive'));
-    Router::route('article', array('url'=>'/post/:id'), array('class'=>'posts', 'method'=>'view'));
-
-**Explanation**: for the first route, we defined the URL consists of two dynamic part detectable by two patterns we defined earlier. any request like [http://www.example.com/news/2013/02](http://www.example.com/news/2013/02) will be matched. 
-
-### Putting it all together
-
-    //index.php
-    // defining the patterns
-    Router::pattern('year', '/^[0-9]{4}$/i');
-    Router::pattern('month', '/^[0-9]{2}$/i');
-    Router::pattern('id', '/^[1-9][0-9]+$/i');
-    
-    // defining the default values
-    Router::defaults('method', 'GET|POST');
-    Router::defaults('protocol', 'http');
-    Router::defaults('subdomain', 'www');
-    Router::defaults('domain', 'example.com');
-    Router::defaults('port', 80);
-
-    // defining the routes
-    Router::route('archive', array('url'=>'/news/:year/:month'), array('class'=>'news', 'method'=>'archive'));
-    Router::route('article', array('url'=>'/post/:id'), array('class'=>'posts', 'method'=>'view'));
-    
-    // match
-    $result = Router::find();
-    if(is_array($result)){
-        $class_name = $result[0];
-        $method_name = $result[1];
-        $class_obj = new $class_name();
-        if(method_exists($class_obj, $method_name)){
-            $class_obj->$method_name();
-        }
+// Or you might want to handle the requests in the same place
+$klein->respond('/posts/[create|edit:action]?/[i:id]?', function ($request, $response) {
+    switch ($request->action) {
+        //
     }
+});
+```
 
-    // news.php
-    class news{
-       public function archive(){
-           $year = Router::get('year');
-           $month = Router::get('month');
-           // do something
-       }
+*Example 4* - Sending objects / files
+
+```php
+$klein->respond(function ($request, $response, $service) {
+    $service->xml = function ($object) {
+        // Custom xml output function
     }
-
-
-### same routing, different patterns
-
-    include('lib/router.class.php');
-    Router::pattern('email', '/^[a-z0-9\._]+@[a-z0-9\._]+\.[a-z]{2,}$/i');
-    Router::pattern('mobile', '0[1-9][0-9]{9}');
-    Router::route('user_verification', array('url'=>'/verification/:email'), array('class'=>'users', 'method'=>'verification_by_email'));
-    Router::route('user_verification', array('url'=>'/verification/:mobile'), array('class'=>'users', 'method'=>'verification_by_mobile'));
-
-
-
-Advanced Usage
------------------------------
-
-### override default values
-
-it is possible to override default values for a specific route. for example, what if you have different subdomain for only media files or different protocol for high security routes? we can override any default value by defining them in $route_array parameter in route method.
-
-    // overriding subdomain
-    Router::route('image', array('url'=>'/img/:id', 'subdomain'=>'media'), array('class'=>'media', 'method'=>'image'));
-    Router::route('login', array('url'=>'/login', 'protocol'=>'https'), array('class'=>'users', 'method'=>'logni'));
-
-### set pattern for default values
-
-you can define a default value with a pattern. in this case, if you want to override it in some routes, it should match the pattern given. 
-
-    Router::pattern('protocol_pattern', '/https/i');
-    Router::defaults('prorocol', 'https', 'protocol_pattern');
-
-so if you want to override the protocol value in a route, it should match the pattern first. the following code fails because we strictly forced the protocol to not be http
-
-    $login_link = Router::link('login', array('url'=>'/login', 'protocol'=>'http'), true);
-
-### Override a default value/pattern in an individual route
-
-we can also override a default's value/patterns in defining a route
-
-    // set default protocol to https
-    Router::route('login', array('url'=>'/login', 'protocol'=>array('https')), array('class'=>'users', 'method'=>'login'))
-    // set default protocol to http but allows https if overridden 
-    Router::pattern('https_pattern', '/https?/i');
-    Router::route('setting', array('url'=>'/settings', 'protocol'=>array('http', :https_pattern)), array('class'=>'users', 'method'=>'login'))
-
-### generating routes URL
-
-you can generate a URL from a defined route by calling *link()* method.
-
-    // Syntax
-    Router::link($route_name, $route_parameters[, $fqdn=false]);
-
-**Example**: consider the routes we defined earlier, *archive*, *article*, *login* and *image*. we can generate appropriate URL links for them to use in html forms.
-
-    $article_link = Router::link('article', array(12));
-    $archive_link = Router::link('archive', array(2013, 2));
-    $same_archive_link = Router::link('archive', array('month'=>2, 'year'=>2013));
-    $login_link = Router::link('login', array(), true);
-    $image_link = Router::link('image', array(20), true);
-
-    // the above code produce the following results
-    $article_link == "/post/12";
-    $archive_link == "/archive/2013/2";
-    $same_archive_link == "/archive/2013/2";
-    $login_link == "https://www.example.com/login";
-    $image_link == "http://media.example.com/img/20"
-
-**Note**: by overriding the default values, it is possible to create links pointing to other websites like CDNs.
-
-    // using jQuery from CDN
-    // defining it's pattern and route
-    Router::pattern('jquery', '/^jquery\-[0-9\.]+\.min\.js$/i');
-    Router::route('jquery', array('url'=>'/:jquery', 'subdomain'=>'code', 'domain'=>'jquery.com'), array());
-
-    // generating cdn link
-    $jquery_link = Router::link('jquery', array('jquery-1.9.1.min.js'), true);
-
-    // result
-    $jquery_link == 'http://code.jquery.com/jquery-1.9.1.min.js'
-
-### getting URL parameters
-
-when requested URL matched with one of the defined routes, the dynamic parts of the URL will be accessible using Router::get() method as we mentioned before:
-
-    // news.php
-    class news{
-        public function archive(){
-            $year = Router::get('year');
-            $month = Router::get('month');
-        }
+    $service->csv = function ($object) {
+        // Custom csv output function
     }
+});
 
-we can also override the variable name these variables will be held in Router. 
+$klein->respond('/report.[xml|csv|json:format]?', function ($request, $response, $service) {
+    // Get the format or fallback to JSON as the default
+    $send = $request->param('format', 'json');
+    $service->$send($report);
+});
 
-    // index.php
-    // defining routes
-    Router::route('archive', array('url'=>'/archive/from:year/to:year'), array('class'=>'news', 'method'=>'ranged_archive'))
+$klein->respond('/report/latest', function ($request, $response, $service) {
+    $service->file('/tmp/cached_report.zip');
+});
+```
 
-    // news.php
-    class news{
-        public function ranged_archive(){
-            $from = Router::get('from');
-            $to = Router::get('to');
-        }
-    }
+*Example 5* - All together
 
-### Custom route value
+```php
+$klein->respond(function ($request, $response, $service, $app) use ($klein) {
+    // Handle exceptions => flash the message and redirect to the referrer
+    $klein->onError(function ($klein, $err_msg) {
+        $klein->service()->flash($err_msg);
+        $klein->service()->back();
+    });
 
-it's possible to define a custom value for routes. it can be an array containing any kinds of information inside.
+    // The third parameter can be used to share scope and global objects
+    $app->db = new PDO(...);
 
-**Example**: simple static HTML file as route value
+    // $app also can store lazy services, e.g. if you don't want to
+    // instantiate a database connection on every response
+    $app->register('db', function() {
+        return new PDO(...);
+    });
+});
 
-    // index.php
-    Router::route('home', array('url'=>'/'), array('public/index.html'));
-    
-    $result = Router::find();
-    include($result[0]);
+$klein->respond('POST', '/users/[i:id]/edit', function ($request, $response, $service, $app) {
+    // Quickly validate input parameters
+    $service->validateParam('username', 'Please enter a valid username')->isLen(5, 64)->isChars('a-zA-Z0-9-');
+    $service->validateParam('password')->notNull();
 
+    $app->db->query(...); // etc.
 
-Real World Examples
------------------------------
+    // Add view properties and helper methods
+    $service->title = 'foo';
+    $service->escape = function ($str) {
+        return htmlentities($str); // Assign view helpers
+    };
 
-### Register and verification
+    $service->render('myview.phtml');
+});
 
-the project consists of these routes:
+// myview.phtml:
+<title><?php echo $this->escape($this->title) ?></title>
+```
 
-* [http://www.example.com/](http://www.example.com/)
-* [https://www.example.com/register](https://www.example.com/register)
-* [http://www.example.com/register/verification/](http://www.example.com/register/verification/)
-* [http://www.example.com/register/verification/{phone-number}](http://www.example.com/register/verification/{phone-number})
-* [http://www.example.com/register/verification/{email-address}](http://www.example.com/register/verification/{email-address})
+## Route namespaces
 
+```php
+$klein->with('/users', function () use ($klein) {
 
-if the web application was in Development or Test environment, we want host to be *localhost*. in continue, if using current stable PHP, set the port number to 80, otherwise to 8080. these allows us to create FQDN (full qualified domain names) properly in each environment without any further code-change.
+    $klein->respond('GET', '/?', function ($request, $response) {
+        // Show all users
+    });
 
-    include('lib/router.class.php');
-    
-    Router::pattern('id', '/^[0-9]+$/i');
-    Router::pattern('name', '/^[a-z][a-z0-9_]+$/i');
-    Router::pattern('nickname', '/^\p{L}[\p{L}\p{N} \.،,]+$/iu');
-    Router::pattern('mobile', '/^09[0-9]{9}$/');
-    Router::pattern('email', '/^[a-z0-9\._]+@[a-z0-9\._]+\.[a-z]{2,}$/i');
+    $klein->respond('GET', '/[:id]', function ($request, $response) {
+        // Show a single user
+    });
 
-    Router::defaults('method', 'GET|POST|PUT|DELETE');
-    Router::defaults('protocol', 'http');
-    if(DEVELOPEMENT||TEST){
-        Router::defaults('subdomain', '');
-        if(phpversion()=='5.4.11'){
-            Router::defaults('domain', 'localhost');
-            Router::defaults('port', 80);
-        }else{
-            Router::defaults('domain', 'localhost');
-            Router::defaults('port', 8080);
-        }
-    }else{
-        Router::defaults('subdomain', 'www');
-        Router::defaults('domain', 'example.com');
-        Router::defaults('port', 80);
-    }
+});
 
-    Router::route('home', array('url'=>'/'), array('app/pages/home/home.php'));
+foreach(array('projects', 'posts') as $controller) {
+    // Include all routes defined in a file under a given namespace
+    $klein->with("/$controller", "controllers/$controller.php");
+}
+```
 
-    Router::route('register', array('url'=>'/register', 'protocol'=>'https'), array('class'=>'users', 'action'=>'register'));
-    Router::route('verification', array('url'=>'/register/verification'), array('class'=>'users', 'action'=>'verification'));
-    Router::route('verification', array('url'=>'/register/verification/mobile:mobile'), array('class'=>'users', 'action'=>'verification_by_mobile'));
-    Router::route('verification', array('url'=>'/register/verification/email:email'), array('class'=>'users', 'action'=>'verification_by_email'));
+Included files are run in the scope of Klein (`$klein`) so all Klein
+methods/properties can be accessed with `$this`
 
-    $result = Router::find();
-    if(is_array($result)){
-        $class_name = $result[0];
-        $method_name = $result[1];
-        $class_obj = new $class_name();
-        if(method_exists($class_obj, $method_name)){
-        $class_obj->$method_name();
-        }else{
-            header('Location: /public/500.html');
-        }
-    }else{
-        header('Location: /public/404.html');
-    }
+_Example file for: "controllers/projects.php"_
+```php
+// Routes to "/projects/?"
+$this->respond('GET', '/?', function ($request, $response) {
+    // Show all projects
+});
+```
 
+## Lazy services
 
-### Multiple Servers
+Services can be stored **lazily**, meaning that they are only instantiated on
+first use.
 
-in This project, we have users Avatars in different server [avatar.example.com](http://avatar.example.com) and other media files on another server named [media.example.com](http://media.example.com). to create proper URLs using reverse routing we need to override each route's subdomain. follow the code:
+``` php
+<?php
+$klein->respond(function ($request, $response, $service, $app) {
+    $app->register('lazyDb', function() {
+        $db = new stdClass();
+        $db->name = 'foo';
+        return $db;
+    });
+});
 
-* [http://www.example.com/](http://www.example.com/)
-* [http://avatar.example.com/{username}](http://www.example.com/admin)
-* [http://media.example.com/{media-type}/{media-id}](http://www.example.com/video/12)
+//Later
 
-the following code illustrates the code:
+$klein->respond('GET', '/posts', function ($request, $response, $service, $app) {
+    // $db is initialised on first request
+    // all subsequent calls will use the same instance
+    return $app->lazyDb->name;
+});
+```
 
-    // index.php
-    Router::pattern('nickname', '/[a-z][a-z0-9]{2,}/i');
-    Router::pattern('id', '/[0-9]+/i');
-    Router::pattern('type', '/(photo|video)$/i');
+## Validators
 
-    Router::defaults('method', 'GET|POST');
-    Router::defaults('protocol', 'http');
-    Router::defaults('subdomain', 'www');
-    Router::defaults('domain', 'example.com');
-    Router::defaults('port', 80);
+To add a custom validator use `addValidator($method, $callback)`
 
-    Router::route('home', array('url'=>'/'), array('class'=>'static', 'method'=>'home'));
-    Router::route('home', array('url'=>'/:nickname', 'subdomain'=>'avatar'), array('class'=>'media', 'method'=>'avatar'));
-    Router::route('home', array('url'=>'/media-type:type/media-id:id', 'subdomain'=>'media'), array('class'=>'media', 'method'=>'show'));
+```php
+$service->addValidator('hex', function ($str) {
+    return preg_match('/^[0-9a-f]++$/i', $str);
+});
+```
 
-    // html_macro.php
-    function avatar_image($username){
-        $avatar_link = Router::link('avatar', array($username), true);
-        return "<img src='$avatar_link' class='avatar'>";
-    }
-    function media_download_link($media_type, $media_id){
-        $media_link = Router::link('media', array($media_type, $media_id), true);
-        // or
-        // $media_link = Router::link('media', array('media_id'=>$media_id, 'media_type'=>$media_type), true);
-        return "<a href='$media_link'>Download</a>";
-    }
+You can validate parameters using `is<$method>()` or `not<$method>()`, e.g.
 
-### Cross-domain routing
+```php
+$service->validateParam('key')->isHex();
+```
 
-it's possible to use Router class to generate links to other web services, like CDNs. for example here we try to load jQuery and Twitter Bootstrap from CDN using Router route.
+Or you can validate any string using the same flow..
 
-    // index.php
+```php
+$service->validate($username)->isLen(4,16);
+```
 
-    Router::pattern('version', '/[0-9]\.[0-9]\.[0-9]/i');
-    Router::pattern('jquery', '/^jquery\-[0-9\.]+\.min\.js$/i');
+Validation methods are chainable, and a custom exception message can be specified for if/when validation fails
 
-    Router::defaults('method', 'GET|POST');
-    Router::defaults('protocol', 'http');
-    Router::defaults('subdomain', 'www');
-    Router::defaults('domain', 'example.com');
-    Router::defaults('port', 80);
+```php
+$service->validateParam('key', 'The key was invalid')->isHex()->isLen(32);
+```
 
-    Router::route('jquery', array('url'=>'/:jquery', 'subdomain'=>'code', 'domain'=>'jquery.com'), array());
-    Router::route('bootstrap_css', array('url'=>'/twitter-bootstrap/:version/css/bootstrap-combined.min.css', 'subdomain'=>'netdna', 'domain'=>'bootstrapcdn.com'), array());
-    Router::route('bootstrap_js', array('url'=>'/twitter-bootstrap/:version/js/bootstrap.min.js', 'subdomain'=>'netdna', 'domain'=>'bootstrapcdn.com'), array());
+## Routing
 
-    // html_macro.php
-    function jquery_js($version='jquery-1.9.1.min.js'){
-        $jquery_link = Router::link('jquery', array($version), true);
-        return "<script src="$jquery_link"></script>"
-    }
-    function bootstrap_css($version='2.3.0'){
-        $bootstrap_link = Router::link('bootstrap_css', array($version), true);
-        return "<link href="$bootstrap_link" rel="stylesheet">"
-    }
-    function bootstrap_js($version='2.3.0'){
-        $bootstrap_link = Router::link('bootstrap_js', array($version), true);
-        return "<script src="$bootstrap_link"></script>"
-    }
+**[** *match_type* **:** *param_name* **]**
+
+Some examples
+
+    *                    // Match all request URIs
+    [i]                  // Match an integer
+    [i:id]               // Match an integer as 'id'
+    [a:action]           // Match alphanumeric characters as 'action'
+    [h:key]              // Match hexadecimal characters as 'key'
+    [:action]            // Match anything up to the next / or end of the URI as 'action'
+    [create|edit:action] // Match either 'create' or 'edit' as 'action'
+    [*]                  // Catch all (lazy)
+    [*:trailing]         // Catch all as 'trailing' (lazy)
+    [**:trailing]        // Catch all (possessive - will match the rest of the URI)
+    .[:format]?          // Match an optional parameter 'format' - a / or . before the block is also optional
+
+Some more complicated examples
+
+    /posts/[*:title][i:id]     // Matches "/posts/this-is-a-title-123"
+    /output.[xml|json:format]? // Matches "/output", "output.xml", "output.json"
+    /[:controller]?/[:action]? // Matches the typical /controller/action format
+
+**Note** - *all* routes that match the request URI are called - this
+allows you to incorporate complex conditional logic such as user
+authentication or view layouts. e.g. as a basic example, the following
+code will wrap other routes with a header and footer
+
+```php
+$klein->respond('*', function ($request, $response, $service) { $service->render('header.phtml'); });
+//other routes
+$klein->respond('*', function ($request, $response, $service) { $service->render('footer.phtml'); });
+```
+
+Routes automatically match the entire request URI. If you need to match
+only a part of the request URI or use a custom regular expression, use the `@` operator. If you need to
+negate a route, use the `!` operator
+
+```php
+// Match all requests that end with '.json' or '.csv'
+$klein->respond('@\.(json|csv)$', ...
+
+// Match all requests that _don't_ start with /admin
+$klein->respond('!@^/admin/', ...
+```
+
+## Views
+
+You can send properties or helpers to the view by assigning them
+to the `$service` object, or by using the second arg of `$service->render()`
+
+```php
+$service->escape = function ($str) {
+    return htmlentities($str);
+};
+
+$service->render('myview.phtml', array('title' => 'My View'));
+
+// Or just: $service->title = 'My View';
+```
+
+*myview.phtml*
+
+```html
+<title><?php echo $this->escape($this->title) ?></title>
+```
+
+Views are compiled and run in the scope of `$service` so all service methods can be accessed with `$this`
+
+```php
+$this->render('partial.html')           // Render partials
+$this->sharedData()->get('myvar')       // Access stored service variables
+echo $this->query(array('page' => 2))   // Modify the current query string
+```
+
+## API
+
+Below is a list of the public methods in the common classes you will most likely use. For a more formal source
+of class/method documentation, please see the [PHPdoc generated documentation](http://chriso.github.io/klein.php/docs/).
+
+```php
+$request->
+    id($hash = true)                    // Get a unique ID for the request
+    paramsGet()                         // Return the GET parameter collection
+    paramsPost()                        // Return the POST parameter collection
+    paramsNamed()                       // Return the named parameter collection
+    cookies()                           // Return the cookies collection
+    server()                            // Return the server collection
+    headers()                           // Return the headers collection
+    files()                             // Return the files collection
+    body()                              // Get the request body
+    params()                            // Return all parameters
+    params($mask = null)                // Return all parameters that match the mask array - extract() friendly
+    param($key, $default = null)        // Get a request parameter (get, post, named)
+    isSecure()                          // Was the request sent via HTTPS?
+    ip()                                // Get the request IP
+    userAgent()                         // Get the request user agent
+    uri()                               // Get the request URI
+    pathname()                          // Get the request pathname
+    method()                            // Get the request method
+    method($method)                     // Check if the request method is $method, i.e. method('post') => true
+    query($key, $value = null)          // Get, add to, or modify the current query string
+    <param>                             // Get / Set (if assigned a value) a request parameter
+
+$response->
+    protocolVersion($protocol_version = null)       // Get the protocol version, or set it to the passed value
+    body($body = null)                              // Get the response body's content, or set it to the passed value
+    status()                                        // Get the response's status object
+    headers()                                       // Return the headers collection
+    cookies()                                       // Return the cookies collection
+    code($code = null)                              // Return the HTTP response code, or set it to the passed value
+    prepend($content)                               // Prepend a string to the response body
+    append($content)                                // Append a string to the response body
+    isLocked()                                      // Check if the response is locked
+    requireUnlocked()                               // Require that a response is unlocked
+    lock()                                          // Lock the response from further modification
+    unlock()                                        // Unlock the response
+    sendHeaders($override = false)                  // Send the HTTP response headers
+    sendCookies($override = false)                  // Send the HTTP response cookies
+    sendBody()                                      // Send the response body's content
+    send()                                          // Send the response and lock it
+    isSent()                                        // Check if the response has been sent
+    chunk($str = null)                              // Enable response chunking (see the wiki)
+    header($key, $value = null)                     // Set a response header
+    cookie($key, $value = null, $expiry = null)     // Set a cookie
+    cookie($key, null)                              // Remove a cookie
+    noCache()                                       // Tell the browser not to cache the response
+    redirect($url, $code = 302)                     // Redirect to the specified URL
+    dump($obj)                                      // Dump an object
+    file($path, $filename = null)                   // Send a file
+    json($object, $jsonp_prefix = null)             // Send an object as JSON or JSONP by providing padding prefix
+
+$service->
+    sharedData()                                    // Return the shared data collection
+    startSession()                                  // Start a session and return its ID
+    flash($msg, $type = 'info', $params = array()   // Set a flash message
+    flashes($type = null)                           // Retrieve and clears all flashes of $type
+    markdown($str, $args, ...)                      // Return a string formatted with markdown
+    escape($str)                                    // Escape a string
+    refresh()                                       // Redirect to the current URL
+    back()                                          // Redirect to the referer
+    query($key, $value = null)                      // Modify the current query string
+    query($arr)
+    layout($layout)                                 // Set the view layout
+    yieldView()                                     // Call inside the layout to render the view content
+    render($view, $data = array())                  // Render a view or partial (in the scope of $response)
+    partial($view, $data = array())                 // Render a partial without a layout (in the scope of $response)
+    addValidator($method, $callback)                // Add a custom validator method
+    validate($string, $err = null)                  // Validate a string (with a custom error message)
+    validateParam($param, $err = null)                  // Validate a param
+    <callback>($arg1, ...)                          // Call a user-defined helper
+    <property>                                      // Get a user-defined property
+
+$app->
+    <callback>($arg1, ...)                          //Call a user-defined helper
+
+$validator->
+    notNull()                           // The string must not be null
+    isLen($length)                      // The string must be the exact length
+    isLen($min, $max)                   // The string must be between $min and $max length (inclusive)
+    isInt()                             // Check for a valid integer
+    isFloat()                           // Check for a valid float/decimal
+    isEmail()                           // Check for a valid email
+    isUrl()                             // Check for a valid URL
+    isIp()                              // Check for a valid IP
+    isAlpha()                           // Check for a-z (case insensitive)
+    isAlnum()                           // Check for alphanumeric characters
+    contains($needle)                   // Check if the string contains $needle
+    isChars($chars)                     // Validate against a character list
+    isRegex($pattern, $modifiers = '')  // Validate against a regular expression
+    notRegex($pattern, $modifiers ='')
+    is<Validator>()                     // Validate against a custom validator
+    not<Validator>()                    // The validator can't match
+    <Validator>()                       // Alias for is<Validator>()
+```
+
+## Unit Testing
+
+Unit tests are a crucial part of developing a routing engine such as Klein.
+Added features or bug-fixes can have adverse effects that are hard to find
+without a lot of testing, hence the importance of unit testing.
+
+This project uses [PHPUnit](https://github.com/sebastianbergmann/phpunit/) as
+its unit testing framework.
+
+The tests all live in `/tests` and each test extends an abstract class
+`AbstractKleinTest`
+
+To test the project, simply run `php composer.phar install --dev` to download
+a common version of PHPUnit with composer and run the tests from the main
+directory with `./vendor/bin/phpunit`
+
+## Contributing
+
+See the [contributing guide](CONTRIBUTING.md) for more info
+
+## More information
+
+See the [wiki](https://github.com/chriso/klein.php/wiki) for more information
+
+## Contributors
+
+- [Trevor N. Suarez](https://github.com/Rican7)
+
+## License
+
+(MIT License)
+
+Copyright (c) 2010 Chris O'Hara <cohara87@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
