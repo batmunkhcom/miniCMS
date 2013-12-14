@@ -6,13 +6,8 @@
  * 
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ * 
+ * Module config file
  */
 
-$router->respond('GET', '/', function () {
-    echo  '<h2>Router is working</h2>Homepage. Hello World!<hr />';
-    
-    set_module(DEFAULT_APP);
-    set_module(DEFAULT_MODULE);
-    set_action(DEFAULT_ACTION);
-//    return 'Hello World!';
-});
+$is_enabled_module['home'] = 1;

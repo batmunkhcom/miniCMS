@@ -17,8 +17,8 @@ $mbm_config ['port'] = $_SERVER['SERVER_PORT'];
 /****************Default utguud*********************/
 $mbm_config ['default_charset'] = 'utf8';
 $mbm_config ['default_lang'] = 'mn';
-$mbm_config ['default_app'] = 'default';
-$mbm_config ['default_module'] = 'default';
+$mbm_config ['default_app'] = 'mbm';
+$mbm_config ['default_module'] = 'home';
 $mbm_config ['default_action'] = 'index';
 
 /****************htaccess ashiglah eseh*********************/

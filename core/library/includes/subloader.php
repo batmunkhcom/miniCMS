@@ -21,6 +21,13 @@ $router = new M\Router();
 
 //Core dotor router bolon busad shaardlagatai zuilsiig duudav
 $core = new M\Core($mbm_config);
-$db = new M\DB();
 
+//session handler
+$session = new M\Registry\DataHandler(new M\Registry\SessionRegistry());
+
+
+//load DB
+ $db = new M\DB\Adapter\OCI8();
+
+ $template = new M\Template(DIR_CORE.APP_ENABLED.DS.\M\Config::get('module_current').DS.'actions');
 

@@ -8,11 +8,4 @@
  * file that was distributed with this source code.
  */
 
-$router->respond('GET', '/', function () {
-    echo  '<h2>Router is working</h2>Homepage. Hello World!<hr />';
-    
-    set_module(DEFAULT_APP);
-    set_module(DEFAULT_MODULE);
-    set_action(DEFAULT_ACTION);
-//    return 'Hello World!';
-});
+echo '.....index.... action.....laoded......';
