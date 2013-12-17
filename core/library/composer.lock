@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f9dfac112afcac7b38de19fecb53f837",
+    "hash": "53a3ccb900bcd2212502b7e060ed23fb",
     "packages": [
         {
             "name": "batmunkh/v3",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/batmunkhcom/mbm.git",
-                "reference": "97c82a806fc270f33d7feac22c45482d96a907c0"
+                "reference": "6d0cdf41dc18ebde86baa056d1d02fba68f15f7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/97c82a806fc270f33d7feac22c45482d96a907c0",
-                "reference": "97c82a806fc270f33d7feac22c45482d96a907c0",
+                "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/6d0cdf41dc18ebde86baa056d1d02fba68f15f7a",
+                "reference": "6d0cdf41dc18ebde86baa056d1d02fba68f15f7a",
                 "shasum": ""
             },
             "require": {
@@ -25,8 +25,10 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
+                    "D": "src/",
                     "M": "src/",
-                    "I": "src/"
+                    "Test": "src/",
+                    "MyApp": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -51,7 +53,7 @@
                 "miniCMS",
                 "miniCMSv3"
             ],
-            "time": "2013-12-11 22:52:01"
+            "time": "2013-12-15 19:28:05"
         },
         {
             "name": "klein/klein",

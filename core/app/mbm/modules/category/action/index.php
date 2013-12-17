@@ -8,4 +8,4 @@
  * file that was distributed with this source code.
  */
 
-echo '.....index.... action.....laoded......';
+echo '...category..index.... action.....loaded......';

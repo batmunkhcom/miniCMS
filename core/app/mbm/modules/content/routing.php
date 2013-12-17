@@ -8,8 +8,38 @@
  * file that was distributed with this source code.
  */
 
+/*******KLEIN ROUTING*******/
+$router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service, $app) {
 
-$router->respond('/read/[:id]', function ($request) {
+    set_application(APP_ENABLED);
+    set_module('content');
+    set_action('index');
     
-    return 'Content module ' . $request->id.'.  module loaded<hr />';
+    /* testing---------
+     * 
+    echo $request->id;
+    echo '<hr />';
+    print_r($request->paramsNamed());
+    echo '<hr />';
+    print_r($request->pathname());
+    echo '<hr />';
+    print_r($request->method());
+    echo '<hr />';
+    print_r($request->query('/r'));
+    echo '<hr />';
+    print_r($request->uri());
+    echo '<hr />';
+    */
+    return '';
 });
+
+
+
+/****HAM ROUTING*/
+//$router->route('/r', function($router) {
+//    set_application(APP_ENABLED);
+//    set_module('content');
+//    set_action('index');
+//    
+//    return "content module page...";
+//});

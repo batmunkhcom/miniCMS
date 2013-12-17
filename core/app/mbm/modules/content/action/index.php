@@ -6,8 +6,5 @@
  * 
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- * 
- * Module config file
  */
-
-$is_enabled_module['system'] = 1;
+$template->set('a','a : variable loaded....');

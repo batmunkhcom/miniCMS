@@ -7,27 +7,29 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 $is_enabled_module = array();
 
 //LIB dir dotorhi functions havtast bairlaj bgaa file uudiig include hiiv.
-M\File::getAndIncludePHPFiles(DIR_LIB.'functions'.DS);
+M\File::getAndIncludePHPFiles(DIR_LIB . 'functions' . DS);
 
 //tohirgoog buh gazar shuud ashiglah bolomj olgohiin tuld ehleed duudav
-$config = new M\Config($mbm_config);
-
-//Router ehlev
-$router = new M\Router();
-
-//Core dotor router bolon busad shaardlagatai zuilsiig duudav
-$core = new M\Core($mbm_config);
+$config = new M\Core($mbm_config);
 
 //session handler
 $session = new M\Registry\DataHandler(new M\Registry\SessionRegistry());
 
 
 //load DB
- $db = new M\DB\Adapter\OCI8();
+$db = load_db();
 
- $template = new M\Template(DIR_CORE.APP_ENABLED.DS.\M\Config::get('module_current').DS.'actions');
+//Router tohirguulah
+$router = new M\Router();
 
+//app/module/action/tpl file uudiig config-t onoono
+$load_file = load_app_action();
+
+//tpl duudah
+$template = new M\Template(M\Config::get('tpl_file'));
+
+//app/module/action load
+require $load_file;

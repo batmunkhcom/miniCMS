@@ -75,6 +75,7 @@ function shrink_text($text = '', $max_length = 32) {
 
 //debug hiih
 function dump($item, $die = false) {
+
     $printString = '<pre>' . print_r($item, true) . '</pre>';
 
     if ($die) {

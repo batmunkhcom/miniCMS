@@ -11,7 +11,7 @@
             "test"
         ],
         "psr-0": {
-            "": ["model/","mbm/"]
+            "": ["Model/","MBM/"]
         }
     },
     "minimum-stability": "stable"

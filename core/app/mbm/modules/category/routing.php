@@ -7,19 +7,24 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-$router->with('/c', function () use($router) {
-
+$router->respond('GET', '/c', function () {
+    set_application(APP_ENABLED);
     set_module('category');
+    set_action('index');
 
-    echo '<h2>Category module loaded</h2>';
-
-    $router->respond('GET', '/[:id]', function ($request, $response) {
-        echo 'Hello ' . $request->id . '. ' . $request->name . ' ardaa utgagui<hr />';
-        print_r($response);
-        die();
-    });
-    $router->respond('GET', '/[:id][*]', function ($request, $response) {
-        echo 'ardaa utguudtai' . $request->id . '. ' . $request->name . '<hr />';
-    });
-//    dump($request->params(),true);
+//    return "category module page...";
 });
+
+//
+//
+//$router->route('/c/<string>', function($router) {
+//    set_application(APP_ENABLED);
+//    set_module('search');
+//    set_action('index');
+//    
+//    $router->render('/home/index.php', array('a'=>'1','b'=>2));
+//    
+////    return "category module page...";
+//});
+
+

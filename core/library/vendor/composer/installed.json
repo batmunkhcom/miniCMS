@@ -62,24 +62,26 @@
         "source": {
             "type": "git",
             "url": "https://github.com/batmunkhcom/mbm.git",
-            "reference": "97c82a806fc270f33d7feac22c45482d96a907c0"
+            "reference": "6d0cdf41dc18ebde86baa056d1d02fba68f15f7a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/97c82a806fc270f33d7feac22c45482d96a907c0",
-            "reference": "97c82a806fc270f33d7feac22c45482d96a907c0",
+            "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/6d0cdf41dc18ebde86baa056d1d02fba68f15f7a",
+            "reference": "6d0cdf41dc18ebde86baa056d1d02fba68f15f7a",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2013-12-11 22:52:01",
+        "time": "2013-12-15 19:28:05",
         "type": "library",
         "installation-source": "source",
         "autoload": {
             "psr-0": {
+                "D": "src/",
                 "M": "src/",
-                "I": "src/"
+                "Test": "src/",
+                "MyApp": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",

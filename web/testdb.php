@@ -6,20 +6,33 @@
 <?php echo 'Welcome!'; ?>
 <br />
 <?php
-$adapter = new M\Database\Adapter\MySQLAdapter(array(
-    'host'=>'localhost',
-    'user'=>'batmunkh',
-    'password'=>'qweqwe123',
-    'database'=>'test'
-));
-echo $adapter->test();
-echo '<hr />';
- 
+echo '<h2>Data mapper, Database</h2>';
+$adapter = new D\Adapter\PdoAdapter("mysql:dbname=test", "batmunkh", "qweqwe123");
+$db = new D\Model\Repository\UnitOfWork(new D\Mapper\UserMapper($adapter, new D\Model\Collection\EntityCollection), new D\Storage\ObjectStorage);
 
-$user = new M\Database\Model\User();
-$user->setEmail('admin@mng.cc');
-$user->setName('minii ner');
-$user->setRole('manager');
+//nemeh
+//$user1 = new D\Model\User(array("name" => "Batmunkh M",
+//    "email" => "info@example.com"));
+//$db->registerNew($user1);
+//update
+$user2 = $db->fetchById(10);
+$user2->name = "Suren2";
+$db->registerDirty($user2);
 
-$um = new M\Database\Model\Mapper\UserMapper($adapter);
-$um->insert($user);
+//ustgah
+//$user3 = $unitOfWork->fetchById(6);
+//$unitOfWork->registerDeleted($user3);
+
+$user4 = $db->fetchById(14);
+$user4->name = "Bold";
+
+//deerhi uildluudiig batalguujuulj commit hiine
+$db->commit();
+/*
+ *  */
+
+$users = new D\Mapper\UserMapper($adapter, new D\Model\Collection\EntityCollection);
+foreach ($users->fetchAll() as $user) {
+    echo $user->id . '. ' . $user->name . ', ' . $user->email;
+    echo '<br />';
+}

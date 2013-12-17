@@ -8,11 +8,22 @@
  * file that was distributed with this source code.
  */
 
-$router->respond('GET', '/', function () {
-    echo  '<h2>Router is working</h2>Homepage. Hello World!<hr />';
-    
-    set_module(DEFAULT_APP);
+$router->respond('GET', '/', function ($request, $response, $service, $app) use($router) {
+    set_application(APP_ENABLED);
     set_module(DEFAULT_MODULE);
     set_action(DEFAULT_ACTION);
-//    return 'Hello World!';
+    
+//    $router->render('/home/index.php', array('a'=>'1','b'=>2));
+    
+//    return "category module page...";
 });
+
+
+// HAM
+//$router->route('/', function($router) {
+//    set_application('mbm');
+//    set_module(DEFAULT_MODULE);
+//    set_action(DEFAULT_ACTION);
+//    
+////    return "Home page...";
+//});

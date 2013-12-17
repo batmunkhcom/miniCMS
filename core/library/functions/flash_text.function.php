@@ -8,17 +8,15 @@
  * file that was distributed with this source code.
  */
 
-function set_application($app){
+/*
+ * $type:
+ *  debug (Most Verbose)
+ *  info …
+ *  warn …
+ *  error …
+ *  fatal (Least Verbose)
+ *  trace
+ * **/
+function flash_text_set($text,$type = 'info'){
     
-    \M\Config::set('app_current',$app);
-}
-
-function set_module($module){
-    
-    \M\Config::set('module_current',$module);
-}
-
-function set_action($action){
-    
-    \M\Config::set('action_current',$action);
 }

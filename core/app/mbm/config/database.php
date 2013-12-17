@@ -10,17 +10,22 @@
 
 /****************Webiin DB write holboltiin medeelel*********************/
 $mbm_config ['db_host'] = 'localhost';
-$mbm_config ['db_port'] = '1521';
-$mbm_config ['db_name'] = 'orcl';
-$mbm_config ['db_user'] = 'hr';
-$mbm_config ['db_pass'] = 'welcome';
+//$mbm_config ['db_port'] = '1521';
+$mbm_config ['db_name'] = 'test';
+$mbm_config ['db_user'] = 'test';
+$mbm_config ['db_pass'] = 'test';
+//$mbm_config ['db_name'] = 'orcl';
+//$mbm_config ['db_user'] = 'hr';
+//$mbm_config ['db_pass'] = 'welcome';
 $mbm_config ['db_prefix'] = 't_';
 $mbm_config ['db_charset'] = 'AL32UTF8';
 
 /**
  * mysql: MySQL baaz ashiglah.
  * oci8: oracle baaz ashiglah. PDO_OCI deprecated bolson tul oci8 ashiglasan.
+ * pdo: PDO driver ashiglana
  */
-$mbm_config ['db_driver'] = 'oci8'; 
+$mbm_config ['db_driver'] = 'pdo'; 
+//$mbm_config ['db_driver'] = 'oci8'; 
 
 

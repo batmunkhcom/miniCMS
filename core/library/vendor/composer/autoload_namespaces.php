@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Test' => $vendorDir . '/batmunkh/v3/src',
+    'MyApp' => $vendorDir . '/batmunkh/v3/src',
     'M' => $vendorDir . '/batmunkh/v3/src',
     'Klein' => $vendorDir . '/klein/klein',
-    'I' => $vendorDir . '/batmunkh/v3/src',
-    '' => array($baseDir . '/model', $baseDir . '/mbm'),
+    'D' => $vendorDir . '/batmunkh/v3/src',
+    '' => array($baseDir . '/Model', $baseDir . '/MBM'),
 );

@@ -33,12 +33,15 @@ define('DIR_CSS', 'css' . DS);
 define('DIR_JS', 'js' . DS);
 define('DIR_IMAGE', 'images' . DS);
 
+/**
+ * System APP iin tohirgoo
+ */
 //system iin undsen APP
-//define('SYSTEM_APP_NAME', 'system');
-define('SYSTEM_APP_DIR', DIR_APP . 'system' . DS);
-////system iin undsen APP-d hamaaragdah aldaa medeeleh module
-//define('ERROR_MODULE_NAME', 'error');
-//define('ERROR_MODULE_DIR', SYSTEM_APP_DIR . 'modules' . DS . ERROR_MODULE_NAME . DS);
+define('SYSTEM_APP_NAME', 'system');
+define('SYSTEM_APP_DIR', DIR_APP . SYSTEM_APP_NAME . DS);
+//system iin undsen APP-d hamaaragdah aldaa medeeleh module
+define('ERROR_MODULE_NAME', 'error');
+define('ERROR_MODULE_DIR', SYSTEM_APP_DIR . 'modules' . DS . ERROR_MODULE_NAME . DS);
 //system iin undsen APP-d hamaaragdah error module iin action
 define('PAGE_NOT_FOUND_ACTION', '404');
 
@@ -49,4 +52,3 @@ require_once (DIR_LIB . 'includes' . DS . 'common.php');
 require_once (DIR_LIB . 'includes' . DS . 'subloader.php');
 
 date_default_timezone_set(TIME_ZONE);
-include_files(DIR_LIB.'functions'.DS);
