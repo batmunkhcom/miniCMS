@@ -8,6 +8,6 @@
 <?php
 //dump(\M\Config::$data);
 
+load_layout();
 
-//$template = new M\Template(M\Config::get('tpl_file'));
-echo $template->render();
+

@@ -25,7 +25,9 @@ $mbm_config ['db_charset'] = 'AL32UTF8';
  * oci8: oracle baaz ashiglah. PDO_OCI deprecated bolson tul oci8 ashiglasan.
  * pdo: PDO driver ashiglana
  */
-$mbm_config ['db_driver'] = 'pdo'; 
-//$mbm_config ['db_driver'] = 'oci8'; 
+$mbm_config ['db_adapter'] = 'pdo'; 
+
+//yamar turliin baaz ashiglah n 
+$mbm_config ['db_type'] = 'mysql'; 
 
 

@@ -7,9 +7,12 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Test' => $vendorDir . '/batmunkh/v3/src',
+    'Psr\\Log\\' => $vendorDir . '/psr/log',
     'MyApp' => $vendorDir . '/batmunkh/v3/src',
+    'Monolog' => $vendorDir . '/monolog/monolog/src',
     'M' => $vendorDir . '/batmunkh/v3/src',
     'Klein' => $vendorDir . '/klein/klein',
+    'Gelf' => $vendorDir . '/mlehner/gelf-php/src',
     'D' => $vendorDir . '/batmunkh/v3/src',
     '' => array($baseDir . '/Model', $baseDir . '/MBM'),
 );

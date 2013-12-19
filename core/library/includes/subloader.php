@@ -20,7 +20,7 @@ $session = new M\Registry\DataHandler(new M\Registry\SessionRegistry());
 
 
 //load DB
-$db = load_db();
+$db = load_db($mbm_config);
 
 //Router tohirguulah
 $router = new M\Router();

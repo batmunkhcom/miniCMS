@@ -1,7 +1,9 @@
 {
     "require": {
         "batmunkh/v3":              "dev-master",
-        "klein/klein":              "*"
+        "mlehner/gelf-php":         "*",
+        "klein/klein":              "*",
+        "monolog/monolog":          "~1.4"
     },
     "autoload": {
         "classmap": [

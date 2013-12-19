@@ -8,11 +8,11 @@
  */
 
 
-function load_db(){
+function load_db($config = array()){
     
-    switch(DB_DRIVER){
+    switch(DB_ADAPTER){
         case 'pdo':
-            $db = new D\Adapter\PdoAdapter("mysql:dbname=".DB_NAME, DB_USER, DB_PASS);
+            $db = new D\Adapter\PdoAdapter(DB_TYPE.":dbname=".$config['db_name'], $config['db_user'], $config['db_pass']);
             break;
         case 'mysql':
             break;

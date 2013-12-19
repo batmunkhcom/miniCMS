@@ -7,6 +7,4 @@
  * file that was distributed with this source code.
  */
 
-
-
-echo '..........home index action................';
+$template->set('welcome','<br />Welcome home. this is $welcome variable');

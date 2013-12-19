@@ -30,10 +30,17 @@ function load_app_action() {
             . 'templates' . DS .
             $action . '.php';
 
-//    echo $action_file; die();
+
+    //action file bgaa esehiig shalgah
     if (!file_exists($action_file)) {
         $action_file = get_error_page('404');
     }
+
+    //templte file bgaa esehiig shalgah
+    if (!file_exists($action_file)) {
+        $tpl_file = ERROR_MODULE_DIR . 'templates' . DS . '404_no_template_file.php';
+    }
+    
     //yamar template duudah n onoogdoogui bol tohiruulah
     if (!\M\Config::get('tpl_file') || \M\Config::get('tpl_file') == '') {
         \M\Config::set('tpl_file', $tpl_file);

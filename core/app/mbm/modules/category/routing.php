@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-$router->respond('GET', '/c', function () {
+$router->respond('GET', '/c.*', function () {
     set_application(APP_ENABLED);
     set_module('category');
     set_action('index');
