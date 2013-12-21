@@ -1,9 +1,8 @@
 {
     "require": {
         "batmunkh/v3":              "dev-master",
-        "mlehner/gelf-php":         "*",
-        "klein/klein":              "*",
-        "monolog/monolog":          "~1.4"
+        "bzikarsky/gelf-php":         "*",
+        "klein/klein":              "*"
     },
     "autoload": {
         "classmap": [

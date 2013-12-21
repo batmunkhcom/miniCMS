@@ -1,6 +1,6 @@
 ###Packages
 "batmunkh/v3":              miniCMS v3 library
-"mlehner/gelf-php":         For graylog2 within monolog
+"bzikarsky/gelf-php":         For graylog2 within monolog
 "klein/klein":              PHP Router
 "monolog/monolog":          Logging
 

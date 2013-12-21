@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "7a147326134e02e2ccd8fd1f01ab2e67",
+    "hash": "cc7accae04bd5f95ec5839228253c67c",
     "packages": [
         {
             "name": "batmunkh/v3",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/batmunkhcom/mbm.git",
-                "reference": "6d805698e15c183632c68fcc4812ded8dd29df89"
+                "reference": "cc15b7ecbab19b7e9f738307724accd3cf9f4779"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/6d805698e15c183632c68fcc4812ded8dd29df89",
-                "reference": "6d805698e15c183632c68fcc4812ded8dd29df89",
+                "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/cc15b7ecbab19b7e9f738307724accd3cf9f4779",
+                "reference": "cc15b7ecbab19b7e9f738307724accd3cf9f4779",
                 "shasum": ""
             },
             "require": {
@@ -53,7 +53,47 @@
                 "miniCMS",
                 "miniCMSv3"
             ],
-            "time": "2013-12-19 16:31:59"
+            "time": "2013-12-21 04:21:07"
+        },
+        {
+            "name": "bzikarsky/gelf-php",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bzikarsky/gelf-php.git",
+                "reference": "2c12f8c94b4e578e91270a7ecf91bf0ec7c2d22d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bzikarsky/gelf-php/zipball/2c12f8c94b4e578e91270a7ecf91bf0ec7c2d22d",
+                "reference": "2c12f8c94b4e578e91270a7ecf91bf0ec7c2d22d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.3",
+                "psr/log": ">=1.0"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gelf": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Zikarsky",
+                    "email": "benjamin@zikarsky.de"
+                }
+            ],
+            "description": "A php implementation to send log-messages to a GELF compatible backend like Graylog2.",
+            "time": "2013-12-18 19:29:08"
         },
         {
             "name": "klein/klein",
@@ -108,103 +148,6 @@
                 "sinatra"
             ],
             "time": "2013-06-16 23:32:47"
-        },
-        {
-            "name": "mlehner/gelf-php",
-            "version": "v1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mlehner/gelf-php.git",
-                "reference": "dbcfeffd80ac72206b915f5b10a2aaa57565dd1b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mlehner/gelf-php/zipball/dbcfeffd80ac72206b915f5b10a2aaa57565dd1b",
-                "reference": "dbcfeffd80ac72206b915f5b10a2aaa57565dd1b",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Gelf": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Matt Lehner",
-                    "email": "matt.lehner@tellecore.com"
-                }
-            ],
-            "description": "Fork of gelf-php with PHP namespace support",
-            "time": "2012-04-16 23:36:36"
-        },
-        {
-            "name": "monolog/monolog",
-            "version": "1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6225b22de9dcf36546be3a0b2fa8e3d986153f57",
-                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "psr/log": "~1.0"
-            },
-            "require-dev": {
-                "aws/aws-sdk-php": "~2.4.8",
-                "doctrine/couchdb": "dev-master",
-                "mlehner/gelf-php": "1.0.*",
-                "phpunit/phpunit": "~3.7.0",
-                "raven/raven": "0.5.*",
-                "ruflin/elastica": "0.90.*"
-            },
-            "suggest": {
-                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
-                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
-                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-                "ext-mongo": "Allow sending log messages to a MongoDB server",
-                "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "raven/raven": "Allow sending log messages to a Sentry server",
-                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.7.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Monolog": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jordi Boggiano",
-                    "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-            "homepage": "http://github.com/Seldaek/monolog",
-            "keywords": [
-                "log",
-                "logging",
-                "psr-3"
-            ],
-            "time": "2013-11-14 19:48:31"
         },
         {
             "name": "psr/log",

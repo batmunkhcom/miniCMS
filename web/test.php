@@ -1,16 +1,31 @@
 <?php define('APP_ENABLED', 'mbm') ?>
 <?php define('APPMODE', 'dev') ?>
 
-<?php require_once ('../core/app/'.APP_ENABLED.'/config/main.php'); ?>
+<?php require_once ('../core/app/' . APP_ENABLED . '/config/main.php'); ?>
 <?php require_once '../core/bootstrap.php'; ?>
 <?php echo 'Welcome!'; ?>
 <br />
 <?php
-
 // Define routes
 
 
-echo '<h2>All modules ('.ENABLE_DEBUG.')</h2>';
+echo '<h2>LOG</h2>';
+$logger = new Gelf\Logger(new \Gelf\Publisher(new \Gelf\Transport\UdpTransport('203.194.113.3')), "my-fac*");
+
+// throw an exception, catch it immediatly and pass it 
+// to the logger
+try {
+    throw new Exception("test exception");
+} catch (Exception $e) {
+    $logger->emergency(
+            "Test aldaa", array('exception' => $e,'testssss'=>'dddd','cc'=>$e->getCode())
+    );
+}
+
+echo '<hr />';
+
+
+echo '<h2>All modules (' . ENABLE_DEBUG . ')</h2>';
 dump(\M\Config::get('module_all'));
 echo '<hr />';
 
@@ -26,7 +41,7 @@ dump(\M\Config::get('apps'));
 echo '<hr />';
 
 
-dump(M\Config::get('db_host').'<br />');
+dump(M\Config::get('db_host') . '<br />');
 echo '<hr />';
 
 
@@ -46,13 +61,13 @@ $dataHandler = new M\Registry\DataHandler(new \M\Registry\ArrayRegistry);
 
 // set some data into the data handler
 $dataHandler->set('fname', 'Alex')
-            ->set('lname', 'Gervasio')
-            ->set('email', 'alex@domain.com');
+        ->set('lname', 'Gervasio')
+        ->set('email', 'alex@domain.com');
 
 // get some data from the data handler
-echo ' First Name: ' . $dataHandler->get('fname') . 
-     ' Last Name: ' . $dataHandler->get('lname') . 
-     ' Email: ' . $dataHandler->get('email');
+echo ' First Name: ' . $dataHandler->get('fname') .
+ ' Last Name: ' . $dataHandler->get('lname') .
+ ' Email: ' . $dataHandler->get('email');
 echo '<hr />';
 
 
@@ -60,12 +75,12 @@ echo '<h2>Data handler Session</h2>';
 
 // set some data into the data handler
 $session->set('fname', 'Alex1')
-            ->set('lname', 'Gervasio1')
-            ->set('email', 'alex@domain.com1');
+        ->set('lname', 'Gervasio1')
+        ->set('email', 'alex@domain.com1');
 // get some data from the data handler
-echo ' First Name: ' . $session->get('fname') . 
-     ' Last Name: ' . $session->get('lname') . 
-     ' Email: ' . $session->get('email');
+echo ' First Name: ' . $session->get('fname') .
+ ' Last Name: ' . $session->get('lname') .
+ ' Email: ' . $session->get('email');
 echo '<hr />';
 
 echo '<h3>$_SESSION</h3>';
@@ -82,7 +97,6 @@ $_db = new D\Model\Repository\UnitOfWork(new D\Mapper\UserMapper($adapter, new D
 //$user1 = new D\Model\User(array("name" => "Batmunkh M",
 //    "email" => "info@example.com"));
 //$_db->registerNew($user1);
-
 //update
 $user2 = $_db->fetchById(10);
 $user2->name = "Suren2";
