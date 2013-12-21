@@ -1,3 +1,6 @@
+php_flag apc.cache_by_default Off
+#php_flag apc.enabled Off
+
 RewriteEngine On
 
 

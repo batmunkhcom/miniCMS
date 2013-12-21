@@ -51,4 +51,3 @@ require DIR_CORE.'library/vendor/autoload.php';
 require_once (DIR_LIB . 'includes' . DS . 'common.php');
 require_once (DIR_LIB . 'includes' . DS . 'subloader.php');
 
-date_default_timezone_set(TIME_ZONE);

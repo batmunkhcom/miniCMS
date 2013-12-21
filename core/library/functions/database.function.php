@@ -12,7 +12,7 @@ function load_db($config = array()){
     
     switch(DB_ADAPTER){
         case 'pdo':
-            $db = new D\Adapter\PdoAdapter(DB_TYPE.":dbname=".$config['db_name'], $config['db_user1'], $config['db_pass']);
+            $db = new D\Adapter\PdoAdapter(DB_TYPE.":dbname=".$config['db_name'], $config['db_user'], $config['db_pass']);
             break;
         case 'mysql':
             break;

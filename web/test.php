@@ -10,18 +10,18 @@
 
 
 echo '<h2>LOG</h2>';
-$logger = new Gelf\Logger(new \Gelf\Publisher(new \Gelf\Transport\UdpTransport('203.194.113.3')), "my-fac*");
 
-// throw an exception, catch it immediatly and pass it 
-// to the logger
+
+
 try {
-    throw new Exception("test exception");
-} catch (Exception $e) {
-    $logger->emergency(
-            "Test aldaa", array('exception' => $e,'testssss'=>'dddd','cc'=>$e->getCode())
-    );
-}
+    if(strpos()){};
+    if(is_int('dd')){
+        
+    }
+} catch (ErrorException $e) {
 
+    echo 'arg uud oruul';
+}
 echo '<hr />';
 
 
