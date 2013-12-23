@@ -1,0 +1,39 @@
+@import url("main.css");
+/*
+    Created on : Dec 23, 2013, 7:02:50 PM
+    Author     : decoder
+*/
+/*
+    Created on : Dec 23, 2013, 6:27:57 PM
+    Author     : decoder
+*/
+html {
+  margin: 0 0 0 0; }
+
+body {
+  font-color: #646464;
+  font-size: 11px;
+  font-family: Tahoma; }
+
+/*
+    Created on : Dec 23, 2013, 6:49:54 PM
+    Author     : decoder
+*/
+h1, h2, h3 {
+  padding: 0px; }
+
+/*
+    Created on : Dec 23, 2013, 7:49:12 PM
+    Author     : decoder
+*/
+.catgory_main_div {
+  padding: 6px; }
+
+/* 
+    Created on : Dec 23, 2013, 6:04:53 PM
+    Author     : decoder
+*/
+.title {
+  font-color: #f7941c; }
+
+/* No files to import found in ../../default/modules/*\/css/* */
