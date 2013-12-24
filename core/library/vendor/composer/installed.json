@@ -56,58 +56,6 @@
         ]
     },
     {
-        "name": "batmunkh/v3",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/batmunkhcom/mbm.git",
-            "reference": "cc15b7ecbab19b7e9f738307724accd3cf9f4779"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/cc15b7ecbab19b7e9f738307724accd3cf9f4779",
-            "reference": "cc15b7ecbab19b7e9f738307724accd3cf9f4779",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2013-12-21 04:21:07",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "D": "src/",
-                "M": "src/",
-                "Test": "src/",
-                "MyApp": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Batmunkh Moltov",
-                "email": "contact@batmunkh.com",
-                "homepage": "http://www.batmunkh.com",
-                "role": "Founder"
-            }
-        ],
-        "description": "miniCMS v3 library",
-        "homepage": "http://www.mng.cc",
-        "keywords": [
-            "Batmunkh",
-            "Content management system",
-            "Moltov",
-            "cms",
-            "miniCMS",
-            "miniCMSv3"
-        ]
-    },
-    {
         "name": "psr/log",
         "version": "1.0.0",
         "version_normalized": "1.0.0.0",
@@ -188,5 +136,57 @@
             }
         ],
         "description": "A php implementation to send log-messages to a GELF compatible backend like Graylog2."
+    },
+    {
+        "name": "batmunkh/v3",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/batmunkhcom/mbm.git",
+            "reference": "443589ebe9e3b1326612144e952fa5a322f52c25"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/443589ebe9e3b1326612144e952fa5a322f52c25",
+            "reference": "443589ebe9e3b1326612144e952fa5a322f52c25",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2013-12-23 15:43:35",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "D": "src/",
+                "M": "src/",
+                "Test": "src/",
+                "MyApp": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Batmunkh Moltov",
+                "email": "contact@batmunkh.com",
+                "homepage": "http://www.batmunkh.com",
+                "role": "Founder"
+            }
+        ],
+        "description": "miniCMS v3 library",
+        "homepage": "http://www.mng.cc",
+        "keywords": [
+            "Batmunkh",
+            "Content management system",
+            "Moltov",
+            "cms",
+            "miniCMS",
+            "miniCMSv3"
+        ]
     }
 ]

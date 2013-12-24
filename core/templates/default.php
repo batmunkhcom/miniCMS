@@ -2,10 +2,8 @@
 <html lang="en">
     <head>
         <title>miniCMS v3</title>
-        <script src="<?php echo PROTOCOL . DOMAIN; ?>/js/main.js" ></script>
-
-        <link rel="stylesheet" type="text/css" href="<?php echo PROTOCOL . DOMAIN; ?>/css/main.css"  />
-        <link rel="stylesheet" type="text/css" href="<?php echo PROTOCOL . DOMAIN; ?>/css/<?php echo APP_ENABLED; ?>/css/style.css"  />
+        <?php echo load_js(); ?>
+        <?php echo load_css(); ?>
     </head>
     <body>
         default layout...<br />
