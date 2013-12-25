@@ -32,14 +32,15 @@ date_default_timezone_set(TIME_ZONE);
 //session handler
 $session = new M\Registry\DataHandler(new M\Registry\SessionRegistry());
 
-
 //load DB
 $db = load_db($mbm_config);
 
-
-
 //Router tohirguulah
 $router = new M\Router();
+
+//lang duudna
+$ln = new M\Language('mn');
+
 //app/module/action/tpl file uudiig config-t onoono
 $load_file = load_app_action();
 

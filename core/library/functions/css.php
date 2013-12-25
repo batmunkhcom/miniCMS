@@ -31,7 +31,7 @@ function css_load($addidtional_files = array()) {
 
     $buf = '';
     foreach ($files as $k => $v) {
-        $buf .= '<link rel="stylesheet" href="' . $v . '"  />' . "\n";
+        $buf .= '<link rel="stylesheet" href="' . $v . '"  >' . "\n";
     }
 
     return $buf;
