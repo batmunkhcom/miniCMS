@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="Batmunkh">
         <meta name="keyword" content="miniCMS v3 Content Management System">
-        <link rel="shortcut icon" href="img/favicon.png">
+        <link rel="shortcut icon" href="/assets/favicon.png">
 
         <title>Administration :: miniCMS v3</title>
         <?php
