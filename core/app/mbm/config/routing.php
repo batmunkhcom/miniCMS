@@ -3,11 +3,11 @@
 /**
  * This file is part of the miniCMS package.
  * (c) 2005-2012 BATMUNKH Moltov <contact@batmunkh.com>
- * 
+ *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- * 
- * 
+ *
+ *
  * *                    - yu ch bj bolno
  * [i]                  - Match an integer
  * [i:id]               - Match an integer as 'id'
@@ -30,7 +30,11 @@ $router->respond('GET', '/test.php', function ($request, $response, $service, $a
     set_application(APP_ENABLED);
     set_module(DEFAULT_MODULE);
     set_action(DEFAULT_ACTION);
+});
 
+$router->respond('GET', '/admin.*', function ($request, $response, $service, $app) use($router) {
+    set_layout('admin');
+    \M\Config::set('is_admin', 1);
 });
 
 
@@ -72,7 +76,7 @@ $routes_modules = array(
             'module' => 'content',
             'action' => 'readmore',
             'var' => array(
-                'id', 
+                'id',
                 'title'
             )
         )

@@ -1,0 +1,2 @@
+//jquery conflict arilgah
+$.noConflict();

@@ -1,2 +1,2 @@
-alert('category');
+//alert('category');
 c = 1;

@@ -17,3 +17,19 @@ function load_layout() {
 
     require_once(DIR_TEMPLATE . \M\Config::get('layout') . '.php');
 }
+
+/*
+ * ashiglagdah layout iig tohiruulna
+ * @param $name string onooh layout iin ner
+ */
+
+function set_layout($name) {
+
+    //tuhain layout bgaa esehiig shalgaad bval onoono
+    if (file_exists(DIR_TEMPLATE . $name . '.php')) {
+
+        return \M\Config::set('layout', $name);
+    }
+
+    return false;
+}

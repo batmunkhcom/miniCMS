@@ -1,4 +1,4 @@
-alert('content');
+//alert('content');
 
 var a = 1;
 

@@ -7,7 +7,7 @@
 <br />
 <?php
 echo '<h2>Data mapper, Database</h2>';
-$adapter = new D\Adapter\PdoAdapter("mysql:dbname=test", "batmunkh", "qweqwe123");
+$adapter = new D\Adapter\PdoAdapter("mysql:dbname=test", "test", "test");
 $db = new D\Model\Repository\UnitOfWork(new D\Mapper\UserMapper($adapter, new D\Model\Collection\EntityCollection), new D\Storage\ObjectStorage);
 
 //nemeh
