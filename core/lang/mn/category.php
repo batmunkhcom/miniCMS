@@ -9,3 +9,6 @@
  */
 $lang['Settings'] = 'Тохиргоо';
 $lang['Content'] = 'Агуулга';
+$lang['System'] = 'Систем';
+$lang['List'] = 'Жагсаалт';
+$lang['Comments'] = 'Тайлбар';
