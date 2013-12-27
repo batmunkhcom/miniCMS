@@ -8,7 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Test' => $vendorDir . '/batmunkh/v3/src',
     'Psr\\Log\\' => $vendorDir . '/psr/log',
-    'MyApp' => $vendorDir . '/batmunkh/v3/src',
+    'PFBC' => $vendorDir . '/batmunkh/v3/src',
     'M' => $vendorDir . '/batmunkh/v3/src',
     'Klein' => $vendorDir . '/klein/klein',
     'Gelf' => $vendorDir . '/bzikarsky/gelf-php/src',
