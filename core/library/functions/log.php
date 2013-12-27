@@ -123,6 +123,18 @@ function my_error_handler($errno, $errstr, $errfile, $errline) {
 
 /*
  * Log ruu shidne
+ * @param $message string aldaanii message
+ * @param $error_code aldaanii code
+ *      0 - Emergency
+ *      1 - Alert
+ *      2 - Critical
+ *      3 - Error
+ *      4 - Warning
+ *      5 - Notice
+ *      6 - Info
+ *      7 - Debug
+ *
+ * @return null
  */
 
 function log_send($message, $error_code) {

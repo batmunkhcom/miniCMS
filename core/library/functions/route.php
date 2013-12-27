@@ -49,4 +49,27 @@ function set_route($route_name, $target) {
     $routes[$route_name] = $target;
 
     \M\Config::set('routes', $routes);
+
+    return true;
+}
+
+/*
+ * @param $route_name string tuhain route iin ner. Ex: category_new
+ * @param $var array nemelt utguud. Ex: array('id'=>15)
+ */
+
+function get_route($route_name, $var = array()) {
+
+    $routes = \M\Config::get('routes');
+
+    if (!isset($routes[$route_name])) {
+        log_send($route_name . ' not found', 1);
+
+        return false;
+    }
+    foreach ($var as $k => $v) {
+        $routes[$route_name] = str_replace('{' . $k . '}', $v, $routes[$route_name]);
+    }
+
+    return $routes[$route_name];
 }
