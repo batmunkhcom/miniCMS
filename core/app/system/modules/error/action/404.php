@@ -1,1 +1,3 @@
-not found action
+<?php
+
+set_layout('empty');

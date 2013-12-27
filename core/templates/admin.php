@@ -12,21 +12,17 @@
         <?php
         /*         * *********** setting JS files ************ */
         //jquery duudah
-        js_set_loadfile('/assets/flatlab/admin/js/jquery.js');
-        js_set_loadfile('/assets/flatlab/admin/js/jquery-1.8.3.min.js');
-
+        js_set_loadfile('/js/lib/jquery/jquery.js');
+        //js_set_loadfile('/assets/flatlab/admin/js/jquery-1.8.3.min.js');
         //common js duudah.
         js_set_loadfile('/js/common.js');
-
-        //flatlab file uudiig duudah
-        js_set_loadfile('/assets/bootstrap/3/js/bootstrap.min.js');
 
         //bootstrap v3 duudah
         js_set_loadfile('/assets/bootstrap/3/js/bootstrap.min.js');
 
         /*         * *********** setting CSS files ************ */
         //Bootstrap core CSS
-        css_set_loadfile('/assets/flatlab/admin/css/bootstrap.min.css');
+        css_set_loadfile('/assets/bootstrap/3/css/bootstrap.min.css');
         css_set_loadfile('/assets/flatlab/admin/css/bootstrap-reset.css');
 
         //external css
@@ -303,29 +299,28 @@
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-laptop"></i>
-                                <span>Layouts</span>
+                                <span><?php echo __('Modules'); ?></span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="boxed_page.html">Boxed Page</a></li>
-                                <li><a  href="horizontal_menu.html">Horizontal Menu</a></li>
-                                <li><a  href="language_switch_bar.html">Language Switch Bar</a></li>
-                                <li><a  href="email_template.html" target="_blank">Email Template</a></li>
+                                <li><a  href="/admin/"><?php echo __('Categories'); ?></a></li>
+                                <li><a  href="#"><?php echo __('Content'); ?></a></li>
+                                <li><a  href="#"><?php echo __('Comments'); ?></a></li>
+                                <li><a  href="#"><?php echo __('Pano'); ?></a></li>
+                                <li><a  href="#"><?php echo __('Survey'); ?></a></li>
+                                <li><a  href="#"><?php echo __('Notification'); ?></a></li>
+                                <li><a  href="#"><?php echo __('Log'); ?></a></li>
                             </ul>
                         </li>
 
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-book"></i>
-                                <span>UI Elements</span>
+                                <span><?php echo __('Members'); ?></span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="general.html">General</a></li>
-                                <li><a  href="buttons.html">Buttons</a></li>
-                                <li><a  href="widget.html">Widget</a></li>
-                                <li><a  href="slider.html">Slider</a></li>
-                                <li><a  href="nestable.html">Nestable</a></li>
-                                <li><a  href="tree.html">Tree View</a></li>
-                                <li><a  href="font_awesome.html">Font Awesome</a></li>
+                                <li><a  href="#"><?php echo __('List'); ?></a></li>
+                                <li><a  href="#"><?php echo __('Search'); ?></a></li>
+                                <li><a  href="#"><?php echo __('Roles'); ?></a></li>
                             </ul>
                         </li>
 
@@ -345,22 +340,17 @@
                         <li class="sub-menu">
                             <a href="javascript:;" >
                                 <i class="fa fa-tasks"></i>
-                                <span>Form Stuff</span>
+                                <span><?php echo __('System'); ?></span>
                             </a>
                             <ul class="sub">
-                                <li><a  href="form_component.html">Form Components</a></li>
-                                <li><a  href="advanced_form_components.html">Advanced Components</a></li>
-                                <li><a  href="form_wizard.html">Form Wizard</a></li>
-                                <li><a  href="form_validation.html">Form Validation</a></li>
-                                <li><a  href="dropzone.html">Dropzone File Upload</a></li>
-                                <li><a  href="inline_editor.html">Inline Editor</a></li>
-                                <li><a  href="image_cropping.html">Image Cropping</a></li>
+                                <li><a  href="#"><?php echo __('Settings'); ?></a></li>
+                                <li><a  href="#"><?php echo __('Contact info'); ?></a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-th"></i>
-                                <span>Data Tables</span>
+                                <span>Statistic</span>
                             </a>
                             <ul class="sub">
                                 <li><a  href="basic_table.html">Basic Table</a></li>
@@ -477,7 +467,7 @@
             <!--footer start-->
             <footer class="site-footer">
                 <div class="text-center">
-                    2013 &copy; FlatLab by VectorLab.
+                    since 2005 &copy; miniCMS v3.
                     <a href="#" class="go-top">
                         <i class="fa fa-angle-up"></i>
                     </a>

@@ -8,5 +8,7 @@ require_once '../core/bootstrap.php';
 
 load_layout();
 
-//unset(\M\Config::$data['router']);
-//print_r(\M\Config::$data);
+print_r(\M\Config::get('routes'));
+//print_r(\M\Config::$data['router']);
+unset(\M\Config::$data['router']);
+print_r(\M\Config::$data);
