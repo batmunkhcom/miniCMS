@@ -1,0 +1,1 @@
+admin_category_new tpl
