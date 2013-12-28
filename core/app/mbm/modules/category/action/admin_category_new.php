@@ -8,8 +8,9 @@
  * file that was distributed with this source code.
  */
 $form_c = new \F\CategoryForm();
+$form = $form_c->form;
 
-//if ($form_c->form::isValid()) {
-//    $template->set('is_valid', 'yesss');
-//}
+if ($form::isValid('category')) {
+    $template->set('is_valid', 'yesss');
+}
 $template->set('form', $form_c->form);

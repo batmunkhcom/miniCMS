@@ -13,6 +13,7 @@
         /*         * *********** setting JS files ************ */
         //jquery duudah
         js_set_loadfile('/js/lib/jquery/jquery.js');
+        js_set_loadfile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
         //js_set_loadfile('/assets/flatlab/admin/js/jquery-1.8.3.min.js');
         //common js duudah.
         js_set_loadfile('/js/common.js');
