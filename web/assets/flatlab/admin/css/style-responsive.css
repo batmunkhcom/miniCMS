@@ -3,6 +3,10 @@
     .custom-bar-chart {
         margin-bottom: 40px;
     }
+    #sidebar{
+
+        background-color: #003663;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -35,6 +39,7 @@
         position: absolute;
         width: 100%;
         z-index: 1001;
+        background-color: #003663;
     }
 
 
@@ -216,7 +221,7 @@
     /*--*/
 
     /*.chart-position {*/
-        /*margin-top: 0px;*/
+    /*margin-top: 0px;*/
     /*}*/
 
     .timeline-desk .album a {
@@ -328,8 +333,8 @@
     }
 
     .chart-position {
-       margin-top: 0px;
-     }
+        margin-top: 0px;
+    }
     /*--horizontal menu--*/
     .full-width .navbar-toggle {
         border: 1px solid #eaeaea;

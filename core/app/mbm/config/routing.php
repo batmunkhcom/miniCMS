@@ -36,6 +36,11 @@ $router->respond('GET', '/admin.*', function ($request, $response, $service, $ap
     set_layout('admin');
     \M\Config::set('is_admin', 1);
 });
+$router->respond('GET', '/admin/home', function ($request, $response, $service, $app) use($router) {
+    set_module('admin');
+    set_action('index');
+});
+set_route('admin_home', '/admin/home');
 
 
 
