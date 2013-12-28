@@ -3,7 +3,7 @@
         <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
     </div>
     <!--logo start-->
-    <a href="<?php echo get_route('admin_home') ?>" class="logo" >mini<span>CMS</span></a>
+    <a href="<?php echo get_url('admin_home') ?>" class="logo" >mini<span>CMS</span></a>
     <!--logo end-->
     <div class="nav notify-row" id="top_menu">
         <!--  notification start -->

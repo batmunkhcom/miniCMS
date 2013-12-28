@@ -1,6 +1,6 @@
 <ul class="sidebar-menu" id="nav-accordion">
     <li>
-        <a href="<?php echo get_route('admin_home'); ?>">
+        <a href="<?php echo get_url('admin_home'); ?>">
             <i class="fa fa-dashboard"></i>
             <span><?php echo __('Dashboard') ?></span>
         </a>
@@ -12,7 +12,7 @@
             <span><?php echo __('Modules'); ?></span>
         </a>
         <ul class="sub">
-            <li><a  href="<?php echo get_route('admin_category_list') ?>"><?php echo __('Categories'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_category_list') ?>"><?php echo __('Categories'); ?></a></li>
             <li><a  href="#"><?php echo __('Content'); ?></a></li>
             <li><a  href="#"><?php echo __('Comments'); ?></a></li>
             <li><a  href="#"><?php echo __('Pano'); ?></a></li>

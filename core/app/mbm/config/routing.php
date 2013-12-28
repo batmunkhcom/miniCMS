@@ -21,6 +21,9 @@
  * .[:format]?          - 'format' - a / or . duriin format. optional
  * /?                   - / -r tugsuj bolno tugsuhgui bsan ch bolno
  */
+/**
+ * Route tohiruulj bna. suuld haa negteei shuud get_route('admin_home') gej ashiglaj link zaaj bolno.
+ */
 set_route('admin_home', '/admin');
 
 $router->respond('GET', '/', function ($request, $response, $service, $app) use($router) {
@@ -35,16 +38,6 @@ $router->respond('GET', '/test.php', function ($request, $response, $service, $a
     set_action(DEFAULT_ACTION);
 });
 
-//$router->respond('GET', '/admin.*', function ($request, $response, $service, $app) use($router) {
-//    set_layout('admin');
-//    \M\Config::set('is_admin', 1);
-//});
-//$router->respond('GET', '/admin/home', function ($request, $response, $service, $app) use($router) {
-//    set_module('admin');
-//    set_action('index');
-//});
-
-
 $router->with('/admin', function () use ($router) {
     set_layout('admin');
     \M\Config::set('is_admin', 1);
@@ -55,50 +48,3 @@ $router->with('/admin', function () use ($router) {
         set_action('index');
     });
 });
-
-
-/*
-
-//daraa module tus bur deer uur uur code bichigdeh shaardlaga garch magadgui uchir daraahi baidlaar hiihee boliv
-
-$routes_modules = array(
-    'home' => array(
-        '/' => array(
-            'app' => APP_ENABLED,
-            'module' => DEFAULT_MODULE,
-            'action' => DEFAULT_ACTION
-        )
-    ),
-    'category' => array(
-        '/c/[i:id]/*' => array(
-            'app' => APP_ENABLED,
-            'module' => 'category',
-            'action' => 'index',
-            'var' => array(
-                'id' => 'id',
-                'title' => 'title'
-            )
-        )
-    ),
-    'content' => array(
-        '/r/[i:cid]/*' => array(
-            'app' => APP_ENABLED,
-            'module' => 'content',
-            'action' => 'list',
-            'var' => array(
-                'cid'
-            )
-        ),
-        '/r/[i:cid]/[i:id].*' => array(
-            'app' => APP_ENABLED,
-            'module' => 'content',
-            'action' => 'readmore',
-            'var' => array(
-                'id',
-                'title'
-            )
-        )
-    )
-);
-
-  */
