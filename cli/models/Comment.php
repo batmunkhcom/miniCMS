@@ -35,7 +35,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $id int Comment iin id
      * @return object
      */
@@ -60,7 +60,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $comment_id int Comment iin comment_id
      * @return object
      */
@@ -83,7 +83,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $user_id int Comment iin user_id
      * @return object
      */
@@ -106,7 +106,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $code string Comment iin code
      * @return object
      */
@@ -125,7 +125,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $name  Comment iin name
      * @return object
      */
@@ -144,7 +144,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $content string Comment iin content
      * @return object
      */
@@ -163,7 +163,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $date_created datetime Comment iin date_created
      * @return object
      */
@@ -182,7 +182,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $ip string Comment iin ip
      * @return object
      */
@@ -201,7 +201,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $browser string Comment iin browser
      * @return object
      */

@@ -12,6 +12,7 @@ return array(
     'M' => $vendorDir . '/batmunkh/v3/src',
     'Klein' => $vendorDir . '/klein/klein',
     'Gelf' => $vendorDir . '/bzikarsky/gelf-php/src',
+    'F' => $vendorDir . '/batmunkh/v3/src',
     'D' => $vendorDir . '/batmunkh/v3/src',
     '' => array($baseDir . '/Model', $baseDir . '/MBM'),
 );

@@ -57,7 +57,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $id int User iin id
      * @return object
      */
@@ -82,7 +82,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $user_id int User iin user_id
      * @return object
      */
@@ -105,7 +105,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $depth int User iin depth
      * @return object
      */
@@ -128,7 +128,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $lft int User iin lft
      * @return object
      */
@@ -151,7 +151,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $rgt int User iin rgt
      * @return object
      */
@@ -174,7 +174,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $code string User iin code
      * @return object
      */
@@ -193,7 +193,7 @@ return $this;
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $st string User iin st
      * @return object
      */
@@ -216,7 +216,7 @@ return $this;
            *    null:       NO
            *    default:    guest
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $role string User iin role
      * @return object
      */
@@ -239,7 +239,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $email string User iin email
      * @return object
      */
@@ -262,7 +262,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $username string User iin username
      * @return object
      */
@@ -285,7 +285,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $password string User iin password
      * @return object
      */
@@ -304,7 +304,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $password_tmp string User iin password_tmp
      * @return object
      */
@@ -323,7 +323,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $firstname string User iin firstname
      * @return object
      */
@@ -342,7 +342,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $lastname string User iin lastname
      * @return object
      */
@@ -361,7 +361,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $phone string User iin phone
      * @return object
      */
@@ -380,7 +380,7 @@ return $this;
            *    null:       NO
            *    default:    unknown
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $gender string User iin gender
      * @return object
      */
@@ -403,7 +403,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $birthday date User iin birthday
      * @return object
      */
@@ -421,7 +421,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $city_birth string User iin city_birth
      * @return object
      */
@@ -440,7 +440,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $city_living string User iin city_living
      * @return object
      */
@@ -459,7 +459,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $address_living string User iin address_living
      * @return object
      */
@@ -478,7 +478,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $address_billing string User iin address_billing
      * @return object
      */
@@ -497,7 +497,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $address_shipping string User iin address_shipping
      * @return object
      */
@@ -516,7 +516,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $website string User iin website
      * @return object
      */
@@ -535,7 +535,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $profile_hits int User iin profile_hits
      * @return object
      */
@@ -558,7 +558,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $token string User iin token
      * @return object
      */
@@ -577,7 +577,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $secret_key string User iin secret_key
      * @return object
      */
@@ -596,7 +596,7 @@ return $this;
            *    null:       NO
            *    default:    Asia/Ulaanbaatar
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $default_timezone string User iin default_timezone
      * @return object
      */
@@ -619,7 +619,7 @@ return $this;
            *    null:       NO
            *    default:    mn
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $default_lang string User iin default_lang
      * @return object
      */
@@ -642,7 +642,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $default_layout string User iin default_layout
      * @return object
      */
@@ -665,7 +665,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $date_created datetime User iin date_created
      * @return object
      */
@@ -688,7 +688,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $date_password_reset datetime User iin date_password_reset
      * @return object
      */

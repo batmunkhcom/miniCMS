@@ -110,9 +110,7 @@ function db_create_model_function($field) {
     //field iin nereer command uguh
     switch ($field['name']) {
         case 'date_created':
-            $buf .= 'if(!isset($date_created)){'
-                    . '${FIELDNAME} = \M\Carbon::now();'
-                    . '}' . "\n";
+            $buf .= '${FIELDNAME} = \M\Carbon::now();' . "\n";
             break;
         case 'id':
             $buf .= 'if (isset($this->fields["id"])) {

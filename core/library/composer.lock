@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/batmunkhcom/mbm.git",
-                "reference": "973a82c41c68e4bccd3f08a042438c530bf1a970"
+                "reference": "ec20cb4d3a3c6c3f2e2d0b28063015a26ad074bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/973a82c41c68e4bccd3f08a042438c530bf1a970",
-                "reference": "973a82c41c68e4bccd3f08a042438c530bf1a970",
+                "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/ec20cb4d3a3c6c3f2e2d0b28063015a26ad074bd",
+                "reference": "ec20cb4d3a3c6c3f2e2d0b28063015a26ad074bd",
                 "shasum": ""
             },
             "require": {
@@ -26,6 +26,7 @@
             "autoload": {
                 "psr-0": {
                     "D": "src/",
+                    "F": "src/",
                     "M": "src/",
                     "Test": "src/",
                     "PFBC": "src/"
@@ -53,7 +54,7 @@
                 "miniCMS",
                 "miniCMSv3"
             ],
-            "time": "2013-12-27 16:11:32"
+            "time": "2013-12-28 01:47:03"
         },
         {
             "name": "bzikarsky/gelf-php",

@@ -36,7 +36,8 @@ protected $entityTable = "m_contents";
 "views" => $row["views"],
 "hits" => $row["hits"],
 "session_id" => $row["session_id"],
-"session_time" => $row["session_time"]
+"session_time" => $row["session_time"],
+"is_adult" => $row["is_adult"]
             )
         );
     }

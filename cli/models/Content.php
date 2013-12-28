@@ -33,7 +33,8 @@ protected $allowedFields = array(
 'views',
 'hits',
 'session_id',
-'session_time');
+'session_time',
+'is_adult');
 
 /**
      * field info:
@@ -42,7 +43,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $id int Content iin id
      * @return object
      */
@@ -67,7 +68,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $content_id int Content iin content_id
      * @return object
      */
@@ -90,7 +91,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $user_id int Content iin user_id
      * @return object
      */
@@ -113,7 +114,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $code string Content iin code
      * @return object
      */
@@ -132,7 +133,7 @@ return $this;
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $st string Content iin st
      * @return object
      */
@@ -155,7 +156,7 @@ return $this;
            *    null:       NO
            *    default:    article
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $content_type string Content iin content_type
      * @return object
      */
@@ -178,7 +179,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $title string Content iin title
      * @return object
      */
@@ -197,7 +198,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $content_brief string Content iin content_brief
      * @return object
      */
@@ -216,7 +217,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $content_body  Content iin content_body
      * @return object
      */
@@ -234,7 +235,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $use_comment  Content iin use_comment
      * @return object
      */
@@ -256,7 +257,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $date_created datetime Content iin date_created
      * @return object
      */
@@ -275,7 +276,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $total_updated int Content iin total_updated
      * @return object
      */
@@ -298,7 +299,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $views int Content iin views
      * @return object
      */
@@ -321,7 +322,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $hits int Content iin hits
      * @return object
      */
@@ -344,7 +345,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $session_id string Content iin session_id
      * @return object
      */
@@ -363,13 +364,35 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 12:08:48 am
+           *    generated:  2013-12-28 07:34:15 am
      * @param $session_time string Content iin session_time
      * @return object
      */
 	public function setSessionTime($session_time) {
 $session_time = (string) $session_time;
 $this->fields["session_time"] = $session_time;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       is_adult
+           *    type:       tinyint(1)
+           *    null:       NO
+           *    default:    0
+           *    extra:      
+           *    generated:  2013-12-28 07:34:15 am
+     * @param $is_adult  Content iin is_adult
+     * @return object
+     */
+	public function setIsAdult($is_adult) {
+
+                if(!isset($is_adult) || $is_adult == ""){
+                    $is_adult="0";
+                }
+            $this->fields["is_adult"] = $is_adult;
 
 return $this;
 
