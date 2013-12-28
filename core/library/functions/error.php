@@ -10,6 +10,10 @@
 
 /**
  * Error page uudiin file iin abs zamiig butsaana
+ * @param string $type Aldaanii code, esvel duudah huudasnii ner.
+ *  Ex: 404, 503...etc
+ * 
+ * @return string tuhain aldaanii file iig butsaana
  */
 function get_error_page($type = '404') {
 

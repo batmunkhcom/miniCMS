@@ -11,10 +11,11 @@
  * CSS file uudiig duudahad beltgene
  */
 
-/*
+/**
  * Nemelteer css file uud duudaj bolno
  *
  * @param $additional_files array Nemelteer duudah file uudiig array helbereer oruulj ugnu
+ *
  * @return $buf string  duudah file uudiin html tag helberiig butsaana.
  */
 function css_load($addidtional_files = array()) {
@@ -37,12 +38,13 @@ function css_load($addidtional_files = array()) {
     return $buf;
 }
 
-/*
+/**
  * @param $file string web_root ees hoishhi haygiig ugnu
  * ugugdsun file iig compress hiihgui load hiine
  * Ex: /css/filename.css
+ *
+ * @return
  */
-
 function css_set_loadfile($file) {
 
     $css_load_files = \M\Config::get('css_loadfile');
@@ -51,7 +53,9 @@ function css_set_loadfile($file) {
     \M\Config::set('css_loadfile', $css_load_files);
 }
 
-//compress css files and prepare to load to /css/main.php
+/**
+ * compress css files and prepare to load to /css/main.php
+ */
 function compress_css() {
 
     $css_files = M\Config::get('css_files');

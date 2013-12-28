@@ -7,10 +7,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-/*
+
+/**
  * Nemelteer js file uud duudaj bolno. nemelt file uud shuud load hiigdene. compress hiigdehguigeer
  *
- * @param $additional_files array Nemelteer duudah file uudiig array helbereer oruulj ugnu
  * @return $buf string  duudah file uudiin html tag helberiig butsaana.
  */
 function js_load() {
@@ -28,12 +28,13 @@ function js_load() {
     return $buf;
 }
 
-/*
+/**
  * @param $file string web_root ees hoishhi haygiig ugnu
  * ugugdsun file iig compress hiihgui load hiine
  * Ex: /js/filename.js
+ *
+ * @return ''
  */
-
 function js_set_loadfile($file) {
 
     $js_load_files = \M\Config::get('js_loadfile');
@@ -42,8 +43,9 @@ function js_set_loadfile($file) {
     \M\Config::set('js_loadfile', $js_load_files);
 }
 
-//compress js files to /js/main.php
-
+/**
+ * compress js files to /js/main.php
+ */
 function compress_js() {
 
     $js_files = M\Config::get('js_files');

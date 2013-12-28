@@ -7,6 +7,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+set_route('admin_category_list', '/admin/category');
+set_route('admin_category_new', '/admin/category/new');
+set_route('admin_category_edit', '/admin/category/edit/{id}');
+
 $router->respond('GET', '/c.*', function () {
 //    set_application(APP_ENABLED);
     set_module('category');
@@ -15,29 +19,31 @@ $router->respond('GET', '/c.*', function () {
 //    return "category module page...";
 });
 
-/* admin route tohiruulah */
 
-//category list
-$router->respond('GET', '/admin/category', function () {
-//    set_application(APP_ENABLED);
-    set_module('category');
-    set_action('admin_category_list');
-});
-set_route('admin_category_list', '/admin/category');
+/*
+ * admin route tohiruulah
+ */
 
-//category uusgeh
-$router->respond('GET', '/admin/category/new', function () {
-//    set_application(APP_ENABLED);
-    set_module('category');
-    set_action('admin_category_new');
-});
-set_route('admin_category_new', '/admin/category/new');
+$router->with('/admin/category', function () use ($router) {
 
-//category uusgeh
-$router->respond('GET', '/admin/category/edit/[i:id]', function () {
-//    set_application(APP_ENABLED);
     set_module('category');
-    set_action('admin_category_edit');
+
+    //category home
+    $router->respond('GET', '/?', function ($request, $response) {
+        set_action('admin_category_list');
+    });
+
+    //category create
+    $router->respond('GET', '/new', function ($request, $response) {
+
+        set_action('admin_category_new');
+    });
+
+    //category update
+    $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
+        set_action('admin_category_edit');
+
+        set_get_parameter('id', $request->id);
+    });
 });
-set_route('admin_category_edit', '/admin/category/edit/{id}');
 

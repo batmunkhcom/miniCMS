@@ -7,7 +7,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-function load_router($name = 'ham') {
+
+/**
+ * Router iig achaalna
+ *
+ * @param strin $name Achaalah router iin ner
+ *
+ * @return object $router object iig uusgeed butsaana
+ */
+function load_router($name = 'klein') {
 
 
     switch ($name) {
@@ -38,11 +46,15 @@ function load_router($name = 'ham') {
     return $router;
 }
 
-/*
+/**
+ * URI hayagjiltiig onooj uguh buguud link uusgehed daraa
+ * get_route() iin tuslamjtaigaar ashiglagdana
+ *
  * @param $route_name string tuhain route iin ner. Ex: category_new
  * @param $target string route iin hayag. Ex /admin/category/new
+ *
+ * @return boolean
  */
-
 function set_route($route_name, $target) {
 
     $routes = \M\Config::get('routes');
@@ -53,11 +65,15 @@ function set_route($route_name, $target) {
     return true;
 }
 
-/*
+/**
+ * Umnu onooj ugsun URI path tohirgoog duudna.
+ * huvisagch damjuulj bolno.
+ *
  * @param $route_name string tuhain route iin ner. Ex: category_new
  * @param $var array nemelt utguud. Ex: array('id'=>15)
+ *
+ * @return string Ugugdsun route iin zamiig butsaana. 
  */
-
 function get_route($route_name, $var = array()) {
 
     $routes = \M\Config::get('routes');

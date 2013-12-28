@@ -9,17 +9,20 @@
  *
  *
  * *                    - yu ch bj bolno
- * [i]                  - Match an integer
- * [i:id]               - Match an integer as 'id'
- * [a:action]           - Match alphanumeric characters as 'action'
- * [h:key]              - Match hexadecimal characters as 'key'
- * [:action]            - Match anything up to the next / or end of the URI as 'action'
+ * [i]                  - buhel too bna
+ * [i:id]               - 'id' huvisagchid hargalzah buhel too bna
+ * [a:action]           - 'action' huvisagchid hargalzah alphanumaric bna
+ * [h:key]              - 'key' character buhii hexadecimal
+ * [:action]            - / iin ard buig esvel URI iin hamgiin tugsguliig  'action' gej avna
  * [create|edit:action] - Match either 'create' or 'edit' as 'action'
  * [*]                  - Catch all (lazy)
  * [*:trailing]         - Catch all as 'trailing' (lazy)
  * [**:trailing]        - Catch all (possessive - will match the rest of the URI)
- * .[:format]?          - Match an optional parameter 'format' - a / or . before the block is also optional
+ * .[:format]?          - 'format' - a / or . duriin format. optional
+ * /?                   - / -r tugsuj bolno tugsuhgui bsan ch bolno
  */
+set_route('admin_home', '/admin');
+
 $router->respond('GET', '/', function ($request, $response, $service, $app) use($router) {
     set_application(APP_ENABLED);
     set_module(DEFAULT_MODULE);
@@ -32,16 +35,26 @@ $router->respond('GET', '/test.php', function ($request, $response, $service, $a
     set_action(DEFAULT_ACTION);
 });
 
-$router->respond('GET', '/admin.*', function ($request, $response, $service, $app) use($router) {
+//$router->respond('GET', '/admin.*', function ($request, $response, $service, $app) use($router) {
+//    set_layout('admin');
+//    \M\Config::set('is_admin', 1);
+//});
+//$router->respond('GET', '/admin/home', function ($request, $response, $service, $app) use($router) {
+//    set_module('admin');
+//    set_action('index');
+//});
+
+
+$router->with('/admin', function () use ($router) {
     set_layout('admin');
     \M\Config::set('is_admin', 1);
-});
-$router->respond('GET', '/admin/home', function ($request, $response, $service, $app) use($router) {
-    set_module('admin');
-    set_action('index');
-});
-set_route('admin_home', '/admin/home');
 
+    //admin home
+    $router->respond('GET', '/?', function ($request, $response) {
+        set_module('admin');
+        set_action('index');
+    });
+});
 
 
 /*

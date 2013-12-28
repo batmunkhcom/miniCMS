@@ -9,6 +9,9 @@
  */
 define('E_FATAL', E_ERROR | E_USER_ERROR | E_PARSE | E_CORE_ERROR | E_COMPILE_ERROR | E_RECOVERABLE_ERROR);
 
+/**
+ * Aldaanii medeelliig log server ruu shidne
+ */
 function my_exception_handler(Exception $e) {
 
     global $logger;
@@ -29,7 +32,10 @@ function my_exception_handler(Exception $e) {
   6               Informational       info                Informational messages.	Normal operational messages - may be harvested for reporting, measuring throughput, etc. - no action required.
   7               Debug               debug               Debug-level messages.	Info useful to developers for debugging the application, not useful during operations.
  */
-//Function to catch no user error handler function errors...
+
+/**
+ * PHP aldaanii medeelliig log server ruu shidne
+ */
 function my_error_shutdown() {
 
     $error = error_get_last();
@@ -39,6 +45,14 @@ function my_error_shutdown() {
     }
 }
 
+/**
+ * PHP aldaanii medeelliig log server ruu shidehed ashiglagdana
+ *
+ * @param integer $errno Aldaanii dugaar
+ * @param string $errstr Aldaanii message
+ * @param string $errfile Aldaa zaasan file
+ * @param integer $errline Aldaa garch bui murnii dugaar
+ */
 function my_error_handler($errno, $errstr, $errfile, $errline) {
 
     global $logger;
@@ -121,7 +135,7 @@ function my_error_handler($errno, $errstr, $errfile, $errline) {
     );
 }
 
-/*
+/**
  * Log ruu shidne
  * @param $message string aldaanii message
  * @param $error_code aldaanii code
@@ -136,7 +150,6 @@ function my_error_handler($errno, $errstr, $errfile, $errline) {
  *
  * @return null
  */
-
 function log_send($message, $error_code) {
 
     global $logger;

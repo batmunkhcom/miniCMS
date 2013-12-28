@@ -10,6 +10,10 @@
 
 /**
  * undsen core uudad hereglegdej bgaa tul tusad n gargaj hadgalav. mun tusad include hiij bgaa bolno
+ *
+ * @param string $txt helend ashiglagdsan huvisagchiin key
+ *
+ * @return string Hargalzah utgiig avaad butsaana
  */
 function __($txt = '') {
 

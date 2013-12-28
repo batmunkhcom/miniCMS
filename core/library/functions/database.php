@@ -7,6 +7,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
+/**
+ * Baaziin holboltiig hiine
+ *
+ * @param array $type System iin $mbm_config tohirgoo
+ *
+ * @return object Baaziin holboltiig hiij object iig butsaana
+ */
 function load_db($config = array()) {
 
     switch (DB_ADAPTER) {
@@ -24,10 +32,13 @@ function load_db($config = array()) {
     return $db;
 }
 
-/*
+/**
  * field iin neriig Model export-d zoriulj yanzlah
+ *
+ * @param string $field Field iin ner
+ *
+ * @return string Field neriig zasaad butsaana. Ex: user_id -g userId bolgono
  */
-
 function db_field_fix_name($field = '') {
 
     //dooguur zuraasaar tasalna
@@ -53,6 +64,8 @@ function db_field_fix_name($field = '') {
   )
  * @param $fieldname string field iin ner. Ex: deerhi jisheenii id key
  * @param $model_name string Model iin ner Ex: User
+ *
+ * @return string Model file iin deer bairlah comment iig butsaana
  */
 function db_create_field_comment($field = array(), $fieldname = '', $model_name) {
 
@@ -78,14 +91,17 @@ function db_create_field_comment($field = array(), $fieldname = '', $model_name)
     $buf = str_replace('{TYPE}', $type, $buf);
     $buf = str_replace('{FIELDNAME}', $fieldname, $buf);
     $buf = str_replace('{MODELNAME}', $model_name, $buf);
+
     return $buf;
 }
 
-/*
+/**
  * Model iin function iig gargah
+ *
  * @param $field array() Field iin medeelel Ex: array('name'=>'','type'=>'','null'=>'','default'=>'','extra'=>'')
+ *
+ * @return string Model iin file iin undsen function iig beltgej txt helbereer butsaana
  */
-
 function db_create_model_function($field) {
 
     $fieldtype = db_field_type_to_model($field['type']);
@@ -142,6 +158,13 @@ function db_create_model_function($field) {
     return $buf;
 }
 
+/**
+ * Model uusgehed zoriulj field iin turliig butsaana
+ *
+ * @param string $fieldtype Field iin turul
+ *
+ * @return string Field iin turliig model export-d zoriulj butsaana
+ */
 function db_field_type_to_model($fieldtype) {
 
     $fieldtype = strtolower($fieldtype);
@@ -162,9 +185,4 @@ function db_field_type_to_model($fieldtype) {
     }
 
     return $type;
-}
-
-//modelMapper iig beldeh
-function db_build_model_mapper($mappers) {
-
 }

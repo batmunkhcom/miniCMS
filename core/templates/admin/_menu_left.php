@@ -37,10 +37,10 @@
     <li class="sub-menu">
         <a href="javascript:;">
             <i class="fa fa-cogs"></i>
-            <span>Components</span>
+            <span><?php echo __('Components') ?></span>
         </a>
         <ul class="sub">
-            <li><a  href="grids.html">Grids</a></li>
+            <li><a  href="/admin/components"><?php echo __('List'); ?></a></li>
             <li><a  href="calendar.html">Calendar</a></li>
             <li><a  href="gallery.html">Gallery</a></li>
             <li><a  href="todo_list.html">Todo List</a></li>
