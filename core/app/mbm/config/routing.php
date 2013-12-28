@@ -38,6 +38,12 @@ $router->respond('GET', '/test.php', function ($request, $response, $service, $a
     set_action(DEFAULT_ACTION);
 });
 
+//admin gej ehleegui buh huudsuud
+$router->respond('!@^/admin', function() {
+    \M\Config::set('is_admin', 0);
+});
+
+//admin ii route
 $router->with('/admin', function () use ($router) {
     set_layout('admin');
     \M\Config::set('is_admin', 1);

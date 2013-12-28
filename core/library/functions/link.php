@@ -17,7 +17,7 @@
  *
  * @return string Ugugdsun route iin zamiig butsaana.
  */
-function get_url($route_name, $var) {
+function get_url($route_name, $var = array()) {
 
     return get_route($route_name, $var);
 }

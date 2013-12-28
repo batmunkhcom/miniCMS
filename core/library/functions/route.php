@@ -72,7 +72,7 @@ function set_route($route_name, $target) {
  * @param $route_name string tuhain route iin ner. Ex: category_new
  * @param $var array nemelt utguud. Ex: array('id'=>15)
  *
- * @return string Ugugdsun route iin zamiig butsaana. 
+ * @return string Ugugdsun route iin zamiig butsaana.
  */
 function get_route($route_name, $var = array()) {
 

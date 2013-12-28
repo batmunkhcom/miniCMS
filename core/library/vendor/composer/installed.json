@@ -144,18 +144,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/batmunkhcom/mbm.git",
-            "reference": "ec20cb4d3a3c6c3f2e2d0b28063015a26ad074bd"
+            "reference": "4d2a89e7204321f71fade864dc886ed890a35037"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/ec20cb4d3a3c6c3f2e2d0b28063015a26ad074bd",
-            "reference": "ec20cb4d3a3c6c3f2e2d0b28063015a26ad074bd",
+            "url": "https://api.github.com/repos/batmunkhcom/mbm/zipball/4d2a89e7204321f71fade864dc886ed890a35037",
+            "reference": "4d2a89e7204321f71fade864dc886ed890a35037",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2013-12-28 01:47:03",
+        "time": "2013-12-28 22:14:06",
         "type": "library",
         "installation-source": "source",
         "autoload": {
