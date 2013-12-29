@@ -21,6 +21,7 @@ define('DIR_CLI', DIR_CORE . 'cli');
 define('DIR_WWW', '');
 define('DIR_TEMPLATE', DIR_CORE . 'templates' . DS);
 define('DIR_PLUGIN', DIR_CORE . 'plugins' . DS);
+define('DIR_COMPONENT', DIR_CORE . 'components' . DS);
 define('DIR_TMP', DIR_CORE . 'tmp' . DS);
 define('DIR_CACHE', DIR_CORE . 'cache' . DS);
 define('DIR_LOG', DIR_CORE . 'log' . DS);

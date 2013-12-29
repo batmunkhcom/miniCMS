@@ -37,6 +37,8 @@ function load_router($name = 'klein') {
 
             //module iin router uudiig duudah
             \M\Module::getAllModuleRouters($router);
+            $comp = new M\Component();
+            $comp->getAllComponentRouters($router);
 
             // Run it!
             $router->dispatch();

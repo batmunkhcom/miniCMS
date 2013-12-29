@@ -35,6 +35,18 @@ $session = new M\Registry\DataHandler(new M\Registry\SessionRegistry());
 //load DB
 $db = load_db($mbm_config);
 
+/**
+ * Component uud achaallah
+ */
+$components = new M\Component();
+//component uudiin file uudiig include hiih
+foreach ($components->getAllComponents()->component_files as $k => $v) {
+    foreach ($components->getAllComponents()->component_files[$k] as $kk => $file) {
+        require_once($file);
+    }
+}
+
+
 //Router tohirguulah
 $router = new M\Router();
 
