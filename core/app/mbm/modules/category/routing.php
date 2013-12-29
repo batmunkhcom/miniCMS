@@ -9,6 +9,7 @@
  */
 set_route('admin_category_list', '/admin/category');
 set_route('admin_category_new', '/admin/category/new');
+set_route('admin_category_save', '/admin/category/save');
 set_route('admin_category_edit', '/admin/category/edit/{id}');
 
 $router->respond('GET', '/c.*', function () {
@@ -37,6 +38,12 @@ $router->with('/admin/category', function () use ($router) {
     $router->respond('GET', '/new', function ($request, $response) {
 
         set_action('admin_category_new');
+    });
+
+    //category save
+    $router->respond('POST', '/save', function ($request, $response) {
+
+        set_action('admin_category_save');
     });
 
     //category update

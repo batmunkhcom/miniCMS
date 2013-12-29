@@ -50,4 +50,3 @@ require DIR_CORE . 'library/vendor/autoload.php';
 require_once (DIR_LIB . 'includes' . DS . 'common.php');
 
 require_once (DIR_LIB . 'includes' . DS . 'subloader.php');
-

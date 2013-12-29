@@ -9,14 +9,57 @@
  */
 
 /**
- * $type:
- *  debug (Most Verbose)
- *  info …
- *  warn …
- *  error …
- *  fatal (Least Verbose)
- *  trace
+ * Flash text tohiruulj ugnu
+ *
+ * @param string $text Flash iin text
+ * @param string $type flash text iin turul:
+ *      debug (Most Verbose),
+ *      info,
+ *      warn,
+ *      error,
+ *      fatal (Least Verbose),
+ *      trace
+ *
+ * @return boolean Bainga true butsaana
  * * */
-function flash_text_set($text, $type = 'info') {
+function set_flash($text, $type = 'info') {
+    global $session;
+    $session->set('flash_text', $text);
+    $session->set('flash_type', $type);
 
+    return true;
+}
+
+/**
+ * Session ees flash text avna
+ *
+ * @return array Description
+ */
+function get_flash() {
+    global $session;
+
+    $txt['text'] = $session->get('flash_text');
+    $txt['type'] = $session->get('flash_type');
+
+    $session->clearKey('flash_text');
+    $session->clearKey('flash_type');
+
+    return $txt;
+}
+
+/**
+ * Flash text bgaa esehiig shalgana
+ *
+ * @return boolean Flash text bval true bhgui bol false butsaana
+ */
+function has_flash() {
+
+    global $session;
+
+    if (strlen($session->get('flash_text')) > 0) {
+
+        return true;
+    }
+
+    return false;
 }

@@ -7,10 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-$form_c = new \F\CategoryForm();
+$form_c = new \F\Form\CategoryForm();
 $form = $form_c->form;
 
-if ($form::isValid('category')) {
-    $template->set('is_valid', 'yesss');
-}
 $template->set('form', $form_c->form);
