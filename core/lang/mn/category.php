@@ -23,6 +23,4 @@ $lang['Title'] = 'Гарчиг';
 $lang['Status'] = 'Төлөв';
 $lang['Inactive'] = 'Идэвхгүй';
 $lang['Active'] = 'Идэвхитэй';
-       
-     
-     
+$lang['Add new category'] = 'Ангилал нэмэх'; 
