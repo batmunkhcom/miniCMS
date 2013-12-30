@@ -16,6 +16,7 @@
  * @return string
  */
 function convert_date($date) {
+    $date = str_replace('-', ' ', $date);
     $dt = new \DateTime($date);
     $carbon = \M\Carbon::instance($dt);
 

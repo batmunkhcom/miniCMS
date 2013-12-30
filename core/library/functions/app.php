@@ -13,10 +13,6 @@
  */
 function load_app_action() {
 
-    global $config;
-    global $session;
-    global $router;
-
     $app = APP_ENABLED;
     $module = \M\Config::get('module_current');
     $action = \M\Config::get('action_current');
