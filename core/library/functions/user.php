@@ -13,5 +13,10 @@
  */
 function get_logged_user_id() {
 
-    return 1;
+    global $session;
+
+    //demo oor set hiiv
+    $session->set('user_id', 1);
+
+    return $session->get('user_id');
 }

@@ -4,9 +4,8 @@ $form = new F\Form\CategoryForm('category');
 if ($form::isValid('category')) {
 
     //category iin baruun zuuniig todorhoiloh
-    $category_db = new D\Model\Repository\UnitOfWork(
-            new D\Mapper\CategoryMapper($db, new D\Model\Collection\EntityCollection), new D\Storage\ObjectStorage
-    );
+
+    $category_db = db_unit($db, 'Category');
     $category = new D\Model\Category(
             array(
         'category_id' => post(''),
@@ -29,7 +28,7 @@ if ($form::isValid('category')) {
     $category_db->registerNew($category);
     $category_db->commit();
 
-    set_flash(__('Valid form submition'), 'info');
+    set_flash(__('Valid form submition'), 'success');
 } else {
     set_flash(__('Invalid form submition'), 'error');
 //    header("Location: " . get_url('admin_category_new'));
