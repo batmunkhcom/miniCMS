@@ -53,14 +53,14 @@ function load_router($name = 'klein') {
  * get_route() iin tuslamjtaigaar ashiglagdana
  *
  * @param $route_name string tuhain route iin ner. Ex: category_new
- * @param $target string route iin hayag. Ex /admin/category/new
+ * @param $path string route iin hayag. Ex /admin/category/new
  *
  * @return boolean
  */
-function set_route($route_name, $target) {
+function set_route($route_name, $path) {
 
     $routes = \M\Config::get('routes');
-    $routes[$route_name] = $target;
+    $routes[$route_name] = $path;
 
     \M\Config::set('routes', $routes);
 
