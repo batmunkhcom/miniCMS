@@ -12,12 +12,12 @@ function setting_save() {
 }
 
 function setting_form() {
-
+    $form = new F\Form\SettingForm();
 }
 
 /**
  * Tohirgoog hadgalah function
- * 
+ *
  * @param string $setting_type Tohirgoonii turul
  *
  */

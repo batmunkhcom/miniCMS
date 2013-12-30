@@ -18,8 +18,13 @@ $router->with('/setting', function () use ($router) {
     //comment save
     $router->respond('POST', '/save', function ($request, $response, $service) {
 
-        //umnuh huudas ruu shidne
-        $service->back();
+        //form invalid bol
+        if (!comment_form(post('form_name'), post('code'))) {
+            //umnuh huudas ruu shidne
+            $service->back();
+        } else {
+
+        }
     });
 
     //comment update

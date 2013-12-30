@@ -23,6 +23,7 @@ function comment_save($form_name, $code) {
     } else {
         echo 'invalid';
     }
+    print_r(\M\Config::get('POST'));
     die();
 }
 
@@ -34,6 +35,17 @@ function comment_save($form_name, $code) {
  *
  * @return object CommentForm->form iig butsaana
  */
+function comment_save($form_name, $code) {
+
+    $form = new \F\Form\CommentForm($form_name, $code);
+    if ($form->isValid($form_name)) {
+
+    } else {
+        return false;
+    }
+    return $form->form;
+}
+
 function comment_form($form_name, $code) {
 
     $form = new \F\Form\CommentForm($form_name, $code);
