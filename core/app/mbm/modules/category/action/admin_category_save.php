@@ -1,6 +1,6 @@
 <?php
 
-$form = new F\CategoryForm();
+$form = new F\Form\CategoryForm();
 if ($form::isValid('category')) {
     $template->set('is_valid', 'yesss');
 

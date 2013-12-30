@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the miniCMS package.
- * (c) 2005-2012 BATMUNKH Moltov <contact@batmunkh.com>
+ * (c) since 2005 BATMUNKH Moltov <contact@batmunkh.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,12 +12,16 @@ $router->with('/comment', function () use ($router) {
 
     //comment home
     $router->respond('GET', '/?', function ($request, $response) {
-//        echo 'comment comp...';
+
     });
 
     //comment save
-    $router->respond('POST', '/save', function ($request, $response) {
+    $router->respond('POST', '/save', function ($request, $response, $service) {
 
+        comment_save($request->comment_form_name, $request->code);
+
+        //umnuh huudas ruu shidne
+        $service->back();
     });
 
     //comment update

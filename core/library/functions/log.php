@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the miniCMS package.
- * (c) 2005-2012 BATMUNKH Moltov <contact@batmunkh.com>
+ * (c) since 2005 BATMUNKH Moltov <contact@batmunkh.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,6 +15,10 @@ define('E_FATAL', E_ERROR | E_USER_ERROR | E_PARSE | E_CORE_ERROR | E_COMPILE_ER
 function my_exception_handler(Exception $e) {
 
     global $logger;
+
+    if (!$logger) {
+        return false;
+    }
 
     $logger->log(
             $e->getCode(), $e->getMessage(), array('exception' => $e, 'domain' => DOMAIN)
@@ -56,6 +60,10 @@ function my_error_shutdown() {
 function my_error_handler($errno, $errstr, $errfile, $errline) {
 
     global $logger;
+
+    if (!$logger) {
+        return false;
+    }
 
     switch ($errno) {
 
@@ -153,6 +161,10 @@ function my_error_handler($errno, $errstr, $errfile, $errline) {
 function log_send($message, $error_code) {
 
     global $logger;
+
+    if (!$logger) {
+        return false;
+    }
 
     $logger->log(
             $error_code, $message, array('domain' => DOMAIN)

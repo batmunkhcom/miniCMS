@@ -12,14 +12,17 @@ load_component('test', array(
     'code' => 'aaa'
 ));
 
-$comp = new M\Component();
-
+$comp = $components;
+//print_r($_SESSION);
+echo '<hr>';
 echo get_route('form_comment_action');
-echo '..<br>all--';
+echo '..<hr>all--';
 print_r($comp->getAllComponents()->component_all);
-echo '..<br>enabled---';
+echo '..<hr>enabled---';
 print_r($comp->getAllEnabledComponents()->component_enabled);
-echo '..<br>config ,enabled---';
+echo '..<hr>config ,enabled---';
 print_r(\M\Config::get('component_enabled'));
-echo '..<br>';
+echo '..<hr>';
+
+
 echo comment_form('test1', 'dd')->render();

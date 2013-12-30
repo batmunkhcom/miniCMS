@@ -2,7 +2,7 @@
 
 /**
  * This file is part of the miniCMS package.
- * (c) 2005-2012 BATMUNKH Moltov <contact@batmunkh.com>
+ * (c) since 2005 BATMUNKH Moltov <contact@batmunkh.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -40,7 +40,7 @@ $mbm_config ['cache_port'] = 11218;
 $mbm_config ['enable_debug'] = 1;
 $mbm_config ['enable_log'] = 1;
 //graylog2 tested gelf-php used to log to remote server.
-$mbm_config ['log_server'] = 'log.dc02.vdc.mn';
+$mbm_config ['log_server'] = '203.194.113.3';
 $mbm_config ['log_facility'] = 'miniCMSv3';
 
 /* * **************Busad tohirgoo******************** */

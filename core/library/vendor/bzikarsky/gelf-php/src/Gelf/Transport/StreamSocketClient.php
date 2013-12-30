@@ -19,9 +19,9 @@ use RuntimeException;
  *
  * @author Benjamin Zikarsky <benjamin@zikarsky.de>
  */
-class StreamSocketClient
-{
-    const SOCKET_TIMEOUT = 30;
+class StreamSocketClient {
+
+    const SOCKET_TIMEOUT = 5;
 
     /**
      * @var string
@@ -43,8 +43,7 @@ class StreamSocketClient
      */
     protected $socket;
 
-    public function __construct($scheme, $host, $port)
-    {
+    public function __construct($scheme, $host, $port) {
         $this->scheme = $scheme;
         $this->host = $host;
         $this->port = $port;
@@ -53,8 +52,7 @@ class StreamSocketClient
     /**
      * Destructor, closes socket if possible
      */
-    public function __destruct()
-    {
+    public function __destruct() {
         if (!is_resource($this->socket)) {
             return;
         }
@@ -74,16 +72,17 @@ class StreamSocketClient
      *
      * @throws RuntimeException on connection-failure
      */
-    protected static function initSocket($scheme, $host, $port)
-    {
+    protected static function initSocket($scheme, $host, $port) {
         $socketDescriptor = sprintf("%s://%s:%d", $scheme, $host, $port);
-        $socket = stream_socket_client($socketDescriptor, $errNo, $errStr, static::SOCKET_TIMEOUT);
+        $socket = \stream_socket_client($socketDescriptor, $errNo, $errStr, static::SOCKET_TIMEOUT);
 
         if ($socket === false) {
-            throw new RuntimeException("Failed to create socket-client for $socketDescriptor");
+
+            return false;
+//            throw new RuntimeException("Failed to create socket-client for $socketDescriptor");
         }
 
-	// set non-blocking for UDP
+        // set non-blocking for UDP
         if (strcasecmp("udp", $scheme) == 0) {
             stream_set_blocking($socket, 0);
         }
@@ -96,8 +95,7 @@ class StreamSocketClient
      *
      * @return resource
      */
-    public function getSocket()
-    {
+    public function getSocket() {
         // lazy initializing of socket-descriptor
         if (!$this->socket) {
             $this->socket = self::initSocket($this->scheme, $this->host, $this->port);
@@ -116,8 +114,7 @@ class StreamSocketClient
      *
      * @throws RuntimeException on write-failure
      */
-    public function write($buffer)
-    {
+    public function write($buffer) {
         $socket = $this->getSocket();
         $byteCount = fwrite($socket, $buffer);
 
@@ -127,4 +124,5 @@ class StreamSocketClient
 
         return $byteCount;
     }
+
 }
