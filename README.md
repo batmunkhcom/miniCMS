@@ -1,4 +1,4 @@
-miniCMS-pro
+miniCMS
 ===========
 
-miniCMS v3 Pro
+miniCMS v3 edition
