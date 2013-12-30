@@ -23,7 +23,7 @@ $router->with('/setting', function () use ($router) {
             //umnuh huudas ruu shidne
             $service->back();
         } else {
-
+            echo 'valid form';
         }
     });
 
