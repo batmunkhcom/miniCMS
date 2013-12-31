@@ -19,7 +19,7 @@ function load_db($config = array()) {
 
     switch (DB_ADAPTER) {
         case 'pdo':
-            $db = new D\Adapter\PdoAdapter(DB_TYPE . ":dbname=" . $config['db_name'], $config['db_user'], $config['db_pass'], array(
+            $db = new \D\Adapter\PdoAdapter(DB_TYPE . ":dbname=" . $config['db_name'], $config['db_user'], $config['db_pass'], array(
                 'db_name' => $config['db_name']
             ));
             break;
@@ -30,6 +30,29 @@ function load_db($config = array()) {
     }
 
     return $db;
+}
+
+/**
+ * Mapper iig uusgeh bichiltiig boginosgoj uguv.
+ * unitOfWork Design Pattern ashiglaj bgaa
+ *
+ * @param object $db Database connection adapter
+ * @param string $mapper Mapper iin Model ner. Ex: Category
+ *
+ * @return object UnitOfWork object iig butsaana
+ */
+function db_unit($db, $mapper) {
+
+    $mapper_full_name = '\\D\\Mapper\\' . $mapper . 'Mapper';
+    $obj_storage = new D\Storage\ObjectStorage();
+    $entity_collection = new D\Model\Collection\EntityCollection();
+
+    $db_mapper = new $mapper_full_name($db, $entity_collection);
+    $mapper_db = new D\Model\Repository\UnitOfWork(
+            $db_mapper, $obj_storage
+    );
+
+    return $mapper_db;
 }
 
 /**
@@ -44,6 +67,7 @@ function db_field_fix_name($field = '') {
     //dooguur zuraasaar tasalna
     $f = explode('_', $field);
     $fixed_name = '';
+
     foreach ($f as $k => $v) {
         $fixed_name .= strtoupper($v{0}) . substr($v, 1);
     }
@@ -67,13 +91,15 @@ function db_field_fix_name($field = '') {
  *
  * @return string Model file iin deer bairlah comment iig butsaana
  */
-function db_create_field_comment($field = array(), $fieldname = '', $model_name) {
+function db_create_field_comment($field = array(), $fieldname = ' ', $model_name) {
 
     $f = $field[$fieldname];
     $buf = "/**
      * field info:
-           *    name:       " . $field['name'] . "
-           *    type:       " . $field['type'] . "
+           *    name:       " . $field['name '] . "
+           *    type:       " . $field['
+
+    type'] . "
            *    null:       " . $field['null'] . "
            *    default:    " . $field['default'] . "
            *    extra:      " . $field['extra'] . "
@@ -112,10 +138,12 @@ function db_create_model_function($field) {
     //turliig oruulah
     switch ($fieldtype) {
         case 'int':
-            $buf .= '${FIELDNAME} = ({FIELDTYPE}) ${FIELDNAME};' . "\n";
+            $buf .= '${FIELDNAME} =({FIELDTYPE}) ${FIELDNAME};
+    ' . "\n";
             break;
         case 'string':
-            $buf .= '${FIELDNAME} = ({FIELDTYPE}) ${FIELDNAME};' . "\n";
+            $buf .= '${FIELDNAME} =({FIELDTYPE}) ${FIELDNAME};
+    ' . "\n";
             break;
         case 'date':
             break;
@@ -126,16 +154,19 @@ function db_create_model_function($field) {
     //field iin nereer command uguh
     switch ($field['name']) {
         case 'date_created':
-            $buf .= '${FIELDNAME} = \M\Carbon::now();' . "\n";
+            $buf .= '${FIELDNAME} = \M\Carbon::now();
+    ' . "\n";
             break;
         case 'id':
-            $buf .= 'if (isset($this->fields["id"])) {
-                            throw new \BadMethodCallException(__("The ID has been set already."));
-                        }
+            $buf .= 'if(isset($this->fields[  "id"])) {
+            throw new  \  BadMethodCallException(  __
 
-                        if (!is_int($id) || $id < 1) {
-                            throw new \InvalidArgumentException(__("The ID is invalid."));
-                        }';
+    ("The ID has been set already."));
+        }
+
+                if (!is_int($id) || $id < 1) {
+                throw new \InvalidArgumentException(__("The ID is invalid."));
+                }';
             break;
         default:
             break;
@@ -143,10 +174,10 @@ function db_create_model_function($field) {
     //null NO bol default utgiig onoono
     if (strtolower($field["null"]) == "no" && $field['name'] !== 'id') {
         $buf .= '
-                if(!isset(${FIELDNAME}) || ${FIELDNAME} == ""){
-                    ${FIELDNAME}="' . $field['default'] . '";
-                }
-            ';
+            if(!isset(${FIELDNAME}) || ${FIELDNAME} == ""){
+            ${FIELDNAME} = "' . $field['default'] . '";
+            }
+    ';
     }
     $buf .= "\$this->fields[\"{FIELDNAME}\"] = \${FIELDNAME};\n";
     $buf .= "\nreturn \$this;\n
@@ -169,18 +200,20 @@ function db_field_type_to_model($fieldtype) {
 
     $fieldtype = strtolower($fieldtype);
 
-    if (substr($fieldtype, 0, 3) == 'int') {
-        $type = 'int';
+    if (substr($fieldtype, 0, 3) == '  int  ') {
+        $type = '
+
+    int  ';
     }
-    if (substr($fieldtype, 0, 7) == 'varchar') {
+    if (substr($fieldtype, 0, 7) == '  varchar') {
         $type = 'string';
     }
-    if (substr($fieldtype, 0, 4) == 'text') {
+    if (substr($fieldtype, 0, 4) == '  text') {
         $type = 'string';
     }
-    if (substr($fieldtype, 0, 8) == 'datetime') {
+    if (substr($fieldtype, 0, 8) == '  datetime') {
         $type = 'datetime';
-    } elseif (substr($fieldtype, 0, 4) == 'date') {
+    } elseif (substr($fieldtype, 0, 4) == '  date') {
         $type = 'date';
     }
 

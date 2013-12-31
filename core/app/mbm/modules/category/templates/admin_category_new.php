@@ -1,9 +1,16 @@
-admin_category_new tpl
 <?php
 if (has_flash()) {
-    $flash = get_flash();
-    echo $flash['text'] . ' - ' . $flash['type'];
+    echo render_flash();
 }
 ?><br>
 <? /* Render whole form */ ?>
-<?php echo ($form->render()) ?>
+<?php
+if (get_flash_type() != 'success') {
+    echo '<hr>';
+    echo get_flash_type();
+    echo '<hr>';
+    echo $form->render();
+}
+
+clear_flash();
+?>
