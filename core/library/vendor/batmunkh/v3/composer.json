@@ -1,0 +1,28 @@
+{
+    "name": "batmunkh/v3",
+    "type": "library",
+    "description": "miniCMS v3 library",
+    "keywords": ["miniCMS", "miniCMSv3", "Batmunkh", "Moltov", "CMS", "Content Management System"],
+    "homepage": "http://www.mng.cc",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Batmunkh Moltov",
+            "email": "contact@batmunkh.com",
+            "homepage": "http://www.batmunkh.com",
+            "role": "Founder"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "D": "src/",
+            "F": "src/",
+            "M": "src/",
+            "Test": "src/",
+            "PFBC": "src/"
+        }
+    }
+}
