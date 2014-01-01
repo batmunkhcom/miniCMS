@@ -12,7 +12,7 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
 
     public function __construct($dsn, $username = null, $password = null, array $driverOptions = array()) {
         $this->config = compact("dsn", "username", "password", "driverOptions");
-        $this->database = DB_NAME;
+        $this->database = $driverOptions['db_name'];
     }
 
     public function getStatement() {
@@ -46,6 +46,7 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
 
     public function prepare($sql, array $options = array()) {
         $this->connect();
+
         try {
             $this->statement = $this->connection->prepare($sql, $options);
             return $this;
@@ -55,6 +56,7 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
     }
 
     public function execute(array $parameters = array()) {
+
         try {
             $this->getStatement()->execute($parameters);
             return $this;
@@ -100,7 +102,7 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         }
     }
 
-    public function select($table, array $bind = array(), $boolOperator = "AND") {
+    public function select($table, array $bind = array(), $order_by = '', $group_by = '', $boolOperator = "AND") {
         if ($bind) {
             $where = array();
             foreach ($bind as $col => $value) {
@@ -113,6 +115,13 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         $sql = "SELECT * FROM " . $table
                 . (($bind) ? " WHERE "
                         . implode(" " . $boolOperator . " ", $where) : " ");
+        if (strlen($group_by) > 2) {
+            $sql .= " GROUP BY " . $group_by;
+        }
+        if (strlen($order_by) > 2) {
+            $sql .= " ORDER BY " . $order_by;
+        }
+
         $this->prepare($sql)
                 ->execute($bind);
         return $this;

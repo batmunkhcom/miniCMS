@@ -20,7 +20,7 @@
                         <tbody>
                             <?php foreach ($categories as $category): ?>
                                 <tr >
-                                    <td><?php echo $category->id; ?></td>
+                                    <td><?php echo $category->id; ?>.</td>
                                     <td><?php echo $category->name; ?></td>
                                     <td class="center">
                                         <?php
@@ -49,11 +49,12 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th class="hidden-phone">Engine version</th>
-                                <th class="hidden-phone">CSS grade</th>
+                                <th>#</th>
+                                <th><?php echo __('Category name'); ?></th>
+                                <th><?php echo __('Status'); ?></th>
+                                <th><?php echo __('Hits'); ?></th>
+                                <th><?php echo __('18+'); ?></th>
+                                <th ><?php echo __('Admin commands'); ?></th>
                             </tr>
                         </tfoot>
                     </table>

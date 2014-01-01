@@ -18,12 +18,16 @@
  */
 class Category extends D\Model\Category {
 
-    static function fetchAll($depth = 0) {
+    public static function fetchAll($category_id = 0) {
         global $db;
 
-        $all_categories = db_unit($db, __CLASS__);
+        $mapper_db = db_unit($db, __CLASS__);
 
-        return $all_categories->fetchAll();
+        $all_categories = $mapper_db->fetchAll(array(
+            'category_id' => $category_id
+                ), 'st');
+
+        return $all_categories;
     }
 
 }

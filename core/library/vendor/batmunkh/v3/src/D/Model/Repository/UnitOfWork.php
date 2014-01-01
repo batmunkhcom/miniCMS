@@ -80,8 +80,8 @@ class UnitOfWork implements UnitOfWorkInterface {
         return $this;
     }
 
-    public function fetchAll() {
-        $entity = $this->dataMapper->fetchAll();
+    public function fetchAll($conditions = array(), $order_by = '', $group_by = '', $boolOperator = 'AND') {
+        $entity = $this->dataMapper->fetchAll($conditions, $order_by, $group_by, $boolOperator);
         if ($entity) {
             $this->registerClean($entity);
             return $entity;

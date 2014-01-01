@@ -15,7 +15,7 @@ interface DataMapperInterface {
      * bugdiig songono
      */
 
-    public function fetchAll(array $conditions = array());
+    public function fetchAll(array $conditions = array(), $order_by = 'id desc ', $group_by = '', $boolOperator = 'AND');
 
     /*
      * nemeh uildel
