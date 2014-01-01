@@ -1,3 +1,6 @@
+<?php
+echo render_flash();
+?>
 <div class="row">
     <div class="col-lg-12">
         <section class="panel">
@@ -66,8 +69,9 @@
 
 <script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function() {
-        $('#categoryList').dataTable({
-            "aaSorting": [[0, "asc"]]
-        });
+        $('#categoryList').dataTable();
+        /*{
+         //            "aaSorting": [[0, "asc"]]
+         }*/
     });
 </script>

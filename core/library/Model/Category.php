@@ -25,7 +25,7 @@ class Category extends D\Model\Category {
 
         $all_categories = $mapper_db->fetchAll(array(
             'category_id' => $category_id
-                ), 'st');
+                ), 'id desc');
 
         return $all_categories;
     }

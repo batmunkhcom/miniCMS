@@ -121,7 +121,7 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         if (strlen($order_by) > 0) {
             $sql .= " ORDER BY " . $order_by;
         }
-
+//        set_flash($sql);
         $this->prepare($sql)
                 ->execute($bind);
         return $this;
