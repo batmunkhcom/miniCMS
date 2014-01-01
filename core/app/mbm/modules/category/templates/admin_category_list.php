@@ -69,7 +69,9 @@ echo render_flash();
 
 <script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function() {
-        $('#categoryList').dataTable();
+        $('#categoryList').dataTable({
+            'bSort': false
+        });
         /*{
          //            "aaSorting": [[0, "asc"]]
          }*/
