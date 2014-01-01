@@ -115,10 +115,10 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         $sql = "SELECT * FROM " . $table
                 . (($bind) ? " WHERE "
                         . implode(" " . $boolOperator . " ", $where) : " ");
-        if (strlen($group_by) > 2) {
+        if (strlen($group_by) > 0) {
             $sql .= " GROUP BY " . $group_by;
         }
-        if (strlen($order_by) > 2) {
+        if (strlen($order_by) > 0) {
             $sql .= " ORDER BY " . $order_by;
         }
 

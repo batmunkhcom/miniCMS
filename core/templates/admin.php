@@ -28,7 +28,7 @@
         css_set_loadfile('/assets/flatlab/admin/css/bootstrap-reset.css', 3);
 
         //external css
-        css_set_loadfile('/assets/flatlab/admin/assets/jquery-ui/jquery-ui-1.10.2.custom.min.css', 4);
+        css_set_loadfile('/assets/flatlab/admin/assets/jquery-ui/jquery-ui-1.10.1.custom.min.css', 4);
         css_set_loadfile('/assets/flatlab/admin/assets/font-awesome/css/font-awesome.css', 5);
 
         /*         * *********** css,js file uudiig achaalah ************ */
