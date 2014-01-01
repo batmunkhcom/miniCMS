@@ -12,22 +12,22 @@
         <?php
         /*         * *********** setting JS files ************ */
         //jquery duudah
-        js_set_loadfile('/js/lib/jquery/jquery.js');
-        js_set_loadfile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
-        //js_set_loadfile('/assets/flatlab/admin/js/jquery-1.8.3.min.js');
+        js_set_loadfile('/js/lib/jquery/jquery.js', 1);
+        js_set_loadfile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', 2);
+//        js_set_loadfile('/assets/flatlab/admin/js/jquery-1.8.3.min.js');
         //common js duudah.
-        js_set_loadfile('/js/common.js');
+        js_set_loadfile('/js/common.js', 3);
 
         //bootstrap v3 duudah
-        js_set_loadfile('/assets/bootstrap/3/js/bootstrap.min.js');
+        js_set_loadfile('/assets/bootstrap/3/js/bootstrap.min.js', 4);
 
         /*         * *********** setting CSS files ************ */
         //Bootstrap core CSS
-        css_set_loadfile('/assets/bootstrap/3/css/bootstrap.min.css');
-        css_set_loadfile('/assets/flatlab/admin/css/bootstrap-reset.css');
+        css_set_loadfile('/assets/bootstrap/3/css/bootstrap.min.css', 3);
+        css_set_loadfile('/assets/flatlab/admin/css/bootstrap-reset.css', 4);
 
         //external css
-        css_set_loadfile('/assets/flatlab/admin/assets/font-awesome/css/font-awesome.css');
+        css_set_loadfile('/assets/flatlab/admin/assets/font-awesome/css/font-awesome.css', 5);
 
         /*         * *********** css,js file uudiig achaalah ************ */
         echo js_load();
@@ -62,12 +62,13 @@
             <section id="main-content">
                 <section class="wrapper site-min-height">
                     <!-- page start-->
-                    admin layout...<br />
+                    <?php load_template($template); ?>
+                    <hr />
+                    admin layout...<br />...
                     <div id="jQueryTest">
 
                         jQuery not loaded
                     </div><hr />
-                    <?php load_template($template); ?>...
                     <!-- page end-->
                 </section>
             </section>
@@ -99,5 +100,6 @@
 
         <!--common script for all pages-->
         <script src="/assets/flatlab/admin/js/common-scripts.js"></script>
+
     </body>
 </html>

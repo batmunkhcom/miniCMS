@@ -35,7 +35,10 @@ date_default_timezone_set(TIME_ZONE);
 $session = new M\Registry\DataHandler(new M\Registry\SessionRegistry());
 
 //load DB
-$db = load_db($mbm_config);
+//$db = load_db($mbm_config);
+$db = new \D\Adapter\PdoAdapter(DB_TYPE . ":dbname=" . $mbm_config['db_name'], $mbm_config['db_user'], $mbm_config['db_pass'], array(
+    'db_name' => $mbm_config['db_name']
+        ));
 
 /**
  * Component uud achaallah

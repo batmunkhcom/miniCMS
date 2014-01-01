@@ -72,12 +72,20 @@ class UnitOfWork implements UnitOfWorkInterface {
     }
 
     public function rollback() {
-        // your custom rollback implementation goes here
+        // custom rollback implementation goes here
     }
 
     public function clear() {
         $this->storage->clear();
         return $this;
+    }
+
+    public function fetchAll() {
+        $entity = $this->dataMapper->fetchAll();
+        if ($entity) {
+            $this->registerClean($entity);
+            return $entity;
+        }
     }
 
 }

@@ -28,7 +28,7 @@ class Category extends AbstractEntity {
         'st',
         'user_id',
         'pos',
-        'title',
+        'name',
         'is_external',
         'external_url',
         'lang',
@@ -241,12 +241,12 @@ class Category extends AbstractEntity {
      *    default:
      *    extra:
      *    generated:  2013-12-28 07:34:15 am
-     * @param $title string Category iin title
+     * @param $name string Category iin title
      * @return object
      */
-    public function setTitle($title) {
-        $title = (string) $title;
-        $this->fields["title"] = $title;
+    public function setName($name) {
+        $name = (string) $name;
+        $this->fields["name"] = $name;
 
         return $this;
     }

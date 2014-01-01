@@ -23,11 +23,12 @@ function css_load($addidtional_files = array()) {
     //shuud duudah file uud.
     $files = \M\Config::get('css_loadfile');
 
+    ksort($files);
 
-    $files[] = PROTOCOL . DOMAIN . DS . 'css/main.css';
+    $files['5_1'] = PROTOCOL . DOMAIN . DS . 'css/main.css';
 
     if (\M\Config::get('is_admin') != 1) {
-        $files[] = PROTOCOL . DOMAIN . DS . 'css/style.css';
+        $files[5] = PROTOCOL . DOMAIN . DS . 'css/style.css';
     }
 
     $buf = '';
@@ -45,10 +46,10 @@ function css_load($addidtional_files = array()) {
  *
  * @return
  */
-function css_set_loadfile($file) {
+function css_set_loadfile($file, $pos = 10) {
 
     $css_load_files = \M\Config::get('css_loadfile');
-    $css_load_files[] = $file;
+    $css_load_files[$pos . '_' . substr(base64_encode($file), 0, 8)] = $file;
 
     \M\Config::set('css_loadfile', $css_load_files);
 }

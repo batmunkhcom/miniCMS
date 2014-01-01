@@ -18,7 +18,9 @@ function js_load() {
     //shuud duudah file uud.
     $files = \M\Config::get('js_loadfile');
 
-    $files[] = PROTOCOL . DOMAIN . DS . 'js/main.js';
+    ksort($files);
+
+    $files[5] = PROTOCOL . DOMAIN . DS . 'js/main.js';
 
     $buf = '';
     foreach ($files as $k => $v) {
@@ -35,10 +37,10 @@ function js_load() {
  *
  * @return ''
  */
-function js_set_loadfile($file) {
+function js_set_loadfile($file, $pos = 10) {
 
     $js_load_files = \M\Config::get('js_loadfile');
-    $js_load_files[] = $file;
+    $js_load_files[$pos . '_' . substr(base64_encode($file), 0, 8)] = $file;
 
     \M\Config::set('js_loadfile', $js_load_files);
 }

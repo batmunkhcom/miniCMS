@@ -6,6 +6,8 @@ interface UnitOfWorkInterface {
 
     public function fetchById($id);
 
+    public function fetchAll();
+
     public function registerNew(\D\Model\EntityInterface $entity);
 
     public function registerClean(\D\Model\EntityInterface $entity);

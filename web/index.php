@@ -9,4 +9,8 @@ require_once '../core/bootstrap.php';
 load_layout();
 
 
-echo comment_form('test1', 'dd')->render();
+foreach (Category::fetchAll() as $k => $user) {
+    echo $user->id . '. ' . $user->title . ', ' . $user->date_created;
+    echo '<br />';
+}
+echo '..';

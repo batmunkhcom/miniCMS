@@ -7,7 +7,8 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace \D\Model;
+
+namespace D\Model;
 
 /**
  * User model. users table.
@@ -545,10 +546,10 @@ class User extends AbstractEntity {
     public function setWebsite($website) {
 
         $website = (string) $website;
-        if (strlen($website) < 10) {
-            throw new \InvalidArgumentException(
-            "Invalid website.");
-        }
+//        if (strlen($website) < 10) {
+//            throw new \InvalidArgumentException(
+//            "Invalid website.");
+//        }
         $this->fields["website"] = $website;
 
         return $this;
@@ -591,10 +592,10 @@ class User extends AbstractEntity {
 
         $token = (string) $token;
         //token urt bagadaa 32 temdegtees burdene
-        if (strlen($token) < 32) {
-            throw new \InvalidArgumentException(
-            "Token must consis of at least 32 characters.");
-        }
+//        if (strlen($token) < 32) {
+//            throw new \InvalidArgumentException(
+//            "Token must consis of at least 32 characters.");
+//        }
         $this->fields["token"] = $token;
 
         return $this;
