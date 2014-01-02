@@ -22,8 +22,20 @@ class SettingForm extends \F\PFBC\Form {
 
     public $form;
 
-    public function SettingForm($form_name = 'setting') {
+    public function __construct($form_name = 'setting') {
         $form = new F\PFBC\Form($form_name);
+
+        $form->addElement(new \F\PFBC\Element\HTML('<legend>' . __('Settings') . '</legend>'));
+        $form->addElement(new \F\PFBC\Element\Hidden('form_name', $form_name));
+        $form->addElement(new \F\PFBC\Element\Textbox(__('Setting name') . ":", "name", array(
+            "required" => 1,
+            "longDesc" => __('Name field is required')
+        )));
+        $form->addElement(new \F\PFBC\Element\Textbox(__('Setting value') . ":", "value", array(
+            "required" => 1,
+            "longDesc" => __('Name field is required')
+        )));
+
 
         $this->form = $form;
 
