@@ -20,6 +20,8 @@ interface DatabaseInterface {
 
     public function insert($table, array $bind);
 
+    public function query($sql, array $bind = array());
+
     public function update($table, array $bind, $where = "");
 
     public function delete($table, $where = "");

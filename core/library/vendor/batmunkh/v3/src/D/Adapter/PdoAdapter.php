@@ -127,6 +127,19 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         return $this;
     }
 
+    public function query($sql, array $bind = array()) {
+        if (is_array($bind)) {
+            foreach ($bind as $col => $value) {
+                unset($bind[$col]);
+                $bind[":" . $col] = $value;
+            }
+        }
+
+        $this->prepare($sql)
+                ->execute($bind);
+        return $this;
+    }
+
     public function insert($table, array $bind) {
         $cols = implode(", ", array_keys($bind));
         $values = implode(", :", array_keys($bind));

@@ -22,8 +22,31 @@ class ContentForm extends \F\PFBC\Form {
 
     public $form;
 
-    public function SettingForm($form_name = 'content') {
+    public function __construct($form_name = 'content') {
         $form = new F\PFBC\Form($form_name);
+
+        $form->configure(
+                array(
+                    'action' => get_url('admin_category_save')
+                )
+        );
+        $form->addElement(new \F\PFBC\Element\HTML('<legend>' . __('Add new category') . '</legend>'));
+        $form->addElement(new \F\PFBC\Element\Hidden('form_name', $form_name));
+        $form->addElement(new \F\PFBC\Element\Textbox(__('Name') . ":", "name", array(
+            "required" => 1,
+            "longDesc" => __('Name field is required')
+        )));
+        $form->addElement(new \F\PFBC\Element\Select(__('Parent content') . ":", "content_id", array(
+            1 => ''
+        )));
+
+        js_set_loadfile('/assets/ckeditor/ckeditor.js', 8);
+        $form->addElement(new \F\PFBC\Element\CKEditor("CKEditor:", "CKEditor"));
+//        $form->addElement(new \F\PFBC\Element\Captcha("Captcha:"));
+        $form->addElement(new \F\PFBC\Element\Button(__("Save category")));
+        $form->addElement(new \F\PFBC\Element\Button(__('Cancel'), "button", array(
+            "onclick" => "history.go(-1);"
+        )));
 
         $this->form = $form;
 
