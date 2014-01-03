@@ -9,14 +9,14 @@ if ($form::isValid('category')) {
     $category = new D\Model\Category(
             array(
         'category_id' => post(''),
-        'code' => post(''),
+        'code' => post('code'),
         'depth' => post(''),
         'lft' => post(''),
         'rgt' => post(''),
         'st' => post('st'),
         'user_id' => post(''),
         'pos' => post(''),
-        'title' => post('title'),
+        'name' => post('name'),
         'is_external' => post('is_external'),
         'external_url' => post('external_url'),
         'lang' => post(''),
@@ -28,9 +28,9 @@ if ($form::isValid('category')) {
     $category_db->registerNew($category);
     $category_db->commit();
 
-    set_flash(__('Valid form submition'), 'success');
+    set_flash(__('Category created'), 'success');
 } else {
-    set_flash(__('Invalid form submition'), 'error');
+    set_flash(__('Could not create category. Please enter valid data.'), 'error');
 //    header("Location: " . get_url('admin_category_new'));
 }
 header("Location: " . get_url('admin_category_new'));

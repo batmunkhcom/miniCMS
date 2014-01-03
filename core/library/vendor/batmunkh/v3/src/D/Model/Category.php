@@ -235,13 +235,13 @@ class Category extends AbstractEntity {
 
     /**
      * field info:
-     *    name:       title
+     *    name:       name
      *    type:       varchar(255)
      *    null:       YES
      *    default:
      *    extra:
      *    generated:  2013-12-28 07:34:15 am
-     * @param $name string Category iin title
+     * @param $name string Category iin name
      * @return object
      */
     public function setName($name) {
