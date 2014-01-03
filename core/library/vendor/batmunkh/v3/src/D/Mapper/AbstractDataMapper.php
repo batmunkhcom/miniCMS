@@ -55,6 +55,9 @@ abstract class AbstractDataMapper implements DataMapperInterface {
         return $this->adapter->delete($this->entityTable, "id = $entity->id");
     }
 
+	public function fetchToArray(\D\Model\EntityInterface $entity){
+	}
+
     protected function loadEntityCollection(array $rows) {
         $this->collection->clear();
         foreach ($rows as $row) {
