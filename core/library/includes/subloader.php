@@ -55,7 +55,7 @@ $router = new M\Router();
 /**
  * lang duudna
  */
-$ln = new M\Language('mn');
+$ln = new M\Language(DEFAULT_LANG);
 
 /**
  * app/module/action/tpl file uudiig config-t onoono

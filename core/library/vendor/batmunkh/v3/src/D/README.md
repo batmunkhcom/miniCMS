@@ -1,4 +1,5 @@
 //http://www.sitepoint.com/implementing-a-unit-of-work/
+//Unit Of Work Design Pattern
 
 $adapter = new D\Adapter\PdoAdapter("mysql:dbname=test", "user", "pass");
 $unitOfWork = new D\Model\Repository\UnitOfWork(new D\Mapper\UserMapper($adapter, new D\Model\Collection\EntityCollection), new D\Storage\ObjectStorage);
