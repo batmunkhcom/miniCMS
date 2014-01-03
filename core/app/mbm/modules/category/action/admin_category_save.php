@@ -8,7 +8,7 @@ if ($form::isValid('category')) {
     $category_db = db_unit($db, 'Category');
     $category = new D\Model\Category(
             array(
-        'category_id' => post(''),
+        'category_id' => post('category_id'),
         'code' => post('code'),
         'depth' => post(''),
         'lft' => post(''),

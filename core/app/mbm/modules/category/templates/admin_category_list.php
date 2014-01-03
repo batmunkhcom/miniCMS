@@ -12,7 +12,7 @@ echo render_flash();
                     <table  class="display table table-bordered table-striped" id="categoryList">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Category name'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
                                 <th><?php echo __('Hits'); ?></th>
@@ -72,8 +72,5 @@ echo render_flash();
         $('#categoryList').dataTable({
             'bSort': false
         });
-        /*{
-         //            "aaSorting": [[0, "asc"]]
-         }*/
     });
 </script>
