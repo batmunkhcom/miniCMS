@@ -18,7 +18,7 @@
  */
 class Comment {
 
-    public function Comment() {
+    public function __construct() {
 
     }
 

@@ -18,7 +18,7 @@
  */
 class Setting {
 
-    public function Setting() {
+    public function __construct() {
 
     }
 
