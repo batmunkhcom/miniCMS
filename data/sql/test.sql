@@ -31,7 +31,7 @@ CREATE TABLE `m_categories` (
   `st` varchar(20) NOT NULL DEFAULT 'inactive',
   `user_id` int(11) NOT NULL DEFAULT '0',
   `pos` float(11,2) NOT NULL DEFAULT '0.00',
-  `title` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `is_external` tinyint(1) NOT NULL DEFAULT '0',
   `external_url` varchar(255) DEFAULT NULL,
   `lang` varchar(2) NOT NULL DEFAULT 'mn',
