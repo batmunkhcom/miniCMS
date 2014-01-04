@@ -8,7 +8,7 @@ require_once '../core/bootstrap.php';
 
 load_layout();
 
-
+die();
 foreach (Category::fetchAll() as $k => $user) {
     echo $user->id . '. ' . $user->title . ', ' . $user->date_created;
     echo '<br />';
