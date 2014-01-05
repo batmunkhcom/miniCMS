@@ -34,16 +34,21 @@ class CategoryForm extends \F\PFBC\Form {
         $form->addElement(new \F\PFBC\Element\Hidden('form_name', $form_name));
         $form->addElement(new \F\PFBC\Element\Textbox(__('Name') . ":", "name", array(
             "required" => 1,
-            "longDesc" => __('Name field is required')
+            "longDesc" => __('Name field is required'),
+            'class' => 'input-sm'
         )));
         $form->addElement(new \F\PFBC\Element\Select(__('Status') . ":", "st", array(
             'inactive' => __('Inactive'),
             'active' => __('Active'),
             'pending' => __('Pending'),
+                ), array(
+            'class' => 'input-sm'
         )));
-
-        $form->addElement(new \F\PFBC\Element\Select(__('Parent Category') . ":", "category_id", \Category::fetchAll()
-        ));
+//        \Category::buildSubTree();
+        $form->addElement(new \F\PFBC\Element\Select(__('Parent Category') . ":", "category_id", \Category::formOptions(0)
+                , array(
+            'class' => 'input-sm'
+        )));
 
         js_set_loadfile('/assets/ckeditor/ckeditor.js', 8);
         js_set_loadfile('/assets/tiny_mce/tiny_mce.js', 9);

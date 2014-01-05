@@ -8,5 +8,6 @@
  * file that was distributed with this source code.
  */
 $form = new \F\Form\CategoryForm('category');
-
+//print_r(\Category::buildSubTree());
+//die();
 $template->set('form', $form->form);

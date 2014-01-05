@@ -22,6 +22,7 @@ if ($form::isValid('category')) {
         'lang' => post(''),
         'hits' => 0,
         'date_created' => convert_date(date("Y-M-D H:i:s")),
+        'date_last_updated' => convert_date(date("Y-M-D H:i:s")),
         'is_adult' => post('')
             )
     );

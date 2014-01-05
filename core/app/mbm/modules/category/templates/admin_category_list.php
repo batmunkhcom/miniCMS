@@ -1,6 +1,5 @@
 <?php
 echo render_flash();
-print_r($categories);
 ?>
 <div class="row">
     <div class="col-lg-12">
