@@ -36,3 +36,7 @@ $lang['Contact info'] = 'Холбоо барих мэдээлэл';
 $lang['Components'] = 'Бүрэлдэхүүн хэсэг';
 $lang['Roles'] = 'Хандах эрх';
 $lang['Survey'] = 'Санал асуулга';
+$lang['Pano'] = 'Пано';
+$lang['Save category'] = 'Хадгалах';
+$lang['Parent Category'] = 'Ангилал';
+$lang['Pending'] = 'Хүлээдэж буй';
