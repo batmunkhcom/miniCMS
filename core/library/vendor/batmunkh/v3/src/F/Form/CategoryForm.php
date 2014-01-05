@@ -37,6 +37,10 @@ class CategoryForm extends \F\Form {
         $form->addElement(__('Code'), 'code', 'input', array(
             'class' => 'form-control',
             'value' => post('code')
+                ), array(
+            'is_required' => 1,
+            'minlength' => 2,
+            'maxlength' => 5
         ));
         $form->addElement(__('Parent category'), 'category_id', 'select', array(
             'class' => 'form-control',

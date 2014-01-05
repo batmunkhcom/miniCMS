@@ -3,7 +3,7 @@
 $form = new F\Form\CategoryForm('category');
 print_r($session->get('category'));
 
-if ($form->isValid('category')) {
+if ($form->isValid('category') == 1) {
 
     //category iin baruun zuuniig todorhoiloh
 
@@ -33,7 +33,13 @@ if ($form->isValid('category')) {
 
     set_flash(__('Category created'), 'success');
 } else {
-    set_flash(__('Could not create category. Please enter valid data.'), 'error');
+    $sess_data = $session->get('category');
+    $error_txt = '<h2>' . __('Error') . '!!!</h2>';
+    foreach ($sess_data['errors'] as $k => $v) {
+        $error_txt .= $v . '<br>';
+    }
+    set_flash($error_txt, 'error');
+//    set_flash(__('Could not create category. Please enter valid data.'), 'error');
 //    header("Location: " . get_url('admin_category_new'));
 }
 header("Location: " . get_url('admin_category_new'));

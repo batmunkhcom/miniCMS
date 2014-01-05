@@ -56,6 +56,13 @@ class Form {
     public $labels = array();
 
     /**
+     * Form iin submit utgiin aldaa
+     *
+     * @var array
+     */
+    public $errors = array();
+
+    /**
      * Form iin buh field iin validation iig
      *
      * @var array
@@ -67,7 +74,14 @@ class Form {
      */
     static $pos = 0;
 
+    /**
+     * @var integer Form iin elemtuudiin haragdah daraalal
+     */
+    static $session;
+
     public function __construct($name, $configure) {
+
+        global $session;
 
         if (count($configure) == 0) {
             $configure = array(
@@ -80,6 +94,7 @@ class Form {
         $this->form_attributes = $configure;
         $this->form_name = $name;
         $this->fields['form_name'] = $name;
+        $this->session = $session->get($this->fields['form_name']);
     }
 
     /**
@@ -188,8 +203,8 @@ class Form {
                         $buf .= '' . $k . ' ';
                         break;
                     case 'value':
-                        if (post_exists($name)) {
-                            $buf .= $k . '="' . post($name) . '" ';
+                        if (isset($this->session['fields'][$name])) {
+                            $buf .= $k . '="' . $this->session['fields'][$name] . '" ';
                         } else {
                             $buf .= '' . $k . ' ';
                         }
@@ -240,7 +255,7 @@ class Form {
 
         foreach ($options as $k => $v) {
             $buf .= '<option value="' . $k . '" ';
-            if (isset($selected_value) && ($selected_value == $k || post($name) == $v)) {
+            if (isset($selected_value) && ($selected_value == $k || $this->session['fields'][$name] == $v)) {
                 $buf .= ' selected';
             }
             $buf .= '>';
@@ -266,6 +281,10 @@ class Form {
         $buf = '';
         $buf .= '<label class="label_check" for="' . $name . '">' . "\n";
         $buf .= '<input name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
+
+        if (isset($this->session['fields'][$name])) {
+            $attributes['checked'] = 'checked';
+        }
         foreach ($attributes as $k => $v) {
             switch ($k) {
                 case 'checked':
@@ -282,52 +301,6 @@ class Form {
         $buf .= '';
 
         return $buf;
-    }
-
-    /**
-     * @param string $isValid Form iin ner
-     */
-    public function isValid($form_name) {
-
-        global $session;
-
-        $is_valid = 1;
-        $sess_data = $session->get($form_name);
-
-        foreach ($sess_data['fields'] as $k => $v) {
-            $sess_data['fields'][$k] = post($k);
-            //validation ehlev
-            if (isset($sess_data['validations'][$k]['is_required']) && (int) $sess_data['validations'][$k]['is_required'] == 1 && $sess_data['fields'][$k] == '') {
-                $is_valid = 0;
-                $sess_data['errors'][$k] = __('Please fill ' . __($sess_data['labels'][$k]) . ' field');
-            }
-            if (isset($sess_data['validations'][$k]['minlength']) && (int) $sess_data['fields'][$k] != 0 && (int) strlen($sess_data['fields'][$k]) < $sess_data['validations'][$k]['minlength']) {
-                $is_valid = 0;
-                $sess_data['errors'][$k] = __('' . __($sess_data['labels'][$k]) . ' field must be longer than you entered') . ' (' . $sess_data['validations'][$k]['minlength'] . ')';
-            }
-            if (isset($sess_data['validations'][$k]['maxlength']) && (int) $sess_data['validations'][$k]['maxlength'] != 0 && (int) $sess_data['validations'][$k]['maxlength'] > 0 && strlen($sess_data['fields'][$k]) > $sess_data['validations'][$k]['maxlength']) {
-                $is_valid = 0;
-                $sess_data['errors'][$k] = __('' . __($sess_data['labels'][$k]) . ' field bust be shorter than you entered') . ' (' . $sess_data['validations'][$k]['maxlength'] . ')';
-            }
-            if (isset($sess_data['validations'][$k]['is_email']) && (int) $sess_data['validations'][$k]['is_email'] == 1 && strlen($sess_data['fields'][$k]) < 10) {
-                $is_valid = 0;
-                $sess_data['errors'][$k] = __('Please enter valid email');
-            }
-            if (isset($sess_data['validations'][$k]['is_integer']) && (int) $sess_data['validations'][$k]['is_integer'] == 1 && !is_int($sess_data['fields'][$k])) {
-                $is_valid = 0;
-                $sess_data['errors'][$k] = __('Please enter an integer number in ' . __($sess_data['labels'][$k]) . ' field');
-            }
-        }
-        $this->fields = $sess_data['fields'];
-        $this->validations = $sess_data['validations'];
-
-        $this->updateSession();
-        if ($is_valid == 0) {
-            echo 'form is invalid';
-            return false;
-        }
-
-        return true;
     }
 
     /**
@@ -351,10 +324,10 @@ class Form {
                         $buf .= '' . $k . ' ';
                         break;
                     case 'value':
-                        if (post_exists($name)) {
-                            $value = post($name);
+                        if (isset($this->session['fields'][$name])) {
+                            $value = $this->session['fields'][$name];
                         }
-                        $value = '' . $k . ' ';
+                        $value = '' . $v . ' ';
                         break;
                     default:
                         $buf .= $k . '="' . $v . '" ';
@@ -377,6 +350,7 @@ class Form {
         $sess['fields'] = $this->fields;
         $sess['validations'] = $this->validations;
         $sess['labels'] = $this->labels;
+        $sess['errors'] = $this->errors;
 
         $session->set($this->form_name, $sess);
 
@@ -392,6 +366,52 @@ class Form {
         $name = str_replace(array('-'), '_', $name);
 
         return $name;
+    }
+
+    /**
+     * @param string $isValid Form iin ner
+     */
+    public function isValid($form_name) {
+
+        global $session;
+
+        $is_valid = 1;
+        $sess_data = $session->get($form_name);
+
+        foreach ($sess_data['fields'] as $k => $v) {
+            $sess_data['fields'][$k] = post($k);
+            //validation ehlev
+            if (isset($sess_data['validations'][$k]['is_required']) && (int) $sess_data['validations'][$k]['is_required'] == 1 && $sess_data['fields'][$k] == '') {
+                $is_valid = 0;
+                $sess_data['errors'][$k] = __('Please fill ' . __($sess_data['labels'][$k]) . ' field');
+            }
+            if (isset($sess_data['validations'][$k]['minlength']) && (int) $sess_data['validations'][$k]['minlength'] > 0 && strlen($sess_data['fields'][$k]) < $sess_data['validations'][$k]['minlength']) {
+                $is_valid = 0;
+                $sess_data['errors'][$k] = __('' . __($sess_data['labels'][$k]) . ' field must be longer than you entered') . ' ' . __('Minimum length is') . ' (' . $sess_data['validations'][$k]['minlength'] . ')';
+            }
+            if (isset($sess_data['validations'][$k]['maxlength']) && (int) $sess_data['validations'][$k]['maxlength'] != 0 && (int) $sess_data['validations'][$k]['maxlength'] > 0 && strlen($sess_data['fields'][$k]) > $sess_data['validations'][$k]['maxlength']) {
+                $is_valid = 0;
+                $sess_data['errors'][$k] = __('' . __($sess_data['labels'][$k]) . ' field bust be shorter than you entered') . ' ' . __('Maximum length is') . ' (' . $sess_data['validations'][$k]['maxlength'] . ')';
+            }
+            if (isset($sess_data['validations'][$k]['is_email']) && (int) $sess_data['validations'][$k]['is_email'] == 1 && strlen($sess_data['fields'][$k]) < 10) {
+                $is_valid = 0;
+                $sess_data['errors'][$k] = __('Please enter valid email');
+            }
+            if (isset($sess_data['validations'][$k]['is_integer']) && (int) $sess_data['validations'][$k]['is_integer'] == 1 && !is_int($sess_data['fields'][$k])) {
+                $is_valid = 0;
+                $sess_data['errors'][$k] = __('Please enter an integer number in ' . __($sess_data['labels'][$k]) . ' field');
+            }
+        }
+        $this->fields = $sess_data['fields'];
+        $this->validations = $sess_data['validations'];
+        $this->errors = $sess_data['errors'];
+        $this->updateSession();
+        echo '<hr>';
+        print_r($sess_data);
+        echo $is_valid;
+        die();
+
+        return $is_valid;
     }
 
 }
