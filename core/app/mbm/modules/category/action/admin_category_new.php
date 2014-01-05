@@ -7,7 +7,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-$form = new \F\Form\CategoryForm('category');
+js_set_loadfile('/assets/flatlab/admin/js/form-component.js', 11);
+js_set_loadfile('/assets/flatlab/admin/js/jquery.validate.min.js', 12);
+js_set_loadfile('/assets/flatlab/admin/js/form-validation-script.js', 13);
+$form = new \F\Form\CategoryForm('category', array(
+    'action' => get_url('admin_category_save'),
+    'class' => 'form-horizontal',
+    'role' => 'form',
+    'method' => 'post'
+        ));
 //print_r(\Category::buildSubTree());
 //die();
 $template->set('form', $form->form);

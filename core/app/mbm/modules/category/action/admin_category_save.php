@@ -1,7 +1,9 @@
 <?php
 
 $form = new F\Form\CategoryForm('category');
-if ($form::isValid('category')) {
+print_r($_POST);
+die();
+if ($form->isSubmitted()) {
 
     //category iin baruun zuuniig todorhoiloh
 

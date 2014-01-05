@@ -15,16 +15,18 @@
         js_set_loadfile('/js/lib/jquery/jquery.js', 1);
 //        js_set_loadfile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', 2);
         js_set_loadfile('/assets/flatlab/admin/assets/jquery-ui/jquery-ui-1.10.2.custom.min.js', 2);
+        js_set_loadfile('/assets/flatlab/admin/js/common-scripts.js', 3);
 //        js_set_loadfile('/assets/flatlab/admin/js/jquery-1.8.3.min.js');
         //common js duudah.
         js_set_loadfile('/js/common.js', 3);
 
         //bootstrap v3 duudah
-        js_set_loadfile('/assets/bootstrap/3/js/bootstrap.min.js', 4);
+        js_set_loadfile('/assets/flatlab/admin/js/bootstrap.min.js', 4);
 
         /*         * *********** setting CSS files ************ */
         //Bootstrap core CSS
-        css_set_loadfile('/assets/bootstrap/3/css/bootstrap.min.css', 2);
+//        css_set_loadfile('/assets/bootstrap/3/css/bootstrap.min.css', 2);
+        css_set_loadfile('/assets/flatlab/admin/css/bootstrap.min.css', 2);
         css_set_loadfile('/assets/flatlab/admin/css/bootstrap-reset.css', 3);
 
         //external css
