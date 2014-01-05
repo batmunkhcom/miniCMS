@@ -16,6 +16,5 @@ $form = new \F\Form\CategoryForm('category', array(
     'role' => 'form',
     'method' => 'post'
         ));
-//print_r(\Category::buildSubTree());
-//die();
 $template->set('form', $form->form);
+$template->set('sess', $session->get('category'));

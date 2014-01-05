@@ -49,11 +49,18 @@ class Form {
     public $fields = array();
 
     /**
-     * Form iin buh elementiin tohirgoog session-d hadgalah
+     * Form iin buh field iin label,ner utgiig hadgalna
      *
      * @var array
      */
-    public $session = array();
+    public $labels = array();
+
+    /**
+     * Form iin buh field iin validation iig
+     *
+     * @var array
+     */
+    public $validations = array();
 
     /**
      * @var integer Form iin elemtuudiin haragdah daraalal
@@ -65,13 +72,14 @@ class Form {
         if (count($configure) == 0) {
             $configure = array(
                 'class' => 'form-horizontal',
-                'role' => 'form'
+                'role' => 'form',
+                'method' => 'post',
+                'action' => ''
             );
         }
         $this->form_attributes = $configure;
         $this->form_name = $name;
-
-        $this->session = array($name => array());
+        $this->fields['form_name'] = $name;
     }
 
     /**
@@ -80,34 +88,40 @@ class Form {
      * @param type $element_type Tuhain element iin turul. Ex: input,checkbox,textarea....
      * @param type $name Tuhain element iin ner
      * @param type $attributes Tuhain elementiin attribute uud
+     * @param type $validation Validate hiih nuhtsluud
      * @param type $text Nemelt text. help text geh met-d ashiglagdana
      *
      * @return string tuhain elementiig hevleh html iig butsaana
      */
-    public function addElement($label, $name, $element_type, $attributes = array(), $text = '') {
+    public function addElement($label, $name, $element_type, $attributes = array(), $validation = array(
+        'is_required' => 0,
+        'minlength' => 0,
+        'maxlength' => 0,
+        'is_email' => 0,
+        'is_integer' => 0
+    ), $text = '') {
 
-        $this->fields[$name] = $name;
-        $buf = '<div class="form-group" id="element_' . $name . '">' . "\n";
+        $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
         $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
         $buf .= $label . "\n";
         $buf .= '</label>' . "\n";
         $buf .= '<div class="col-lg-10">' . "\n";
         switch ($element_type) {
             case 'input':
-                $buf .= $this->input($label, $name, $attributes, $text);
+                $buf .= $this->input($label, $name, $attributes, $validation, $text);
                 break;
             case 'textarea':
                 break;
             case 'select':
-                $buf .= $this->select($label, $name, $attributes, $text);
+                $buf .= $this->select($label, $name, $attributes, $validation, $text);
                 break;
             case 'checkbox':
                 $buf .= '<div class="checkboxes">';
-                $buf .= $this->checkbox($label, $name, $attributes, $text);
+                $buf .= $this->checkbox($label, $name, $attributes, $validation, $text);
                 $buf .= '</div>';
                 break;
             case 'button':
-                $buf .= '<button name="' . $name . '" id="' . $name . '" ';
+                $buf .= '<button name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
                 foreach ($attributes as $k => $v) {
                     switch ($k) {
                         case 'value':
@@ -120,11 +134,15 @@ class Form {
                 $buf .= '>' . $attributes['value'] . '</button>' . "\n";
                 break;
             case 'ckeditor':
+                $buf .= $this->textarea($label, $name, $attributes, $validation, $text);
                 break;
         }
         $buf .= '</div>' . "\n";
         $buf .= '</div>' . "\n";
         $this->elements[self::$pos] = $buf;
+        $this->fields[$name] = $name;
+        $this->labels[$name] = $label;
+        $this->validations[$name] = $validation;
         self::$pos++;
 
         return $buf;
@@ -134,8 +152,6 @@ class Form {
      * @return string DescriptionForm iin buhel html iig butsaana
      */
     public function render() {
-
-        global $session;
 
         $html = '<form name="' . $this->form_name . '" id="' . $this->form_name . '" ';
         foreach ($this->form_attributes as $k => $v) {
@@ -148,7 +164,7 @@ class Form {
         }
         $html .= '</form>' . "\n";
 
-        $session->set($name, $this->fields);
+        $this->updateSession();
 
         return $html;
     }
@@ -162,7 +178,7 @@ class Form {
      *
      * @return string tuhain elementiig hevleh html iig butsaana
      */
-    public function input($label, $name, $attributes = array(), $text = '') {
+    public function input($label, $name, $attributes = array(), $validation, $text = '') {
 
         $buf = '<input name="' . $name . '" id="' . $name . '" ';
         if (is_array($attributes)) {
@@ -201,13 +217,15 @@ class Form {
      *
      * @return string tuhain elementiig hevleh html iig butsaana
      */
-    public function select($label, $name, $attributes = array(), $text = '') {
+    public function select($label, $name, $attributes = array(), $validation, $text = '') {
 
         $options = $attributes['value'];
-        $selected_value = $attributes['selected'];
+        if (isset($attributes['selected'])) {
+            $selected_value = $attributes['selected'];
+        }
         unset($attributes['value']);
 
-        $buf = '<select name="' . $name . '" id="' . $name . '" ';
+        $buf = '<select name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
         foreach ($attributes as $k => $v) {
             switch ($k) {
                 case 'multipe':
@@ -222,7 +240,7 @@ class Form {
 
         foreach ($options as $k => $v) {
             $buf .= '<option value="' . $k . '" ';
-            if ($selected_value == $k || post($name) == $v) {
+            if (isset($selected_value) && ($selected_value == $k || post($name) == $v)) {
                 $buf .= ' selected';
             }
             $buf .= '>';
@@ -244,10 +262,10 @@ class Form {
      *
      * @return string tuhain elementiig hevleh html iig butsaana
      */
-    public function checkbox($label, $name, $attributes, $text) {
+    public function checkbox($label, $name, $attributes, $validation, $text) {
         $buf = '';
         $buf .= '<label class="label_check" for="' . $name . '">' . "\n";
-        $buf .= '<input name="' . $name . '" id="' . $name . '" ';
+        $buf .= '<input name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
         foreach ($attributes as $k => $v) {
             switch ($k) {
                 case 'checked':
@@ -266,24 +284,50 @@ class Form {
         return $buf;
     }
 
-    public function isSubmitted() {
+    /**
+     * @param string $isValid Form iin ner
+     */
+    public function isValid($form_name) {
 
         global $session;
 
-        $this->session = $session->get($this->form_name);
+        $is_valid = 1;
+        $sess_data = $session->get($form_name);
 
-        foreach ($this->fields as $k => $v) {
-            $this->fields[$k] = post($k);
+        foreach ($sess_data['fields'] as $k => $v) {
+            $sess_data['fields'][$k] = post($k);
+            //validation ehlev
+            if (isset($sess_data['validations'][$k]['is_required']) && (int) $sess_data['validations'][$k]['is_required'] == 1 && $sess_data['fields'][$k] == '') {
+                $is_valid = 0;
+                $sess_data['errors'][$k] = __('Please fill ' . __($sess_data['labels'][$k]) . ' field');
+            }
+            if (isset($sess_data['validations'][$k]['minlength']) && (int) $sess_data['fields'][$k] != 0 && (int) strlen($sess_data['fields'][$k]) < $sess_data['validations'][$k]['minlength']) {
+                $is_valid = 0;
+                $sess_data['errors'][$k] = __('' . __($sess_data['labels'][$k]) . ' field must be longer than you entered') . ' (' . $sess_data['validations'][$k]['minlength'] . ')';
+            }
+            if (isset($sess_data['validations'][$k]['maxlength']) && (int) $sess_data['validations'][$k]['maxlength'] != 0 && (int) $sess_data['validations'][$k]['maxlength'] > 0 && strlen($sess_data['fields'][$k]) > $sess_data['validations'][$k]['maxlength']) {
+                $is_valid = 0;
+                $sess_data['errors'][$k] = __('' . __($sess_data['labels'][$k]) . ' field bust be shorter than you entered') . ' (' . $sess_data['validations'][$k]['maxlength'] . ')';
+            }
+            if (isset($sess_data['validations'][$k]['is_email']) && (int) $sess_data['validations'][$k]['is_email'] == 1 && strlen($sess_data['fields'][$k]) < 10) {
+                $is_valid = 0;
+                $sess_data['errors'][$k] = __('Please enter valid email');
+            }
+            if (isset($sess_data['validations'][$k]['is_integer']) && (int) $sess_data['validations'][$k]['is_integer'] == 1 && !is_int($sess_data['fields'][$k])) {
+                $is_valid = 0;
+                $sess_data['errors'][$k] = __('Please enter an integer number in ' . __($sess_data['labels'][$k]) . ' field');
+            }
         }
-        print_r($this->session);
+        $this->fields = $sess_data['fields'];
+        $this->validations = $sess_data['validations'];
 
-        echo post('form_name') . '---' . $this->form_name;
-        die();
-        if (post('form_name') == $this->form_name) {
-            return true;
+        $this->updateSession();
+        if ($is_valid == 0) {
+            echo 'form is invalid';
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     /**
@@ -295,11 +339,11 @@ class Form {
      *
      * @return string tuhain elementiig hevleh html iig butsaana
      */
-    public function textarea($label, $name, $attributes = array(), $text = '') {
+    public function textarea($label, $name, $attributes = array(), $validation, $text = '') {
 
         $value = '';
 
-        $buf = '<textarea name="' . $name . '" id="' . $name . '" ';
+        $buf = '<textarea name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
         if (is_array($attributes)) {
             foreach ($attributes as $k => $v) {
                 switch ($k) {
@@ -329,7 +373,25 @@ class Form {
         global $session;
 
         $sess = $session->get($this->form_name);
-        $session->set($this->form_name, $this->fields);
+        $sess['fields']['form_name'] = $this->form_name;
+        $sess['fields'] = $this->fields;
+        $sess['validations'] = $this->validations;
+        $sess['labels'] = $this->labels;
+
+        $session->set($this->form_name, $sess);
+
+//        return true;
+    }
+
+    /**
+     * @param string $name Element iin id attribute iin neriig yanzalna
+     */
+    public function fixElementId($name) {
+
+        $name = str_replace(array('[', ']'), '', $name);
+        $name = str_replace(array('-'), '_', $name);
+
+        return $name;
     }
 
 }

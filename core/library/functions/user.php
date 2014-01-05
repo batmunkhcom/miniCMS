@@ -20,3 +20,29 @@ function get_logged_user_id() {
 
     return $session->get('user_id');
 }
+
+/**
+ * Tuhain hereglegchiig nevtersen esehiig shalgana
+ */
+function is_logged_user() {
+
+    return true;
+}
+
+/**
+ * Hereglegchiin handah erhiig shalgana
+ */
+function check_authorization($required = array(), $condition = 'any') {
+    foreach ($required as $k => $v) {
+
+    }
+}
+
+/**
+ *
+ */
+function get_user_authorization($user_id = 0) {
+    if ($user_id == 0) {
+        $user_id = get_logged_user_id();
+    }
+}

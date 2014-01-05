@@ -1,6 +1,8 @@
 
 
-
+<div class="col-lg-12">
+    <?php print_r($sess); ?>
+</div>
 <?php if (has_flash()): ?>
     <div class="col-lg-12">
         <?php echo render_flash(); ?>
@@ -11,7 +13,7 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                Horizontal Forms
+                <?php echo __('Create category'); ?>
             </header>
             <div class="panel-body">
                 <? /* Render whole form */ ?>
