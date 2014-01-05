@@ -42,6 +42,9 @@ class CategoryForm extends \F\PFBC\Form {
             'pending' => __('Pending'),
         )));
 
+        $form->addElement(new \F\PFBC\Element\Select(__('Parent Category') . ":", "category_id", \Category::fetchAll()
+        ));
+
         js_set_loadfile('/assets/ckeditor/ckeditor.js', 8);
         js_set_loadfile('/assets/tiny_mce/tiny_mce.js', 9);
         $form->addElement(new \F\PFBC\Element\TinyMCE("TinyMCE:", "TinyMCE"));

@@ -88,4 +88,15 @@ class UnitOfWork implements UnitOfWorkInterface {
         }
     }
 
+    /**
+     * eniig shalgah heregtei!!!!!
+     */
+    public function fetchToArray($conditions = array(), $order_by = '', $group_by = '', $boolOperator = 'AND') {
+        $entity = $this->dataMapper->fetchToArray($conditions, $order_by, $group_by, $boolOperator);
+        if ($entity) {
+            $this->registerClean($entity);
+            return $entity;
+        }
+    }
+
 }
