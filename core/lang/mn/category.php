@@ -32,3 +32,7 @@ $lang['Comment form'] = 'Сэтгэгдэл бичих';
 $lang['Cancel'] = 'Цуцлах';
 $lang['Title field is required'] = 'Гарчиг оруулана уу !';
 $lang['Title'] = 'Гарчиг';
+$lang['Contact info'] = 'Холбоо барих мэдээлэл';
+$lang['Components'] = 'Бүрэлдэхүүн хэсэг';
+$lang['Roles'] = 'Хандах эрх';
+$lang['Survey'] = 'Санал асуулга';
