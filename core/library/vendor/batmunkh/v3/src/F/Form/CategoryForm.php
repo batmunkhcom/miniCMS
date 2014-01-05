@@ -22,7 +22,7 @@ class CategoryForm extends \F\Form {
 
     public $form;
 
-    public function __construct($name = 'Category', $configure) {
+    public function __construct($name = 'category', $configure = array()) {
 
         $form = new \F\Form($name, $configure);
 
@@ -53,9 +53,10 @@ class CategoryForm extends \F\Form {
             'class' => 'form-control',
             'value' => post('external_url')
         ));
-        $form->addElement(__('Add category'), 'add_category', 'button', array(
+        $form->addElement('', 'add_category', 'button', array(
             'class' => 'btn btn-success',
             'type' => 'submit',
+            'value' => __('Add category')
         ));
 
 

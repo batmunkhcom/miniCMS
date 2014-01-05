@@ -5,6 +5,3 @@ js_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/js/jquery
 $template->set('is_admin', \M\Config::get('is_admin'));
 //$template->set('categories', Category::getCategoriesByDepth(0));
 $template->set('categories', Category::fetchAll());
-
-print_r(\Category::buildTree());
-die();

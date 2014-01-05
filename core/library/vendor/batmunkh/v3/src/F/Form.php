@@ -20,12 +20,48 @@ namespace F;
  */
 class Form {
 
+    /**
+     * Form iin ner
+     *
+     * @var string
+     */
     public $form_name;
+
+    /**
+     * form tag iin attribute uud
+     *
+     * @var array
+     */
     public $form_attributes;
+
+    /**
+     * Form iin buh elementiin html iig aguulj bui huvisagch
+     *
+     * @var array
+     */
     public $elements = array();
+
+    /**
+     * Form iin buh field iin ner utgiig hadgalna
+     *
+     * @var array
+     */
+    public $fields = array();
+
+    /**
+     * Form iin buh elementiin tohirgoog session-d hadgalah
+     *
+     * @var array
+     */
+    public $session = array();
+
+    /**
+     * @var integer Form iin elemtuudiin haragdah daraalal
+     */
     static $pos = 0;
 
     public function __construct($name, $configure) {
+
         if (count($configure) == 0) {
             $configure = array(
                 'class' => 'form-horizontal',
@@ -34,15 +70,28 @@ class Form {
         }
         $this->form_attributes = $configure;
         $this->form_name = $name;
+
+        $this->session = array($name => array());
     }
 
+    /**
+     *
+     * @param type $label Hereglegchded haragdah tuhain elementiin ner
+     * @param type $element_type Tuhain element iin turul. Ex: input,checkbox,textarea....
+     * @param type $name Tuhain element iin ner
+     * @param type $attributes Tuhain elementiin attribute uud
+     * @param type $text Nemelt text. help text geh met-d ashiglagdana
+     *
+     * @return string tuhain elementiig hevleh html iig butsaana
+     */
     public function addElement($label, $name, $element_type, $attributes = array(), $text = '') {
 
-        $buf = '<div class="form-group" id="element_' . $name . '">';
-        $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">';
-        $buf .= $label;
-        $buf .= '</label>';
-        $buf .= '<div class="col-lg-10">';
+        $this->fields[$name] = $name;
+        $buf = '<div class="form-group" id="element_' . $name . '">' . "\n";
+        $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
+        $buf .= $label . "\n";
+        $buf .= '</label>' . "\n";
+        $buf .= '<div class="col-lg-10">' . "\n";
         switch ($element_type) {
             case 'input':
                 $buf .= $this->input($label, $name, $attributes, $text);
@@ -60,36 +109,59 @@ class Form {
             case 'button':
                 $buf .= '<button name="' . $name . '" id="' . $name . '" ';
                 foreach ($attributes as $k => $v) {
-                    $buf .= $k . '="' . $v . '" ';
+                    switch ($k) {
+                        case 'value':
+                            break;
+                        default:
+                            $buf .= $k . '="' . $v . '" ';
+                            break;
+                    }
                 }
-                $buf .= '>' . $label . '</button>';
+                $buf .= '>' . $attributes['value'] . '</button>' . "\n";
                 break;
             case 'ckeditor':
                 break;
         }
-        $buf .= '</div>';
-        $buf .= '</div>';
+        $buf .= '</div>' . "\n";
+        $buf .= '</div>' . "\n";
         $this->elements[self::$pos] = $buf;
         self::$pos++;
 
         return $buf;
     }
 
+    /**
+     * @return string DescriptionForm iin buhel html iig butsaana
+     */
     public function render() {
-        $html = '<form name="' . $this->form_name . '" id="' . $this->form_name . '"';
+
+        global $session;
+
+        $html = '<form name="' . $this->form_name . '" id="' . $this->form_name . '" ';
         foreach ($this->form_attributes as $k => $v) {
             $html .= $k . '="' . $v . '" ';
         }
-        $html .= '>';
-        $html .= '<input type="hidden" name="form_name" id="form_name" value="' . $this->form_name . '">';
+        $html .= '>' . "\n";
+        $html .= '<input type="hidden" name="form_name" id="form_name" value="' . $this->form_name . '">' . "\n";
         foreach ($this->elements as $k => $v) {
             $html .= $v;
         }
-        $html .= '</form>';
+        $html .= '</form>' . "\n";
+
+        $session->set($name, $this->fields);
 
         return $html;
     }
 
+    /**
+     *
+     * @param type $label Hereglegchded haragdah tuhain elementiin ner
+     * @param type $name Tuhain element iin ner
+     * @param type $attributes Tuhain elementiin attribute uud
+     * @param type $text Nemelt text. help text geh met-d ashiglagdana
+     *
+     * @return string tuhain elementiig hevleh html iig butsaana
+     */
     public function input($label, $name, $attributes = array(), $text = '') {
 
         $buf = '<input name="' . $name . '" id="' . $name . '" ';
@@ -112,9 +184,9 @@ class Form {
                 }
             }
         }
-        $buf .= ' >';
+        $buf .= ' >' . "\n";
         if (strlen($text) > 0) {
-            $buf .= '<p class="help-block">' . $text . '</p>';
+            $buf .= '<p class="help-block">' . $text . '</p>' . "\n";
         }
 
         return $buf;
@@ -122,10 +194,12 @@ class Form {
 
     /**
      *
-     * @param type $name Description
-     * @param type $name Description
-     * @param type $attributes Description
-     * @param type $name Description
+     * @param type $label Hereglegchded haragdah tuhain elementiin ner
+     * @param type $name Tuhain element iin ner
+     * @param type $attributes Tuhain elementiin attribute uud
+     * @param type $text Nemelt text. help text geh met-d ashiglagdana
+     *
+     * @return string tuhain elementiig hevleh html iig butsaana
      */
     public function select($label, $name, $attributes = array(), $text = '') {
 
@@ -133,7 +207,7 @@ class Form {
         $selected_value = $attributes['selected'];
         unset($attributes['value']);
 
-        $buf = '<select name="' . $name . '" id="' . $name . '"';
+        $buf = '<select name="' . $name . '" id="' . $name . '" ';
         foreach ($attributes as $k => $v) {
             switch ($k) {
                 case 'multipe':
@@ -144,7 +218,7 @@ class Form {
                     break;
             }
         }
-        $buf .= '>';
+        $buf .= '>' . "\n";
 
         foreach ($options as $k => $v) {
             $buf .= '<option value="' . $k . '" ';
@@ -153,17 +227,26 @@ class Form {
             }
             $buf .= '>';
             $buf .= $v;
-            $buf .= '</option>';
+            $buf .= '</option>' . "\n";
         }
 
-        $buf .='</select>';
+        $buf .='</select>' . "\n";
 
         return $buf;
     }
 
+    /**
+     *
+     * @param type $label Hereglegchded haragdah tuhain elementiin ner
+     * @param type $name Tuhain element iin ner
+     * @param type $attributes Tuhain elementiin attribute uud
+     * @param type $text Nemelt text. help text geh met-d ashiglagdana
+     *
+     * @return string tuhain elementiig hevleh html iig butsaana
+     */
     public function checkbox($label, $name, $attributes, $text) {
         $buf = '';
-        $buf .= '<label class="label_check" for="' . $name . '">';
+        $buf .= '<label class="label_check" for="' . $name . '">' . "\n";
         $buf .= '<input name="' . $name . '" id="' . $name . '" ';
         foreach ($attributes as $k => $v) {
             switch ($k) {
@@ -175,15 +258,27 @@ class Form {
                     break;
             }
         }
-        $buf .= 'type="checkbox" />';
-        $buf .= $text;
-        $buf .= '</label>';
+        $buf .= 'type="checkbox" />' . "\n";
+        $buf .= $text . "\n";
+        $buf .= '</label>' . "\n";
         $buf .= '';
 
         return $buf;
     }
 
     public function isSubmitted() {
+
+        global $session;
+
+        $this->session = $session->get($this->form_name);
+
+        foreach ($this->fields as $k => $v) {
+            $this->fields[$k] = post($k);
+        }
+        print_r($this->session);
+
+        echo post('form_name') . '---' . $this->form_name;
+        die();
         if (post('form_name') == $this->form_name) {
             return true;
         }
@@ -191,6 +286,15 @@ class Form {
         return false;
     }
 
+    /**
+     *
+     * @param type $label Hereglegchded haragdah tuhain elementiin ner
+     * @param type $name Tuhain element iin ner
+     * @param type $attributes Tuhain elementiin attribute uud
+     * @param type $text Nemelt text. help text geh met-d ashiglagdana
+     *
+     * @return string tuhain elementiig hevleh html iig butsaana
+     */
     public function textarea($label, $name, $attributes = array(), $text = '') {
 
         $value = '';
@@ -214,11 +318,18 @@ class Form {
                 }
             }
         }
-        $buf .= ' >';
+        $buf .= ' >' . "\n";
         $buf .= $value;
-        $buf .= '</textarea>';
+        $buf .= '</textarea>' . "\n";
 
         return $buf;
+    }
+
+    public function updateSession() {
+        global $session;
+
+        $sess = $session->get($this->form_name);
+        $session->set($this->form_name, $this->fields);
     }
 
 }
