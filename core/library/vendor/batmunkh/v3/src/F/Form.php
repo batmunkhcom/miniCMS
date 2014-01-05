@@ -96,8 +96,15 @@ class Form {
         if (is_array($attributes)) {
             foreach ($attributes as $k => $v) {
                 switch ($k) {
-                    case 'requied':
+                    case 'required':
                         $buf .= '' . $k . ' ';
+                        break;
+                    case 'value':
+                        if (post_exists($name)) {
+                            $buf .= $k . '="' . post($name) . '" ';
+                        } else {
+                            $buf .= '' . $k . ' ';
+                        }
                         break;
                     default:
                         $buf .= $k . '="' . $v . '" ';
@@ -106,7 +113,7 @@ class Form {
             }
         }
         $buf .= ' >';
-        if (strlen($help_text) > 0) {
+        if (strlen($text) > 0) {
             $buf .= '<p class="help-block">' . $text . '</p>';
         }
 
@@ -182,6 +189,36 @@ class Form {
         }
 
         return false;
+    }
+
+    public function textarea($label, $name, $attributes = array(), $text = '') {
+
+        $value = '';
+
+        $buf = '<textarea name="' . $name . '" id="' . $name . '" ';
+        if (is_array($attributes)) {
+            foreach ($attributes as $k => $v) {
+                switch ($k) {
+                    case 'required':
+                        $buf .= '' . $k . ' ';
+                        break;
+                    case 'value':
+                        if (post_exists($name)) {
+                            $value = post($name);
+                        }
+                        $value = '' . $k . ' ';
+                        break;
+                    default:
+                        $buf .= $k . '="' . $v . '" ';
+                        break;
+                }
+            }
+        }
+        $buf .= ' >';
+        $buf .= $value;
+        $buf .= '</textarea>';
+
+        return $buf;
     }
 
 }

@@ -69,3 +69,12 @@ function post($key) {
         return false;
     }
 }
+
+function post_exists($key) {
+    if (isset($_POST[$key])) {
+
+        return true;
+    }
+
+    return false;
+}
