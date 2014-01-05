@@ -288,7 +288,7 @@ class Form {
      */
     public function checkbox($label, $name, $attributes, $validation, $text) {
         $buf = '';
-        $buf .= '<label class="label_check" for="' . $name . '">' . "\n";
+        $buf .= '<label class="label_check" for="' . $name . '" onclick="if($(\'#' . $this->fixElementId($name) . '\').attr(\'checked\')==true) {$(\'#' . $this->fixElementId($name) . '\').removeAttr(\'checked\');}else{$(\'#' . $this->fixElementId($name) . '\').attr(\'checked\',true);} ">' . "\n";
         $buf .= '<input name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
 
         if (isset($this->session['fields_data'][$name]) && $this->session['fields_data'][$name] == $attributes['value']) {
@@ -304,7 +304,7 @@ class Form {
                     break;
             }
         }
-        $buf .= 'type="checkbox" />' . "\n";
+        $buf .= 'type="checkbox" >' . "\n";
         $buf .= $text . "\n";
         $buf .= '</label>' . "\n";
         $buf .= '';
@@ -367,7 +367,7 @@ class Form {
 //        return true;
     }
 
-    public function updateSessionSubmit($form_name) {
+    public function updateSessionDataAfterFormSubmit($form_name) {
         global $session;
 
         $this->form_name = $form_name;
@@ -405,7 +405,18 @@ class Form {
         $sess_data = $session->get($form_name);
 
         foreach ($sess_data['fields'] as $k => $v) {
+
             $sess_data['fields_data'][$k] = post($k);
+
+//checkbox bval utgiig onooh
+            if ($v == 'checkbox') {
+                if (post_exists($k)) {
+                    $sess_data['fields_data'][$k] = post($k);
+                }
+//                echo post($k) . '.....';
+//                print_r($_POST);
+//                die();
+            }
             //validation ehlev
             if (isset($sess_data['validations'][$k]['is_required']) && (int) $sess_data['validations'][$k]['is_required'] == 1 && $sess_data['fields_data'][$k] == '') {
                 $is_valid = 0;
@@ -432,7 +443,7 @@ class Form {
         $this->fields_data = $sess_data['fields_data'];
         $this->validations = $sess_data['validations'];
         $this->errors = $sess_data['errors'];
-        $this->updateSessionSubmit($form_name);
+        $this->updateSessionDataAfterFormSubmit($form_name);
 //        echo '<hr>';
 //        print_r($sess_data);
 //        echo $is_valid;
