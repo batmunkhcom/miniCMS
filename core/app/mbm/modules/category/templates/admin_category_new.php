@@ -6,6 +6,7 @@
 <?php if (has_flash()): ?>
     <div class="col-lg-12">
         <?php echo render_flash(); ?>
+        <?php echo print_r(get_flash()); ?>
     </div>
 <?php endif; ?>
 <div class="row">

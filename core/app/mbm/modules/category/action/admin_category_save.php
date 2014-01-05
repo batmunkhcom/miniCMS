@@ -1,7 +1,7 @@
 <?php
 
 $form = new F\Form\CategoryForm('category');
-print_r($session->get('category'));
+//print_r($session->get('category'));
 
 if ($form->isValid('category') == 1) {
 
@@ -39,6 +39,10 @@ if ($form->isValid('category') == 1) {
         $error_txt .= $v . '<br>';
     }
     set_flash($error_txt, 'error');
+//    print_r($session->get('category'));
+//    echo '<hr>';
+//    print_r($_SESSION);
+//    die();
 //    set_flash(__('Could not create category. Please enter valid data.'), 'error');
 //    header("Location: " . get_url('admin_category_new'));
 }
