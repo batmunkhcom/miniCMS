@@ -47,13 +47,13 @@ class CategoryForm extends \F\Form {
             'value' => \Category::formOptions()
         ));
         $form->addElement(__('Is 18+'), 'is_adult', 'checkbox', array(
-            'class' => 'form-control',
+            'class' => 'checkbox form-control',
             'value' => 1
                 ), array(
             'minlength' => 1
         ));
         $form->addElement(__('Is external'), 'is_external', 'checkbox', array(
-            'class' => 'form-control',
+            'class' => 'checkbox form-control',
             'value' => 1,
             'onclick' => "$('#element_external_url').toggle();"
         ));

@@ -288,7 +288,7 @@ class Form {
      */
     public function checkbox($label, $name, $attributes, $validation, $text) {
         $buf = '';
-        $buf .= '<label class="label_check" for="' . $name . '" onclick="if($(\'#' . $this->fixElementId($name) . '\').attr(\'checked\')==true) {$(\'#' . $this->fixElementId($name) . '\').removeAttr(\'checked\');}else{$(\'#' . $this->fixElementId($name) . '\').attr(\'checked\',true);} ">' . "\n";
+        $buf .= '<label class="control-label" for="' . $name . '" >' . "\n";
         $buf .= '<input name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
 
         if (isset($this->session['fields_data'][$name]) && $this->session['fields_data'][$name] == $attributes['value']) {
