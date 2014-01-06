@@ -5,6 +5,11 @@ $form = new F\Form\CategoryForm('category');
 if ($form->isValid('category') == 1) {
 
     //category iin baruun zuuniig todorhoiloh
+    $lft = '';
+    $rgt = '';
+
+    //pos todorhoiloh
+    $pos = 1;
 
     $category_db = db_unit($db, 'Category');
     $category = new D\Model\Category(
@@ -12,11 +17,11 @@ if ($form->isValid('category') == 1) {
         'category_id' => post('category_id'),
         'code' => post('code'),
         'depth' => post(''),
-        'lft' => post(''),
-        'rgt' => post(''),
+        'lft' => $lft,
+        'rgt' => $rgt,
         'st' => post('st'),
         'user_id' => get_logged_user_id(),
-        'pos' => post(''),
+        'pos' => $pos,
         'name' => post('name'),
         'is_external' => post('is_external'),
         'external_url' => post('external_url'),
