@@ -19,3 +19,8 @@ function __($txt = '') {
 
     return M\Language::get($txt);
 }
+
+function get_lang() {
+
+    return 'mn';
+}

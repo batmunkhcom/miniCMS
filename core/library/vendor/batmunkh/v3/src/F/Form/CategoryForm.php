@@ -40,7 +40,7 @@ class CategoryForm extends \F\Form {
                 ), array(
             'is_required' => 1,
             'minlength' => 2,
-            'maxlength' => 5
+            'maxlength' => 25
         ));
         $form->addElement(__('Parent category'), 'category_id', 'select', array(
             'class' => 'form-control',
@@ -50,7 +50,6 @@ class CategoryForm extends \F\Form {
             'class' => 'checkbox form-control',
             'value' => 1
                 ), array(
-            'minlength' => 1
         ));
         $form->addElement(__('Is external'), 'is_external', 'checkbox', array(
             'class' => 'checkbox form-control',

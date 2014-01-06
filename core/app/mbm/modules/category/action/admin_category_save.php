@@ -1,7 +1,6 @@
 <?php
 
 $form = new F\Form\CategoryForm('category');
-//print_r($session->get('category'));
 
 if ($form->isValid('category') == 1) {
 
@@ -16,16 +15,16 @@ if ($form->isValid('category') == 1) {
         'lft' => post(''),
         'rgt' => post(''),
         'st' => post('st'),
-        'user_id' => post(''),
+        'user_id' => get_logged_user_id(),
         'pos' => post(''),
         'name' => post('name'),
         'is_external' => post('is_external'),
         'external_url' => post('external_url'),
-        'lang' => post(''),
+        'lang' => get_lang(),
         'hits' => 0,
         'date_created' => convert_date(date("Y-M-D H:i:s")),
         'date_last_updated' => convert_date(date("Y-M-D H:i:s")),
-        'is_adult' => post('')
+        'is_adult' => post('is_adult')
             )
     );
     $category_db->registerNew($category);
@@ -39,11 +38,5 @@ if ($form->isValid('category') == 1) {
         $error_txt .= $v . '<br>';
     }
     set_flash($error_txt, 'error');
-//    print_r($session->get('category'));
-//    echo '<hr>';
-//    print_r($_SESSION);
-//    die();
-//    set_flash(__('Could not create category. Please enter valid data.'), 'error');
-//    header("Location: " . get_url('admin_category_new'));
 }
 header("Location: " . get_url('admin_category_new'));
