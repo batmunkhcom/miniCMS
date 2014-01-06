@@ -22,6 +22,14 @@ class CategoryForm extends \F\Form {
 
     public $form;
 
+    /**
+     * CategoryForm uusgeh
+     *
+     * @param string $name Form iin ner
+     * @param array $configure Form iin tohirgoo. attribute bolon busad medeelliig aguulna
+     *
+     * @return object Form obj iig butsaana
+     */
     public function __construct($name = 'category', $configure = array()) {
 
         $form = new \F\Form($name, $configure);
