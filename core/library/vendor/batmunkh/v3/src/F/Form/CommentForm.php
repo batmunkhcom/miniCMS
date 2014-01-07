@@ -22,7 +22,38 @@ class CommentForm extends \F\PFBC\Form {
 
     public $form;
 
-    public function __construct($form_name = 'comment', $code = '') {
+     public function __construct($name = 'comment', $configure = array()) {
+
+        $form = new \F\Form($name, $configure);
+
+        $form->addElement(__('Name'), 'name', 'input', array(
+            'class' => 'form-control',
+            'value' => post('name'),
+            'minlength' => 2,
+            'required' => 'true'
+                ), array(
+            'minlength' => 2
+        ));
+        $form->addElement(__('Comment'), 'comment', 'input', array(
+            'class' => 'form-control',
+            'value' => post('comment')
+                ), array(
+            'is_required' => 1,
+            'minlength' => 2
+        ));
+        $form->addElement('', 'send_comment', 'button', array(
+            'class' => 'btn btn-success',
+            'type' => 'submit',
+            'value' => __('Send')
+        ));
+
+
+        $this->form = $form;
+        return $form;
+    }
+    
+    /*public function __construct($form_name = 'comment', $code = '') {
+        
 
         $form = new \F\PFBC\Form($form_name);
         $form->configure(
@@ -49,5 +80,5 @@ class CommentForm extends \F\PFBC\Form {
 
         return $this;
     }
-
+*/
 }
