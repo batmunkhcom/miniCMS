@@ -1,6 +1,3 @@
-<div class="col-lg-12">
-    <?php print_r($sess); ?>
-</div>
 <?php if (has_flash()): ?>
     <div class="col-lg-12">
         <?php echo render_flash(); ?>
