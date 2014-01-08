@@ -40,3 +40,11 @@ $lang['Pano'] = 'Пано';
 $lang['Save category'] = 'Хадгалах';
 $lang['Parent Category'] = 'Ангилал';
 $lang['Pending'] = 'Хүлээдэж буй';
+$lang['Hits'] = 'Үзэлт';
+$lang['User id'] = 'Хэрэглэгчийн дугаар';
+$lang['Content type'] = 'Төрөл';
+$lang['Code'] = 'Код';
+$lang['ID'] = 'Дугаар';
+$lang['Contents'] = 'Агуулга';
+$lang['Modules'] = 'Модуль';
+
