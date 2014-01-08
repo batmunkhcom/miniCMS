@@ -28,19 +28,4 @@ class Content extends D\Model\Content {
         return $all_contents;
     }
 
-    public static function toArray($content_id = 0) {
-        $contents = self::fetchAll($content_id);
-        $contents_array = array();
-        foreach ($contents as $content) {
-            $contents_array[$content->id] = array(
-                'title' => $content->title,
-                'code' => $content->code,
-                'content_brief' => $content->content_brief,
-                'content_body' => $content->content_body
-            );
-        }
-
-        return $contents_array;
-    }
-
 }
