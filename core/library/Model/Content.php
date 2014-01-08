@@ -18,20 +18,18 @@
  */
 class Content extends D\Model\Content {
 
-    public static function fetchAll($category_id = 0) {
+    public static function fetchAll($content_id = 0) {
         global $db;
 
         $mapper_db = db_unit($db, __CLASS__);
 
-        $all_contents = $mapper_db->fetchAll(array(
-            'category_id' => $category_id
-                ), 'id asc');
+        $all_contents = $mapper_db->fetchAll(array(), 'id asc');
 
         return $all_contents;
     }
 
-    public static function toArray($category_id = 0) {
-        $contents = self::fetchAll($category_id);
+    public static function toArray($content_id = 0) {
+        $contents = self::fetchAll($content_id);
         $contents_array = array();
         foreach ($contents as $content) {
             $contents_array[$content->id] = array(

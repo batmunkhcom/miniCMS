@@ -42,6 +42,9 @@ class SettingForm extends \F\Form {
             'is_required' => 1,
             'minlength' => 2
         ));
+<<<<<<< HEAD
+        
+=======
 
         $form->addElement('', 'add_category', 'button', array(
             'class' => 'btn btn-success',
@@ -50,6 +53,7 @@ class SettingForm extends \F\Form {
         ));
 
 
+>>>>>>> e54e3088b19a4b72a84b9587af0b241d756e8685
         $this->form = $form;
         return $form;
     }
