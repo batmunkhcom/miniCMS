@@ -13,9 +13,8 @@
         /*         * *********** setting JS files ************ */
         //jquery duudah
         js_set_loadfile('/js/lib/jquery/jquery.js', 1);
-//        js_set_loadfile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', 2);
+        js_set_loadfile('http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', 2);
         js_set_loadfile('/assets/flatlab/admin/assets/jquery-ui/jquery-ui-1.10.2.custom.min.js', 2);
-        js_set_loadfile('/assets/flatlab/admin/js/common-scripts.js', 3);
 //        js_set_loadfile('/assets/flatlab/admin/js/jquery-1.8.3.min.js');
         //common js duudah.
         js_set_loadfile('/js/common.js', 3);
@@ -100,10 +99,20 @@
         <script class="include" type="text/javascript" src="/assets/flatlab/admin/js/jquery.dcjqaccordion.2.7.js"></script>
         <script src="/assets/flatlab/admin/js/jquery.scrollTo.min.js"></script>
         <script src="/assets/flatlab/admin/js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script src="/assets/flatlab/admin/js/jquery.sparkline.js" type="text/javascript"></script>
+        <script src="/assets/flatlab/admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+        <script src="/assets/flatlab/admin/js/owl.carousel.js" ></script>
+        <script src="/assets/flatlab/admin/js/jquery.customSelect.min.js" ></script>
+
         <script src="/assets/flatlab/admin/js/respond.min.js" ></script>
 
         <!--common script for all pages-->
         <script src="/assets/flatlab/admin/js/common-scripts.js"></script>
+        <!--nemelt scriptuud -->
+        <script src="/assets/flatlab/admin/js/sparkline-chart.js"></script>
+        <script src="/assets/flatlab/admin/js/easy-pie-chart.js"></script>
+        <script src="/assets/flatlab/admin/js/count.js"></script>
+
 
     </body>
 </html>
