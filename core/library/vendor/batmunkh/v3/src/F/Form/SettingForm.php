@@ -42,40 +42,8 @@ class SettingForm extends \F\Form {
             'is_required' => 1,
             'minlength' => 2
         ));
-<<<<<<< HEAD
-        
-=======
-
-        $form->addElement('', 'add_category', 'button', array(
-            'class' => 'btn btn-success',
-            'type' => 'submit',
-            'value' => __('Add category')
-        ));
-
-
->>>>>>> e54e3088b19a4b72a84b9587af0b241d756e8685
         $this->form = $form;
         return $form;
     }
 
-    /* public function __construct($form_name = 'setting') {
-      $form = new F\PFBC\Form($form_name);
-
-      $form->addElement(new \F\PFBC\Element\HTML('<legend>' . __('Settings') . '</legend>'));
-      $form->addElement(new \F\PFBC\Element\Hidden('form_name', $form_name));
-      $form->addElement(new \F\PFBC\Element\Textbox(__('Setting name') . ":", "name", array(
-      "required" => 1,
-      "longDesc" => __('Name field is required')
-      )));
-      $form->addElement(new \F\PFBC\Element\Textbox(__('Setting value') . ":", "value", array(
-      "required" => 1,
-      "longDesc" => __('Name field is required')
-      )));
-
-
-      $this->form = $form;
-
-      return $form;
-      }
-     */
 }

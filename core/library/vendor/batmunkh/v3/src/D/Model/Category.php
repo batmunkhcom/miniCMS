@@ -35,6 +35,7 @@ class Category extends AbstractEntity {
         'lang',
         'hits',
         'date_created',
+        'date_publish',
         'date_last_updated',
         'last_updated_user_id',
         'is_adult');
@@ -373,6 +374,30 @@ class Category extends AbstractEntity {
             $date_created = "";
         }
         $this->fields["date_created"] = $date_created;
+
+        return $this;
+    }
+
+    /**
+     * field info:
+     *    name:       date_publish
+     *    type:       datetime
+     *    null:       NO
+     *    default:
+     *    extra:
+     *    generated:  2013-12-28 07:34:15 am
+     * @param $date_publish datetime Category iin date_publish. hezee postloh field
+     * @return object
+     */
+    public function setDatePublish($date_publish) {
+        if (!isset($date_publish)) {
+            $date_publish = \M\Carbon::now();
+        }
+
+        if (!isset($date_publish) || $date_publish == "") {
+            $date_publish = "";
+        }
+        $this->fields["date_publish"] = $date_publish;
 
         return $this;
     }
