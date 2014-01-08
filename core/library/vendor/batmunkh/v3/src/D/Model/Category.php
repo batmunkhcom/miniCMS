@@ -31,6 +31,7 @@ class Category extends AbstractEntity {
         'name',
         'is_external',
         'external_url',
+        'target',
         'lang',
         'hits',
         'date_created',
@@ -268,6 +269,24 @@ class Category extends AbstractEntity {
             $is_external = "0";
         }
         $this->fields["is_external"] = $is_external;
+
+        return $this;
+    }
+
+    /**
+     * field info:
+     *    name:       target
+     *    type:       varchar(255)
+     *    null:       YES
+     *    default:
+     *    extra:
+     *    generated:  2013-12-28 07:34:15 am
+     * @param $target string Category iin link target
+     * @return object
+     */
+    public function setTarget($target) {
+        $target = (string) $target;
+        $this->fields["target"] = $target;
 
         return $this;
     }
