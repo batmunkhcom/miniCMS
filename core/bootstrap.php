@@ -9,7 +9,7 @@
  */
 
 define('DS', DIRECTORY_SEPARATOR);
-define('DIR_ABS', __DIR__ . DS . '../');
+define('DIR_ABS', str_replace(basename(__DIR__), '', __DIR__));
 
 //Folder configuration
 define('DIR_CORE', DIR_ABS . 'core' . DS);
