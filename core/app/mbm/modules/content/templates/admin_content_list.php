@@ -1,12 +1,18 @@
-<?php
-echo render_flash();
-?>
+<div class="row">
+    <div class="col-lg-6">
+        <header class="panel-heading">
+                <?php echo __("Contents"); ?>
+            </header>
+    </div>
+    <div class="col-lg-6 text-right">
+        <button type="button" class="btn btn-primary">
+            <i class="fa fa-plus-circle"></i> <?php echo __('Add content'); ?>
+        </button>
+    </div>
+</div>
 <div class="row">
     <div class="col-lg-12">
         <section class="panel">
-            <header class="panel-heading">
-                <?php echo __("Contents"); ?>
-            </header>
             <div class="panel-body">
                 <div class="adv-table">
                     <table  class="display table table-bordered table-striped" id="contentList">
@@ -18,7 +24,8 @@ echo render_flash();
                                 <th><?php echo __('Content type'); ?></th>
                                 <th><?php echo __('User id'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
-                                <th ><?php echo __('Hits'); ?></th>
+                                <th><?php echo __('Hits'); ?></th>
+                                <th width="150"><?php echo __('Admin commands'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,6 +56,17 @@ echo render_flash();
                                         </span>
                                     </td>
                                     <td class="center"><?php echo $content->hits; ?></td>
+                                    <td class="center">
+                                        <div class="btn-group">
+                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
+                                            <ul role="menu" class="dropdown-menu">
+                                                <li><a href="#"><?php echo __('Edit category'); ?></a></li>
+                                                <li><a href="#"><?php echo __('Delete category'); ?></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                     
                                 </tr>
                             <?php endforeach; ?>
@@ -62,6 +80,7 @@ echo render_flash();
                                 <th><?php echo __('User id'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
                                 <th ><?php echo __('Hits'); ?></th>
+                                <th><?php echo __('Admin commands'); ?></th>
                             </tr>
                         </tfoot>
                     </table>
