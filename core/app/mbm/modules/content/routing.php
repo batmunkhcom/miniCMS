@@ -38,11 +38,10 @@ $router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service
 });
 
 
-
-
 /*
  * admin route tohiruulah
  */
+//admin routes
 
 $router->with('/admin/content', function () use ($router) {
 
@@ -72,4 +71,3 @@ $router->with('/admin/content', function () use ($router) {
         set_get_parameter('id', $request->id);
     });
 });
-

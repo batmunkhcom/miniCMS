@@ -7,15 +7,21 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-set_route('setting_comment_action', '/setting/save');
-$router->with('/setting', function () use ($router) {
+set_route('admin_setting_save', '/admin/setting/save');
+set_route('admin_setting_edit', '/admin/setting/edit');
+set_route('admin_setting_list', '/admin/setting/list');
 
-    //comment home
+//settings admin route
+$router->with('/admin/setting', function () use ($router) {
+
+    set_layout('admin');
+    
+    //settings home
     $router->respond('GET', '/?', function ($request, $response) {
 
     });
 
-    //comment save
+    //settings save
     $router->respond('POST', '/save', function ($request, $response, $service) {
 
         //form invalid bol
