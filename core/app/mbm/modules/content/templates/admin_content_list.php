@@ -24,7 +24,7 @@ echo render_flash();
                         <tbody>
                             <?php foreach ($contents as $content): ?>
                                 <tr >
-                                    <td><?php echo $content->id; ?>.</td>
+                                    <td><?php echo $content->content_id; ?>.</td>
                                     <td><?php echo $content->code; ?></td>
                                     <td><?php echo $content->title; ?></td>
                                     <td class="center"><?php echo $content->content_type; ?></td>
