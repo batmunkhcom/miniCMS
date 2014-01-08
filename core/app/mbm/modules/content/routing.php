@@ -74,10 +74,3 @@ $router->with('/admin/content', function () use ($router) {
         set_module('content');
     });
 });
-
-//echo \M\Config::get('module_current');
-//echo '.....';
-//echo \M\Config::get('action_current');
-//echo '<br>';
-//print_r(M\Config::$data);
-//die();
