@@ -38,7 +38,7 @@ class UnitOfWork implements UnitOfWorkInterface {
         return $this;
     }
 
-    public function registerClean(\D\Model\EntityInterface $entity) {
+    public function registerClean(/* \D\Model\EntityInterface */ $entity) {
         $this->registerEntity($entity, self::STATE_CLEAN);
         return $this;
     }

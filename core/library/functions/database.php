@@ -44,8 +44,8 @@ function load_db($config = array()) {
 function db_unit($db, $mapper) {
 
     $mapper_full_name = '\\D\\Mapper\\' . $mapper . 'Mapper';
-    $obj_storage = new D\Storage\ObjectStorage;
-    $entity_collection = new D\Model\Collection\EntityCollection;
+    $obj_storage = new \D\Storage\ObjectStorage;
+    $entity_collection = new \D\Model\Collection\EntityCollection;
 
     $db_mapper = new $mapper_full_name($db, $entity_collection);
     $mapper_db = new D\Model\Repository\UnitOfWork(

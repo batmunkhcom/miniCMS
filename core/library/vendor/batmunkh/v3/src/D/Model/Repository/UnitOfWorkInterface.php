@@ -10,7 +10,7 @@ interface UnitOfWorkInterface {
 
     public function registerNew(\D\Model\EntityInterface $entity);
 
-    public function registerClean(\D\Model\EntityInterface $entity);
+    public function registerClean(/* \D\Model\EntityInterface */ $entity);
 
     public function registerDirty(\D\Model\EntityInterface $entity);
 

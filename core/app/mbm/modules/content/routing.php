@@ -7,6 +7,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+set_route('admin_content_list', '/admin/content');
+set_route('admin_content_new', '/admin/content/new');
+set_route('admin_content_save', '/admin/content/save');
+set_route('admin_content_edit', '/admin/content/edit/{id}');
+
 /* * *****KLEIN ROUTING****** */
 $router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service, $app) {
 
@@ -31,3 +36,40 @@ $router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service
      */
     return '';
 });
+
+
+
+
+/*
+ * admin route tohiruulah
+ */
+
+$router->with('/admin/content', function () use ($router) {
+
+    set_module('content');
+
+    //content home
+    $router->respond('GET', '/?', function ($request, $response) {
+        set_action('admin_content_list');
+    });
+
+    //content create
+    $router->respond('GET', '/new', function ($request, $response) {
+
+        set_action('admin_content_new');
+    });
+
+    //content save
+    $router->respond('POST', '/save', function ($request, $response) {
+
+        set_action('admin_content_save');
+    });
+
+    //content update
+    $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
+        set_action('admin_content_edit');
+
+        set_get_parameter('id', $request->id);
+    });
+});
+

@@ -38,7 +38,7 @@ $mbm_config ['cache_port'] = 11218;
 
 /* * **************Logger tohirgoo******************** */
 $mbm_config ['enable_debug'] = 1;
-$mbm_config ['enable_log'] = 1;
+$mbm_config ['enable_log'] = 0;
 //graylog2 tested gelf-php used to log to remote server.
 $mbm_config ['log_server'] = '203.194.113.3';
 $mbm_config ['log_facility'] = 'miniCMSv3';

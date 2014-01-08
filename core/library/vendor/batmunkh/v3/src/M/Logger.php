@@ -31,12 +31,15 @@ class Logger {
 
     public function __construct($facility) {
 
-        $logger = new Gelf\Logger(
-                new \Gelf\Publisher(
-                new \Gelf\Transport\UdpTransport(LOG_SERVER)
-                ), $facility
-        );
-
+        if (ENABLE_LOG == 1) {
+            $logger = new Gelf\Logger(
+                    new \Gelf\Publisher(
+                    new \Gelf\Transport\UdpTransport(LOG_SERVER)
+                    ), $facility
+            );
+        } else {
+            return;
+        }
         $this->logger = $logger;
         $this->facility = $facility;
     }
@@ -53,8 +56,7 @@ class Logger {
      *      ERROR
      *      */
 
-    public
-            function send($msg, $log_level) {
+    public function send($msg, $log_level) {
 
     }
 

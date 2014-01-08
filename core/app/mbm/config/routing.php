@@ -44,9 +44,14 @@ $router->respond('!@^/admin', function() {
     set_layout('default');
 });
 
+//admin gej ehlesen tohioldold buh huudsuud
+$router->respond('@^/admin', function() {
+    \M\Config::set('is_admin', 0);
+    set_layout('admin');
+});
+
 //admin ii route
 $router->with('/admin', function () use ($router) {
-    set_layout('admin');
     \M\Config::set('is_admin', 1);
 
     //admin home

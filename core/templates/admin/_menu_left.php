@@ -13,7 +13,7 @@
         </a>
         <ul class="sub">
             <li><a  href="<?php echo get_url('admin_category_list') ?>"><?php echo __('Categories'); ?></a></li>
-            <li><a  href="#"><?php echo __('Content'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_content_list') ?>"><?php echo __('Content'); ?></a></li>
             <li><a  href="#"><?php echo __('Comments'); ?></a></li>
             <li><a  href="#"><?php echo __('Pano'); ?></a></li>
             <li><a  href="#"><?php echo __('Survey'); ?></a></li>

@@ -20,7 +20,7 @@ M\File::getAndIncludePHPFiles(DIR_LIB . 'functions' . DS);
 $config = new M\Core($mbm_config);
 
 
-if (check_host_status('udp://' . LOG_SERVER, 12201, 1) == 'online') {
+if (check_host_status('udp://' . LOG_SERVER, 12201, 1) == 'online' && ENABLE_LOG == 1) {
     //error iig uuruu barij avah
     $logger = new Gelf\Logger(new \Gelf\Publisher(new \Gelf\Transport\UdpTransport(LOG_SERVER)), LOG_FACILITY);
     //$logger iig zarlasnii dara tohiruulna
