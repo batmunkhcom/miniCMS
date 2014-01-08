@@ -2,11 +2,20 @@
 echo render_flash();
 ?>
 <div class="row">
-    <div class="col-lg-12">
-        <section class="panel">
-            <header class="panel-heading">
+    <div class="col-lg-6">
+        <header class="panel-heading">
                 <?php echo __("Categories"); ?>
             </header>
+    </div>
+    <div class="col-lg-6 text-right">
+        <button type="button" class="btn btn-primary">
+            <i class="fa fa-plus-circle"></i> <?php echo __('Add category'); ?>
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
             <div class="panel-body">
                 <div class="adv-table">
                     <table  class="display table table-bordered table-striped" id="categoryList">
