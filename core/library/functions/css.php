@@ -23,7 +23,9 @@ function css_load($addidtional_files = array()) {
     //shuud duudah file uud.
     $files = \M\Config::get('css_loadfile');
 
-    ksort($files);
+    if (is_array($files)) {
+        ksort($files);
+    }
 
     $files['5_1'] = PROTOCOL . DOMAIN . DS . 'css/main.css';
 

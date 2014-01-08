@@ -68,6 +68,9 @@ class Config extends Core {
 
     static function set($key = '', $value = '') {
 
+//        if ($key != 'router') {
+//            echo $key . '---' . $value . '..<br>';
+//        }
         self::$data[$key] = $value;
         return;
     }

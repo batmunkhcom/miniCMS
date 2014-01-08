@@ -45,8 +45,8 @@ $router->respond('!@^/admin', function() {
 });
 
 //admin gej ehlesen tohioldold buh huudsuud
-$router->respond('@^/admin', function() {
-    \M\Config::set('is_admin', 0);
+$router->respond('@^/admin', function($request, $response, $service, $app) {
+    $response->noCache();
     set_layout('admin');
 });
 

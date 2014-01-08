@@ -18,15 +18,15 @@ namespace F\Form;
  * @author     BATMUNKH Moltov <contact@batmunkh.com>
  * @version    SVN: $Id
  */
-class SettingForm extends \F\PFBC\Form {
+class SettingForm extends \F\Form {
 
     public $form;
 
-     public function __construct($name = 'setting', $configure = array()) {
+    public function __construct($name = 'setting', $configure = array()) {
 
         $form = new \F\Form($name, $configure);
 
-        
+
         $form->addElement(__('Setting name'), 'name', 'input', array(
             'class' => 'form-control',
             'value' => post('name')
@@ -34,7 +34,7 @@ class SettingForm extends \F\PFBC\Form {
             'is_required' => 1,
             'minlength' => 2
         ));
-        
+
         $form->addElement(__('Setting value'), 'value', 'input', array(
             'class' => 'form-control',
             'value' => post('value')
@@ -42,7 +42,7 @@ class SettingForm extends \F\PFBC\Form {
             'is_required' => 1,
             'minlength' => 2
         ));
-        
+
         $form->addElement('', 'add_category', 'button', array(
             'class' => 'btn btn-success',
             'type' => 'submit',
@@ -53,25 +53,25 @@ class SettingForm extends \F\PFBC\Form {
         $this->form = $form;
         return $form;
     }
-    
-    /*public function __construct($form_name = 'setting') {
-        $form = new F\PFBC\Form($form_name);
 
-        $form->addElement(new \F\PFBC\Element\HTML('<legend>' . __('Settings') . '</legend>'));
-        $form->addElement(new \F\PFBC\Element\Hidden('form_name', $form_name));
-        $form->addElement(new \F\PFBC\Element\Textbox(__('Setting name') . ":", "name", array(
-            "required" => 1,
-            "longDesc" => __('Name field is required')
-        )));
-        $form->addElement(new \F\PFBC\Element\Textbox(__('Setting value') . ":", "value", array(
-            "required" => 1,
-            "longDesc" => __('Name field is required')
-        )));
+    /* public function __construct($form_name = 'setting') {
+      $form = new F\PFBC\Form($form_name);
+
+      $form->addElement(new \F\PFBC\Element\HTML('<legend>' . __('Settings') . '</legend>'));
+      $form->addElement(new \F\PFBC\Element\Hidden('form_name', $form_name));
+      $form->addElement(new \F\PFBC\Element\Textbox(__('Setting name') . ":", "name", array(
+      "required" => 1,
+      "longDesc" => __('Name field is required')
+      )));
+      $form->addElement(new \F\PFBC\Element\Textbox(__('Setting value') . ":", "value", array(
+      "required" => 1,
+      "longDesc" => __('Name field is required')
+      )));
 
 
-        $this->form = $form;
+      $this->form = $form;
 
-        return $form;
-    }
-*/
+      return $form;
+      }
+     */
 }

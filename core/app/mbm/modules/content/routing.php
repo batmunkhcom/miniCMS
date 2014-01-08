@@ -45,29 +45,39 @@ $router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service
 
 $router->with('/admin/content', function () use ($router) {
 
-    set_module('content');
-
     //content home
     $router->respond('GET', '/?', function ($request, $response) {
+
         set_action('admin_content_list');
+        set_module('content');
     });
 
     //content create
     $router->respond('GET', '/new', function ($request, $response) {
 
+        set_module('content');
         set_action('admin_content_new');
     });
 
     //content save
     $router->respond('POST', '/save', function ($request, $response) {
 
+        set_module('content');
         set_action('admin_content_save');
     });
 
     //content update
     $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
-        set_action('admin_content_edit');
 
+        set_action('admin_content_edit');
         set_get_parameter('id', $request->id);
+        set_module('content');
     });
 });
+
+//echo \M\Config::get('module_current');
+//echo '.....';
+//echo \M\Config::get('action_current');
+//echo '<br>';
+//print_r(M\Config::$data);
+//die();

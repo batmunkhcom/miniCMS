@@ -27,29 +27,32 @@ $router->respond('GET', '/c.*', function () {
 
 $router->with('/admin/category', function () use ($router) {
 
-    set_module('category');
-
     //category home
     $router->respond('GET', '/?', function ($request, $response) {
+
+        set_module('category');
         set_action('admin_category_list');
     });
 
     //category create
     $router->respond('GET', '/new', function ($request, $response) {
 
+        set_module('category');
         set_action('admin_category_new');
     });
 
     //category save
     $router->respond('POST', '/save', function ($request, $response) {
 
+        set_module('category');
         set_action('admin_category_save');
     });
 
     //category update
     $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
-        set_action('admin_category_edit');
 
+        set_module('category');
+        set_action('admin_category_edit');
         set_get_parameter('id', $request->id);
     });
 });

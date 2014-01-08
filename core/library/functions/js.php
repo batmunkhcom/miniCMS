@@ -18,7 +18,9 @@ function js_load() {
     //shuud duudah file uud.
     $files = \M\Config::get('js_loadfile');
 
-    ksort($files);
+    if (is_array($files)) {
+        ksort($files);
+    }
 
     $files[5] = PROTOCOL . DOMAIN . DS . 'js/main.js';
 
