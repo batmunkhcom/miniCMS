@@ -18,7 +18,8 @@ echo render_flash();
                                 <th><?php echo __('Content type'); ?></th>
                                 <th><?php echo __('User id'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
-                                <th ><?php echo __('Hits'); ?></th>
+                                <th><?php echo __('Hits'); ?></th>
+                                <th width="150"><?php echo __('Admin commands'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,6 +50,17 @@ echo render_flash();
                                         </span>
                                     </td>
                                     <td class="center"><?php echo $content->hits; ?></td>
+                                    <td class="center">
+                                        <div class="btn-group">
+                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
+                                            <ul role="menu" class="dropdown-menu">
+                                                <li><a href="#"><?php echo __('Edit category'); ?></a></li>
+                                                <li><a href="#"><?php echo __('Delete category'); ?></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                     
                                 </tr>
                             <?php endforeach; ?>
@@ -62,6 +74,7 @@ echo render_flash();
                                 <th><?php echo __('User id'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
                                 <th ><?php echo __('Hits'); ?></th>
+                                <th><?php echo __('Admin commands'); ?></th>
                             </tr>
                         </tfoot>
                     </table>
