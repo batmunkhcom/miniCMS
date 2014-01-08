@@ -23,15 +23,14 @@ function css_load($addidtional_files = array()) {
     //shuud duudah file uud.
     $files = \M\Config::get('css_loadfile');
 
-    if (is_array($files)) {
-        ksort($files);
-    }
 
     $files['5_1'] = PROTOCOL . DOMAIN . DS . 'css/main.css';
 
     if (\M\Config::get('is_admin') != 1) {
         $files[5] = PROTOCOL . DOMAIN . DS . 'css/style.css';
     }
+
+    ksort($files);
 
     $buf = '';
     foreach ($files as $k => $v) {
