@@ -12,7 +12,7 @@ set_route('admin_content_new', '/admin/content/new');
 set_route('admin_content_save', '/admin/content/save');
 set_route('admin_content_edit', '/admin/content/edit/{id}');
 
-/* * *****KLEIN ROUTING****** */
+/* * *****FRONTEND ROUTING****** */
 $router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service, $app) {
 
     set_application(APP_ENABLED);
