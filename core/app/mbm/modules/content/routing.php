@@ -31,3 +31,39 @@ $router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service
      */
     return '';
 });
+
+
+//admin routes
+set_route('admin_content_list', '/admin/content');
+set_route('admin_content_new', '/admin/content/new');
+set_route('admin_content_save', '/admin/content/save');
+set_route('admin_content_edit', '/admin/content/edit/{id}');
+
+$router->with('/admin/content', function () use ($router) {
+
+    set_module('content');
+
+    //category home
+    $router->respond('GET', '/?', function ($request, $response) {
+        set_action('admin_content_list');
+    });
+
+    //category create
+    $router->respond('GET', '/new', function ($request, $response) {
+
+        set_action('admin_content_new');
+    });
+
+    //category save
+    $router->respond('POST', '/save', function ($request, $response) {
+
+        set_action('admin_content_save');
+    });
+
+    //category update
+    $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
+        set_action('admin_content_edit');
+
+        set_get_parameter('id', $request->id);
+    });
+});
