@@ -17,7 +17,7 @@ echo render_flash();
                                 <th><?php echo __('Status'); ?></th>
                                 <th><?php echo __('Hits'); ?></th>
                                 <th><?php echo __('18+'); ?></th>
-                                <th ><?php echo __('Admin commands'); ?></th>
+                                <th width="150"><?php echo __('Admin commands'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,8 +50,8 @@ echo render_flash();
                                         <div class="btn-group">
                                             <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
                                             <ul role="menu" class="dropdown-menu">
-                                                <li><a href="#"><?php echo __('Edit'); ?></a></li>
-                                                <li><a href="#"><?php echo __('Delete'); ?></a></li>
+                                                <li><a href="#"><?php echo __('Edit category'); ?></a></li>
+                                                <li><a href="#"><?php echo __('Delete category'); ?></a></li>
                                                 <li class="divider"></li>
                                                 <li><a href="#">Separated link</a></li>
                                             </ul>
