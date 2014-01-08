@@ -43,13 +43,6 @@ class SettingForm extends \F\PFBC\Form {
             'minlength' => 2
         ));
         
-        $form->addElement('', 'add_category', 'button', array(
-            'class' => 'btn btn-success',
-            'type' => 'submit',
-            'value' => __('Add category')
-        ));
-
-
         $this->form = $form;
         return $form;
     }
