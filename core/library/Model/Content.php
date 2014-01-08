@@ -18,13 +18,13 @@
  */
 class Content extends D\Model\Content {
 
-    public static function fetchAll($category_id = 0) {
+    public static function fetchAll($content_id = 0) {
         global $db;
 
         $mapper_db = db_unit($db, __CLASS__);
 
         $all_contents = $mapper_db->fetchAll(array(
-            'category_id' => $category_id
+            'content_id' => $content_id
                 ), 'id asc');
 
         return $all_contents;
