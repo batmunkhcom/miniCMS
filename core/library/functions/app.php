@@ -30,7 +30,6 @@ function load_app_action() {
             . 'templates' . DS .
             $action . '.php';
 
-
     //action file bgaa esehiig shalgah
     if (!file_exists($action_file)) {
         $action_file = get_error_page('404');

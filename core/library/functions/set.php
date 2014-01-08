@@ -30,6 +30,8 @@ function set_application($app) {
 function set_module($module) {
 
     \M\Config::set('module_current', $module);
+
+    return \M\Config::get('module_current');
 }
 
 /**
@@ -42,4 +44,6 @@ function set_module($module) {
 function set_action($action) {
 
     \M\Config::set('action_current', $action);
+
+    return \M\Config::get('action_current');
 }
