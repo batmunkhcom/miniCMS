@@ -46,7 +46,17 @@ echo render_flash();
                                     </td>
                                     <td class="center"><?php echo $category->hits; ?></td>
                                     <td class="center"><?php echo $category->is_adult; ?></td>
-                                    <td class="center">X</td>
+                                    <td class="center">
+                                        <div class="btn-group">
+                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
+                                            <ul role="menu" class="dropdown-menu">
+                                                <li><a href="#"><?php echo __('Edit'); ?></a></li>
+                                                <li><a href="#"><?php echo __('Delete'); ?></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

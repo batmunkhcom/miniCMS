@@ -113,6 +113,5 @@
         <script src="/assets/flatlab/admin/js/easy-pie-chart.js"></script>
         <script src="/assets/flatlab/admin/js/count.js"></script>
 
-
     </body>
 </html>
