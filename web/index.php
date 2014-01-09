@@ -15,7 +15,7 @@ echo '.....';
 echo \M\Config::get('action_current');
 echo '<hr>';
 apc_clear_cache();
-die();
+//die();
 foreach (Category::fetchAll() as $k => $user) {
     echo $user->id . '. ' . $user->title . ', ' . $user->date_created;
     echo '<br />';

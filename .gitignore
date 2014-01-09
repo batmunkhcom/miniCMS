@@ -1,1 +1,4 @@
 /nbproject/*
+core/log
+core/tmp
+core/cache
