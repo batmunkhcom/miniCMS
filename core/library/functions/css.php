@@ -98,7 +98,6 @@ function compress_css() {
     }
 
     $offset = 60 * 60 * 24 * 7; // Cache for 1 weeks
-    header('Expires: ' . gmdate("D, d M Y H:i:s", time() + $offset) . ' GMT');
 
     if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) >= $modified) {
 
