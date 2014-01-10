@@ -20,7 +20,7 @@ class Comment extends AbstractEntity {
      */
     protected $allowedFields = array(
         'id',
-        'comment_id',
+        'parent_id',
         'user_id',
         'code',
         'name',
@@ -55,22 +55,22 @@ class Comment extends AbstractEntity {
 
     /**
      * field info:
-     *    name:       comment_id
+     *    name:       parent_id
      *    type:       int(11)
      *    null:       NO
      *    default:    0
      *    extra:
      *    generated:  2013-12-28 07:34:15 am
-     * @param $comment_id int Comment iin comment_id
+     * @param $parent_id int Comment iin parent_id
      * @return object
      */
-    public function setCommentId($comment_id) {
-        $comment_id = (int) $comment_id;
+    public function setCommentId($parent_id) {
+        $parent_id = (int) $parent_id;
 
-        if (!isset($comment_id) || $comment_id == "") {
-            $comment_id = "0";
+        if (!isset($parent_id) || $parent_id == "") {
+            $parent_id = "0";
         }
-        $this->fields["comment_id"] = $comment_id;
+        $this->fields["parent_id"] = $parent_id;
 
         return $this;
     }

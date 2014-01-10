@@ -21,7 +21,7 @@ class CommentMapper extends AbstractDataMapper {
         return new \D\Model\Comment(
                 array(
             "id" => $row["id"],
-            "comment_id" => $row["comment_id"],
+            "parent_id" => $row["parent_id"],
             "user_id" => $row["user_id"],
             "code" => $row["code"],
             "name" => $row["name"],

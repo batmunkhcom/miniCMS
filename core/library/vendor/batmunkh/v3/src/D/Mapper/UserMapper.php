@@ -21,7 +21,7 @@ class UserMapper extends AbstractDataMapper {
         return new \D\Model\User(
                 array(
             "id" => $row["id"],
-            "user_id" => $row["user_id"],
+            "parent_id" => $row["parent_id"],
             "depth" => $row["depth"],
             "lft" => $row["lft"],
             "rgt" => $row["rgt"],

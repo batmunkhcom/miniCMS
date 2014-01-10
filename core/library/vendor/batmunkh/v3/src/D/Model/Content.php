@@ -20,7 +20,7 @@ class Content extends AbstractEntity {
      */
     protected $allowedFields = array(
         'id',
-        'content_id',
+        'parent_id',
         'user_id',
         'code',
         'st',
@@ -64,22 +64,22 @@ class Content extends AbstractEntity {
 
     /**
      * field info:
-     *    name:       content_id
+     *    name:       parent_id
      *    type:       int(11) unsigned
      *    null:       NO
      *    default:    0
      *    extra:
      *    generated:  2013-12-28 07:34:15 am
-     * @param $content_id int Content iin content_id
+     * @param $parent_id int Content iin parent_id
      * @return object
      */
-    public function setContentId($content_id) {
-        $content_id = (int) $content_id;
+    public function setContentId($parent_id) {
+        $parent_id = (int) $parent_id;
 
-        if (!isset($content_id) || $content_id == "") {
-            $content_id = "0";
+        if (!isset($parent_id) || $parent_id == "") {
+            $parent_id = "0";
         }
-        $this->fields["content_id"] = $content_id;
+        $this->fields["parent_id"] = $parent_id;
 
         return $this;
     }

@@ -21,7 +21,7 @@ class ContentMapper extends AbstractDataMapper {
         return new \D\Model\Content(
                 array(
             "id" => $row["id"],
-            "content_id" => $row["content_id"],
+            "parent_id" => $row["parent_id"],
             "user_id" => $row["user_id"],
             "code" => $row["code"],
             "st" => $row["st"],

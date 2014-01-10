@@ -20,7 +20,7 @@ class User extends AbstractEntity {
      */
     protected $allowedFields = array(
         'id',
-        'user_id',
+        'parent_id',
         'depth',
         'lft',
         'rgt',
@@ -77,22 +77,22 @@ class User extends AbstractEntity {
 
     /**
      * field info:
-     *    name:       user_id
+     *    name:       parent_id
      *    type:       int(11)
      *    null:       NO
      *    default:    0
      *    extra:
      *    generated:  2013-12-28 07:34:15 am
-     * @param $user_id int User iin user_id
+     * @param $parent_id int User iin parent_id
      * @return object
      */
-    public function setUserId($user_id) {
-        $user_id = (int) $user_id;
+    public function setUserId($parent_id) {
+        $parent_id = (int) $parent_id;
 
-        if (!isset($user_id) || $user_id == "") {
-            $user_id = "0";
+        if (!isset($parent_id) || $parent_id == "") {
+            $parent_id = "0";
         }
-        $this->fields["user_id"] = $user_id;
+        $this->fields["parent_id"] = $parent_id;
 
         return $this;
     }

@@ -20,7 +20,7 @@ class Category extends AbstractEntity {
      */
     protected $allowedFields = array(
         'id',
-        'category_id',
+        'parent_id',
         'code',
         'depth',
         'lft',
@@ -66,22 +66,22 @@ class Category extends AbstractEntity {
 
     /**
      * field info:
-     *    name:       category_id
+     *    name:       parent_id
      *    type:       int(11) unsigned
      *    null:       NO
      *    default:    0
      *    extra:
      *    generated:  2013-12-28 07:34:15 am
-     * @param $category_id int Category iin category_id
+     * @param $parent_id int Category iin parent_id
      * @return object
      */
-    public function setCategoryId($category_id) {
-        $category_id = (int) $category_id;
+    public function setCategoryId($parent_id) {
+        $parent_id = (int) $parent_id;
 
-        if (!isset($category_id) || $category_id == "") {
-            $category_id = "0";
+        if (!isset($parent_id) || $parent_id == "") {
+            $parent_id = "0";
         }
-        $this->fields["category_id"] = $category_id;
+        $this->fields["parent_id"] = $parent_id;
 
         return $this;
     }

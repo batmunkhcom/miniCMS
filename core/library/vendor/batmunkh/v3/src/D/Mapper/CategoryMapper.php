@@ -21,7 +21,7 @@ class CategoryMapper extends AbstractDataMapper {
         return new \D\Model\Category(
                 array(
             "id" => $row["id"],
-            "category_id" => $row["category_id"],
+            "parent_id" => $row["parent_id"],
             "code" => $row["code"],
             "depth" => $row["depth"],
             "lft" => $row["lft"],

@@ -14,11 +14,11 @@ if ($form->isValid('category') == 1) {
     $category_db = db_unit($db, 'Category');
     $category = new D\Model\Category(
             array(
-        'category_id' => post('category_id'),
+        'parent_id' => post('category_id'),
         'code' => post('code'),
         'depth' => post(''),
-        'lft' => get_left('Category', array('rgt','lft','depth')),
-        'rgt' => get_right('Category', array('rgt','lft','depth')),
+        'lft' => get_left('Category', array('rgt', 'lft', 'depth', 'parent_id' => post('category_id'))),
+        'rgt' => get_right('Category', array('rgt', 'lft', 'depth')),
         'st' => post('st'),
         'user_id' => get_logged_user_id(),
         'pos' => $pos,
