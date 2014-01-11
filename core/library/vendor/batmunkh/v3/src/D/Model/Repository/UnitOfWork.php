@@ -89,7 +89,7 @@ class UnitOfWork implements UnitOfWorkInterface {
     }
 
     public function select($bind = array(), $where = "") {
-        $entity = $this->dataMapper->fetchAll($bind, $where);
+        $entity = $this->dataMapper->select($bind, $where);
         if ($entity) {
             $this->registerClean($entity);
             return $entity;

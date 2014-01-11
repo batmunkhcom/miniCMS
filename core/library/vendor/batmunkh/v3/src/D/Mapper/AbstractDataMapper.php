@@ -61,5 +61,13 @@ abstract class AbstractDataMapper implements DataMapperInterface {
         return $this->adapter->delete($this->entityTable, "id = $entity->id");
     }
 
+    protected function loadEntityCollection(array $rows) {
+        $this->collection->clear();
+        foreach ($rows as $row) {
+            $this->collection[] = $this->loadEntity($row);
+        }
+        return $this->collection;
+    }
+
     abstract protected function loadEntity(array $row);
 }

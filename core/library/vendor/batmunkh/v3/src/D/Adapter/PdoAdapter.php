@@ -49,6 +49,7 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
 
         try {
             $this->statement = $this->connection->prepare($sql, $options);
+
             return $this;
         } catch (\PDOException $e) {
             throw new \RunTimeException($e->getMessage());
@@ -82,7 +83,8 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         if ($fetchStyle === null) {
             $fetchStyle = $this->fetchMode;
         }
-
+        echo $this->getStatement()->queryString . '---';
+        die();
         try {
             return $this->getStatement()->fetch($fetchStyle, $cursorOrientation, $cursorOffset);
         } catch (\PDOException $e) {
@@ -103,12 +105,10 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
     }
 
     public function select($table, $bind = array(), $where = "") {
-        if ($bind) {
-//            $where = array();
+        if (count($bind) > 0) {
             foreach ($bind as $col => $value) {
                 unset($bind[$col]);
                 $bind[":" . $col] = $value;
-//                $where[] = $col . " = :" . $col;
             }
         }
 
@@ -116,10 +116,10 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         if (strlen($where) > 2) {
             $sql .= "WHERE " . $where;
         }
-
-        set_flash($sql);
+//        set_flash($sql);
         $this->prepare($sql)
                 ->execute($bind);
+
         return $this;
     }
 

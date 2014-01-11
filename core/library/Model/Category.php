@@ -28,7 +28,10 @@ class Category extends D\Model\Category {
 
         $mapper_db = db_unit($db, __CLASS__);
 
-        $all_categories = $mapper_db->fetchAll(array('depth' => 0), "depth=:depth");
+//        $all_categories = $mapper_db->fetchById(1);
+        $all_categories = $mapper_db->fetchAll(array(
+            'depth' => 0
+                ), "depth=:depth ORDER BY pos ASC");
 
         return $all_categories;
     }

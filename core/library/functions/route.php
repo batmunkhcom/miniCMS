@@ -29,7 +29,6 @@ function load_router($name = 'klein') {
             \M\Module::getAllModuleRouters($router);
 
             $router->run();
-
             break;
         default:
             $router = new \Klein\Klein();
