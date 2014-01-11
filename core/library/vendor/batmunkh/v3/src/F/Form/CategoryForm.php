@@ -52,7 +52,7 @@ class CategoryForm extends \F\Form {
         ));
         $form->addElement(__('Parent category'), 'parent_id', 'select', array(
             'class' => 'form-control',
-            'value' => \Category::formOptions()
+            'value' => array(0 => __('Set as main')) + \Category::formOptions()
         ));
         $form->addElement(__('Is 18+'), 'is_adult', 'checkbox', array(
             'class' => 'checkbox form-control',

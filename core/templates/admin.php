@@ -31,12 +31,11 @@
         //external css
 //        css_set_loadfile('/assets/flatlab/admin/assets/jquery-ui/jquery-ui-1.10.1.custom.min.css', 4);
         css_set_loadfile('/assets/jquery-ui-1.10.3/themes/base/jquery.ui.base.css', 4);
-        css_set_loadfile('/assets/flatlab/admin/assets/bootstrap-colorpicker/css/colorpicker.css', '5_3');
         css_set_loadfile('/assets/flatlab/admin/assets/font-awesome/css/font-awesome.css', 5);
 
         /*         * *********** css,js file uudiig achaalah ************ */
-        echo js_load();
         echo css_load();
+        echo js_load();
         ?>
         <!-- Custom styles for this template -->
         <link href="/assets/flatlab/admin/css/style.css" rel="stylesheet">
@@ -101,7 +100,6 @@
         <script class="include" type="text/javascript" src="/assets/flatlab/admin/js/jquery.dcjqaccordion.2.7.js"></script>
         <script src="/assets/flatlab/admin/js/jquery.scrollTo.min.js"></script>
         <script src="/assets/flatlab/admin/js/jquery.nicescroll.js" type="text/javascript"></script>
-        <script src="/assets/flatlab/admin/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
         <!--
         <script src="/assets/flatlab/admin/js/jquery.sparkline.js" type="text/javascript"></script>
         <script src="/assets/flatlab/admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
@@ -109,7 +107,6 @@
         <script src="/assets/flatlab/admin/js/jquery.customSelect.min.js" ></script>
         -->
         <script src="/assets/flatlab/admin/js/respond.min.js" ></script>
-        <script src="/assets/flatlab/admin/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js" ></script>
 
         <!--common script for all pages-->
         <script src="/assets/flatlab/admin/js/common-scripts.js"></script>
@@ -117,6 +114,7 @@
         <!--Form js file uud-->
         <!--this page plugins-->
 
+        <!--
         <script type="text/javascript" src="/assets/flatlab/admin/assets/fuelux/js/spinner.min.js"></script>
         <script type="text/javascript" src="/assets/flatlab/admin/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
         <script type="text/javascript" src="/assets/flatlab/admin/assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
@@ -129,6 +127,7 @@
         <script type="text/javascript" src="/assets/flatlab/admin/assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
         <script type="text/javascript" src="/assets/flatlab/admin/assets/jquery-multi-select/js/jquery.multi-select.js"></script>
         <script type="text/javascript" src="/assets/flatlab/admin/assets/jquery-multi-select/js/jquery.quicksearch.js"></script>
+        -->
 
         <!--nemelt scriptuud -->
         <!--

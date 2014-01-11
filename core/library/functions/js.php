@@ -25,7 +25,7 @@ function js_load() {
 
     $buf = '';
     foreach ($files as $k => $v) {
-        $buf .= '<script src="' . $v . '" ></script>' . "\n";
+        $buf .= '<script src="' . $v . '" type="text/javascript"  ></script>' . "\n";
     }
 
     return $buf;
