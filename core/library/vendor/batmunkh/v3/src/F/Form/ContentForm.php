@@ -53,13 +53,13 @@ class ContentForm extends \F\Form {
                 ), array(
             'minlength' => 1
         ));
-        $form->addElement(__('Content brief'), 'content_brief', 'ckeditor', array(
+        $form->addElement(__('Content brief'), 'content_brief', 'textarea', array(
             'class' => 'form-control',
             'value' => post('content_brief')
                 ), array(
             'is_required' => 0
         ));
-        $form->addElement(__('Content body'), 'content_body', 'ckeditor', array(
+        $form->addElement(__('Content body'), 'content_body', 'wysiwyg', array(
             'class' => 'form-control',
             'value' => post('content_body')
                 ), array(

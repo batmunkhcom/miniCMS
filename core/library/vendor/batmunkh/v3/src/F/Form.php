@@ -135,6 +135,7 @@ class Form {
                 $buf .= $this->input($label, $name, $attributes, $validation, $text);
                 break;
             case 'textarea':
+                $buf .= $this->textarea($label, $name, $attributes, $validation, $text);
                 break;
             case 'select':
                 $buf .= $this->select($label, $name, $attributes, $validation, $text);
@@ -157,8 +158,14 @@ class Form {
                 }
                 $buf .= '>' . $attributes['value'] . '</button>' . "\n";
                 break;
-            case 'ckeditor':
-                $buf .= $this->textarea($label, $name, $attributes, $validation, $text);
+            case 'wysiwyg':
+                js_set_loadfile('/assets/tinymce/tinymce.min.js');
+                $text .= '<script type="text/javascript">
+                                tinymce.init({
+                                    selector: "textarea#' . $this->fixElementId($name) . '"
+                                 });
+                                </script>';
+                $buf .= $this->wysiwyg($label, $name, $attributes, $validation, $text);
                 break;
         }
         $buf .= '</div>' . "\n";
@@ -347,6 +354,46 @@ class Form {
         $buf .= ' >' . "\n";
         $buf .= $value;
         $buf .= '</textarea>' . "\n";
+
+        return $buf;
+    }
+
+    /**
+     *
+     * @param type $label Hereglegchded haragdah tuhain elementiin ner
+     * @param type $name Tuhain element iin ner
+     * @param type $attributes Tuhain elementiin attribute uud
+     * @param type $text Nemelt text. help text ,html code geh met-d ashiglagdana
+     *
+     * @return string tuhain elementiig hevleh html iig butsaana
+     */
+    public function wysiwyg($label, $name, $attributes = array(), $validation, $text = '') {
+
+        $value = '';
+
+        $buf = '<textarea name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
+        if (is_array($attributes)) {
+            foreach ($attributes as $k => $v) {
+                switch ($k) {
+                    case 'required':
+                        $buf .= '' . $k . ' ';
+                        break;
+                    case 'value':
+                        if (isset($this->session['fields_data'][$name])) {
+                            $value = $this->session['fields_data'][$name];
+                        }
+                        $value = '' . $v . ' ';
+                        break;
+                    default:
+                        $buf .= $k . '="' . $v . '" ';
+                        break;
+                }
+            }
+        }
+        $buf .= ' >' . "\n";
+        $buf .= $value;
+        $buf .= '</textarea>' . "\n";
+        $buf .= $text;
 
         return $buf;
     }
