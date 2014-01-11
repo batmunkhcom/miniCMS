@@ -38,7 +38,7 @@ class UnitOfWork implements UnitOfWorkInterface {
         return $this;
     }
 
-    public function registerClean(/* \D\Model\EntityInterface */ $entity) {
+    public function registerClean(\D\Model\EntityInterface $entity) {
         $this->registerEntity($entity, self::STATE_CLEAN);
         return $this;
     }
@@ -80,16 +80,16 @@ class UnitOfWork implements UnitOfWorkInterface {
         return $this;
     }
 
-    public function fetchAll($bind = array(), $where = "") {
-        $entity = $this->dataMapper->fetchAll($bind, $where);
+    public function fetchAll($bind = array(), $where = "", $options = array()) {
+        $entity = $this->dataMapper->fetchAll($bind, $where, $options);
         if ($entity) {
             $this->registerClean($entity);
             return $entity;
         }
     }
 
-    public function select($bind = array(), $where = "") {
-        $entity = $this->dataMapper->select($bind, $where);
+    public function select($bind = array(), $where = "", $options = array()) {
+        $entity = $this->dataMapper->select($bind, $where, $options);
         if ($entity) {
             $this->registerClean($entity);
             return $entity;

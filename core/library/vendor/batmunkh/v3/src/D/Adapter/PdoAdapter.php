@@ -103,15 +103,20 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         }
     }
 
-    public function select($table, $bind = array(), $where = "") {
+    public function select($table, $bind = array(), $where = "", $options = array()) {
         if (count($bind) > 0) {
             foreach ($bind as $col => $value) {
                 unset($bind[$col]);
                 $bind[":" . $col] = $value;
             }
         }
+        if (isset($options['fields'])) {
+            $fields = $options['fields'];
+        } else {
+            $fields = '*';
+        }
+        $sql = "SELECT " . $fields . " FROM " . $table . " ";
 
-        $sql = "SELECT * FROM " . $table . " ";
         if (strlen($where) > 2) {
             $sql .= "WHERE " . $where;
         }

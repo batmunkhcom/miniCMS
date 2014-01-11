@@ -17,7 +17,7 @@ interface DataMapperInterface {
     /**
      * songoh uildel
      */
-    public function select($bind = array(), $where = "");
+    public function select($bind = array(), $where = "", $options = array());
 
     /**
      * nemeh uildel

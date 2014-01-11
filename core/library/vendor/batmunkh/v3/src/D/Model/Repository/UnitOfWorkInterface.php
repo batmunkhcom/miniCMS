@@ -6,13 +6,13 @@ interface UnitOfWorkInterface {
 
     public function fetchById($id);
 
-    public function fetchAll();
+    public function fetchAll($bind = array(), $where = "", $options = array());
 
-    public function select($bind = array(), $where = "");
+    public function select($bind = array(), $where = "", $options = array());
 
     public function registerNew(\D\Model\EntityInterface $entity);
 
-    public function registerClean(/* \D\Model\EntityInterface */ $entity);
+    public function registerClean(\D\Model\EntityInterface $entity);
 
     public function registerDirty(\D\Model\EntityInterface $entity);
 

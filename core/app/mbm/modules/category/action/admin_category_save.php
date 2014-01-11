@@ -1,12 +1,14 @@
 <?php
 
+print_r($_SESSION);
+die();
 $form = new F\Form\CategoryForm('category');
 
 if ($form->isValid('category') == 1) {
 
     if (post('parent_id') == 0) {
-        $lft = ($parent_category->lft + 1);
-        $rgt = ($parent_category->lft + 2);
+        $lft = get_max_left('Category', post('parent_id')) + 1;
+        $rgt = $lft + 1;
         $depth = 0;
     } else {
 
@@ -15,9 +17,6 @@ if ($form->isValid('category') == 1) {
         $rgt = ($parent_category->lft + 2);
         $depth = ($parent_category->depth + 1);
     }
-
-    //pos todorhoiloh
-    $pos = 1;
 
     $category_db = db_unit($db, 'Category');
 
@@ -30,7 +29,7 @@ if ($form->isValid('category') == 1) {
         'rgt' => $rgt,
         'st' => post('st'),
         'user_id' => get_logged_user_id(),
-        'pos' => (\Category::getPosition() + 1),
+        'pos' => (\Category::getPosition(post('parent_id')) + 1),
         'name' => post('name'),
         'is_external' => post('is_external'),
         'external_url' => post('external_url'),

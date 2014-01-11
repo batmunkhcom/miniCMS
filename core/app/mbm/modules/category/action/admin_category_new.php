@@ -1,5 +1,7 @@
 <?php
 
+print_r($_SESSION);
+die();
 /**
  * This file is part of the miniCMS package.
  * (c) since 2005 BATMUNKH Moltov <contact@batmunkh.com>

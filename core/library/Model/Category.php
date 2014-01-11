@@ -55,7 +55,7 @@ class Category extends D\Model\Category {
 
         $categories = $mapper_db->fetchAll(array(
             'parent_id' => 0
-                ), "parent_id=:parent_id ORDER BY pos ASC");
+                ), "parent_id=:parent_id ORDER BY pos ASC", array('pos'));
 
         $pos = 0;
         foreach ($categories as $category) {

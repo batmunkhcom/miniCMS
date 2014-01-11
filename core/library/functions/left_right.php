@@ -39,11 +39,15 @@ function get_max_left($model, $parent_id, $options = array()) {
 
     $mapper_db = db_unit($db, $model);
 
-    $mapper_db->fetchAll(array(
+    $data = $mapper_db->fetchAll(array(
         'parent_id' => $parent_id
-            ), 'parent_id=:parent_id');
+            ), 'parent_id=:parent_id ORDER BY lft ASC');
 
-    return $mapper_db->lft;
+    $lft = 0;
+    foreach ($data as $d) {
+        $lft = $d->lft;
+    }
+    return $lft;
 }
 
 /**
