@@ -35,7 +35,7 @@
                                     <td><?php echo $content->code; ?></td>
                                     <td><?php echo $content->title; ?></td>
                                     <td class="center"><?php echo $content->content_type; ?></td>
-                                    <td class="center"><?php echo \User::getUsernameById($content->user_id); ?></td>
+                                    <td class="center"><?php echo \User::getById($content->user_id)->username; ?></td>
                                     <td class="center">
                                         <?php
                                         $st_class = 'label ';

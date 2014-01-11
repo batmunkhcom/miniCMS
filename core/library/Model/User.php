@@ -22,12 +22,14 @@ class User extends D\Model\User {
 
     }
 
-    public static function getUsernameById($id) {
+    public static function getById($id) {
         $mapper_db = db_unit($db, __CLASS__);
 
         $user = $mapper_db->fetchById($id);
 
-        return $user->username;
+        $this->username = $user->username;
+
+        return $this;
     }
 
 }
