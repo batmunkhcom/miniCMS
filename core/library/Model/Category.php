@@ -69,7 +69,7 @@ class Category extends D\Model\Category {
     /**
      * Sub category toi esehiig shalgana
      */
-    public static function hasSubCategory($category_id = 0) {
+    public static function hasSubCategory($parent_id = 0) {
 
         $categories = $this->fetchAll();
     }
@@ -77,16 +77,16 @@ class Category extends D\Model\Category {
     /**
      * Category iig array bolgoh
      */
-    public static function convertToArray($category_id = 0) {
+    public static function convertToArray($parent_id = 0) {
 
         if (count(self::$treeArray > 0)) {
             self::clearTree();
             $categories = self::fetchAll();
 
             foreach ($categories as $category) {
-                self::$treeArray[$category->category_id][$category->id] = array(
+                self::$treeArray[$category->parent_id][$category->id] = array(
                     'id' => $category->id,
-                    'parent_id' => $category->category_id,
+                    'parent_id' => $category->parent_id,
                     'code' => $category->code,
                     'depth' => $category->depth,
                     'lft' => $category->lft,
@@ -105,19 +105,19 @@ class Category extends D\Model\Category {
                     'is_adult' => $category->is_adult
                 );
                 if (isset(self::$treeArray[$category->id])) {
-                    self::$treeArray[$category->category_id][$category->id]['has_sub'] = 1;
+                    self::$treeArray[$category->parent_id][$category->id]['has_sub'] = 1;
                 } else {
-                    self::$treeArray[$category->category_id][$category->id]['has_sub'] = 0;
+                    self::$treeArray[$category->parent_id][$category->id]['has_sub'] = 0;
                 }
             }
         }
-        return self::$treeArray[$category_id];
+        return self::$treeArray[$parent_id];
     }
 
     /**
      * Sub category toi esehiig shalgana
      */
-    public static function buildTree($category_id = 0) {
+    public static function buildTree($parent_id = 0) {
 
         $tree = array();
 
@@ -144,14 +144,14 @@ class Category extends D\Model\Category {
     /**
      * Sub category toi esehiig shalgana
      */
-    public static function buildSubTree($category_id = 0) {
+    public static function buildSubTree($parent_id = 0) {
 
         self::convertToArray();
         $tree = array();
         $array = self::$treeArray;
 
-        foreach ($array[$category_id] as $k => $v) {
-            $tree[$k] = $array[$category_id][$k];
+        foreach ($array[$parent_id] as $k => $v) {
+            $tree[$k] = $array[$parent_id][$k];
             if (isset($array[$k])) {
                 $tree[$k]['sub'] = self::buildSubTree($k);
             }
@@ -169,15 +169,15 @@ class Category extends D\Model\Category {
     /**
      * form iin select options-d zoriulj butsaana
      */
-    public static function formOptions($category_id = 0) {
+    public static function formOptions($parent_id = 0) {
 
         self::convertToArray();
         $array = self::$treeArray;
 
-        foreach ($array[$category_id] as $k => $v) {
+        foreach ($array[$parent_id] as $k => $v) {
 
-            self::$form_options[$k] = str_repeat('&nbsp;', ($array[$category_id][$k]['depth'] * 10))
-                    . $array[$category_id][$k]['name'];
+            self::$form_options[$k] = str_repeat('&nbsp;', ($array[$parent_id][$k]['depth'] * 10))
+                    . $array[$parent_id][$k]['name'];
             if (isset($array[$k]) == 1) {
                 self::$form_options = self::formOptions($k);
             }

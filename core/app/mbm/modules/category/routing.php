@@ -36,7 +36,7 @@ $router->with('/admin/category', function () use ($router) {
 
     //category create
     $router->respond('GET', '/new', function ($request, $response) {
-
+        $response->noCache();
         set_module('category');
         set_action('admin_category_new');
     });

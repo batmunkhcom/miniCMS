@@ -30,7 +30,7 @@ $mbm_config ['date_format'] = "Y/m/d H:i:s";
 
 
 /* * **************CACHE tohirgoo******************** */
-$mbm_config ['use_cache'] = 1;
+$mbm_config ['use_cache'] = 0;
 $mbm_config ['use_type'] = 'APC'; //APC, memcached
 $mbm_config ['cache_name'] = 'memcached';
 $mbm_config ['cache_host'] = 'localhost';
