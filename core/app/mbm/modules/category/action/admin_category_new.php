@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-js_set_loadfile('/assets/flatlab/admin/js/form-component.js', 91);
+//js_set_loadfile('/assets/flatlab/admin/js/form-component.js', 91);
 js_set_loadfile('/assets/flatlab/admin/js/jquery.validate.min.js', 92);
 js_set_loadfile('/assets/flatlab/admin/js/bootstrap-switch.js', 94);
 js_set_loadfile('/assets/flatlab/admin/js/jquery.tagsinput.js', 95);

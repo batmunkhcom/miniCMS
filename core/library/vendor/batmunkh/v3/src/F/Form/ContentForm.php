@@ -61,7 +61,8 @@ class ContentForm extends \F\Form {
         ));
         $form->addElement(__('Content body'), 'content_body', 'wysiwyg', array(
             'class' => 'form-control',
-            'value' => post('content_body')
+            'value' => post('content_body'),
+            'style' => 'z-index:1010;'
                 ), array(
             'is_required' => 0
         ));
