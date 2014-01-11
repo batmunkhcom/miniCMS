@@ -22,6 +22,9 @@ class ContentMapper extends AbstractDataMapper {
                 array(
             "id" => $row["id"],
             "parent_id" => $row["parent_id"],
+            "lft" => $row["lft"],
+            "rgt" => $row["rgt"],
+            "depth" => $row["depth"],
             "user_id" => $row["user_id"],
             "code" => $row["code"],
             "st" => $row["st"],

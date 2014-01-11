@@ -21,7 +21,7 @@ function get_left($model, $fields, $options = array()) {
 
     $mapper_db = db_unit($db, $model);
 
-    $mapper_db->fetchById($fields['parent_id']);
+
 
     return $mapper_db->lft;
 }
@@ -30,16 +30,18 @@ function get_left($model, $fields, $options = array()) {
  * Zuuniig avah
  *
  * @param string $model Model iin ner
- * @param array $fields Fielduud
+ * @param array $fields Fielduud ('lft','rgt','parent_id','depth')
  * @param array $options Options
  */
-function get_max_left($model, $fields, $options = array()) {
+function get_max_left($model, $parent_id, $options = array()) {
 
     global $db;
 
     $mapper_db = db_unit($db, $model);
 
-//    $mapper_db->sele;
+    $mapper_db->fetchAll(array(
+        'parent_id' => $parent_id
+            ), 'parent_id=:parent_id');
 
     return $mapper_db->lft;
 }

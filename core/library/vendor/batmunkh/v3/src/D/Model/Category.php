@@ -75,7 +75,7 @@ class Category extends AbstractEntity {
      * @param $parent_id int Category iin parent_id
      * @return object
      */
-    public function setCategoryId($parent_id) {
+    public function setParentId($parent_id) {
         $parent_id = (int) $parent_id;
 
         if (!isset($parent_id) || $parent_id == "") {
