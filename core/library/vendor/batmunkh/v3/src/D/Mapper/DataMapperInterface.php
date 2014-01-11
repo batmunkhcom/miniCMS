@@ -12,7 +12,12 @@ interface DataMapperInterface {
     /**
      * bugdiig songono
      */
-    public function fetchAll(array $conditions = array(), $order_by = 'id desc ', $group_by = '', $boolOperator = 'AND');
+    public function fetchAll($bind = array(), $where = "");
+
+    /**
+     * songoh uildel
+     */
+    public function select($bind = array(), $where = "");
 
     /**
      * nemeh uildel

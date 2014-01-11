@@ -102,26 +102,22 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         }
     }
 
-    public function select($table, array $bind = array(), $order_by = '', $group_by = '', $boolOperator = "AND") {
+    public function select($table, $bind = array(), $where = "") {
         if ($bind) {
-            $where = array();
+//            $where = array();
             foreach ($bind as $col => $value) {
                 unset($bind[$col]);
                 $bind[":" . $col] = $value;
-                $where[] = $col . " = :" . $col;
+//                $where[] = $col . " = :" . $col;
             }
         }
 
-        $sql = "SELECT * FROM " . $table
-                . (($bind) ? " WHERE "
-                        . implode(" " . $boolOperator . " ", $where) : " ");
-        if (strlen($group_by) > 0) {
-            $sql .= " GROUP BY " . $group_by;
+        $sql = "SELECT * FROM " . $table . " ";
+        if (strlen($where) > 2) {
+            $sql .= "WHERE " . $where;
         }
-        if (strlen($order_by) > 0) {
-            $sql .= " ORDER BY " . $order_by;
-        }
-//        set_flash($sql);
+
+        set_flash($sql);
         $this->prepare($sql)
                 ->execute($bind);
         return $this;

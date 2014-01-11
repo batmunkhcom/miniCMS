@@ -19,6 +19,12 @@ function load_db($config = array()) {
 
     switch (DB_ADAPTER) {
         case 'pdo':
+//            $db = new \D\Adapter\PdoAdapter2(array(
+//                'dsn' => DB_TYPE . ":dbname=" . $config['db_name'],
+//                'db_user' => $config['db_user'],
+//                'db_pass' => $config['db_pass'],
+//                'db_name' => $config['db_name']
+//            ));
             $db = new \D\Adapter\PdoAdapter(DB_TYPE . ":dbname=" . $config['db_name'], $config['db_user'], $config['db_pass'], array(
                 'db_name' => $config['db_name']
             ));

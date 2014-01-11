@@ -33,8 +33,14 @@ abstract class AbstractDataMapper implements DataMapperInterface {
         return $this->loadEntity($row);
     }
 
-    public function fetchAll(array $conditions = array(), $order_by = '', $group_by = '', $boolOperator = 'AND') {
-        $this->adapter->select($this->entityTable, $conditions, $order_by, $group_by, $boolOperator);
+    public function fetchAll($bind = array(), $where = "") {
+        $this->adapter->select($this->entityTable, $bind, $where);
+        $rows = $this->adapter->fetchAll();
+        return $this->loadEntityCollection($rows);
+    }
+
+    public function select($bind = array(), $where = "") {
+        $this->adapter->select($this->entityTable, $bind, $where);
         $rows = $this->adapter->fetchAll();
         return $this->loadEntityCollection($rows);
     }

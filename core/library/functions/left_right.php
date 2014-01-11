@@ -20,9 +20,10 @@ function get_left($model, $fields, $options = array()) {
     global $db;
 
     $mapper_db = db_unit($db, $model);
-    $left = 1;
 
-    return $left;
+    $mapper_db->fetchById($fields['parent_id']);
+
+    return $mapper_db->lft;
 }
 
 /**
@@ -34,7 +35,40 @@ function get_left($model, $fields, $options = array()) {
  */
 function get_right($model, $fields, $options = array()) {
 
-    $right = 2;
+    global $db;
 
-    return $right;
+    $mapper_db = db_unit($db, $model);
+
+    $mapper_db->fetchById($fields['parent_id']);
+
+    return $mapper_db->rgt;
+}
+
+/**
+ * Baruuniig avah
+ *
+ * @param string $model Model iin ner
+ * @param array $fields lft,rgt field iin utga
+ * @param array $options Options
+ *
+ * @return $data object
+ */
+function save_left_right($model, $fields = array(
+    'lft' => '',
+    'rgt' => ''
+), $options = array()) {
+
+    global $db;
+
+    $mapper_db = db_unit($db, $model);
+
+    $data = $mapper_db->fetchById($fields['parent_id']);
+    $data->lft = $fields['lft'];
+    $data->rgt = $fields['rgt'];
+
+    $data_update_left = $mapper_db->fetchAll(array('lft' => '>' . $fields['lft']), $order_by, $group_by);
+
+    $mapper_db->commit();
+
+    return $data;
 }

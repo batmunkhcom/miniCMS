@@ -8,6 +8,8 @@ interface UnitOfWorkInterface {
 
     public function fetchAll();
 
+    public function select($bind = array(), $where = "");
+
     public function registerNew(\D\Model\EntityInterface $entity);
 
     public function registerClean(/* \D\Model\EntityInterface */ $entity);
