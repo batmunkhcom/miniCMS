@@ -132,7 +132,10 @@ function render_flash() {
                 break;
         }
 
-        $buf = '<div class="alert ' . $css_name . '">';
+        $buf = '<div class="alert ' . $css_name . ' alert-block fade in">';
+        $buf .= '<button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>';
         $buf .= $flash['text'];
         $buf .= '</div>';
 
