@@ -27,6 +27,24 @@ function get_left($model, $fields, $options = array()) {
 }
 
 /**
+ * Zuuniig avah
+ *
+ * @param string $model Model iin ner
+ * @param array $fields Fielduud
+ * @param array $options Options
+ */
+function get_max_left($model, $fields, $options = array()) {
+
+    global $db;
+
+    $mapper_db = db_unit($db, $model);
+
+//    $mapper_db->sele;
+
+    return $mapper_db->lft;
+}
+
+/**
  * Baruuniig avah
  *
  * @param string $model Model iin ner

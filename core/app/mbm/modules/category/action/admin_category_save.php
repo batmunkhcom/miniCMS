@@ -4,27 +4,33 @@ $form = new F\Form\CategoryForm('category');
 
 if ($form->isValid('category') == 1) {
 
-    //category iin baruun zuuniig todorhoiloh
-    $lft = '';
-    $rgt = '';
+    if (post('category_id') == 0) {
+        $lft = ($parent_category->lft + 1);
+        $rgt = ($parent_category->lft + 2);
+        $depth = 0;
+    } else {
+
+        $parent_category = \Category::fetchById(post('category_id'));
+        $lft = ($parent_category->lft + 1);
+        $rgt = ($parent_category->lft + 2);
+        $depth = ($parent_category->depth + 1);
+    }
 
     //pos todorhoiloh
     $pos = 1;
-
-    $lft = get_left('Category', array('rgt', 'lft', 'depth', 'parent_id' => post('category_id')));
 
     $category_db = db_unit($db, 'Category');
 
     $category = new D\Model\Category(
             array(
-        'parent_id' => post('category_id'),
+        'parent_id' => $parent_category->id,
         'code' => post('code'),
-        'depth' => post(''),
+        'depth' => $depth,
         'lft' => $lft,
-        'rgt' => ($lft + 1),
+        'rgt' => $rgt,
         'st' => post('st'),
         'user_id' => get_logged_user_id(),
-        'pos' => $pos,
+        'pos' => (\Category::getPosition() + 1),
         'name' => post('name'),
         'is_external' => post('is_external'),
         'external_url' => post('external_url'),

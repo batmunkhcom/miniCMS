@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-lg-6">
         <header class="panel-heading">
-                <?php echo __("Contents"); ?>
-            </header>
+            <?php echo __("Contents"); ?>
+        </header>
     </div>
     <div class="col-lg-6 text-right">
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" onclick="window.location = '<?php echo get_url('admin_content_new'); ?>'">
             <i class="fa fa-plus-circle"></i> <?php echo __('Add content'); ?>
         </button>
     </div>
@@ -29,13 +29,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($contents as $content): ?> 
+                            <?php foreach ($contents as $content): ?>
                                 <tr >
                                     <td><?php echo $content->content_id; ?>.</td>
                                     <td><?php echo $content->code; ?></td>
                                     <td><?php echo $content->title; ?></td>
                                     <td class="center"><?php echo $content->content_type; ?></td>
-                                    <td class="center"><?php echo $content->user_id; ?></td>
+                                    <td class="center"><?php echo \User::getUsernameById($content->user_id); ?></td>
                                     <td class="center">
                                         <?php
                                         $st_class = 'label ';
@@ -67,7 +67,7 @@
                                             </ul>
                                         </div>
                                     </td>
-                                    
+
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

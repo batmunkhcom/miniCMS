@@ -28,12 +28,41 @@ class Category extends D\Model\Category {
 
         $mapper_db = db_unit($db, __CLASS__);
 
-//        $all_categories = $mapper_db->fetchById(1);
         $all_categories = $mapper_db->fetchAll(array(
             'depth' => 0
                 ), "depth=:depth ORDER BY pos ASC");
 
         return $all_categories;
+    }
+
+    public static function fetchById($id) {
+
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $category = $mapper_db->fetchById($id);
+
+        return $category;
+    }
+
+    public static function getPosition($parent_id = 0) {
+
+
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $categories = $mapper_db->fetchAll(array(
+            'parent_id' => 0
+                ), "parent_id=:parent_id ORDER BY pos ASC");
+
+        $pos = 0;
+        foreach ($categories as $category) {
+            $pos = $category->pos;
+        }
+
+        return $pos;
     }
 
     /**
