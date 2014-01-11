@@ -78,3 +78,12 @@ function post_exists($key) {
 
     return false;
 }
+
+function get_exists($key) {
+    if (isset($_GET[$key])) {
+
+        return true;
+    }
+
+    return false;
+}

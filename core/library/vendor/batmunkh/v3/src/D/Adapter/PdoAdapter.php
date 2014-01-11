@@ -74,6 +74,17 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         }
     }
 
+    /**
+     * countAffectedRows iin Alias
+     */
+    public function count() {
+        try {
+            return $this->getStatement()->rowCount();
+        } catch (\PDOException $e) {
+            throw new \RunTimeException($e->getMessage());
+        }
+    }
+
     public function getLastInsertId($name = null) {
         $this->connect();
         return $this->connection->lastInsertId($name);

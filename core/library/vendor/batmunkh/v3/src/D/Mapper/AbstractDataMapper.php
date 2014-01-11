@@ -33,8 +33,8 @@ abstract class AbstractDataMapper implements DataMapperInterface {
         return $this->loadEntity($row);
     }
 
-    public function fetchAll($bind = array(), $where = "") {
-        $this->adapter->select($this->entityTable, $bind, $where);
+    public function fetchAll($bind = array(), $where = "", $options = array()) {
+        $this->adapter->select($this->entityTable, $bind, $where, $options);
         $rows = $this->adapter->fetchAll();
         return $this->loadEntityCollection($rows);
     }

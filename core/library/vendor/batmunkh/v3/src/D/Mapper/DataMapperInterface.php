@@ -12,7 +12,7 @@ interface DataMapperInterface {
     /**
      * bugdiig songono
      */
-    public function fetchAll($bind = array(), $where = "");
+    public function fetchAll($bind = array(), $where = "", $options = array());
 
     /**
      * songoh uildel

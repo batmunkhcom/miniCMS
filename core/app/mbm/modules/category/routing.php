@@ -33,6 +33,13 @@ $router->with('/admin/category', function () use ($router) {
         set_module('category');
         set_action('admin_category_list');
     });
+    //sub category list
+    $router->respond('GET', '/[i:id]', function ($request, $response) {
+
+        set_module('category');
+        set_action('admin_category_list');
+        set_get_parameter('id', $request->id);
+    });
 
     //category create
     $router->respond('GET', '/new', function ($request, $response) {

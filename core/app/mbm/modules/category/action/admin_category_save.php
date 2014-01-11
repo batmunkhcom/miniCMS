@@ -45,6 +45,7 @@ if ($form->isValid('category') == 1) {
     $category_db->commit();
 
     set_flash(__('Category created'), 'success');
+    $session->clearKey('category');
 } else {
     $sess_data = $session->get('category');
     $error_txt = '<h2>' . __('Error') . '!!!</h2>';

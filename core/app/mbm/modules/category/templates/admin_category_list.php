@@ -33,7 +33,17 @@ echo render_flash();
                             <?php foreach ($categories as $category): ?>
                                 <tr >
                                     <td><?php echo $category->id; ?>.</td>
-                                    <td><?php echo $category->name; ?></td>
+                                    <td>
+                                        <?php if (\Category::hasSubCategory($category->id) > 0) { ?>
+                                            <a href="<?php echo get_url('admin_category_list') ?>/<?php echo $category->id; ?>">
+                                                <?php echo $category->name; ?>
+                                            </a>
+                                            <?php
+                                        } else {
+                                            echo $category->name;
+                                        }
+                                        ?>
+                                    </td>
                                     <td class="center">
                                         <?php
                                         $st_class = 'label ';
