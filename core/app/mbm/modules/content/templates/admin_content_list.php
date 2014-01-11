@@ -31,7 +31,7 @@
                         <tbody>
                             <?php foreach ($contents as $content): ?>
                                 <tr >
-                                    <td><?php echo $content->content_id; ?>.</td>
+                                    <td><?php echo $content->id; ?>.</td>
                                     <td><?php echo $content->code; ?></td>
                                     <td><?php echo $content->title; ?></td>
                                     <td class="center"><?php echo $content->content_type; ?></td>
@@ -60,8 +60,8 @@
                                         <div class="btn-group">
                                             <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
                                             <ul role="menu" class="dropdown-menu">
-                                                <li><a href="#"><?php echo __('Edit category'); ?></a></li>
-                                                <li><a href="#"><?php echo __('Delete category'); ?></a></li>
+                                                <li><a href="#"><?php echo __('Edit'); ?></a></li>
+                                                <li><a href="#"><?php echo __('Delete'); ?></a></li>
                                                 <li class="divider"></li>
                                                 <li><a href="#">Separated link</a></li>
                                             </ul>

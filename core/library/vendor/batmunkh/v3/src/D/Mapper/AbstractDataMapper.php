@@ -26,7 +26,7 @@ abstract class AbstractDataMapper implements DataMapperInterface {
     }
 
     public function fetchById($id) {
-        $this->adapter->select($this->entityTable, array("id" => $id));
+        $this->adapter->select($this->entityTable, array("id" => $id), "id=:id");
         if (!$row = $this->adapter->fetch()) {
             return null;
         }
@@ -70,4 +70,10 @@ abstract class AbstractDataMapper implements DataMapperInterface {
     }
 
     abstract protected function loadEntity(array $row);
+
+    public function getTableName() {
+
+        return $this->entityTable;
+    }
+
 }

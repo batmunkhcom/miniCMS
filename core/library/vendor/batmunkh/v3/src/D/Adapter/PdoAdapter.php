@@ -83,8 +83,7 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         if ($fetchStyle === null) {
             $fetchStyle = $this->fetchMode;
         }
-        echo $this->getStatement()->queryString . '---';
-        die();
+
         try {
             return $this->getStatement()->fetch($fetchStyle, $cursorOrientation, $cursorOffset);
         } catch (\PDOException $e) {

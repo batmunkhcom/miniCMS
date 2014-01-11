@@ -439,15 +439,16 @@ class Form {
                 $sess_data['errors'][$k] = __('Please enter an integer number in ' . __($sess_data['labels'][$k]) . ' field');
             }
         }
+//        echo '<hr>';
+//        print_r($sess_data);
+//        echo $is_valid;
+//        die();
+
         $this->fields = $sess_data['fields'];
         $this->fields_data = $sess_data['fields_data'];
         $this->validations = $sess_data['validations'];
         $this->errors = $sess_data['errors'];
         $this->updateSessionDataAfterFormSubmit($form_name);
-//        echo '<hr>';
-//        print_r($sess_data);
-//        echo $is_valid;
-//        die();
 
         return $is_valid;
     }

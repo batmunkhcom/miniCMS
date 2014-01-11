@@ -18,18 +18,17 @@
  */
 class User extends D\Model\User {
 
-    public function User() {
-
-    }
-
     public static function getById($id) {
+
+        global $db;
+
         $mapper_db = db_unit($db, __CLASS__);
 
         $user = $mapper_db->fetchById($id);
 
-        $this->username = $user->username;
+//        $this->username = $user->username;
 
-        return $this;
+        return $user;
     }
 
 }
