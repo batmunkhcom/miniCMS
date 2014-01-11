@@ -83,7 +83,7 @@ class Category extends D\Model\Category {
             foreach ($categories as $category) {
                 self::$treeArray[$category->category_id][$category->id] = array(
                     'id' => $category->id,
-                    'category_id' => $category->category_id,
+                    'parent_id' => $category->category_id,
                     'code' => $category->code,
                     'depth' => $category->depth,
                     'lft' => $category->lft,
@@ -125,16 +125,16 @@ class Category extends D\Model\Category {
             $tree[0][$k] = $array[0][$k];
             if (isset($array[$k])) {
                 $tree[0][$k]['sub'] = self::buildSubTree($k);
-                echo $k . '.,';
+//                echo $k . '.,';
             } else {
-                echo $k . '-,';
+//                echo $k . '-,';
             }
         }
 
-//        print_r($tree);
-//        echo str_repeat('.', 100) . "\n";
-//        print_r($array);
-//        die();
+        print_r($tree);
+        echo str_repeat('.', 100) . "\n";
+        print_r($array);
+        die();
         return self::$tree;
     }
 

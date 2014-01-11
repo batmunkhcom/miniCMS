@@ -11,7 +11,7 @@
  Target Server Version : 50169
  File Encoding         : utf-8
 
- Date: 12/29/2013 04:54:11 AM
+ Date: 01/11/2014 13:39:21 PM
 */
 
 SET NAMES utf8;
@@ -23,7 +23,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `m_categories`;
 CREATE TABLE `m_categories` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `category_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `parent_id` int(11) unsigned NOT NULL DEFAULT '0',
   `code` varchar(255) DEFAULT NULL,
   `depth` int(11) NOT NULL DEFAULT '0',
   `lft` int(11) NOT NULL DEFAULT '0',
@@ -34,6 +34,7 @@ CREATE TABLE `m_categories` (
   `name` varchar(255) DEFAULT NULL,
   `is_external` tinyint(1) NOT NULL DEFAULT '0',
   `external_url` varchar(255) DEFAULT NULL,
+  `target` varchar(255) DEFAULT NULL,
   `lang` varchar(2) NOT NULL DEFAULT 'mn',
   `hits` int(11) NOT NULL DEFAULT '0',
   `date_created` datetime NOT NULL,
@@ -41,7 +42,14 @@ CREATE TABLE `m_categories` (
   `last_updated_user_id` int(11) NOT NULL DEFAULT '0',
   `is_adult` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `m_categories`
+-- ----------------------------
+BEGIN;
+INSERT INTO `m_categories` VALUES ('1', '0', '', '0', '0', '0', 'inactive', '0', '2.00', 'Category 1-0', '0', '', null, 'mn', '0', '2013-12-03 02:53:37', null, '0', '0'), ('2', '1', '', '1', '0', '0', 'inactive', '0', '1.00', 'Category 2-1', '0', '', null, 'mn', '0', '2013-12-03 05:59:37', null, '0', '0'), ('3', '0', '', '0', '0', '0', 'active', '0', '3.00', 'Category 3-0', '0', '', null, 'mn', '0', '2013-12-03 06:20:19', null, '0', '0'), ('4', '0', '', '0', '0', '0', 'active', '0', '4.00', 'Category 4-0', '0', '', null, 'mn', '0', '2013-12-03 06:24:58', null, '0', '0'), ('5', '0', '', '0', '0', '0', 'inactive', '0', '5.00', 'Category 5-0', '0', '', null, 'mn', '0', '2013-12-03 06:26:04', null, '0', '0'), ('6', '0', '', '0', '0', '0', 'inactive', '0', '6.00', 'Category 6-0', '0', '', null, 'mn', '0', '2013-12-03 06:26:55', null, '0', '0'), ('7', '0', '', '0', '0', '0', 'pending', '0', '7.00', 'Category 7-0', '0', '', null, 'mn', '0', '2013-12-03 06:29:08', null, '0', '0'), ('8', '0', '', '0', '0', '0', 'inactive', '0', '1.00', 'Category 8-0', '0', '', null, 'mn', '0', '2013-12-03 06:31:25', null, '0', '0'), ('9', '0', '', '0', '0', '0', 'pending', '0', '8.00', 'Category 9-0', '0', '', null, 'mn', '0', '2013-12-03 06:34:22', null, '0', '0'), ('10', '0', '', '0', '0', '0', 'inactive', '0', '9.00', 'Category 10-0', '0', '', null, 'mn', '0', '2013-12-03 06:35:53', null, '0', '0'), ('11', '0', '', '0', '0', '0', 'active', '0', '10.00', 'Category 11-0', '0', '', null, 'mn', '0', '2013-12-03 06:36:35', null, '0', '0'), ('12', '1', '', '1', '0', '0', 'pending', '0', '2.00', 'Category 12-1', '0', '', null, 'mn', '0', '2013-12-03 06:41:42', null, '0', '0'), ('13', '2', '', '2', '0', '0', 'inactive', '0', '1.00', 'Category 13-2', '0', '', null, 'mn', '0', '2014-01-05 15:22:20', '2014-01-05 15:22:20', '0', '0'), ('14', '8', '', '0', '0', '0', 'inactive', '0', '0.00', 'asdf', '0', '', null, 'mn', '0', '2014-01-05 17:27:35', '2014-01-05 17:27:35', '0', '0'), ('15', '8', '', '0', '0', '0', 'inactive', '0', '0.00', 's', '0', '', null, 'mn', '0', '2014-01-05 23:54:02', '2014-01-05 23:54:02', '0', '0'), ('16', '8', '', '0', '0', '0', 'inactive', '0', '0.00', 'f', '0', '', null, 'mn', '0', '2014-01-05 23:56:07', '2014-01-05 23:56:07', '0', '0'), ('17', '8', '', '0', '0', '0', 'inactive', '0', '0.00', 'a', '0', '', null, 'mn', '0', '2014-01-05 23:59:31', '2014-01-05 23:59:31', '0', '0'), ('18', '8', 'asd', '0', '0', '0', 'inactive', '0', '0.00', 'ddd', '0', '', null, 'mn', '0', '2014-01-06 00:04:09', '2014-01-06 00:04:09', '0', '0'), ('19', '8', 'code', '0', '0', '0', 'inactive', '0', '0.00', 'name', '1', 'external_url', null, 'mn', '0', '2014-01-06 01:13:19', '2014-01-06 01:13:19', '0', '0'), ('20', '3', 'codeaaa', '0', '0', '0', 'inactive', '0', '0.00', 'a', '1', 'external_url', null, 'mn', '0', '2014-01-06 01:18:24', '2014-01-06 01:18:24', '0', '0');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `m_comments`
@@ -49,7 +57,7 @@ CREATE TABLE `m_categories` (
 DROP TABLE IF EXISTS `m_comments`;
 CREATE TABLE `m_comments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `comment_id` int(11) NOT NULL DEFAULT '0',
+  `parent_id` int(11) NOT NULL DEFAULT '0',
   `user_id` int(11) NOT NULL DEFAULT '0',
   `code` varchar(255) DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
@@ -66,16 +74,18 @@ CREATE TABLE `m_comments` (
 DROP TABLE IF EXISTS `m_contents`;
 CREATE TABLE `m_contents` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `content_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `parent_id` int(11) unsigned NOT NULL DEFAULT '0',
   `user_id` int(11) unsigned NOT NULL DEFAULT '0',
   `code` varchar(255) DEFAULT NULL,
   `st` varchar(20) NOT NULL DEFAULT 'inactive',
   `content_type` varchar(20) NOT NULL DEFAULT 'article',
+  `photo` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `content_brief` text,
   `content_body` longtext,
   `use_comment` tinyint(1) NOT NULL DEFAULT '0',
   `date_created` datetime DEFAULT NULL,
+  `date_publish` datetime DEFAULT NULL,
   `total_updated` int(11) unsigned NOT NULL DEFAULT '0',
   `views` int(11) unsigned NOT NULL DEFAULT '0',
   `hits` int(11) unsigned NOT NULL DEFAULT '0',
@@ -143,6 +153,7 @@ CREATE TABLE `m_settings` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `setting_name` varchar(255) NOT NULL,
   `setting_value` text NOT NULL,
+  `setting_type` varchar(255) NOT NULL DEFAULT 'default',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -152,7 +163,7 @@ CREATE TABLE `m_settings` (
 DROP TABLE IF EXISTS `m_users`;
 CREATE TABLE `m_users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL DEFAULT '0',
+  `parent_id` int(11) NOT NULL DEFAULT '0',
   `depth` int(11) NOT NULL DEFAULT '0',
   `lft` int(11) NOT NULL DEFAULT '0',
   `rgt` int(11) NOT NULL DEFAULT '0',
@@ -183,6 +194,13 @@ CREATE TABLE `m_users` (
   `date_created` datetime NOT NULL,
   `date_password_reset` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `m_users`
+-- ----------------------------
+BEGIN;
+INSERT INTO `m_users` VALUES ('1', '0', '0', '0', '0', 'd', 'active', 'guest', 'admin@az.mn', 'batmunkh', 'sdfadsfdsf', 'asdfasfasdf', 'dd', 'dfs', null, 'unknown', null, null, null, null, null, null, null, '0', null, null, 'Asia/Ulaanbaatar', 'mn', 'default', '0000-00-00 00:00:00', null);
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

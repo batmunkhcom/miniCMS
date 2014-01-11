@@ -38,9 +38,4 @@ interface DataMapperInterface {
      * ustgah uildel
      */
     public function delete(\D\Model\EntityInterface $entity);
-
-    /**
-     * Fetch to array
-     */
-    public function fetchToArray(array $conditions = array(), $order_by = '', $group_by = '', $boolOperator = 'AND');
 }

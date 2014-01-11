@@ -4,11 +4,11 @@ echo render_flash();
 <div class="row">
     <div class="col-lg-6">
         <header class="panel-heading">
-                <?php echo __("Categories"); ?>
-            </header>
+            <?php echo __("Categories"); ?>
+        </header>
     </div>
     <div class="col-lg-6 text-right">
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" onclick="window.location = '<?php echo get_url('admin_category_new'); ?>'">
             <i class="fa fa-plus-circle"></i> <?php echo __('Add category'); ?>
         </button>
     </div>

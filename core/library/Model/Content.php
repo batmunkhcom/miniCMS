@@ -23,7 +23,9 @@ class Content extends D\Model\Content {
 
         $mapper_db = db_unit($db, __CLASS__);
 
-        $all_contents = $mapper_db->fetchAll(array(), 'id asc');
+        $all_contents = $mapper_db->fetchAll(array(
+            'id' => 0
+                ), "id>:id ORDER BY id DESC");
 
         return $all_contents;
     }

@@ -52,33 +52,4 @@ class CommentForm extends \F\Form {
         return $form;
     }
 
-    /* public function __construct($form_name = 'comment', $code = '') {
-
-
-      $form = new \F\PFBC\Form($form_name);
-      $form->configure(
-      array(
-      'action' => get_url('form_comment_action')
-      )
-      );
-      $form->addElement(new \F\PFBC\Element\HTML('<legend>' . __('Comment form') . '</legend>'));
-      $form->addElement(new \F\PFBC\Element\Hidden("code", $code));
-      $form->addElement(new \F\PFBC\Element\Hidden("form_name", $form_name));
-      $form->addElement(new \F\PFBC\Element\Textbox(__('Name') . ":", "name", array(
-      "required" => 1,
-      "longDesc" => __('Name field is required')
-      )));
-      $form->addElement(new \F\PFBC\Element\Textarea(__('Comment'), 'comment', array(
-      "labelToPlaceholder" => 1
-      )));
-
-      $form->addElement(new \F\PFBC\Element\Button(__("Send")));
-      $form->addElement(new \F\PFBC\Element\Button(__('Reset'), "reset", array(
-      )));
-
-      $this->form = $form;
-
-      return $this;
-      }
-     */
 }

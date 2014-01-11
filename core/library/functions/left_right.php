@@ -66,7 +66,7 @@ function save_left_right($model, $fields = array(
     $data->lft = $fields['lft'];
     $data->rgt = $fields['rgt'];
 
-    $data_update_left = $mapper_db->fetchAll(array('lft' => '>' . $fields['lft']), $order_by, $group_by);
+    $data_update_left = $mapper_db->update(array('lft' => '>' . $fields['lft']), 'lft>:lft');
 
     $mapper_db->commit();
 
