@@ -32,6 +32,7 @@ class CategoryMapper extends AbstractDataMapper {
             "name" => $row["name"],
             "is_external" => $row["is_external"],
             "external_url" => $row["external_url"],
+            "target" => $row["target"],
             "lang" => $row["lang"],
             "hits" => $row["hits"],
             "date_created" => $row["date_created"],

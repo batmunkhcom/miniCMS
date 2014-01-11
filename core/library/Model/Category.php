@@ -22,15 +22,15 @@ class Category extends D\Model\Category {
     public static $tree = array();
     public static $form_options = array();
 
-    public static function fetchAll() {
+    public static function fetchAll($parent_id = 0) {
 
         global $db;
 
         $mapper_db = db_unit($db, __CLASS__);
 
         $all_categories = $mapper_db->fetchAll(array(
-            'depth' => 0
-                ), "depth=:depth ORDER BY pos ASC");
+            'parent_id' => $parent_id
+                ), "parent_id=:parent_id ORDER BY pos ASC");
 
         return $all_categories;
     }
@@ -110,7 +110,7 @@ class Category extends D\Model\Category {
 
         if (count(self::$treeArray > 0)) {
             self::clearTree();
-            $categories = self::fetchAll();
+            $categories = self::fetchAll($parent_id);
 
             foreach ($categories as $category) {
                 self::$treeArray[$category->parent_id][$category->id] = array(
@@ -163,10 +163,10 @@ class Category extends D\Model\Category {
             }
         }
 
-        print_r($tree);
-        echo str_repeat('.', 100) . "\n";
-        print_r($array);
-        die();
+//        print_r($tree);
+//        echo str_repeat('.', 100) . "\n";
+//        print_r($array);
+//        die();
         return self::$tree;
     }
 

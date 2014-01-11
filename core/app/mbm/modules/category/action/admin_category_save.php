@@ -1,7 +1,5 @@
 <?php
 
-print_r($_SESSION);
-die();
 $form = new F\Form\CategoryForm('category');
 
 if ($form->isValid('category') == 1) {
@@ -10,19 +8,21 @@ if ($form->isValid('category') == 1) {
         $lft = get_max_left('Category', post('parent_id')) + 1;
         $rgt = $lft + 1;
         $depth = 0;
+        $parent_id = 0;
     } else {
 
         $parent_category = \Category::fetchById(post('parent_id'));
         $lft = ($parent_category->lft + 1);
         $rgt = ($parent_category->lft + 2);
         $depth = ($parent_category->depth + 1);
+        $parent_id = $parent_category->id;
     }
 
     $category_db = db_unit($db, 'Category');
 
     $category = new D\Model\Category(
             array(
-        'parent_id' => $parent_category->id,
+        'parent_id' => $parent_id,
         'code' => post('code'),
         'depth' => $depth,
         'lft' => $lft,
