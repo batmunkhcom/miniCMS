@@ -138,7 +138,8 @@ function render_flash() {
                                   </button>';
         $buf .= $flash['text'];
         $buf .= '</div>';
-
+        $session->clearKey('flash_txt');
+        $session->clearKey('flash_type');
         return $buf;
     } else {
 

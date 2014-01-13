@@ -41,6 +41,16 @@ class ContentForm extends \F\Form {
             'is_required' => 1,
             'minlength' => 2
         ));
+        $form->addElement(__('Use photo'), 'use_photo', 'checkbox', array(
+            'class' => 'form-control',
+            'value' => 1,
+            'onclick' => "$('#element_photo').toggle();"
+                ), array(), '');
+        $form->addElement(__('Content photo'), 'photo', 'input', array(
+            'class' => 'form-control',
+            'value' => files('photo', 'name'),
+            'type' => 'file'
+                ), array());
         $form->addElement(__('Use comment'), 'use_comment', 'checkbox', array(
             'class' => 'form-control',
             'value' => 1

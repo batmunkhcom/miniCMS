@@ -15,3 +15,5 @@ echo '.....';
 echo \M\Config::get('action_current');
 echo '<hr>';
 apc_clear_cache();
+
+echo http_response('http://log.dc02.vdc.mn', 200, 1);

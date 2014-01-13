@@ -11,7 +11,7 @@ DOMAIN = 'http://www.minicms.me/';
  * */
 function elFinderBrowser(field_name, url, type, win) {
     tinymce.activeEditor.windowManager.open({
-        file: '/assets/tinymce/plugins/elfinder/elfinder.html', // use an absolute path!
+        file: '/assets/tinymce/plugins/elfinder/elfinder.php', // use an absolute path!
         title: 'File manager',
         width: 900,
         height: 450,

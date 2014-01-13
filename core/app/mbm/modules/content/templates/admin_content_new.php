@@ -18,7 +18,9 @@
                 }
 
                 clear_flash();
-                ?>
-                </div>
+                ?><script>
+                    $('#element_photo').hide();
+                </script>
+            </div>
         </section>
     </div>

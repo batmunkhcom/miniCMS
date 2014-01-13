@@ -32,13 +32,17 @@ function access($attr, $path, $data, $volume) {
             : null;                                    // else elFinder decide it itself
 }
 
+if (\M\Config::get('is_admin') != 1) {
+    die();
+}
 $opts = array(
     // 'debug' => true,
     'roots' => array(
         array(
             'driver' => 'LocalFileSystem', // driver for accessing file system (REQUIRED)
             'path' => DIR_WEB . DIR_IMAGE . 'contents' . DS, // path to files (REQUIRED)
-            'URL' => PROTOCOL . DOMAIN . DS . DIR_IMAGE . DS . 'contents' . DS, // URL to files (REQUIRED)
+            'URL' => DS . DIR_IMAGE . 'contents' . DS, // URL to files (REQUIRED)
+//            'URL' => PROTOCOL . DOMAIN . DS . DIR_IMAGE . 'contents' . DS, // URL to files (REQUIRED)
             'accessControl' => 'access'             // disable and hide dot starting files (OPTIONAL)
         )
     )
