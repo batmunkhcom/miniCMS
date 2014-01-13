@@ -83,18 +83,18 @@ if ($form->isValid('content')) {
         $last_insert_id = $content_db->save($content);
 
         //content category nemeh
+        $c_category_db = db_unit($db, 'ContentCategory');
         if (count(post('categories') > 0)) {
             foreach (post('categories') as $k => $v) {
-                $c_category_db = db_unit($db, 'ContentCategory');
                 $c_category = new \D\Model\ContentCategory(array(
                     'content_id' => $last_insert_id,
                     'category_id' => $v
                 ));
                 $c_category_db->registerNew($c_category);
-                $c_category_db->commit();
-                unset($c_category_db, $c_category);
+                unset($c_category);
             }
         }
+        $c_category_db->commit();
 
         set_flash(__('Valid form submition'), 'info');
         $session->clearKey('content');

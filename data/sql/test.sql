@@ -11,7 +11,7 @@
  Target Server Version : 50169
  File Encoding         : utf-8
 
- Date: 01/11/2014 23:07:27 PM
+ Date: 01/14/2014 02:44:09 AM
 */
 
 SET NAMES utf8;
@@ -42,7 +42,7 @@ CREATE TABLE `m_categories` (
   `last_updated_user_id` int(11) NOT NULL DEFAULT '0',
   `is_adult` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `m_comments`
@@ -63,6 +63,17 @@ CREATE TABLE `m_comments` (
   `browser` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `m_content_categories`
+-- ----------------------------
+DROP TABLE IF EXISTS `m_content_categories`;
+CREATE TABLE `m_content_categories` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `content_id` int(11) unsigned DEFAULT '0',
+  `category_id` int(11) unsigned DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `m_contents`
@@ -92,7 +103,7 @@ CREATE TABLE `m_contents` (
   `session_time` varchar(50) DEFAULT NULL,
   `is_adult` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `m_search`
@@ -160,12 +171,5 @@ CREATE TABLE `m_users` (
   `date_password_reset` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
---  Records of `m_users`
--- ----------------------------
-BEGIN;
-INSERT INTO `m_users` VALUES ('1', '0', '0', '0', '0', 'd', 'active', 'guest', 'admin@az.mn', 'batmunkh', 'sdfadsfdsf', 'asdfasfasdf', 'dd', 'dfs', null, 'unknown', null, null, null, null, null, null, null, '0', null, null, 'Asia/Ulaanbaatar', 'mn', 'default', '0000-00-00 00:00:00', null);
-COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
