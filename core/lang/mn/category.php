@@ -47,4 +47,13 @@ $lang['Code'] = 'Код';
 $lang['ID'] = 'Дугаар';
 $lang['Contents'] = 'Агуулга';
 $lang['Modules'] = 'Модуль';
+$lang['Log'] = 'Лог';
+$lang['Use comment'] = 'Сэтгэгдэл ашиглах ';
+$lang['Categories'] = 'Ангилалууд';
+$lang['Add content'] = 'Агуулга нэмэх';
+$lang['Content body'] = 'Үндсэн мэдээлэл';
+$lang['Content brief'] = 'Товч мэдээлэл';
+$lang['Use photo'] = 'Зураг ашиглах';
+$lang['Content photo'] = 'Мэдээллийн зураг';
+$lang['Is 18+'] = '18+';
 
