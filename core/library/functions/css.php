@@ -20,6 +20,8 @@
  */
 function css_load($addidtional_files = array()) {
 
+    $buf = '';
+
     //shuud duudah file uud.
     $files = \M\Config::get('css_loadfile');
 
@@ -104,18 +106,18 @@ function compress_css() {
         //header iig main.php -d n oruulaad ugsun tul header iin medeelliig arilgav
     } else {
 
-        ob_start('ob_gzhandler');
+//        ob_start('ob_gzhandler');
 
         foreach ($files as $file) {
 
             //minified hiigdeegui file iig avna
             if (substr_count($file, '.min.') == 0) {
-                echo compress_files(file_get_contents($file), $file_type);
+                $buf .= compress_files(file_get_contents($file), $file_type);
             } else {
-                echo file_get_contents($file);
+                $buf .= file_get_contents($file);
             }
         }
 
-        ob_end_flush();
+//        ob_end_flush();
     }
 }

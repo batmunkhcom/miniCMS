@@ -51,6 +51,8 @@ function js_set_loadfile($file, $pos = 10) {
  */
 function compress_js() {
 
+    $buf = '';
+
     $js_files = M\Config::get('js_files');
 
     $file_type = 'js';
@@ -95,18 +97,19 @@ function compress_js() {
         //header iig undsen file deer n oruulchihsan tul arilgav
     } else {
 
-        ob_start('ob_gzhandler');
+//        ob_start('ob_gzhandler');
 
         foreach ($files as $file) {
 
             //minified hiigdeegui file iig compress hiine
             if (substr_count($file, '.min.') == 0) {
-                echo compress_files(file_get_contents($file), $file_type);
+                $buf .= compress_files(file_get_contents($file), $file_type);
             } else {
-                echo file_get_contents($file);
+                $buf .= file_get_contents($file);
             }
         }
 
-        ob_end_flush();
+//        ob_end_flush();
     }
+    return $buf;
 }
