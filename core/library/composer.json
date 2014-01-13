@@ -3,7 +3,8 @@
         "batmunkh/v3": "dev-master",
         "codeguy/upload": "*",
         "bzikarsky/gelf-php": "*",
-        "klein/klein": "*"
+        "klein/klein": "*",
+        "sybio/image-workshop": "*"
     },
     "autoload": {
         "classmap": [

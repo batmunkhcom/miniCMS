@@ -23,3 +23,4 @@ $form = new \F\Form\CategoryForm('category', array(
         ));
 $template->set('form', $form->form);
 $template->set('sess', $session->get('category'));
+

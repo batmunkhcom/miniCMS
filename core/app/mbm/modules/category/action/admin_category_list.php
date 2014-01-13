@@ -8,4 +8,4 @@ if ((int) get('id') > 0) {
 } else {
     $parent_id = 0;
 }
-$template->set('categories', \Category::fetchAll($parent_id));
+$template->set('categories', \Category::fetchByParentId($parent_id));

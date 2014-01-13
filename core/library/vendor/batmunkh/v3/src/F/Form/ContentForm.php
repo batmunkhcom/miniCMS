@@ -26,6 +26,23 @@ class ContentForm extends \F\Form {
 
         $form = new \F\Form($name, $configure);
 
+<<<<<<< HEAD
+=======
+        $form->addElement(__('Name'), 'name', 'input', array(
+            'class' => 'form-control',
+            'value' => post('name'),
+            'minlength' => 2,
+            'required' => 'true'
+                ), array(
+            'minlength' => 2
+        ));
+        $form->addElement(__('Select category'), 'categories[]', 'select', array(
+            'class' => 'form-control',
+            'value' => \Category::formOptions(),
+            'multiple' => 'multiple',
+            'required' => 'true'
+                ), array());
+>>>>>>> bd4842e090f533110358d08ed19ad7d1ba49df80
         $form->addElement(__('Title'), 'title', 'input', array(
             'class' => 'form-control',
             'value' => post('title')
@@ -46,15 +63,11 @@ class ContentForm extends \F\Form {
         $form->addElement(__('Use comment'), 'use_comment', 'checkbox', array(
             'class' => 'form-control',
             'value' => 1
-                ), array(
-            'minlength' => 1
-        ));
+                ), array());
         $form->addElement(__('Is 18+'), 'is_adult', 'checkbox', array(
             'class' => 'form-control',
             'value' => 1
-                ), array(
-            'minlength' => 1
-        ));
+                ), array());
         $form->addElement(__('Content brief'), 'content_brief', 'textarea', array(
             'class' => 'form-control',
             'value' => post('content_brief')

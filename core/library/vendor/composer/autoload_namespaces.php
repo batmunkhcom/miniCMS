@@ -9,6 +9,7 @@ return array(
     'Upload' => $vendorDir . '/codeguy/upload/src',
     'Test' => $vendorDir . '/batmunkh/v3/src',
     'Psr\\Log\\' => $vendorDir . '/psr/log',
+    'PHPImageWorkshop' => $vendorDir . '/sybio/image-workshop/src',
     'PFBC' => $vendorDir . '/batmunkh/v3/src',
     'M' => $vendorDir . '/batmunkh/v3/src',
     'Klein' => $vendorDir . '/klein/klein',

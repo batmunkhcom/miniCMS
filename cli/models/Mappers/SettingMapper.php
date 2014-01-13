@@ -23,7 +23,8 @@ protected $entityTable = "m_settings";
                 
 "id" => $row["id"],
 "setting_name" => $row["setting_name"],
-"setting_value" => $row["setting_value"]
+"setting_value" => $row["setting_value"],
+"setting_type" => $row["setting_type"]
             )
         );
     }

@@ -18,6 +18,7 @@ foreach ($all_tables as $k => $v) {
 
     //table neriig ingej avq bol avagdahgui n ..
     foreach ($v as $t) {
+        //ner zasah
         $tables[$t] = array();
         $current_table = $t;
     }
@@ -73,7 +74,7 @@ namespace D\Mapper;
  */
 class {MODELNAME}Mapper extends AbstractDataMapper {
 
-protected \$entityTable = \"" . DB_PREFIX . "{TABLENAME}\";
+protected \$entityTable = \"{TABLENAME}\";
 
     protected function loadEntity(array \$row) {
         return new \D\Model\{MODELNAME}(
@@ -88,8 +89,16 @@ protected \$entityTable = \"" . DB_PREFIX . "{TABLENAME}\";
 $i = 0;
 foreach ($tables as $t => $fields) {
     $i++;
+
+    $table_name_original = $t;
     //model ner iig yanzlah
     $t = trim($t, DB_PREFIX);
+    $model_name_words = explode("_", $t);
+    $t = '';
+    foreach ($model_name_words as $k => $m_word) {
+        $m_word{0} = strtoupper($m_word{0});
+        $t .= $m_word;
+    }
 
     $model_name = $t;
     if ($model_name{strlen($model_name) - 1} == 's') {
@@ -109,7 +118,7 @@ foreach ($tables as $t => $fields) {
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */\n\n";
-    $models[$t]['Model'] .= "namespace \D\Model;";
+    $models[$t]['Model'] .= "namespace D\Model;";
     $models[$t]['Model'] .= "\n\n";
     $models[$t]['Model'] .= "/**
                             * " . $model_name . " model. " . $t . " table.
@@ -147,7 +156,7 @@ foreach ($tables as $t => $fields) {
 
     $mapper_fields[$t] = rtrim($mapper_fields[$t], ',');
     $mappers[$t] = str_replace("{MODELNAME}", $model_name, $mapper_template);
-    $mappers[$t] = str_replace("{TABLENAME}", $t, $mappers[$t]);
+    $mappers[$t] = str_replace("{TABLENAME}", $table_name_original, $mappers[$t]);
     $mappers[$t] = str_replace("{FIELDS}", $mapper_fields[$t], $mappers[$t]);
 
 

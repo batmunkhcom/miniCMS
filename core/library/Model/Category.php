@@ -22,7 +22,18 @@ class Category extends D\Model\Category {
     public static $tree = array();
     public static $form_options = array();
 
-    public static function fetchAll($parent_id = 0) {
+    public static function fetchAll() {
+
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $all_categories = $mapper_db->fetchAll(array(), "id!=0 ORDER BY pos ASC");
+
+        return $all_categories;
+    }
+
+    public static function fetchByParentId($parent_id = 0) {
 
         global $db;
 

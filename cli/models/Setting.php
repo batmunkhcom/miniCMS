@@ -11,37 +11,39 @@
 namespace \D\Model;
 
 /**
-                            * Setting model. settings table.
+                            * Setting model. Settings table.
                             */
 class Setting extends AbstractEntity {
 /**
-* settings table iin baganuud n SettingMapper deer davhar zaaj ugnu
+* Settings table iin baganuud n SettingMapper deer davhar zaaj ugnu
 */
 protected $allowedFields = array(
 'id',
 'setting_name',
-'setting_value');
+'setting_value',
+'setting_type');
 
 /**
      * field info:
-           *    name:       id
-           *    type:       int(11) unsigned
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $id int Setting iin id
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $id  Setting iin id
      * @return object
      */
 	public function setId($id) {
-$id = (int) $id;
-if (isset($this->fields["id"])) {
-                            throw new \BadMethodCallException(__("The ID has been set already."));
-                        }
+if(isset($this->fields[  "id"])) {
+            throw new  \  BadMethodCallException(  __
 
-                        if (!is_int($id) || $id < 1) {
-                            throw new \InvalidArgumentException(__("The ID is invalid."));
-                        }$this->fields["id"] = $id;
+    ("The ID has been set already."));
+        }
+
+                if (!is_int($id) || $id < 1) {
+                throw new \InvalidArgumentException(__("The ID is invalid."));
+                }$this->fields["id"] = $id;
 
 return $this;
 
@@ -49,22 +51,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       setting_name
-           *    type:       varchar(255)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $setting_name string Setting iin setting_name
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $setting_name  Setting iin setting_name
      * @return object
      */
 	public function setSettingName($setting_name) {
-$setting_name = (string) $setting_name;
 
-                if(!isset($setting_name) || $setting_name == ""){
-                    $setting_name="";
-                }
-            $this->fields["setting_name"] = $setting_name;
+            if(!isset($setting_name) || $setting_name == ""){
+            $setting_name = "";
+            }
+    $this->fields["setting_name"] = $setting_name;
 
 return $this;
 
@@ -72,22 +73,43 @@ return $this;
 
 /**
      * field info:
-           *    name:       setting_value
-           *    type:       text
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $setting_value string Setting iin setting_value
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $setting_value  Setting iin setting_value
      * @return object
      */
 	public function setSettingValue($setting_value) {
-$setting_value = (string) $setting_value;
 
-                if(!isset($setting_value) || $setting_value == ""){
-                    $setting_value="";
-                }
-            $this->fields["setting_value"] = $setting_value;
+            if(!isset($setting_value) || $setting_value == ""){
+            $setting_value = "";
+            }
+    $this->fields["setting_value"] = $setting_value;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    default
+           *    extra:      
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $setting_type  Setting iin setting_type
+     * @return object
+     */
+	public function setSettingType($setting_type) {
+
+            if(!isset($setting_type) || $setting_type == ""){
+            $setting_type = "default";
+            }
+    $this->fields["setting_type"] = $setting_type;
 
 return $this;
 

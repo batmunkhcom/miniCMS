@@ -16,3 +16,4 @@ $form = new F\Form\ContentForm('content', array(
         ));
 
 $template->set('form', $form->form);
+$session->clearKey('content');
