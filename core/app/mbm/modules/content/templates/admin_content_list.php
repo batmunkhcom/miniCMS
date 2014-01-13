@@ -5,7 +5,7 @@
         </header>
     </div>
     <div class="col-lg-6 text-right">
-        <button type="button" class="btn btn-primary" onclick="window.location = '<?php echo get_url('admin_content_new'); ?>'">
+        <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_content_new'); ?>'">
             <i class="fa fa-plus-circle"></i> <?php echo __('Add content'); ?>
         </button>
     </div>

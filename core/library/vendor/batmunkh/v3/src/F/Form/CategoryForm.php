@@ -42,14 +42,6 @@ class CategoryForm extends \F\Form {
                 ), array(
             'minlength' => 2
         ));
-        $form->addElement(__('Code'), 'code', 'input', array(
-            'class' => 'form-control',
-            'value' => post('code')
-                ), array(
-            'is_required' => 1,
-            'minlength' => 2,
-            'maxlength' => 25
-        ));
         $form->addElement(__('Parent category'), 'parent_id', 'select', array(
             'class' => 'form-control',
             'value' => array(0 => __('Set as main')) + \Category::formOptions()
