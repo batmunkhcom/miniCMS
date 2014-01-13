@@ -4,7 +4,9 @@ $form = new F\Form\ContentForm();
 if ($form->isValid('content')) {
     $template->set('is_valid', 'yesss');
 
+    if (mo) {
 
+    }
     //category iin baruun zuuniig todorhoiloh
 
     $content_db = db_unit($db, 'Content');
@@ -13,6 +15,7 @@ if ($form->isValid('content')) {
         'parent_id' => post(''),
         'user_id' => get_logged_user_id(),
         'code' => post('code'),
+        'photo' => post('code'),
         'st' => post(''),
         'content_type' => post(''),
         'title' => post(''),
@@ -28,6 +31,10 @@ if ($form->isValid('content')) {
         'is_adult' => post('')
             )
     );
+    print_r(files('photo'));
+    print_r(\M\Config::get('FILES'));
+    print_r($_FILES);
+    die();
     $content_db->registerNew($content);
     $content_db->commit();
 

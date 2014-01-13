@@ -19,6 +19,8 @@ M\File::getAndIncludePHPFiles(DIR_LIB . 'functions' . DS);
 //tohirgoog buh gazar shuud ashiglah bolomj olgohiin tuld ehleed duudav
 $config = new M\Core($mbm_config);
 
+\M\Config::set('FILES', $_FILES);
+\M\Config::set('POST', $_POST);
 
 if (check_host_status('udp://' . LOG_SERVER, 12201, 1) == 'online' && ENABLE_LOG == 1) {
     //error iig uuruu barij avah

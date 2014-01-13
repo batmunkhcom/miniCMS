@@ -1,8 +1,9 @@
 {
     "require": {
-        "batmunkh/v3":              "dev-master",
-        "bzikarsky/gelf-php":         "*",
-        "klein/klein":              "*"
+        "batmunkh/v3": "dev-master",
+        "codeguy/upload": "*",
+        "bzikarsky/gelf-php": "*",
+        "klein/klein": "*"
     },
     "autoload": {
         "classmap": [
@@ -12,7 +13,7 @@
             "test"
         ],
         "psr-0": {
-            "": ["Model/","MBM/"]
+            "": ["Model/", "MBM/"]
         }
     },
     "minimum-stability": "stable"

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cc7accae04bd5f95ec5839228253c67c",
+    "hash": "79ee832ef4c9e79654b18b1564d1e504",
     "packages": [
         {
             "name": "batmunkh/v3",
@@ -95,6 +95,53 @@
             ],
             "description": "A php implementation to send log-messages to a GELF compatible backend like Graylog2.",
             "time": "2013-12-18 19:29:08"
+        },
+        {
+            "name": "codeguy/upload",
+            "version": "1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codeguy/Upload.git",
+                "reference": "6a9e5e1fb58d65346d0e557db2d46fb25efd3e37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codeguy/Upload/zipball/6a9e5e1fb58d65346d0e557db2d46fb25efd3e37",
+                "reference": "6a9e5e1fb58d65346d0e557db2d46fb25efd3e37",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Upload": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Lockhart",
+                    "email": "info@joshlockhart.com",
+                    "homepage": "https://github.com/codeguy/"
+                }
+            ],
+            "description": "Handle file uploads with extensible validation and storage strategies",
+            "homepage": "http://github.com/codeguy/Upload",
+            "keywords": [
+                "file",
+                "upload",
+                "validation"
+            ],
+            "time": "2013-07-07 17:01:41"
         },
         {
             "name": "klein/klein",

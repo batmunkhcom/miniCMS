@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Upload' => $vendorDir . '/codeguy/upload/src',
     'Test' => $vendorDir . '/batmunkh/v3/src',
     'Psr\\Log\\' => $vendorDir . '/psr/log',
     'PFBC' => $vendorDir . '/batmunkh/v3/src',

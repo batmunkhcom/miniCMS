@@ -11,7 +11,8 @@ $form = new F\Form\ContentForm('content', array(
     'action' => get_url('admin_content_save'),
     'class' => 'form-horizontal',
     'role' => 'form',
-    'method' => 'post'
+    'method' => 'post',
+    'enctype' => 'multipart/form-data'
         ));
 
 $template->set('form', $form->form);
