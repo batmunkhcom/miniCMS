@@ -26,14 +26,6 @@ class ContentForm extends \F\Form {
 
         $form = new \F\Form($name, $configure);
 
-        $form->addElement(__('Name'), 'name', 'input', array(
-            'class' => 'form-control',
-            'value' => post('name'),
-            'minlength' => 2,
-            'required' => 'true'
-                ), array(
-            'minlength' => 2
-        ));
         $form->addElement(__('Title'), 'title', 'input', array(
             'class' => 'form-control',
             'value' => post('title')
