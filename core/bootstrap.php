@@ -26,6 +26,7 @@ define('DIR_TMP', DIR_CORE . 'tmp' . DS);
 define('DIR_CACHE', DIR_CORE . 'cache' . DS);
 define('DIR_LOG', DIR_CORE . 'log' . DS);
 define('DIR_DOCS', DIR_ABS . 'docs' . DS);
+define('DIR_DATA', DIR_ABS . 'data' . DS);
 //session_save_path(DIR_TMP.'sessions'.DS);
 //media folders. relative to domain.. DIR_WEB.DIR_WWW -nd bairlah zam.
 define('DIR_MEDIA', 'media' . DS);

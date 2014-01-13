@@ -9,7 +9,10 @@
  *
  */
 /* * **************Webiin undsen tohirgoo******************** */
+
+//urgund utga oruulaagui bol tuhain zuragnii urguniig avna
 $mbm_config ['content_photo_max_width'] = 200;
+//undriig 0 gej ugvul auto tootsoolno
 $mbm_config ['content_photo_max_height'] = 0;
 /**
  * Zurgiin haana tamgalahiig todorhoilno
@@ -24,7 +27,18 @@ $mbm_config ['content_photo_max_height'] = 0;
  * RB - baruun dood
  */
 $mbm_config ['content_photo_stamp_position'] = 'LB';
+
+//content iin zurgiig tamgalah eseh
 $mbm_config ['content_photo_stamp_enable'] = 1;
+
+//DIR_WEB ees hamaaraltai path iig zaana
 $mbm_config ['content_photo_stamp_image'] = '/images/stamp.png';
-$mbm_config ['content_photo_stamp_padding1'] = 10;
-$mbm_config ['content_photo_stamp_padding2'] = 10;
+
+//tamgalah zurgiin padding
+$mbm_config ['content_photo_stamp_padding1'] = 5;
+$mbm_config ['content_photo_stamp_padding2'] = 5;
+
+//original zurgiig hadgalah eseh
+$mbm_config ['content_photo_save_original'] = 1;
+//original zurgiig haana hadgalah zam. DIR_DATA tai hamaaraltaigaar ugugdunu
+$mbm_config ['content_photo_save_original_path'] = 'content/';

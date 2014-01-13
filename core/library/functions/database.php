@@ -62,6 +62,25 @@ function db_unit($db, $mapper) {
 }
 
 /**
+ * Zuvhun 1 mapper duudah
+ *
+ * @param object $db Database connection adapter
+ * @param string $mapper Mapper iin Model ner. Ex: Category
+ *
+ * @return object Mapper iig butsaana
+ */
+function db_mapper($db, $mapper) {
+
+    $mapper_full_name = '\\D\\Mapper\\' . $mapper . 'Mapper';
+    $obj_storage = new \D\Storage\ObjectStorage;
+    $entity_collection = new \D\Model\Collection\EntityCollection;
+
+    $db_mapper = new $mapper_full_name($db, $entity_collection);
+
+    return $db_mapper;
+}
+
+/**
  * field iin neriig Model export-d zoriulj yanzlah
  *
  * @param string $field Field iin ner

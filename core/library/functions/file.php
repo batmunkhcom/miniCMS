@@ -13,9 +13,21 @@
  *
  * @param string Absolute path. / aar tugsunu
  *
- * @return 
+ * @return
  */
 function include_files($dir) {
 
     M\File::getAndIncludePHPFiles($dir);
+}
+
+/**
+ * Ugugdsun file iin extension iig avna.
+ *
+ * @param string $filename File iin ner
+ *
+ * @return string suuliin 3 usiig butsaanaa.... suuld sain shalgah heregtei.
+ */
+function getFileExtension($filename = '') {
+
+    return strtolower(substr($filename, -3));
 }
