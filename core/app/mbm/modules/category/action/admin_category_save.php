@@ -5,15 +5,15 @@ $form = new F\Form\CategoryForm('category');
 if ($form->isValid('category') == 1) {
 
     if (post('parent_id') == 0) {
-        $lft = get_max_left('Category', post('parent_id')) + 1;
+        $lft = get_max_left('Category', post('parent_id')) + 2;
         $rgt = $lft + 1;
         $depth = 0;
         $parent_id = 0;
     } else {
 
         $parent_category = \Category::fetchById(post('parent_id'));
-        $lft = ($parent_category->lft + 1);
-        $rgt = ($parent_category->lft + 2);
+        $lft = ($parent_category->lft + 2);
+        $rgt = ($parent_category->lft + 3);
         $depth = ($parent_category->depth + 1);
         $parent_id = $parent_category->id;
     }

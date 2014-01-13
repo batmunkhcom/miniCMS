@@ -52,7 +52,7 @@ if ($form->isValid('content')) {
             @unlink(DIR_TMP . $photo_stamp_tmp_name);
         }
         $photo->save(DIR_WEB . $file_path, $new_filename, false, null, 95, false);
-        if (CONTENT_PHOTO_SAVE_ORIGINAL == 1) {
+        if ((int) CONTENT_PHOTO_SAVE_ORIGINAL == 1) {
             $photo2 = PHPImageWorkshop\ImageWorkshop::initFromPath(files('photo', 'tmp_name'));
             $photo2->save(DIR_DATA . CONTENT_PHOTO_SAVE_ORIGINAL_PATH, $new_filename, false, null, 100, false);
         }
@@ -73,11 +73,11 @@ if ($form->isValid('content')) {
             'use_comment' => post('use_comment'),
             'session_id' => post('session_id'),
             'total_updated' => post('total_updated'),
-            'views' => post(''),
+            'views' => 0,
             'hits' => 0,
             'date_created' => convert_date(date("Y-M-D H:i:s")),
-            'session_time' => post(''),
-            'is_adult' => post('')
+            'session_time' => time(),
+            'is_adult' => post('is_adult')
                 )
         );
         $last_insert_id = $content_db->save($content);

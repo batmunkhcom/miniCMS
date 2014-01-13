@@ -41,4 +41,4 @@ $mbm_config ['content_photo_stamp_padding2'] = 5;
 //original zurgiig hadgalah eseh
 $mbm_config ['content_photo_save_original'] = 1;
 //original zurgiig haana hadgalah zam. DIR_DATA tai hamaaraltaigaar ugugdunu
-$mbm_config ['content_photo_save_original_path'] = 'content/';
+$mbm_config ['content_photo_save_original_path'] = 'photos/content/';
