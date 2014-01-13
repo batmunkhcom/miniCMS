@@ -97,7 +97,7 @@ function db_field_fix_name($field = '') {
  *
  * @return string Model file iin deer bairlah comment iig butsaana
  */
-function db_create_field_comment($field = array(), $fieldname = ' ', $model_name) {
+function db_create_field_comment($field = array(), $fieldname = ' ', $model_name = '') {
 
     $f = $field[$fieldname];
     $buf = "/**

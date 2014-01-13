@@ -11,15 +11,18 @@
 namespace \D\Model;
 
 /**
-                            * Comment model. comments table.
+                            * Comment model. Comments table.
                             */
 class Comment extends AbstractEntity {
 /**
-* comments table iin baganuud n CommentMapper deer davhar zaaj ugnu
+* Comments table iin baganuud n CommentMapper deer davhar zaaj ugnu
 */
 protected $allowedFields = array(
 'id',
-'comment_id',
+'parent_id',
+'lft',
+'rgt',
+'depth',
 'user_id',
 'code',
 'name',
@@ -30,24 +33,25 @@ protected $allowedFields = array(
 
 /**
      * field info:
-           *    name:       id
-           *    type:       int(11) unsigned
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $id int Comment iin id
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $id  Comment iin id
      * @return object
      */
 	public function setId($id) {
-$id = (int) $id;
-if (isset($this->fields["id"])) {
-                            throw new \BadMethodCallException(__("The ID has been set already."));
-                        }
+if(isset($this->fields[  "id"])) {
+            throw new  \  BadMethodCallException(  __
 
-                        if (!is_int($id) || $id < 1) {
-                            throw new \InvalidArgumentException(__("The ID is invalid."));
-                        }$this->fields["id"] = $id;
+    ("The ID has been set already."));
+        }
+
+                if (!is_int($id) || $id < 1) {
+                throw new \InvalidArgumentException(__("The ID is invalid."));
+                }$this->fields["id"] = $id;
 
 return $this;
 
@@ -55,22 +59,17 @@ return $this;
 
 /**
      * field info:
-           *    name:       comment_id
-           *    type:       int(11)
-           *    null:       NO
+           *    name:       
+           *    type:       
+           *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $comment_id int Comment iin comment_id
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $parent_id  Comment iin parent_id
      * @return object
      */
-	public function setCommentId($comment_id) {
-$comment_id = (int) $comment_id;
-
-                if(!isset($comment_id) || $comment_id == ""){
-                    $comment_id="0";
-                }
-            $this->fields["comment_id"] = $comment_id;
+	public function setParentId($parent_id) {
+$this->fields["parent_id"] = $parent_id;
 
 return $this;
 
@@ -78,22 +77,17 @@ return $this;
 
 /**
      * field info:
-           *    name:       user_id
-           *    type:       int(11)
-           *    null:       NO
+           *    name:       
+           *    type:       
+           *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $user_id int Comment iin user_id
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $lft  Comment iin lft
      * @return object
      */
-	public function setUserId($user_id) {
-$user_id = (int) $user_id;
-
-                if(!isset($user_id) || $user_id == ""){
-                    $user_id="0";
-                }
-            $this->fields["user_id"] = $user_id;
+	public function setLft($lft) {
+$this->fields["lft"] = $lft;
 
 return $this;
 
@@ -101,17 +95,74 @@ return $this;
 
 /**
      * field info:
-           *    name:       code
-           *    type:       varchar(255)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $code string Comment iin code
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $rgt  Comment iin rgt
+     * @return object
+     */
+	public function setRgt($rgt) {
+$this->fields["rgt"] = $rgt;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $depth  Comment iin depth
+     * @return object
+     */
+	public function setDepth($depth) {
+$this->fields["depth"] = $depth;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $user_id  Comment iin user_id
+     * @return object
+     */
+	public function setUserId($user_id) {
+
+            if(!isset($user_id) || $user_id == ""){
+            $user_id = "0";
+            }
+    $this->fields["user_id"] = $user_id;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    
+           *    extra:      
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $code  Comment iin code
      * @return object
      */
 	public function setCode($code) {
-$code = (string) $code;
 $this->fields["code"] = $code;
 
 return $this;
@@ -120,17 +171,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       name
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
+           *    generated:  2014-01-13 08:16:56 pm
      * @param $name  Comment iin name
      * @return object
      */
 	public function setName($name) {
-$name = (string) $name;
 $this->fields["name"] = $name;
 
 return $this;
@@ -139,17 +189,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       content
-           *    type:       varchar(255)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $content string Comment iin content
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $content  Comment iin content
      * @return object
      */
 	public function setContent($content) {
-$content = (string) $content;
 $this->fields["content"] = $content;
 
 return $this;
@@ -158,17 +207,18 @@ return $this;
 
 /**
      * field info:
-           *    name:       date_created
-           *    type:       datetime
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $date_created datetime Comment iin date_created
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $date_created  Comment iin date_created
      * @return object
      */
 	public function setDateCreated($date_created) {
-if(!isset($date_created)){$date_created = \M\Carbon::now();}
+$date_created = \M\Carbon::now();
+    
 $this->fields["date_created"] = $date_created;
 
 return $this;
@@ -177,17 +227,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       ip
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $ip string Comment iin ip
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $ip  Comment iin ip
      * @return object
      */
 	public function setIp($ip) {
-$ip = (string) $ip;
 $this->fields["ip"] = $ip;
 
 return $this;
@@ -196,17 +245,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       browser
-           *    type:       varchar(255)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $browser string Comment iin browser
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $browser  Comment iin browser
      * @return object
      */
 	public function setBrowser($browser) {
-$browser = (string) $browser;
 $this->fields["browser"] = $browser;
 
 return $this;

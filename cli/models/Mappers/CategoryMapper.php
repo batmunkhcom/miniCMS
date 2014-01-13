@@ -22,7 +22,7 @@ protected $entityTable = "m_categories";
                 array(
                 
 "id" => $row["id"],
-"category_id" => $row["category_id"],
+"parent_id" => $row["parent_id"],
 "code" => $row["code"],
 "depth" => $row["depth"],
 "lft" => $row["lft"],
@@ -30,9 +30,10 @@ protected $entityTable = "m_categories";
 "st" => $row["st"],
 "user_id" => $row["user_id"],
 "pos" => $row["pos"],
-"title" => $row["title"],
+"name" => $row["name"],
 "is_external" => $row["is_external"],
 "external_url" => $row["external_url"],
+"target" => $row["target"],
 "lang" => $row["lang"],
 "hits" => $row["hits"],
 "date_created" => $row["date_created"],

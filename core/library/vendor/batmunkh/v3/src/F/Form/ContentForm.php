@@ -34,6 +34,12 @@ class ContentForm extends \F\Form {
                 ), array(
             'minlength' => 2
         ));
+        $form->addElement(__('Select category'), 'categories[]', 'select', array(
+            'class' => 'form-control',
+            'value' => \Category::formOptions(),
+            'multiple' => 'multiple',
+            'required' => 'true'
+                ), array());
         $form->addElement(__('Title'), 'title', 'input', array(
             'class' => 'form-control',
             'value' => post('title')
@@ -54,15 +60,11 @@ class ContentForm extends \F\Form {
         $form->addElement(__('Use comment'), 'use_comment', 'checkbox', array(
             'class' => 'form-control',
             'value' => 1
-                ), array(
-            'minlength' => 1
-        ));
+                ), array());
         $form->addElement(__('Is 18+'), 'is_adult', 'checkbox', array(
             'class' => 'form-control',
             'value' => 1
-                ), array(
-            'minlength' => 1
-        ));
+                ), array());
         $form->addElement(__('Content brief'), 'content_brief', 'textarea', array(
             'class' => 'form-control',
             'value' => post('content_brief')

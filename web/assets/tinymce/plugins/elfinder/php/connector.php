@@ -33,15 +33,16 @@ function access($attr, $path, $data, $volume) {
 }
 
 if (\M\Config::get('is_admin') != 1) {
-    die();
+//    echo '<h3>Authorization Required!</h3>';
+//    die();
 }
 $opts = array(
     // 'debug' => true,
     'roots' => array(
         array(
             'driver' => 'LocalFileSystem', // driver for accessing file system (REQUIRED)
-            'path' => DIR_WEB . DIR_IMAGE . 'contents' . DS, // path to files (REQUIRED)
-            'URL' => DS . DIR_IMAGE . 'contents' . DS, // URL to files (REQUIRED)
+            'path' => DIR_WEB . DIR_MEDIA, // path to files (REQUIRED)
+            'URL' => DS . DIR_MEDIA, // URL to files (REQUIRED)
 //            'URL' => PROTOCOL . DOMAIN . DS . DIR_IMAGE . 'contents' . DS, // URL to files (REQUIRED)
             'accessControl' => 'access'             // disable and hide dot starting files (OPTIONAL)
         )

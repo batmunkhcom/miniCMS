@@ -11,15 +11,15 @@
 namespace \D\Model;
 
 /**
-                            * User model. users table.
+                            * User model. Users table.
                             */
 class User extends AbstractEntity {
 /**
-* users table iin baganuud n UserMapper deer davhar zaaj ugnu
+* Users table iin baganuud n UserMapper deer davhar zaaj ugnu
 */
 protected $allowedFields = array(
 'id',
-'user_id',
+'parent_id',
 'depth',
 'lft',
 'rgt',
@@ -52,24 +52,25 @@ protected $allowedFields = array(
 
 /**
      * field info:
-           *    name:       id
-           *    type:       int(11) unsigned
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $id int User iin id
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $id  User iin id
      * @return object
      */
 	public function setId($id) {
-$id = (int) $id;
-if (isset($this->fields["id"])) {
-                            throw new \BadMethodCallException(__("The ID has been set already."));
-                        }
+if(isset($this->fields[  "id"])) {
+            throw new  \  BadMethodCallException(  __
 
-                        if (!is_int($id) || $id < 1) {
-                            throw new \InvalidArgumentException(__("The ID is invalid."));
-                        }$this->fields["id"] = $id;
+    ("The ID has been set already."));
+        }
+
+                if (!is_int($id) || $id < 1) {
+                throw new \InvalidArgumentException(__("The ID is invalid."));
+                }$this->fields["id"] = $id;
 
 return $this;
 
@@ -77,22 +78,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       user_id
-           *    type:       int(11)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $user_id int User iin user_id
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $parent_id  User iin parent_id
      * @return object
      */
-	public function setUserId($user_id) {
-$user_id = (int) $user_id;
+	public function setParentId($parent_id) {
 
-                if(!isset($user_id) || $user_id == ""){
-                    $user_id="0";
-                }
-            $this->fields["user_id"] = $user_id;
+            if(!isset($parent_id) || $parent_id == ""){
+            $parent_id = "0";
+            }
+    $this->fields["parent_id"] = $parent_id;
 
 return $this;
 
@@ -100,22 +100,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       depth
-           *    type:       int(11)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $depth int User iin depth
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $depth  User iin depth
      * @return object
      */
 	public function setDepth($depth) {
-$depth = (int) $depth;
 
-                if(!isset($depth) || $depth == ""){
-                    $depth="0";
-                }
-            $this->fields["depth"] = $depth;
+            if(!isset($depth) || $depth == ""){
+            $depth = "0";
+            }
+    $this->fields["depth"] = $depth;
 
 return $this;
 
@@ -123,22 +122,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       lft
-           *    type:       int(11)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $lft int User iin lft
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $lft  User iin lft
      * @return object
      */
 	public function setLft($lft) {
-$lft = (int) $lft;
 
-                if(!isset($lft) || $lft == ""){
-                    $lft="0";
-                }
-            $this->fields["lft"] = $lft;
+            if(!isset($lft) || $lft == ""){
+            $lft = "0";
+            }
+    $this->fields["lft"] = $lft;
 
 return $this;
 
@@ -146,22 +144,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       rgt
-           *    type:       int(11)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $rgt int User iin rgt
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $rgt  User iin rgt
      * @return object
      */
 	public function setRgt($rgt) {
-$rgt = (int) $rgt;
 
-                if(!isset($rgt) || $rgt == ""){
-                    $rgt="0";
-                }
-            $this->fields["rgt"] = $rgt;
+            if(!isset($rgt) || $rgt == ""){
+            $rgt = "0";
+            }
+    $this->fields["rgt"] = $rgt;
 
 return $this;
 
@@ -169,17 +166,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       code
-           *    type:       varchar(255)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $code string User iin code
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $code  User iin code
      * @return object
      */
 	public function setCode($code) {
-$code = (string) $code;
 $this->fields["code"] = $code;
 
 return $this;
@@ -188,22 +184,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       st
-           *    type:       varchar(20)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $st string User iin st
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $st  User iin st
      * @return object
      */
 	public function setSt($st) {
-$st = (string) $st;
 
-                if(!isset($st) || $st == ""){
-                    $st="inactive";
-                }
-            $this->fields["st"] = $st;
+            if(!isset($st) || $st == ""){
+            $st = "inactive";
+            }
+    $this->fields["st"] = $st;
 
 return $this;
 
@@ -211,22 +206,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       role
-           *    type:       varchar(20)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    guest
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $role string User iin role
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $role  User iin role
      * @return object
      */
 	public function setRole($role) {
-$role = (string) $role;
 
-                if(!isset($role) || $role == ""){
-                    $role="guest";
-                }
-            $this->fields["role"] = $role;
+            if(!isset($role) || $role == ""){
+            $role = "guest";
+            }
+    $this->fields["role"] = $role;
 
 return $this;
 
@@ -234,22 +228,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       email
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $email string User iin email
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $email  User iin email
      * @return object
      */
 	public function setEmail($email) {
-$email = (string) $email;
 
-                if(!isset($email) || $email == ""){
-                    $email="";
-                }
-            $this->fields["email"] = $email;
+            if(!isset($email) || $email == ""){
+            $email = "";
+            }
+    $this->fields["email"] = $email;
 
 return $this;
 
@@ -257,22 +250,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       username
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $username string User iin username
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $username  User iin username
      * @return object
      */
 	public function setUsername($username) {
-$username = (string) $username;
 
-                if(!isset($username) || $username == ""){
-                    $username="";
-                }
-            $this->fields["username"] = $username;
+            if(!isset($username) || $username == ""){
+            $username = "";
+            }
+    $this->fields["username"] = $username;
 
 return $this;
 
@@ -280,17 +272,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       password
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $password string User iin password
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $password  User iin password
      * @return object
      */
 	public function setPassword($password) {
-$password = (string) $password;
 $this->fields["password"] = $password;
 
 return $this;
@@ -299,17 +290,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       password_tmp
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $password_tmp string User iin password_tmp
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $password_tmp  User iin password_tmp
      * @return object
      */
 	public function setPasswordTmp($password_tmp) {
-$password_tmp = (string) $password_tmp;
 $this->fields["password_tmp"] = $password_tmp;
 
 return $this;
@@ -318,17 +308,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       firstname
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $firstname string User iin firstname
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $firstname  User iin firstname
      * @return object
      */
 	public function setFirstname($firstname) {
-$firstname = (string) $firstname;
 $this->fields["firstname"] = $firstname;
 
 return $this;
@@ -337,17 +326,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       lastname
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $lastname string User iin lastname
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $lastname  User iin lastname
      * @return object
      */
 	public function setLastname($lastname) {
-$lastname = (string) $lastname;
 $this->fields["lastname"] = $lastname;
 
 return $this;
@@ -356,17 +344,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       phone
-           *    type:       varchar(30)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $phone string User iin phone
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $phone  User iin phone
      * @return object
      */
 	public function setPhone($phone) {
-$phone = (string) $phone;
 $this->fields["phone"] = $phone;
 
 return $this;
@@ -375,22 +362,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       gender
-           *    type:       varchar(20)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    unknown
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $gender string User iin gender
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $gender  User iin gender
      * @return object
      */
 	public function setGender($gender) {
-$gender = (string) $gender;
 
-                if(!isset($gender) || $gender == ""){
-                    $gender="unknown";
-                }
-            $this->fields["gender"] = $gender;
+            if(!isset($gender) || $gender == ""){
+            $gender = "unknown";
+            }
+    $this->fields["gender"] = $gender;
 
 return $this;
 
@@ -398,13 +384,13 @@ return $this;
 
 /**
      * field info:
-           *    name:       birthday
-           *    type:       date
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $birthday date User iin birthday
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $birthday  User iin birthday
      * @return object
      */
 	public function setBirthday($birthday) {
@@ -416,17 +402,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       city_birth
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $city_birth string User iin city_birth
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $city_birth  User iin city_birth
      * @return object
      */
 	public function setCityBirth($city_birth) {
-$city_birth = (string) $city_birth;
 $this->fields["city_birth"] = $city_birth;
 
 return $this;
@@ -435,17 +420,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       city_living
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $city_living string User iin city_living
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $city_living  User iin city_living
      * @return object
      */
 	public function setCityLiving($city_living) {
-$city_living = (string) $city_living;
 $this->fields["city_living"] = $city_living;
 
 return $this;
@@ -454,17 +438,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       address_living
-           *    type:       varchar(255)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $address_living string User iin address_living
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $address_living  User iin address_living
      * @return object
      */
 	public function setAddressLiving($address_living) {
-$address_living = (string) $address_living;
 $this->fields["address_living"] = $address_living;
 
 return $this;
@@ -473,17 +456,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       address_billing
-           *    type:       varchar(255)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $address_billing string User iin address_billing
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $address_billing  User iin address_billing
      * @return object
      */
 	public function setAddressBilling($address_billing) {
-$address_billing = (string) $address_billing;
 $this->fields["address_billing"] = $address_billing;
 
 return $this;
@@ -492,17 +474,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       address_shipping
-           *    type:       varchar(255)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $address_shipping string User iin address_shipping
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $address_shipping  User iin address_shipping
      * @return object
      */
 	public function setAddressShipping($address_shipping) {
-$address_shipping = (string) $address_shipping;
 $this->fields["address_shipping"] = $address_shipping;
 
 return $this;
@@ -511,17 +492,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       website
-           *    type:       varchar(255)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $website string User iin website
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $website  User iin website
      * @return object
      */
 	public function setWebsite($website) {
-$website = (string) $website;
 $this->fields["website"] = $website;
 
 return $this;
@@ -530,22 +510,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       profile_hits
-           *    type:       int(11)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $profile_hits int User iin profile_hits
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $profile_hits  User iin profile_hits
      * @return object
      */
 	public function setProfileHits($profile_hits) {
-$profile_hits = (int) $profile_hits;
 
-                if(!isset($profile_hits) || $profile_hits == ""){
-                    $profile_hits="0";
-                }
-            $this->fields["profile_hits"] = $profile_hits;
+            if(!isset($profile_hits) || $profile_hits == ""){
+            $profile_hits = "0";
+            }
+    $this->fields["profile_hits"] = $profile_hits;
 
 return $this;
 
@@ -553,17 +532,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       token
-           *    type:       varchar(128)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $token string User iin token
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $token  User iin token
      * @return object
      */
 	public function setToken($token) {
-$token = (string) $token;
 $this->fields["token"] = $token;
 
 return $this;
@@ -572,17 +550,16 @@ return $this;
 
 /**
      * field info:
-           *    name:       secret_key
-           *    type:       varchar(128)
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $secret_key string User iin secret_key
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $secret_key  User iin secret_key
      * @return object
      */
 	public function setSecretKey($secret_key) {
-$secret_key = (string) $secret_key;
 $this->fields["secret_key"] = $secret_key;
 
 return $this;
@@ -591,22 +568,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       default_timezone
-           *    type:       varchar(50)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    Asia/Ulaanbaatar
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $default_timezone string User iin default_timezone
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $default_timezone  User iin default_timezone
      * @return object
      */
 	public function setDefaultTimezone($default_timezone) {
-$default_timezone = (string) $default_timezone;
 
-                if(!isset($default_timezone) || $default_timezone == ""){
-                    $default_timezone="Asia/Ulaanbaatar";
-                }
-            $this->fields["default_timezone"] = $default_timezone;
+            if(!isset($default_timezone) || $default_timezone == ""){
+            $default_timezone = "Asia/Ulaanbaatar";
+            }
+    $this->fields["default_timezone"] = $default_timezone;
 
 return $this;
 
@@ -614,22 +590,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       default_lang
-           *    type:       varchar(2)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    mn
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $default_lang string User iin default_lang
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $default_lang  User iin default_lang
      * @return object
      */
 	public function setDefaultLang($default_lang) {
-$default_lang = (string) $default_lang;
 
-                if(!isset($default_lang) || $default_lang == ""){
-                    $default_lang="mn";
-                }
-            $this->fields["default_lang"] = $default_lang;
+            if(!isset($default_lang) || $default_lang == ""){
+            $default_lang = "mn";
+            }
+    $this->fields["default_lang"] = $default_lang;
 
 return $this;
 
@@ -637,22 +612,21 @@ return $this;
 
 /**
      * field info:
-           *    name:       default_layout
-           *    type:       varchar(30)
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $default_layout string User iin default_layout
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $default_layout  User iin default_layout
      * @return object
      */
 	public function setDefaultLayout($default_layout) {
-$default_layout = (string) $default_layout;
 
-                if(!isset($default_layout) || $default_layout == ""){
-                    $default_layout="default";
-                }
-            $this->fields["default_layout"] = $default_layout;
+            if(!isset($default_layout) || $default_layout == ""){
+            $default_layout = "default";
+            }
+    $this->fields["default_layout"] = $default_layout;
 
 return $this;
 
@@ -660,22 +634,23 @@ return $this;
 
 /**
      * field info:
-           *    name:       date_created
-           *    type:       datetime
+           *    name:       
+           *    type:       
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $date_created datetime User iin date_created
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $date_created  User iin date_created
      * @return object
      */
 	public function setDateCreated($date_created) {
-if(!isset($date_created)){$date_created = \M\Carbon::now();}
+$date_created = \M\Carbon::now();
+    
 
-                if(!isset($date_created) || $date_created == ""){
-                    $date_created="";
-                }
-            $this->fields["date_created"] = $date_created;
+            if(!isset($date_created) || $date_created == ""){
+            $date_created = "";
+            }
+    $this->fields["date_created"] = $date_created;
 
 return $this;
 
@@ -683,13 +658,13 @@ return $this;
 
 /**
      * field info:
-           *    name:       date_password_reset
-           *    type:       datetime
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2013-12-28 07:34:15 am
-     * @param $date_password_reset datetime User iin date_password_reset
+           *    generated:  2014-01-13 08:16:56 pm
+     * @param $date_password_reset  User iin date_password_reset
      * @return object
      */
 	public function setDatePasswordReset($date_password_reset) {

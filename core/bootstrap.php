@@ -27,8 +27,8 @@ define('DIR_CACHE', DIR_CORE . 'cache' . DS);
 define('DIR_LOG', DIR_CORE . 'log' . DS);
 define('DIR_DOCS', DIR_ABS . 'docs' . DS);
 //session_save_path(DIR_TMP.'sessions'.DS);
-//media folders. relative to domain.. DIR_WEB.DS.DIR_WWW.DS -nd bairlah zam.
-define('DIR_UPLOAD', 'upload' . DS);
+//media folders. relative to domain.. DIR_WEB.DIR_WWW -nd bairlah zam.
+define('DIR_MEDIA', 'media' . DS);
 define('DIR_CSS', 'css' . DS);
 define('DIR_JS', 'js' . DS);
 define('DIR_IMAGE', 'images' . DS);

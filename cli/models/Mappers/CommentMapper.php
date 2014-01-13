@@ -22,7 +22,10 @@ protected $entityTable = "m_comments";
                 array(
                 
 "id" => $row["id"],
-"comment_id" => $row["comment_id"],
+"parent_id" => $row["parent_id"],
+"lft" => $row["lft"],
+"rgt" => $row["rgt"],
+"depth" => $row["depth"],
 "user_id" => $row["user_id"],
 "code" => $row["code"],
 "name" => $row["name"],
