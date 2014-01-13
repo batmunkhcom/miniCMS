@@ -20,8 +20,6 @@
  */
 function css_load($addidtional_files = array()) {
 
-    $buf = '';
-
     //shuud duudah file uud.
     $files = \M\Config::get('css_loadfile');
 
@@ -61,6 +59,8 @@ function css_set_loadfile($file, $pos = 10) {
  * compress css files and prepare to load to /css/main.php
  */
 function compress_css() {
+
+    $buf = '';
 
     $css_files = M\Config::get('css_files');
     $file_type = 'css';
@@ -120,4 +120,6 @@ function compress_css() {
 
 //        ob_end_flush();
     }
+
+    return $buf;
 }
