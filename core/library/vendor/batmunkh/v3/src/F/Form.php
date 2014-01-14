@@ -145,6 +145,9 @@ class Form {
                 $buf .= $this->checkbox($label, $name, $attributes, $validation, $text);
                 $buf .= '</div>';
                 break;
+            case 'html':
+                $buf .= $this->html($label, $name, $text);
+                break;
             case 'button':
                 $buf .= '<button name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
                 foreach ($attributes as $k => $v) {
@@ -293,6 +296,21 @@ class Form {
         $buf .='</select>' . "\n";
 
         return $buf;
+    }
+
+    /**
+     *
+     * @param type $label Hereglegchded haragdah tuhain elementiin ner
+     * @param type $name Tuhain element iin ner
+     * @param type $attributes Tuhain elementiin attribute uud
+     * @param type $text Nemelt text. help text geh met-d ashiglagdana
+     *
+     * @return string tuhain elementiig hevleh html iig butsaana
+     */
+    public function html($label, $name, $html = '') {
+
+
+        return $html;
     }
 
     /**
