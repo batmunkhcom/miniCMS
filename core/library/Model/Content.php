@@ -18,16 +18,39 @@
  */
 class Content extends D\Model\Content {
 
-    public static function fetchAll($content_id = 0) {
+    public static function fetchAll() {
+
         global $db;
 
         $mapper_db = db_unit($db, __CLASS__);
 
-        $all_contents = $mapper_db->fetchAll(array(
-            'id' => 0
-                ), "id>:id ORDER BY id DESC");
+        $contents = $mapper_db->fetchAll(array(), "id!=0 ORDER BY id DESC");
 
-        return $all_contents;
+        return $contents;
+    }
+
+    public static function fetchByParentId($parent_id = 0) {
+
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $contents = $mapper_db->fetchAll(array(
+            'parent_id' => $parent_id
+                ), "parent_id=:parent_id ORDER BY pos ASC");
+
+        return $contents;
+    }
+
+    public static function fetchById($id) {
+
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $contents = $mapper_db->fetchById($id);
+
+        return $contents;
     }
 
 }

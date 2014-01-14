@@ -56,8 +56,24 @@ if ($form->isValid('content')) {
             $photo2 = PHPImageWorkshop\ImageWorkshop::initFromPath(files('photo', 'tmp_name'));
             $photo2->save(DIR_DATA . CONTENT_PHOTO_SAVE_ORIGINAL_PATH, $new_filename, false, null, 100, false);
         }
+
+
         //content nemeh
-//        $content_db = db_mapper($db, 'Content');
+        //content left/right
+        if (post('parent_id') == 0) {
+            $lft = get_max_left('Content', post('parent_id')) + 2;
+            $rgt = $lft + 1;
+            $depth = 0;
+            $parent_id = 0;
+        } else {
+
+            $parent_content = \Content::fetchById(post('parent_id'));
+            $lft = ($parent_content->lft + 2);
+            $rgt = ($parent_content->lft + 3);
+            $depth = ($parent_content->depth + 1);
+            $parent_id = $parent_content->id;
+        }
+        //$content_db = db_mapper($db, 'Content');
         $content_db = new \D\Mapper\ContentMapper($db, new \D\Model\Collection\EntityCollection);
         $content = new D\Model\Content(
                 array(

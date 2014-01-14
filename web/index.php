@@ -14,5 +14,4 @@ echo \M\Config::get('module_current');
 echo '.....';
 echo \M\Config::get('action_current');
 echo '<hr>';
-apc_clear_cache();
 
