@@ -22,7 +22,7 @@
                                 <th width="50"><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Title'); ?></th>
                                 <th width="60"><?php echo __('Username'); ?></th>
-                                <th><?php echo __('Content info'); ?></th>
+                                <th width="80"><?php echo __('Content info'); ?></th>
                                 <th width="80"><?php echo __('Status'); ?></th>
                                 <th width="60"><?php echo __('Hits'); ?></th>
                             </tr>
@@ -50,14 +50,14 @@
                                     <td>
                                         <strong><?php echo $content->title; ?></strong>
                                         <p><?php echo $content->content_brief; ?></p>
-                                        <?php foreach(\Content::getCategories($content->id) as $category ):?>
-                                        <span class="badge bg-primary">
-                                            <button data-dismiss="alert" class="close close-sm" type="button">
-                                      <i class="fa fa-times"></i>
-                                  </button>
-                                            <?php echo $category->name;?>&nbsp;
-                                        </span>
-                                            <?php endforeach;?>
+                                        <?php foreach (\Content::getCategories($content->id) as $category): ?>
+                                            <span class="badge bg-primary">
+                                                <button data-dismiss="alert" class="close close-sm" type="button">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                                <?php echo $category->name; ?>&nbsp;
+                                            </span>
+                                        <?php endforeach; ?>
                                     </td>
                                     <td class="center"><?php echo \User::getById($content->user_id)->username; ?></td>
                                     <td class="center"><?php
