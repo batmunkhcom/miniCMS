@@ -46,6 +46,7 @@ if ($form->isValid('category') == 1) {
 
     set_flash(__('Category created'), 'success');
     $session->clearKey('category');
+    header("Location: " . get_url('admin_category_list'));
 } else {
     $sess_data = $session->get('category');
     $error_txt = '<h2>' . __('Error') . '!!!</h2>';

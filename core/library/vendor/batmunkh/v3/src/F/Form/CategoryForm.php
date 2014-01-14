@@ -54,11 +54,15 @@ class CategoryForm extends \F\Form {
         $form->addElement(__('Is external'), 'is_external', 'checkbox', array(
             'class' => 'checkbox form-control',
             'value' => 1,
-            'onclick' => "$('#element_external_url').toggle();"
+            'onclick' => "$('#element_external_url').toggle();$('#element_target').toggle();"
         ));
         $form->addElement(__('External URL'), 'external_url', 'input', array(
             'class' => 'form-control',
             'value' => post('external_url')
+        ));
+        $form->addElement(__('Link target'), 'target', 'input', array(
+            'class' => 'form-control',
+            'value' => post('target')
         ));
         $form->addElement('', 'add_category', 'button', array(
             'class' => 'btn btn-success',

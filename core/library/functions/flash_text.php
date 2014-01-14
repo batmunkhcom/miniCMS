@@ -19,7 +19,7 @@
  *      error,
  *      fatal (Least Verbose),
  *      trace
- *
+ *      success
  * @return boolean Bainga true butsaana
  * * */
 function set_flash($text, $type = 'info') {

@@ -96,7 +96,7 @@ if ($form->isValid('content')) {
         }
         $c_category_db->commit();
 
-        set_flash(__('Valid form submition'), 'info');
+        set_flash(__('Valid form submition'), 'success');
         $session->clearKey('content');
         header("Location: " . get_url('admin_content_list'));
     } else {

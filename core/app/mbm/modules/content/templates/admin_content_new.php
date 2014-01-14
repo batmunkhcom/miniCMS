@@ -20,6 +20,7 @@
                 clear_flash();
                 ?><script>
                     $('#element_photo').hide();
+                    $('#element_target').hide();
                 </script>
             </div>
         </section>
