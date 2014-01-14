@@ -21,9 +21,9 @@
                                 <th width="120"></th>
                                 <th width="50"><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Title'); ?></th>
-                                <th width="80"><?php echo __('Username'); ?></th>
+                                <th width="60"><?php echo __('Username'); ?></th>
                                 <th><?php echo __('Content info'); ?></th>
-                                <th width="60"><?php echo __('Status'); ?></th>
+                                <th width="80"><?php echo __('Status'); ?></th>
                                 <th width="60"><?php echo __('Hits'); ?></th>
                             </tr>
                         </thead>
