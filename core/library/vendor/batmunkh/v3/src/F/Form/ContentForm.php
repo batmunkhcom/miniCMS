@@ -38,17 +38,10 @@ class ContentForm extends \F\Form {
               <div class="row">
               <div class="col-md-12">
                   <section class="panel">
-                      <header class="panel-heading">
-                          Multiple Select
-                          <span class="tools pull-right">
-                            <a href="javascript:;" class="fa fa-chevron-down"></a>
-                            <a href="javascript:;" class="fa fa-times"></a>
-                          </span>
-                      </header>
                       <div class="panel-body">
                               <div class="form-group">
-                                  <label class="control-label col-md-3">Default</label>
-                                  <div class="col-md-9">
+                                  <label class="control-label col-md-2"> ' . __('Select categories') . '</label>
+                                  <div class="col-md-10">
                                       <select multiple="multiple" class="multi-select" id="categories" name="categories[]">
                                           ';
         foreach (\Category::formOptions() as $k => $v) {

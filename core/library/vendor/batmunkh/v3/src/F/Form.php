@@ -125,30 +125,59 @@ class Form {
         'is_integer' => 0
     ), $text = '') {
 
-        $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
-        $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
-        $buf .= $label . "\n";
-        $buf .= '</label>' . "\n";
-        $buf .= '<div class="col-lg-10">' . "\n";
+        $buf = '';
+
         switch ($element_type) {
             case 'input':
+                $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
+                $buf .= $label . "\n";
+                $buf .= '</label>' . "\n";
+                $buf .= '<div class="col-lg-6">' . "\n";
                 $buf .= $this->input($label, $name, $attributes, $validation, $text);
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
             case 'textarea':
+                $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
+                $buf .= $label . "\n";
+                $buf .= '</label>' . "\n";
+                $buf .= '<div class="col-lg-10">' . "\n";
                 $buf .= $this->textarea($label, $name, $attributes, $validation, $text);
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
             case 'select':
+                $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
+                $buf .= $label . "\n";
+                $buf .= '</label>' . "\n";
+                $buf .= '<div class="col-lg-6">' . "\n";
                 $buf .= $this->select($label, $name, $attributes, $validation, $text);
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
             case 'checkbox':
+                $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
+                $buf .= $label . "\n";
+                $buf .= '</label>' . "\n";
+                $buf .= '<div class="col-lg-6">' . "\n";
                 $buf .= '<div class="checkbox">';
                 $buf .= $this->checkbox($label, $name, $attributes, $validation, $text);
                 $buf .= '</div>';
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
             case 'html':
                 $buf .= $this->html($label, $name, $text);
                 break;
-            case 'button':
+            case 'button':$buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+//                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
+//                $buf .= $label . "\n";
+//                $buf .= '</label>' . "\n";
+                $buf .= '<div class="col-lg-2">' . "\n";
                 $buf .= '<button name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
                 foreach ($attributes as $k => $v) {
                     switch ($k) {
@@ -160,8 +189,15 @@ class Form {
                     }
                 }
                 $buf .= '>' . $attributes['value'] . '</button>' . "\n";
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
             case 'wysiwyg':
+                $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+//                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
+//                $buf .= $label . "\n";
+//                $buf .= '</label>' . "\n";
+                $buf .= '<div class="col-lg-12">' . "\n";
                 js_set_loadfile('/assets/tinymce/tinymce.min.js');
                 $text .= '<script type="text/javascript">
                                 tinymce.init({
@@ -180,10 +216,10 @@ class Form {
                                  });
                                 </script>';
                 $buf .= $this->wysiwyg($label, $name, $attributes, $validation, $text);
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
         }
-        $buf .= '</div>' . "\n";
-        $buf .= '</div>' . "\n";
         $this->elements[self::$pos] = $buf;
         $this->fields[$name] = $element_type;
         $this->labels[$name] = $label;
