@@ -226,4 +226,24 @@ class Category extends D\Model\Category {
         return self::$form_options;
     }
 
+    /**
+     * form iin select options-d zoriulj butsaana
+     */
+    public static function formOptionsHTML($parent_id = 0) {
+
+        self::convertToArray();
+        $array = self::$treeArray;
+
+        foreach ($array[$parent_id] as $k => $v) {
+
+            self::$form_options[$k] = str_repeat('&nbsp;', ($array[$parent_id][$k]['depth'] * 10))
+                    . $array[$parent_id][$k]['name'];
+            if (isset($array[$k]) == 1) {
+                self::$form_options = self::formOptions($k);
+            }
+        }
+
+        return self::$form_options;
+    }
+
 }
