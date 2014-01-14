@@ -34,6 +34,11 @@ class ContentForm extends \F\Form {
 //                ), array());
         //categories beld
         $categories = '
+<<<<<<< HEAD
+            
+                              <div class="form-group">
+                                  <div class="col-md-9">
+=======
             <!--multiple select start-->
               <div class="row">
               <div class="col-md-12">
@@ -42,6 +47,7 @@ class ContentForm extends \F\Form {
                               <div class="form-group">
                                   <label class="control-label col-md-2"> ' . __('Select categories') . '</label>
                                   <div class="col-md-10">
+>>>>>>> 1a0cd99dfebb74f24e80f2950c0636edfb9fc7ed
                                       <select multiple="multiple" class="multi-select" id="categories" name="categories[]">
                                           ';
         foreach (\Category::formOptions() as $k => $v) {
@@ -51,11 +57,7 @@ class ContentForm extends \F\Form {
                                       </select>
                                   </div>
                               </div>
-        </div>
-        </section>
-        </div>
-        </div>
-
+      
 
         ';
         $form->addElement(__('Select category'), 'categories1[]', 'html', array(), array(), $categories);

@@ -118,7 +118,7 @@
                         <a href="#">
                             <span class="photo"><img alt="avatar" src="/assets/flatlab/admin/img/avatar-mini2.jpg"></span>
                             <span class="subject">
-                                <span class="from">Jhon Doe</span>
+                                <span class="from">Administrator</span>
                                 <span class="time">10 mins</span>
                             </span>
                             <span class="message">
@@ -220,7 +220,7 @@
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <img alt="" src="/assets/flatlab/admin/img/avatar1_small.jpg">
-                    <span class="username">Jhon Doue</span>
+                    <span class="username">Administrator</span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout">
