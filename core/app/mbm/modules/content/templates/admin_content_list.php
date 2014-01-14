@@ -47,21 +47,32 @@
                                         </div>
                                     </td>
                                     <td><?php echo $content->id; ?>.</td>
-                                    <td><strong><?php echo $content->title; ?></strong><p><?php echo $content->content_brief; ?></p></td>
+                                    <td>
+                                        <strong><?php echo $content->title; ?></strong>
+                                        <p><?php echo $content->content_brief; ?></p>
+                                        <?php foreach(\Content::getCategories($content->id) as $category ):?>
+                                        <span class="badge bg-primary">
+                                            <button data-dismiss="alert" class="close close-sm" type="button">
+                                      <i class="fa fa-times"></i>
+                                  </button>
+                                            <?php echo $category->name;?>&nbsp;
+                                        </span>
+                                            <?php endforeach;?>
+                                    </td>
                                     <td class="center"><?php echo \User::getById($content->user_id)->username; ?></td>
-                                    <td class="center"><?php 
-                                                            echo icon_content_type($content->content_type);
-                                                            echo ' <span class="badge bg-success" title="'.__('Created date').': '.$content->date_created.'"><i class="fa fa-clock-o"></i></span>';
-                                                            echo ' <span class="badge bg-warning" title="'.__('Publish date').': '.$content->date_publish.'"><i class="fa fa-clock-o"></i></span>';
-                                                        ?></td>
+                                    <td class="center"><?php
+                                        echo icon_content_type($content->content_type);
+                                        echo ' <span class="badge bg-success" title="' . __('Created date') . ': ' . $content->date_created . '"><i class="fa fa-clock-o"></i></span>';
+                                        echo ' <span class="badge bg-warning" title="' . __('Publish date') . ': ' . $content->date_publish . '"><i class="fa fa-clock-o"></i></span>';
+                                        ?></td>
                                     <td class="center">
                                         <?php
                                         echo printSt($content->st);
                                         ?>
                                     </td>
                                     <td class="center">
-                                        <span class="badge bg-warning">
-                                            <?php echo $content->hits; ?>
+                                        <span class="badge bg-warning" style="font-weight: normal !important;">
+                                            <?php echo number_format($content->hits); ?>
                                         </span>
                                     </td>
 

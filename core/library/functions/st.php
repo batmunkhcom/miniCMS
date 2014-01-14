@@ -73,7 +73,7 @@ function printSt($st = '', $url = '') {
             break;
     }
 
-    $buf .= ' <span class="' . $st_class . '">';
+    $buf .= ' <span class="' . $st_class . '" style="font-weight: normal !important;">';
     if (strlen($url) > 0) {
         $buf .= '<a href="' . $url . '">' . __($st) . '</a>';
     } else {

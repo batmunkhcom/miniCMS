@@ -52,5 +52,20 @@ class Content extends D\Model\Content {
 
         return $contents;
     }
+    
+    public static function getCategories($content_id){
+        
+        global $db;
+
+        $cc = new \D\Mapper\ContentCategoryMapper($db, new \D\Model\Collection\EntityCollection);
+//        $mapper_db = db_mapper($db, 'ContentCategory');
+        $mapper_db = new \D\Mapper\CategoryMapper($db, new \D\Model\Collection\EntityCollection);
+        $categories = $mapper_db->select(array(
+            'content_id'=>$content_id
+        ), ' id IN (SELECT category_id FROM '.$cc->getTableName().' WHERE content_id=:content_id)');
+//SELECT * FROM categories WHERE id IN( SELECT category_id FROM content_categories WHERE content_id=)
+
+        return $categories;
+    }
 
 }
