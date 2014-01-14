@@ -21,8 +21,8 @@
                                 <th width="120"></th>
                                 <th width="50"><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Title'); ?></th>
-                                <th><?php echo __('Content type'); ?></th>
-                                <th width="80"><?php echo __('User id'); ?></th>
+                                <th width="80"><?php echo __('Username'); ?></th>
+                                <th><?php echo __('Content info'); ?></th>
                                 <th width="60"><?php echo __('Status'); ?></th>
                                 <th width="60"><?php echo __('Hits'); ?></th>
                             </tr>
@@ -47,9 +47,13 @@
                                         </div>
                                     </td>
                                     <td><?php echo $content->id; ?>.</td>
-                                    <td><?php echo $content->title; ?></td>
-                                    <td class="center"><?php echo $content->content_type; ?></td>
+                                    <td><strong><?php echo $content->title; ?></strong><p><?php echo $content->content_brief; ?></p></td>
                                     <td class="center"><?php echo \User::getById($content->user_id)->username; ?></td>
+                                    <td class="center"><?php 
+                                                            echo icon_content_type($content->content_type);
+                                                            echo ' <span class="badge bg-success" title="'.__('Created date').': '.$content->date_created.'"><i class="fa fa-clock-o"></i></span>';
+                                                            echo ' <span class="badge bg-warning" title="'.__('Publish date').': '.$content->date_publish.'"><i class="fa fa-clock-o"></i></span>';
+                                                        ?></td>
                                     <td class="center">
                                         <?php
                                         echo printSt($content->st);
@@ -69,8 +73,8 @@
                                 <th></th>
                                 <th>#</th>
                                 <th><?php echo __('Title'); ?></th>
-                                <th><?php echo __('Content type'); ?></th>
-                                <th><?php echo __('User id'); ?></th>
+                                <th><?php echo __('Username'); ?></th>
+                                <th><?php echo __('Content info'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
                                 <th ><?php echo __('Hits'); ?></th>
                             </tr>

@@ -92,7 +92,7 @@ if ($form->isValid('content')) {
         'code' => post('code'),
         'photo' => $photo_path,
         'st' => post('st'),
-        'content_type' => 'normal',
+        'content_type' => 'article',
         'title' => post('title'),
         'content_brief' => post('content_brief'),
         'content_body' => post('content_body'),

@@ -34,6 +34,7 @@ class ContentMapper extends AbstractDataMapper {
             "content_body" => $row["content_body"],
             "use_comment" => $row["use_comment"],
             "date_created" => $row["date_created"],
+            "date_publish" => $row["date_publish"],
             "total_updated" => $row["total_updated"],
             "views" => $row["views"],
             "hits" => $row["hits"],

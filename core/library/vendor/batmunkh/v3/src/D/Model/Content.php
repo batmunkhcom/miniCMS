@@ -34,6 +34,7 @@ class Content extends AbstractEntity {
         'content_body',
         'use_comment',
         'date_created',
+        'date_publish',
         'total_updated',
         'views',
         'hits',
@@ -345,6 +346,26 @@ class Content extends AbstractEntity {
             $date_created = \M\Carbon::now();
         }
         $this->fields["date_created"] = $date_created;
+
+        return $this;
+    }
+    
+    /**
+     * field info:
+     *    name:       date_publish
+     *    type:       datetime
+     *    null:       YES
+     *    default:
+     *    extra:
+     *    generated:  2013-12-28 07:34:15 am
+     * @param $date_publish datetime Content iin date_publish
+     * @return object
+     */
+    public function setDatePublish($date_publish) {
+        if (!isset($date_publish)) {
+            $date_publish = \M\Carbon::now();
+        }
+        $this->fields["date_publish"] = $date_publish;
 
         return $this;
     }

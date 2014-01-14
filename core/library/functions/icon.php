@@ -28,3 +28,37 @@ function icon_1_0($type = 0, $link = '#') {
 
     return $buf;
 }
+
+/**
+ * Content-iin toroliig hewleh
+ *
+ * @param string $type article, photo, video ii negiig avna
+ */
+function icon_content_type($type = '') {
+
+    $buf = '';
+
+    $type_class = 'badge ';
+    $type_icon = 'fa ';
+ 
+    switch ($type) {
+        case 'article':
+            $type_class .= 'bg-primary';
+            $type_icon .= 'fa-edit';
+            break;
+        case 'photo':
+            $type_class .= 'bg-info';
+            $type_icon .= 'fa-picture-o';
+            break;
+        case 'video':
+            $type_class .= 'bg-success';
+            $type_icon .= 'fa-film';
+            break;
+    }
+
+    $buf .= ' <span class="' . $type_class . '" title="'.$type.'">';
+    $buf .= '<i class="' . $type_icon . '"></i>';
+    $buf .= '</span>';
+
+    return $buf;
+}
