@@ -84,7 +84,7 @@ function files($key, $subkey) {
     if (isset($files[$key][$subkey])) {
         return $files[$key][$subkey];
     } else {
-        if (isset($key)) {
+        if (isset($files[$key])) {
             return $files[$key];
         }
         return false;
