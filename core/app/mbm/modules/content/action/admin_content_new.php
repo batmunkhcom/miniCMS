@@ -10,10 +10,12 @@
 js_set_loadfile('/assets/flatlab/admin/assets/fuelux/js/spinner.min.js', 91);
 js_set_loadfile('/assets/flatlab/admin/assets/bootstrap-fileupload/bootstrap-fileupload.js', 92);
 js_set_loadfile('/assets/flatlab/admin/assets/jquery-multi-select/js/jquery.multi-select.js', 93);
+js_set_loadfile('/assets/flatlab/admin/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js', 94);
 //js_set_loadfile('/assets/flatlab/admin/js/advanced-form-components.js', 94);
 
-css_set_loadfile('/assets/flatlab/admin/assets/jquery-multi-select/css/multi-select.css');
-js_set_loadfile('/assets/flatlab/admin/assets/bootstrap-fileupload/bootstrap-fileupload.css');
+css_set_loadfile('/assets/flatlab/admin/assets/jquery-multi-select/css/multi-select.css', 91);
+css_set_loadfile('/assets/flatlab/admin/assets/bootstrap-fileupload/bootstrap-fileupload.css', 92);
+css_set_loadfile('/assets/flatlab/admin/assets/bootstrap-datetimepicker/css/datetimepicker.css', 93);
 //js_set_loadfile('/assets/flatlab/admin/');
 $form = new F\Form\ContentForm('content', array(
     'action' => get_url('admin_content_save'),

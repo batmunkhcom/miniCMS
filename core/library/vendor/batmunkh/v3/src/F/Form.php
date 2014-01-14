@@ -129,7 +129,8 @@ class Form {
 
         switch ($element_type) {
             case 'input':
-                $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<div classs="row">';
+                $buf .= '<div class="form-group text-right" id="element_' . $this->fixElementId($name) . '">' . "\n";
                 $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
                 $buf .= $label . "\n";
                 $buf .= '</label>' . "\n";
@@ -137,9 +138,34 @@ class Form {
                 $buf .= $this->input($label, $name, $attributes, $validation, $text);
                 $buf .= '</div>' . "\n";
                 $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
+                break;
+            case 'datetime':
+                $buf .= '<div classs="row">';
+                $buf .= '<div class="form-group text-right" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
+                $buf .= $label . "\n";
+                $buf .= '</label>' . "\n";
+                $buf .= '<div class="col-lg-6">' . "\n";
+                $buf .= '<div class="input-group date form_datetime-component">' . "\n";
+                $buf .= $this->input($label, $name, $attributes, $validation, $text);
+                $buf .= '<span class="input-group-btn">
+                <button type="button" class="btn btn-danger date-set"><i class="fa fa-calendar"></i></button>
+                </span>';
+
+                $buf .= '<script>';
+                $buf .= '$(".form_datetime-component").datetimepicker({
+    format: "yyyy-mm-dd hh:ii"
+});';
+                $buf .= '</script>';
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
             case 'textarea':
-                $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<div classs="row">';
+                $buf .= '<div class="form-group text-right" id="element_' . $this->fixElementId($name) . '">' . "\n";
                 $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
                 $buf .= $label . "\n";
                 $buf .= '</label>' . "\n";
@@ -147,9 +173,11 @@ class Form {
                 $buf .= $this->textarea($label, $name, $attributes, $validation, $text);
                 $buf .= '</div>' . "\n";
                 $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
             case 'select':
-                $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<div classs="row">';
+                $buf .= '<div class="form-group text-right" id="element_' . $this->fixElementId($name) . '">' . "\n";
                 $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
                 $buf .= $label . "\n";
                 $buf .= '</label>' . "\n";
@@ -157,9 +185,11 @@ class Form {
                 $buf .= $this->select($label, $name, $attributes, $validation, $text);
                 $buf .= '</div>' . "\n";
                 $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
             case 'checkbox':
-                $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<div classs="row">';
+                $buf .= '<div class="form-group text-right" id="element_' . $this->fixElementId($name) . '">' . "\n";
                 $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
                 $buf .= $label . "\n";
                 $buf .= '</label>' . "\n";
@@ -169,14 +199,19 @@ class Form {
                 $buf .= '</div>';
                 $buf .= '</div>' . "\n";
                 $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
             case 'html':
+                $buf .= '<div classs="row">';
                 $buf .= $this->html($label, $name, $text);
+                $buf .= '</div>' . "\n";
                 break;
-            case 'button':$buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
-//                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
-//                $buf .= $label . "\n";
-//                $buf .= '</label>' . "\n";
+            case 'button':
+                $buf .= '<div classs="row">';
+                $buf .= '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
+                $buf .= $label . "\n";
+                $buf .= '</label>' . "\n";
                 $buf .= '<div class="col-lg-2">' . "\n";
                 $buf .= '<button name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
                 foreach ($attributes as $k => $v) {
@@ -191,9 +226,11 @@ class Form {
                 $buf .= '>' . $attributes['value'] . '</button>' . "\n";
                 $buf .= '</div>' . "\n";
                 $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
                 break;
             case 'wysiwyg':
-                $buf = '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<div classs="row">';
+                $buf .= '<div class="form-group" id="element_' . $this->fixElementId($name) . '">' . "\n";
 //                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
 //                $buf .= $label . "\n";
 //                $buf .= '</label>' . "\n";
@@ -216,6 +253,7 @@ class Form {
                                  });
                                 </script>';
                 $buf .= $this->wysiwyg($label, $name, $attributes, $validation, $text);
+                $buf .= '</div>' . "\n";
                 $buf .= '</div>' . "\n";
                 $buf .= '</div>' . "\n";
                 break;
@@ -268,6 +306,9 @@ class Form {
                     case 'required':
                         $buf .= '' . $k . ' ';
                         break;
+                    case 'readonly':
+                        $buf .= '' . $k . ' ';
+                        break;
                     case 'value':
                         if (isset($this->session['fields_data'][$name])) {
                             $buf .= $k . '="' . $this->session['fields_data'][$name] . '" ';
@@ -283,7 +324,7 @@ class Form {
         }
         $buf .= ' >' . "\n";
         if (strlen($text) > 0) {
-            $buf .= '<p class="help-block">' . $text . '</p>' . "\n";
+            $buf .= $text . "\n";
         }
 
         return $buf;
@@ -347,6 +388,23 @@ class Form {
 
 
         return $html;
+    }
+
+    /**
+     *
+     * @param type $label Hereglegchded haragdah tuhain elementiin ner
+     * @param type $name Tuhain element iin ner
+     * @param type $attributes Tuhain elementiin attribute uud
+     * @param type $text Nemelt text. help text geh met-d ashiglagdana
+     *
+     * @return string tuhain elementiig hevleh html iig butsaana
+     */
+    public function dateTimePicker($label, $name, $attributes, $validation, $text) {
+
+        $buf = '';
+        $buf .= $this->input($label, $name, $attributes, $validation, $text);
+
+        return $buf;
     }
 
     /**
