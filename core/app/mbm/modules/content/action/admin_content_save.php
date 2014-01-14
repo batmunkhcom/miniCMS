@@ -102,6 +102,7 @@ if ($form->isValid('content')) {
         'views' => 0,
         'hits' => 0,
         'date_created' => convert_date(date("Y-M-D H:i:s")),
+        'date_publish' => post('date_publish'),
         'session_time' => time(),
         'is_adult' => post('is_adult')
             )
