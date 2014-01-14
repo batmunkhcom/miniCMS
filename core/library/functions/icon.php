@@ -54,6 +54,11 @@ function icon_content_type($type = '') {
             $type_class .= 'bg-success';
             $type_icon .= 'fa-film';
             break;
+        case '':
+            $type_class .= 'bg-primary';
+            $type_icon .= 'fa-edit';
+            break;
+            
     }
 
     $buf .= ' <span class="' . $type_class . '" title="'.$type.'">';
