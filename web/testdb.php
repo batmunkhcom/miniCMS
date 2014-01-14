@@ -33,6 +33,6 @@ $db->commit();
 
 $users = new D\Mapper\UserMapper($adapter, new D\Model\Collection\EntityCollection);
 foreach ($users->fetchAll() as $user) {
-    echo $user->id . '. ' . $user->name . ', ' . $user->email;
+    echo $user->id . '. ' . $user->firstname . ', ' . $user->email;
     echo '<br />';
 }

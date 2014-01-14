@@ -24,9 +24,9 @@ echo render_flash();
                                 <th width="150"><?php echo __('Admin commands'); ?></th>
                                 <th width="50"><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Category name'); ?></th>
-                                <th><?php echo __('Status'); ?></th>
-                                <th><?php echo __('Hits'); ?></th>
-                                <th><?php echo __('18+'); ?></th>
+                                <th width="60"><?php echo __('Status'); ?></th>
+                                <th width="60"><?php echo __('Hits'); ?></th>
+                                <th width="30"><?php echo __('18+'); ?></th>
                             </tr>
                         </thead>
                         <tbody>

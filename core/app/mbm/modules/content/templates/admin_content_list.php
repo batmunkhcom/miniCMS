@@ -18,21 +18,30 @@
                     <table  class="display table table-bordered table-striped" id="contentList">
                         <thead>
                             <tr>
-                                <th><?php echo __('ID'); ?></th>
-                                <th><?php echo __('Code'); ?></th>
+                                <th width="150"><?php echo __('Admin commands'); ?></th>
+                                <th width="50"><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Title'); ?></th>
                                 <th><?php echo __('Content type'); ?></th>
-                                <th><?php echo __('User id'); ?></th>
-                                <th><?php echo __('Status'); ?></th>
-                                <th><?php echo __('Hits'); ?></th>
-                                <th width="150"><?php echo __('Admin commands'); ?></th>
+                                <th width="80"><?php echo __('User id'); ?></th>
+                                <th width="60"><?php echo __('Status'); ?></th>
+                                <th width="60"><?php echo __('Hits'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($contents as $content): ?>
                                 <tr >
+                                    <td class="center">
+                                        <div class="btn-group">
+                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
+                                            <ul role="menu" class="dropdown-menu">
+                                                <li><a href="#"><?php echo __('Edit'); ?></a></li>
+                                                <li><a href="#"><?php echo __('Delete'); ?></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                     <td><?php echo $content->id; ?>.</td>
-                                    <td><?php echo $content->code; ?></td>
                                     <td><?php echo $content->title; ?></td>
                                     <td class="center"><?php echo $content->content_type; ?></td>
                                     <td class="center"><?php echo \User::getById($content->user_id)->username; ?></td>
@@ -56,31 +65,19 @@
                                         </span>
                                     </td>
                                     <td class="center"><?php echo $content->hits; ?></td>
-                                    <td class="center">
-                                        <div class="btn-group">
-                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
-                                            <ul role="menu" class="dropdown-menu">
-                                                <li><a href="#"><?php echo __('Edit'); ?></a></li>
-                                                <li><a href="#"><?php echo __('Delete'); ?></a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Separated link</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
 
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th><?php echo __('Admin commands'); ?></th>
                                 <th>#</th>
-                                <th><?php echo __('Code'); ?></th>
                                 <th><?php echo __('Title'); ?></th>
                                 <th><?php echo __('Content type'); ?></th>
                                 <th><?php echo __('User id'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
                                 <th ><?php echo __('Hits'); ?></th>
-                                <th><?php echo __('Admin commands'); ?></th>
                             </tr>
                         </tfoot>
                     </table>
