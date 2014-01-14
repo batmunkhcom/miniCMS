@@ -52,24 +52,14 @@
                                     <td class="center"><?php echo \User::getById($content->user_id)->username; ?></td>
                                     <td class="center">
                                         <?php
-                                        $st_class = 'label ';
-                                        switch ($content->st) {
-                                            case 'inactive':
-                                                $st_class .= 'label-danger';
-                                                break;
-                                            case 'active':
-                                                $st_class .= 'label-success';
-                                                break;
-                                            case 'pending':
-                                                $st_class .= 'label-warning';
-                                                break;
-                                        }
+                                        echo printSt($content->st);
                                         ?>
-                                        <span class="<?php echo $st_class; ?>">
-                                            <?php echo __($content->st); ?>
+                                    </td>
+                                    <td class="center">
+                                        <span class="badge bg-warning">
+                                            <?php echo $content->hits; ?>
                                         </span>
                                     </td>
-                                    <td class="center"><?php echo $content->hits; ?></td>
 
                                 </tr>
                             <?php endforeach; ?>
