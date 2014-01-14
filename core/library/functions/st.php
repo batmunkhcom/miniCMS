@@ -50,3 +50,36 @@ function st_array() {
 
     return $st;
 }
+
+/**
+ * List-d status iig hevlehed ashiglana
+ *
+ * @param string $st inactive,active,pending ii negiig avna
+ */
+function printSt($st = '', $url = '') {
+
+    $buf = '';
+
+    $st_class = 'label ';
+    switch ($st) {
+        case 'inactive':
+            $st_class .= 'label-danger';
+            break;
+        case 'active':
+            $st_class .= 'label-success';
+            break;
+        case 'pending':
+            $st_class .= 'label-warning';
+            break;
+    }
+
+    $buf .= ' <span class="' . $st_class . '">';
+    if (strlen($url) > 0) {
+        $buf .= '<a href="' . $url . '">' . __($st) . '</a>';
+    } else {
+        $buf .= __($st);
+    }
+    $buf .= '</span>';
+
+    return $buf;
+}

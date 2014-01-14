@@ -18,7 +18,7 @@
                     <table  class="display table table-bordered table-striped" id="contentList">
                         <thead>
                             <tr>
-                                <th width="150"><?php echo __('Admin commands'); ?></th>
+                                <th width="120"></th>
                                 <th width="50"><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Title'); ?></th>
                                 <th><?php echo __('Content type'); ?></th>
@@ -32,10 +32,15 @@
                                 <tr >
                                     <td class="center">
                                         <div class="btn-group">
-                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
+                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button">
+                                                <?php echo __('Actions'); ?>
+                                                <span class="caret"></span>
+                                            </button>
                                             <ul role="menu" class="dropdown-menu">
-                                                <li><a href="#"><?php echo __('Edit'); ?></a></li>
-                                                <li><a href="#"><?php echo __('Delete'); ?></a></li>
+                                                <li>
+                                                    <a href="<?php echo get_url('admin_content_edit', array('id' => $content->id)) ?>"><?php echo __('Edit content'); ?></a>
+                                                </li>
+                                                <li><a href="#"><?php echo __('Delete content'); ?></a></li>
                                                 <li class="divider"></li>
                                                 <li><a href="#">Separated link</a></li>
                                             </ul>
@@ -71,7 +76,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th><?php echo __('Admin commands'); ?></th>
+                                <th></th>
                                 <th>#</th>
                                 <th><?php echo __('Title'); ?></th>
                                 <th><?php echo __('Content type'); ?></th>

@@ -21,12 +21,12 @@ echo render_flash();
                     <table  class="display table table-bordered table-striped" id="categoryList">
                         <thead>
                             <tr>
-                                <th width="150"><?php echo __('Admin commands'); ?></th>
+                                <th width="120"></th>
                                 <th width="50"><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Category name'); ?></th>
                                 <th width="60"><?php echo __('Status'); ?></th>
                                 <th width="60"><?php echo __('Hits'); ?></th>
-                                <th width="30"><?php echo __('18+'); ?></th>
+                                <th width="30" class="fa-ba"><?php echo __('18+'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,16 +34,19 @@ echo render_flash();
                                 <tr >
                                     <td class="center">
                                         <div class="btn-group">
-                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
-                                            <ul role="menu" class="dropdown-menu" style="width: 120px !important;">
-                                                <li><a href="#"><?php echo __('Edit category'); ?></a></li>
+                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button">
+                                                <?php echo __('Commands'); ?>
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul role="menu" class="dropdown-menu">
+                                                <li><a href="<?php echo get_url('admin_category_edit', array('id' => $category->id)) ?>"><?php echo __('Edit category'); ?></a></li>
                                                 <li><a href="#"><?php echo __('Delete category'); ?></a></li>
                                                 <li class="divider"></li>
                                                 <li><a href="#">Separated link</a></li>
                                             </ul>
                                         </div>
                                     </td>
-                                    <td><?php echo $category->id; ?>.</td>
+                                    <td class="text-center"><?php echo $category->id; ?>.</td>
                                     <td>
                                         <?php if (\Category::hasSubCategory($category->id) > 0) { ?>
                                             <a href="<?php echo get_url('admin_category_list') ?>/<?php echo $category->id; ?>">
@@ -56,32 +59,16 @@ echo render_flash();
                                         ?>
                                     </td>
                                     <td class="center">
-                                        <?php
-                                        $st_class = 'label ';
-                                        switch ($category->st) {
-                                            case 'inactive':
-                                                $st_class .= 'label-danger';
-                                                break;
-                                            case 'active':
-                                                $st_class .= 'label-success';
-                                                break;
-                                            case 'pending':
-                                                $st_class .= 'label-warning';
-                                                break;
-                                        }
-                                        ?>
-                                        <span class="<?php echo $st_class; ?>">
-                                            <?php echo __($category->st); ?>
-                                        </span>
+                                        <?php echo printSt(__($category->st)); ?>
                                     </td>
                                     <td class="center"><?php echo $category->hits; ?></td>
-                                    <td class="center"><?php echo $category->is_adult; ?></td>
+                                    <td class="center"><?php echo icon_1_0($category->is_adult); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th ><?php echo __('Admin commands'); ?></th>
+                                <th ></th>
                                 <th>#</th>
                                 <th><?php echo __('Category name'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
