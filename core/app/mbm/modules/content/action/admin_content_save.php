@@ -112,8 +112,9 @@ if ($form->isValid('content')) {
         }
         $c_category_db->commit();
 
-        set_flash(__('Valid form submition'), 'success');
+        set_flash(__('Content has been created'), 'success');
         $session->clearKey('content');
+
         header("Location: " . get_url('admin_content_list'));
     } else {
         set_flash(__('Invalid image type. Only JPG/GIF/PNG allowed.'), 'error');
