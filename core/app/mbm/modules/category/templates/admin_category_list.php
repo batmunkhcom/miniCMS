@@ -21,17 +21,28 @@ echo render_flash();
                     <table  class="display table table-bordered table-striped" id="categoryList">
                         <thead>
                             <tr>
-                                <th><?php echo __('ID'); ?></th>
+                                <th width="150"><?php echo __('Admin commands'); ?></th>
+                                <th width="50"><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Category name'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
                                 <th><?php echo __('Hits'); ?></th>
                                 <th><?php echo __('18+'); ?></th>
-                                <th width="150"><?php echo __('Admin commands'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($categories as $category): ?>
                                 <tr >
+                                    <td class="center">
+                                        <div class="btn-group">
+                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
+                                            <ul role="menu" class="dropdown-menu" style="width: 120px !important;">
+                                                <li><a href="#"><?php echo __('Edit category'); ?></a></li>
+                                                <li><a href="#"><?php echo __('Delete category'); ?></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                     <td><?php echo $category->id; ?>.</td>
                                     <td>
                                         <?php if (\Category::hasSubCategory($category->id) > 0) { ?>
@@ -65,28 +76,17 @@ echo render_flash();
                                     </td>
                                     <td class="center"><?php echo $category->hits; ?></td>
                                     <td class="center"><?php echo $category->is_adult; ?></td>
-                                    <td class="center">
-                                        <div class="btn-group">
-                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button"><?php echo __('Actions'); ?> <span class="caret"></span></button>
-                                            <ul role="menu" class="dropdown-menu">
-                                                <li><a href="#"><?php echo __('Edit category'); ?></a></li>
-                                                <li><a href="#"><?php echo __('Delete category'); ?></a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Separated link</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                         <tfoot>
                             <tr>
+                                <th ><?php echo __('Admin commands'); ?></th>
                                 <th>#</th>
                                 <th><?php echo __('Category name'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
                                 <th><?php echo __('Hits'); ?></th>
                                 <th><?php echo __('18+'); ?></th>
-                                <th ><?php echo __('Admin commands'); ?></th>
                             </tr>
                         </tfoot>
                     </table>

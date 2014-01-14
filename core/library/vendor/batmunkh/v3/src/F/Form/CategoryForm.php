@@ -46,6 +46,12 @@ class CategoryForm extends \F\Form {
             'class' => 'form-control',
             'value' => array(0 => __('Set as main')) + \Category::formOptions()
         ));
+
+        $form->addElement(__('Select status'), 'st', 'select', array(
+            'class' => 'form-control',
+            'value' => st_array()
+                ), array());
+
         $form->addElement(__('Is 18+'), 'is_adult', 'checkbox', array(
             'class' => 'checkbox form-control',
             'value' => 1
