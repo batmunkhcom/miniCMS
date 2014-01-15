@@ -48,10 +48,11 @@ echo render_flash();
                                     </td>
                                     <td class="text-center"><?php echo $category->id; ?>.</td>
                                     <td>
-                                        <?php if (\Category::hasSubCategory($category->id) > 0) { ?>
+                                        <?php if (\Category::hasSubCategory($category->id) != 0) { ?>
                                             <a href="<?php echo get_url('admin_category_list') ?>/<?php echo $category->id; ?>">
                                                 <?php echo $category->name; ?>
                                             </a>
+                                            <i class="fa fa-bars"></i>
                                             <?php
                                         } else {
                                             echo $category->name;

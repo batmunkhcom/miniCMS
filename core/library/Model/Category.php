@@ -111,7 +111,7 @@ class Category extends D\Model\Category {
      */
     public static function hasSubCategory($parent_id = 0) {
 
-        return self::fetchAll($parent_id)->count();
+        return self::fetchByParentId($parent_id)->count();
     }
 
     /**
