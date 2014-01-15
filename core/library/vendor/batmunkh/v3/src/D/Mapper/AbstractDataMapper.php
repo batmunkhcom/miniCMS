@@ -61,6 +61,15 @@ abstract class AbstractDataMapper implements DataMapperInterface {
         return $this->adapter->delete($this->entityTable, "id = $entity->id");
     }
 
+    public function count() {
+        return $this->adapter->count();
+    }
+
+    public function getTableName() {
+
+        return $this->entityTable;
+    }
+
     protected function loadEntityCollection(array $rows) {
         $this->collection->clear();
         foreach ($rows as $row) {
@@ -70,10 +79,4 @@ abstract class AbstractDataMapper implements DataMapperInterface {
     }
 
     abstract protected function loadEntity(array $row);
-
-    public function getTableName() {
-
-        return $this->entityTable;
-    }
-
 }

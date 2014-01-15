@@ -37,15 +37,19 @@ function get_max_left($model, $parent_id, $options = array()) {
 
     global $db;
 
-    $mapper_db = db_unit($db, $model);
-
-    $data = $mapper_db->fetchAll(array(
+    $mapper_db = db_mapper($db, $model);
+//    $mapper_db = $db_mapper = new \D\Mapper\CategoryMapper($db, new \D\Model\Collection\EntityCollection);
+    $data = $mapper_db->select(array(
         'parent_id' => $parent_id
             ), 'parent_id=:parent_id ORDER BY lft ASC');
 
     $lft = 0;
-    foreach ($data as $d) {
-        $lft = $d->lft;
+    if ($mapper_db->count() > 0) {
+        foreach ($data as $d) {
+            $lft = $d->lft;
+        }
+    } else {
+        $lft = 0;
     }
     return $lft;
 }
