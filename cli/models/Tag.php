@@ -11,25 +11,22 @@
 namespace D\Model;
 
 /**
-                            * Comment model. Comments table.
+                            * Tag model. Tags table.
                             */
-class Comment extends AbstractEntity {
+class Tag extends AbstractEntity {
 /**
-* Comments table iin baganuud n CommentMapper deer davhar zaaj ugnu
+* Tags table iin baganuud n TagMapper deer davhar zaaj ugnu
 */
 protected $allowedFields = array(
 'id',
-'parent_id',
 'lft',
 'rgt',
+'parent_id',
 'depth',
-'user_id',
-'code',
-'name',
-'content',
+'tag_value',
+'score',
 'date_created',
-'ip',
-'browser');
+'date_updated');
 
 /**
      * field info:
@@ -39,7 +36,7 @@ protected $allowedFields = array(
            *    default:    
            *    extra:      auto_increment
            *    generated:  2014-01-17 02:17:00 am
-     * @param $id  Comment iin id
+     * @param $id  Tag iin id
      * @return object
      */
 	public function setId($id) {
@@ -65,25 +62,7 @@ return $this;
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $parent_id  Comment iin parent_id
-     * @return object
-     */
-	public function setParentId($parent_id) {
-$this->fields["parent_id"] = $parent_id;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $lft  Comment iin lft
+     * @param $lft  Tag iin lft
      * @return object
      */
 	public function setLft($lft) {
@@ -98,10 +77,10 @@ return $this;
            *    name:       
            *    type:       
            *    null:       YES
-           *    default:    
+           *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $rgt  Comment iin rgt
+     * @param $rgt  Tag iin rgt
      * @return object
      */
 	public function setRgt($rgt) {
@@ -119,7 +98,25 @@ return $this;
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $depth  Comment iin depth
+     * @param $parent_id  Tag iin parent_id
+     * @return object
+     */
+	public function setParentId($parent_id) {
+$this->fields["parent_id"] = $parent_id;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $depth  Tag iin depth
      * @return object
      */
 	public function setDepth($depth) {
@@ -134,18 +131,18 @@ return $this;
            *    name:       
            *    type:       
            *    null:       NO
-           *    default:    0
+           *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $user_id  Comment iin user_id
+     * @param $tag_value  Tag iin tag_value
      * @return object
      */
-	public function setUserId($user_id) {
+	public function setTagValue($tag_value) {
 
-            if(!isset($user_id) || $user_id == ""){
-            $user_id = "0";
+            if(!isset($tag_value) || $tag_value == ""){
+            $tag_value = "";
             }
-    $this->fields["user_id"] = $user_id;
+    $this->fields["tag_value"] = $tag_value;
 
 return $this;
 
@@ -159,11 +156,11 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $code  Comment iin code
+     * @param $score  Tag iin score
      * @return object
      */
-	public function setCode($code) {
-$this->fields["code"] = $code;
+	public function setScore($score) {
+$this->fields["score"] = $score;
 
 return $this;
 
@@ -177,43 +174,7 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $name  Comment iin name
-     * @return object
-     */
-	public function setName($name) {
-$this->fields["name"] = $name;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $content  Comment iin content
-     * @return object
-     */
-	public function setContent($content) {
-$this->fields["content"] = $content;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $date_created  Comment iin date_created
+     * @param $date_created  Tag iin date_created
      * @return object
      */
 	public function setDateCreated($date_created) {
@@ -233,29 +194,11 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $ip  Comment iin ip
+     * @param $date_updated  Tag iin date_updated
      * @return object
      */
-	public function setIp($ip) {
-$this->fields["ip"] = $ip;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $browser  Comment iin browser
-     * @return object
-     */
-	public function setBrowser($browser) {
-$this->fields["browser"] = $browser;
+	public function setDateUpdated($date_updated) {
+$this->fields["date_updated"] = $date_updated;
 
 return $this;
 

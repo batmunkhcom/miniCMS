@@ -11,17 +11,16 @@
 namespace D\Model;
 
 /**
-                            * Setting model. Settings table.
+                            * ObjectCategory model. ObjectCategories table.
                             */
-class Setting extends AbstractEntity {
+class ObjectCategory extends AbstractEntity {
 /**
-* Settings table iin baganuud n SettingMapper deer davhar zaaj ugnu
+* ObjectCategories table iin baganuud n ObjectCategoryMapper deer davhar zaaj ugnu
 */
 protected $allowedFields = array(
 'id',
-'setting_name',
-'setting_value',
-'setting_type');
+'category_id',
+'object_id');
 
 /**
      * field info:
@@ -31,7 +30,7 @@ protected $allowedFields = array(
            *    default:    
            *    extra:      auto_increment
            *    generated:  2014-01-17 02:17:00 am
-     * @param $id  Setting iin id
+     * @param $id  ObjectCategory iin id
      * @return object
      */
 	public function setId($id) {
@@ -54,18 +53,18 @@ return $this;
            *    name:       
            *    type:       
            *    null:       NO
-           *    default:    
+           *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $setting_name  Setting iin setting_name
+     * @param $category_id  ObjectCategory iin category_id
      * @return object
      */
-	public function setSettingName($setting_name) {
+	public function setCategoryId($category_id) {
 
-            if(!isset($setting_name) || $setting_name == ""){
-            $setting_name = "";
+            if(!isset($category_id) || $category_id == ""){
+            $category_id = "0";
             }
-    $this->fields["setting_name"] = $setting_name;
+    $this->fields["category_id"] = $category_id;
 
 return $this;
 
@@ -76,40 +75,18 @@ return $this;
            *    name:       
            *    type:       
            *    null:       NO
-           *    default:    
+           *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $setting_value  Setting iin setting_value
+     * @param $object_id  ObjectCategory iin object_id
      * @return object
      */
-	public function setSettingValue($setting_value) {
+	public function setObjectId($object_id) {
 
-            if(!isset($setting_value) || $setting_value == ""){
-            $setting_value = "";
+            if(!isset($object_id) || $object_id == ""){
+            $object_id = "0";
             }
-    $this->fields["setting_value"] = $setting_value;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       NO
-           *    default:    default
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $setting_type  Setting iin setting_type
-     * @return object
-     */
-	public function setSettingType($setting_type) {
-
-            if(!isset($setting_type) || $setting_type == ""){
-            $setting_type = "default";
-            }
-    $this->fields["setting_type"] = $setting_type;
+    $this->fields["object_id"] = $object_id;
 
 return $this;
 

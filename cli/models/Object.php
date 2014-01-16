@@ -11,35 +11,38 @@
 namespace D\Model;
 
 /**
-                            * Content model. Contents table.
+                            * Object model. Objects table.
                             */
-class Content extends AbstractEntity {
+class Object extends AbstractEntity {
 /**
-* Contents table iin baganuud n ContentMapper deer davhar zaaj ugnu
+* Objects table iin baganuud n ObjectMapper deer davhar zaaj ugnu
 */
 protected $allowedFields = array(
 'id',
-'parent_id',
+'user_id',
 'lft',
 'rgt',
 'depth',
-'user_id',
+'parent_id',
 'code',
 'st',
-'content_type',
+'is_featured',
+'is_sale',
 'photo',
-'title',
+'name',
+'measure_value',
+'measure_name',
+'price_per_measure',
+'price_sale',
+'price_total',
+'currency_code',
 'content_brief',
 'content_body',
-'use_comment',
-'date_created',
-'date_publish',
-'total_updated',
 'views',
 'hits',
-'session_id',
-'session_time',
-'is_adult');
+'date_created',
+'date_publish',
+'date_expire');
 
 /**
      * field info:
@@ -49,7 +52,7 @@ protected $allowedFields = array(
            *    default:    
            *    extra:      auto_increment
            *    generated:  2014-01-17 02:17:00 am
-     * @param $id  Content iin id
+     * @param $id  Object iin id
      * @return object
      */
 	public function setId($id) {
@@ -71,83 +74,11 @@ return $this;
      * field info:
            *    name:       
            *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $parent_id  Content iin parent_id
-     * @return object
-     */
-	public function setParentId($parent_id) {
-$this->fields["parent_id"] = $parent_id;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $lft  Content iin lft
-     * @return object
-     */
-	public function setLft($lft) {
-$this->fields["lft"] = $lft;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $rgt  Content iin rgt
-     * @return object
-     */
-	public function setRgt($rgt) {
-$this->fields["rgt"] = $rgt;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $depth  Content iin depth
-     * @return object
-     */
-	public function setDepth($depth) {
-$this->fields["depth"] = $depth;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
            *    null:       NO
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $user_id  Content iin user_id
+     * @param $user_id  Object iin user_id
      * @return object
      */
 	public function setUserId($user_id) {
@@ -166,10 +97,82 @@ return $this;
            *    name:       
            *    type:       
            *    null:       YES
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $lft  Object iin lft
+     * @return object
+     */
+	public function setLft($lft) {
+$this->fields["lft"] = $lft;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $rgt  Object iin rgt
+     * @return object
+     */
+	public function setRgt($rgt) {
+$this->fields["rgt"] = $rgt;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $depth  Object iin depth
+     * @return object
+     */
+	public function setDepth($depth) {
+$this->fields["depth"] = $depth;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $parent_id  Object iin parent_id
+     * @return object
+     */
+	public function setParentId($parent_id) {
+$this->fields["parent_id"] = $parent_id;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $code  Content iin code
+     * @param $code  Object iin code
      * @return object
      */
 	public function setCode($code) {
@@ -187,7 +190,7 @@ return $this;
            *    default:    inactive
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $st  Content iin st
+     * @param $st  Object iin st
      * @return object
      */
 	public function setSt($st) {
@@ -206,18 +209,40 @@ return $this;
            *    name:       
            *    type:       
            *    null:       NO
-           *    default:    article
+           *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $content_type  Content iin content_type
+     * @param $is_featured  Object iin is_featured
      * @return object
      */
-	public function setContentType($content_type) {
+	public function setIsFeatured($is_featured) {
 
-            if(!isset($content_type) || $content_type == ""){
-            $content_type = "article";
+            if(!isset($is_featured) || $is_featured == ""){
+            $is_featured = "0";
             }
-    $this->fields["content_type"] = $content_type;
+    $this->fields["is_featured"] = $is_featured;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $is_sale  Object iin is_sale
+     * @return object
+     */
+	public function setIsSale($is_sale) {
+
+            if(!isset($is_sale) || $is_sale == ""){
+            $is_sale = "0";
+            }
+    $this->fields["is_sale"] = $is_sale;
 
 return $this;
 
@@ -231,7 +256,7 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $photo  Content iin photo
+     * @param $photo  Object iin photo
      * @return object
      */
 	public function setPhoto($photo) {
@@ -249,11 +274,29 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $title  Content iin title
+     * @param $name  Object iin name
      * @return object
      */
-	public function setTitle($title) {
-$this->fields["title"] = $title;
+	public function setName($name) {
+$this->fields["name"] = $name;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $measure_value  Object iin measure_value
+     * @return object
+     */
+	public function setMeasureValue($measure_value) {
+$this->fields["measure_value"] = $measure_value;
 
 return $this;
 
@@ -267,7 +310,105 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $content_brief  Content iin content_brief
+     * @param $measure_name  Object iin measure_name
+     * @return object
+     */
+	public function setMeasureName($measure_name) {
+$this->fields["measure_name"] = $measure_name;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $price_per_measure  Object iin price_per_measure
+     * @return object
+     */
+	public function setPricePerMeasure($price_per_measure) {
+$this->fields["price_per_measure"] = $price_per_measure;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    0.00
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $price_sale  Object iin price_sale
+     * @return object
+     */
+	public function setPriceSale($price_sale) {
+
+            if(!isset($price_sale) || $price_sale == ""){
+            $price_sale = "0.00";
+            }
+    $this->fields["price_sale"] = $price_sale;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $price_total  Object iin price_total
+     * @return object
+     */
+	public function setPriceTotal($price_total) {
+$this->fields["price_total"] = $price_total;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    MNT
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $currency_code  Object iin currency_code
+     * @return object
+     */
+	public function setCurrencyCode($currency_code) {
+
+            if(!isset($currency_code) || $currency_code == ""){
+            $currency_code = "MNT";
+            }
+    $this->fields["currency_code"] = $currency_code;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $content_brief  Object iin content_brief
      * @return object
      */
 	public function setContentBrief($content_brief) {
@@ -285,7 +426,7 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $content_body  Content iin content_body
+     * @param $content_body  Object iin content_body
      * @return object
      */
 	public function setContentBody($content_body) {
@@ -303,89 +444,7 @@ return $this;
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $use_comment  Content iin use_comment
-     * @return object
-     */
-	public function setUseComment($use_comment) {
-
-            if(!isset($use_comment) || $use_comment == ""){
-            $use_comment = "0";
-            }
-    $this->fields["use_comment"] = $use_comment;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $date_created  Content iin date_created
-     * @return object
-     */
-	public function setDateCreated($date_created) {
-$date_created = \M\Carbon::now();
-    
-$this->fields["date_created"] = $date_created;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $date_publish  Content iin date_publish
-     * @return object
-     */
-	public function setDatePublish($date_publish) {
-$this->fields["date_publish"] = $date_publish;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       NO
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $total_updated  Content iin total_updated
-     * @return object
-     */
-	public function setTotalUpdated($total_updated) {
-
-            if(!isset($total_updated) || $total_updated == ""){
-            $total_updated = "0";
-            }
-    $this->fields["total_updated"] = $total_updated;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       NO
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $views  Content iin views
+     * @param $views  Object iin views
      * @return object
      */
 	public function setViews($views) {
@@ -407,7 +466,7 @@ return $this;
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $hits  Content iin hits
+     * @param $hits  Object iin hits
      * @return object
      */
 	public function setHits($hits) {
@@ -429,11 +488,13 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $session_id  Content iin session_id
+     * @param $date_created  Object iin date_created
      * @return object
      */
-	public function setSessionId($session_id) {
-$this->fields["session_id"] = $session_id;
+	public function setDateCreated($date_created) {
+$date_created = \M\Carbon::now();
+    
+$this->fields["date_created"] = $date_created;
 
 return $this;
 
@@ -447,11 +508,11 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $session_time  Content iin session_time
+     * @param $date_publish  Object iin date_publish
      * @return object
      */
-	public function setSessionTime($session_time) {
-$this->fields["session_time"] = $session_time;
+	public function setDatePublish($date_publish) {
+$this->fields["date_publish"] = $date_publish;
 
 return $this;
 
@@ -461,19 +522,15 @@ return $this;
      * field info:
            *    name:       
            *    type:       
-           *    null:       NO
-           *    default:    0
+           *    null:       YES
+           *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $is_adult  Content iin is_adult
+     * @param $date_expire  Object iin date_expire
      * @return object
      */
-	public function setIsAdult($is_adult) {
-
-            if(!isset($is_adult) || $is_adult == ""){
-            $is_adult = "0";
-            }
-    $this->fields["is_adult"] = $is_adult;
+	public function setDateExpire($date_expire) {
+$this->fields["date_expire"] = $date_expire;
 
 return $this;
 

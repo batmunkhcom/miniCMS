@@ -11,17 +11,17 @@
 namespace D\Model;
 
 /**
-                            * Setting model. Settings table.
+                            * TagValue model. TagValues table.
                             */
-class Setting extends AbstractEntity {
+class TagValue extends AbstractEntity {
 /**
-* Settings table iin baganuud n SettingMapper deer davhar zaaj ugnu
+* TagValues table iin baganuud n TagValueMapper deer davhar zaaj ugnu
 */
 protected $allowedFields = array(
 'id',
-'setting_name',
-'setting_value',
-'setting_type');
+'code',
+'tag_id',
+'hits');
 
 /**
      * field info:
@@ -31,7 +31,7 @@ protected $allowedFields = array(
            *    default:    
            *    extra:      auto_increment
            *    generated:  2014-01-17 02:17:00 am
-     * @param $id  Setting iin id
+     * @param $id  TagValue iin id
      * @return object
      */
 	public function setId($id) {
@@ -54,62 +54,62 @@ return $this;
            *    name:       
            *    type:       
            *    null:       NO
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $setting_name  Setting iin setting_name
-     * @return object
-     */
-	public function setSettingName($setting_name) {
-
-            if(!isset($setting_name) || $setting_name == ""){
-            $setting_name = "";
-            }
-    $this->fields["setting_name"] = $setting_name;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       NO
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $setting_value  Setting iin setting_value
-     * @return object
-     */
-	public function setSettingValue($setting_value) {
-
-            if(!isset($setting_value) || $setting_value == ""){
-            $setting_value = "";
-            }
-    $this->fields["setting_value"] = $setting_value;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       NO
            *    default:    default
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $setting_type  Setting iin setting_type
+     * @param $code  TagValue iin code
      * @return object
      */
-	public function setSettingType($setting_type) {
+	public function setCode($code) {
 
-            if(!isset($setting_type) || $setting_type == ""){
-            $setting_type = "default";
+            if(!isset($code) || $code == ""){
+            $code = "default";
             }
-    $this->fields["setting_type"] = $setting_type;
+    $this->fields["code"] = $code;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $tag_id  TagValue iin tag_id
+     * @return object
+     */
+	public function setTagId($tag_id) {
+
+            if(!isset($tag_id) || $tag_id == ""){
+            $tag_id = "0";
+            }
+    $this->fields["tag_id"] = $tag_id;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $hits  TagValue iin hits
+     * @return object
+     */
+	public function setHits($hits) {
+
+            if(!isset($hits) || $hits == ""){
+            $hits = "0";
+            }
+    $this->fields["hits"] = $hits;
 
 return $this;
 

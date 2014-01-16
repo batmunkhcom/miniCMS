@@ -11,17 +11,17 @@
 namespace D\Model;
 
 /**
-                            * Setting model. Settings table.
+                            * OptionValue model. OptionValues table.
                             */
-class Setting extends AbstractEntity {
+class OptionValue extends AbstractEntity {
 /**
-* Settings table iin baganuud n SettingMapper deer davhar zaaj ugnu
+* OptionValues table iin baganuud n OptionValueMapper deer davhar zaaj ugnu
 */
 protected $allowedFields = array(
 'id',
-'setting_name',
-'setting_value',
-'setting_type');
+'option_id',
+'code',
+'is_active');
 
 /**
      * field info:
@@ -31,7 +31,7 @@ protected $allowedFields = array(
            *    default:    
            *    extra:      auto_increment
            *    generated:  2014-01-17 02:17:00 am
-     * @param $id  Setting iin id
+     * @param $id  OptionValue iin id
      * @return object
      */
 	public function setId($id) {
@@ -54,40 +54,18 @@ return $this;
            *    name:       
            *    type:       
            *    null:       NO
-           *    default:    
+           *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $setting_name  Setting iin setting_name
+     * @param $option_id  OptionValue iin option_id
      * @return object
      */
-	public function setSettingName($setting_name) {
+	public function setOptionId($option_id) {
 
-            if(!isset($setting_name) || $setting_name == ""){
-            $setting_name = "";
+            if(!isset($option_id) || $option_id == ""){
+            $option_id = "0";
             }
-    $this->fields["setting_name"] = $setting_name;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       NO
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $setting_value  Setting iin setting_value
-     * @return object
-     */
-	public function setSettingValue($setting_value) {
-
-            if(!isset($setting_value) || $setting_value == ""){
-            $setting_value = "";
-            }
-    $this->fields["setting_value"] = $setting_value;
+    $this->fields["option_id"] = $option_id;
 
 return $this;
 
@@ -101,15 +79,37 @@ return $this;
            *    default:    default
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $setting_type  Setting iin setting_type
+     * @param $code  OptionValue iin code
      * @return object
      */
-	public function setSettingType($setting_type) {
+	public function setCode($code) {
 
-            if(!isset($setting_type) || $setting_type == ""){
-            $setting_type = "default";
+            if(!isset($code) || $code == ""){
+            $code = "default";
             }
-    $this->fields["setting_type"] = $setting_type;
+    $this->fields["code"] = $code;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    1
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $is_active  OptionValue iin is_active
+     * @return object
+     */
+	public function setIsActive($is_active) {
+
+            if(!isset($is_active) || $is_active == ""){
+            $is_active = "1";
+            }
+    $this->fields["is_active"] = $is_active;
 
 return $this;
 

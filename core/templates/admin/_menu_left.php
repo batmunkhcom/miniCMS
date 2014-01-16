@@ -53,7 +53,7 @@
             <span><?php echo __('System'); ?></span>
         </a>
         <ul class="sub">
-            <li><a  href="#"><?php echo __('Settings'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_setting_list'); ?>"><?php echo __('Settings'); ?></a></li>
             <li><a  href="#"><?php echo __('Contact info'); ?></a></li>
         </ul>
     </li>

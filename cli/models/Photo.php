@@ -11,35 +11,29 @@
 namespace D\Model;
 
 /**
-                            * Content model. Contents table.
+                            * Photo model. Photos table.
                             */
-class Content extends AbstractEntity {
+class Photo extends AbstractEntity {
 /**
-* Contents table iin baganuud n ContentMapper deer davhar zaaj ugnu
+* Photos table iin baganuud n PhotoMapper deer davhar zaaj ugnu
 */
 protected $allowedFields = array(
 'id',
-'parent_id',
-'lft',
-'rgt',
-'depth',
 'user_id',
-'code',
 'st',
-'content_type',
-'photo',
-'title',
-'content_brief',
-'content_body',
-'use_comment',
-'date_created',
-'date_publish',
-'total_updated',
+'code',
+'type',
+'path',
+'domain',
+'height',
+'width',
+'mimetype',
+'filesize',
 'views',
 'hits',
-'session_id',
-'session_time',
-'is_adult');
+'downloads',
+'date_created',
+'date_expire');
 
 /**
      * field info:
@@ -49,7 +43,7 @@ protected $allowedFields = array(
            *    default:    
            *    extra:      auto_increment
            *    generated:  2014-01-17 02:17:00 am
-     * @param $id  Content iin id
+     * @param $id  Photo iin id
      * @return object
      */
 	public function setId($id) {
@@ -71,83 +65,11 @@ return $this;
      * field info:
            *    name:       
            *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $parent_id  Content iin parent_id
-     * @return object
-     */
-	public function setParentId($parent_id) {
-$this->fields["parent_id"] = $parent_id;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $lft  Content iin lft
-     * @return object
-     */
-	public function setLft($lft) {
-$this->fields["lft"] = $lft;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $rgt  Content iin rgt
-     * @return object
-     */
-	public function setRgt($rgt) {
-$this->fields["rgt"] = $rgt;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $depth  Content iin depth
-     * @return object
-     */
-	public function setDepth($depth) {
-$this->fields["depth"] = $depth;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
            *    null:       NO
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $user_id  Content iin user_id
+     * @param $user_id  Photo iin user_id
      * @return object
      */
 	public function setUserId($user_id) {
@@ -165,29 +87,11 @@ return $this;
      * field info:
            *    name:       
            *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $code  Content iin code
-     * @return object
-     */
-	public function setCode($code) {
-$this->fields["code"] = $code;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
            *    null:       NO
            *    default:    inactive
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $st  Content iin st
+     * @param $st  Photo iin st
      * @return object
      */
 	public function setSt($st) {
@@ -206,18 +110,40 @@ return $this;
            *    name:       
            *    type:       
            *    null:       NO
-           *    default:    article
+           *    default:    default
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $content_type  Content iin content_type
+     * @param $code  Photo iin code
      * @return object
      */
-	public function setContentType($content_type) {
+	public function setCode($code) {
 
-            if(!isset($content_type) || $content_type == ""){
-            $content_type = "article";
+            if(!isset($code) || $code == ""){
+            $code = "default";
             }
-    $this->fields["content_type"] = $content_type;
+    $this->fields["code"] = $code;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    default
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $type  Photo iin type
+     * @return object
+     */
+	public function setType($type) {
+
+            if(!isset($type) || $type == ""){
+            $type = "default";
+            }
+    $this->fields["type"] = $type;
 
 return $this;
 
@@ -231,11 +157,11 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $photo  Content iin photo
+     * @param $path  Photo iin path
      * @return object
      */
-	public function setPhoto($photo) {
-$this->fields["photo"] = $photo;
+	public function setPath($path) {
+$this->fields["path"] = $path;
 
 return $this;
 
@@ -249,47 +175,11 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $title  Content iin title
+     * @param $domain  Photo iin domain
      * @return object
      */
-	public function setTitle($title) {
-$this->fields["title"] = $title;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $content_brief  Content iin content_brief
-     * @return object
-     */
-	public function setContentBrief($content_brief) {
-$this->fields["content_brief"] = $content_brief;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $content_body  Content iin content_body
-     * @return object
-     */
-	public function setContentBody($content_body) {
-$this->fields["content_body"] = $content_body;
+	public function setDomain($domain) {
+$this->fields["domain"] = $domain;
 
 return $this;
 
@@ -303,53 +193,15 @@ return $this;
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $use_comment  Content iin use_comment
+     * @param $height  Photo iin height
      * @return object
      */
-	public function setUseComment($use_comment) {
+	public function setHeight($height) {
 
-            if(!isset($use_comment) || $use_comment == ""){
-            $use_comment = "0";
+            if(!isset($height) || $height == ""){
+            $height = "0";
             }
-    $this->fields["use_comment"] = $use_comment;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $date_created  Content iin date_created
-     * @return object
-     */
-	public function setDateCreated($date_created) {
-$date_created = \M\Carbon::now();
-    
-$this->fields["date_created"] = $date_created;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $date_publish  Content iin date_publish
-     * @return object
-     */
-	public function setDatePublish($date_publish) {
-$this->fields["date_publish"] = $date_publish;
+    $this->fields["height"] = $height;
 
 return $this;
 
@@ -363,15 +215,37 @@ return $this;
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $total_updated  Content iin total_updated
+     * @param $width  Photo iin width
      * @return object
      */
-	public function setTotalUpdated($total_updated) {
+	public function setWidth($width) {
 
-            if(!isset($total_updated) || $total_updated == ""){
-            $total_updated = "0";
+            if(!isset($width) || $width == ""){
+            $width = "0";
             }
-    $this->fields["total_updated"] = $total_updated;
+    $this->fields["width"] = $width;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    unknown
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $mimetype  Photo iin mimetype
+     * @return object
+     */
+	public function setMimetype($mimetype) {
+
+            if(!isset($mimetype) || $mimetype == ""){
+            $mimetype = "unknown";
+            }
+    $this->fields["mimetype"] = $mimetype;
 
 return $this;
 
@@ -385,7 +259,29 @@ return $this;
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $views  Content iin views
+     * @param $filesize  Photo iin filesize
+     * @return object
+     */
+	public function setFilesize($filesize) {
+
+            if(!isset($filesize) || $filesize == ""){
+            $filesize = "0";
+            }
+    $this->fields["filesize"] = $filesize;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $views  Photo iin views
      * @return object
      */
 	public function setViews($views) {
@@ -407,7 +303,7 @@ return $this;
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $hits  Content iin hits
+     * @param $hits  Photo iin hits
      * @return object
      */
 	public function setHits($hits) {
@@ -425,55 +321,57 @@ return $this;
      * field info:
            *    name:       
            *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $session_id  Content iin session_id
-     * @return object
-     */
-	public function setSessionId($session_id) {
-$this->fields["session_id"] = $session_id;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $session_time  Content iin session_time
-     * @return object
-     */
-	public function setSessionTime($session_time) {
-$this->fields["session_time"] = $session_time;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
            *    null:       NO
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $is_adult  Content iin is_adult
+     * @param $downloads  Photo iin downloads
      * @return object
      */
-	public function setIsAdult($is_adult) {
+	public function setDownloads($downloads) {
 
-            if(!isset($is_adult) || $is_adult == ""){
-            $is_adult = "0";
+            if(!isset($downloads) || $downloads == ""){
+            $downloads = "0";
             }
-    $this->fields["is_adult"] = $is_adult;
+    $this->fields["downloads"] = $downloads;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $date_created  Photo iin date_created
+     * @return object
+     */
+	public function setDateCreated($date_created) {
+$date_created = \M\Carbon::now();
+    
+$this->fields["date_created"] = $date_created;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $date_expire  Photo iin date_expire
+     * @return object
+     */
+	public function setDateExpire($date_expire) {
+$this->fields["date_expire"] = $date_expire;
 
 return $this;
 

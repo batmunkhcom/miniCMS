@@ -11,25 +11,21 @@
 namespace D\Model;
 
 /**
-                            * Comment model. Comments table.
+                            * Option model. Options table.
                             */
-class Comment extends AbstractEntity {
+class Option extends AbstractEntity {
 /**
-* Comments table iin baganuud n CommentMapper deer davhar zaaj ugnu
+* Options table iin baganuud n OptionMapper deer davhar zaaj ugnu
 */
 protected $allowedFields = array(
 'id',
-'parent_id',
-'lft',
-'rgt',
-'depth',
-'user_id',
 'code',
+'user_id',
+'st',
+'type',
 'name',
-'content',
-'date_created',
-'ip',
-'browser');
+'comment',
+'date_created');
 
 /**
      * field info:
@@ -39,7 +35,7 @@ protected $allowedFields = array(
            *    default:    
            *    extra:      auto_increment
            *    generated:  2014-01-17 02:17:00 am
-     * @param $id  Comment iin id
+     * @param $id  Option iin id
      * @return object
      */
 	public function setId($id) {
@@ -61,69 +57,19 @@ return $this;
      * field info:
            *    name:       
            *    type:       
-           *    null:       YES
-           *    default:    0
+           *    null:       NO
+           *    default:    default
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $parent_id  Comment iin parent_id
+     * @param $code  Option iin code
      * @return object
      */
-	public function setParentId($parent_id) {
-$this->fields["parent_id"] = $parent_id;
+	public function setCode($code) {
 
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $lft  Comment iin lft
-     * @return object
-     */
-	public function setLft($lft) {
-$this->fields["lft"] = $lft;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $rgt  Comment iin rgt
-     * @return object
-     */
-	public function setRgt($rgt) {
-$this->fields["rgt"] = $rgt;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $depth  Comment iin depth
-     * @return object
-     */
-	public function setDepth($depth) {
-$this->fields["depth"] = $depth;
+            if(!isset($code) || $code == ""){
+            $code = "default";
+            }
+    $this->fields["code"] = $code;
 
 return $this;
 
@@ -137,7 +83,7 @@ return $this;
            *    default:    0
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $user_id  Comment iin user_id
+     * @param $user_id  Option iin user_id
      * @return object
      */
 	public function setUserId($user_id) {
@@ -155,15 +101,19 @@ return $this;
      * field info:
            *    name:       
            *    type:       
-           *    null:       YES
-           *    default:    
+           *    null:       NO
+           *    default:    inactive
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $code  Comment iin code
+     * @param $st  Option iin st
      * @return object
      */
-	public function setCode($code) {
-$this->fields["code"] = $code;
+	public function setSt($st) {
+
+            if(!isset($st) || $st == ""){
+            $st = "inactive";
+            }
+    $this->fields["st"] = $st;
 
 return $this;
 
@@ -177,7 +127,25 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $name  Comment iin name
+     * @param $type  Option iin type
+     * @return object
+     */
+	public function setType($type) {
+$this->fields["type"] = $type;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    
+           *    extra:      
+           *    generated:  2014-01-17 02:17:00 am
+     * @param $name  Option iin name
      * @return object
      */
 	public function setName($name) {
@@ -195,11 +163,11 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $content  Comment iin content
+     * @param $comment  Option iin comment
      * @return object
      */
-	public function setContent($content) {
-$this->fields["content"] = $content;
+	public function setComment($comment) {
+$this->fields["comment"] = $comment;
 
 return $this;
 
@@ -213,49 +181,13 @@ return $this;
            *    default:    
            *    extra:      
            *    generated:  2014-01-17 02:17:00 am
-     * @param $date_created  Comment iin date_created
+     * @param $date_created  Option iin date_created
      * @return object
      */
 	public function setDateCreated($date_created) {
 $date_created = \M\Carbon::now();
     
 $this->fields["date_created"] = $date_created;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $ip  Comment iin ip
-     * @return object
-     */
-	public function setIp($ip) {
-$this->fields["ip"] = $ip;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       YES
-           *    default:    
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $browser  Comment iin browser
-     * @return object
-     */
-	public function setBrowser($browser) {
-$this->fields["browser"] = $browser;
 
 return $this;
 

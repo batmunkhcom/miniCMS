@@ -9,17 +9,27 @@
  */
 
 /**
- * Tulviin select tag-d zoriulsan option
- *
- * @param string $activee Songogdson bh tuluv n
+ * buh status iig avah
  */
-function st_dropdown_options($active = 'inactive') {
+function get_all_st() {
 
-    $st = array(
+    return array(
         'inactive' => __('Inactive'),
         'active' => __('Active'),
         'pending' => __('Pending')
     );
+}
+
+/**
+ * Tulviin select tag-d zoriulsan option
+ *
+ * @param string $activee Songogdson bh tuluv n
+ *
+ * @return string option tag uudiig butsaana
+ */
+function st_dropdown_options($active = 'inactive') {
+
+    $st = get_all_st();
 
     $buf = '';
     foreach ($st as $k => $v) {
