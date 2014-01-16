@@ -67,12 +67,6 @@
                 <section class="wrapper site-min-height">
                     <!-- page start-->
                     <?php load_template($template); ?>
-                    <hr />
-                    admin layout...<br />...
-                    <div id="jQueryTest">
-
-                        jQuery not loaded
-                    </div><hr />
                     <!-- page end-->
                 </section>
             </section>
@@ -88,14 +82,6 @@
             </footer>
             <!--footer end-->
         </section>
-
-
-        <script type="text/javascript">
-            jQuery(function() {
-                jQuery('#jQueryTest').html('jQuery loaded');
-            });
-        </script>
-
 
         <script class="include" type="text/javascript" src="/assets/flatlab/admin/js/jquery.dcjqaccordion.2.7.js"></script>
         <script src="/assets/flatlab/admin/js/jquery.scrollTo.min.js"></script>

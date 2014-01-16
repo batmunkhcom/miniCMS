@@ -28,7 +28,7 @@
             <span><?php echo __('Members'); ?></span>
         </a>
         <ul class="sub">
-            <li><a  href="#"><?php echo __('List'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_user_list') ?>"><?php echo __('List'); ?></a></li>
             <li><a  href="#"><?php echo __('Search'); ?></a></li>
             <li><a  href="#"><?php echo __('Roles'); ?></a></li>
         </ul>

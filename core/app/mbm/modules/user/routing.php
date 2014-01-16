@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-set_route('admin_content_list', '/admin/user/list');
+set_route('admin_user_list', '/admin/user');
 /*
  * admin route tohiruulah
  */
