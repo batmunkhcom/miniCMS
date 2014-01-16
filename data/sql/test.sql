@@ -11,7 +11,7 @@
  Target Server Version : 50169
  File Encoding         : utf-8
 
- Date: 01/17/2014 00:39:42 AM
+ Date: 01/17/2014 02:36:27 AM
 */
 
 SET NAMES utf8;
@@ -129,6 +129,102 @@ INSERT INTO `m_contents` VALUES ('16', '0', '0', '0', '0', '1', '', 'active', 'a
 COMMIT;
 
 -- ----------------------------
+--  Table structure for `m_object_categories`
+-- ----------------------------
+DROP TABLE IF EXISTS `m_object_categories`;
+CREATE TABLE `m_object_categories` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL DEFAULT '0',
+  `object_id` int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `m_objects`
+-- ----------------------------
+DROP TABLE IF EXISTS `m_objects`;
+CREATE TABLE `m_objects` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `lft` int(11) unsigned DEFAULT '0',
+  `rgt` int(11) unsigned DEFAULT '0',
+  `depth` int(11) unsigned DEFAULT '0',
+  `parent_id` int(11) unsigned DEFAULT '0',
+  `code` varchar(255) DEFAULT NULL,
+  `st` varchar(255) NOT NULL DEFAULT 'inactive',
+  `is_featured` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `is_sale` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `photo` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `measure_value` int(11) DEFAULT '0',
+  `measure_name` varchar(255) DEFAULT NULL,
+  `price_per_measure` float(11,2) DEFAULT NULL,
+  `price_sale` float(11,2) NOT NULL DEFAULT '0.00',
+  `price_total` float(11,2) DEFAULT NULL,
+  `currency_code` varchar(255) NOT NULL DEFAULT 'MNT',
+  `content_brief` text,
+  `content_body` longtext,
+  `views` int(11) unsigned NOT NULL DEFAULT '0',
+  `hits` int(11) unsigned NOT NULL DEFAULT '0',
+  `date_created` datetime DEFAULT NULL,
+  `date_publish` datetime DEFAULT NULL,
+  `date_expire` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `m_option_values`
+-- ----------------------------
+DROP TABLE IF EXISTS `m_option_values`;
+CREATE TABLE `m_option_values` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `option_id` int(11) NOT NULL DEFAULT '0',
+  `code` varchar(255) NOT NULL DEFAULT 'default',
+  `is_active` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `m_options`
+-- ----------------------------
+DROP TABLE IF EXISTS `m_options`;
+CREATE TABLE `m_options` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) NOT NULL DEFAULT 'default',
+  `user_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `st` varchar(255) NOT NULL DEFAULT 'inactive',
+  `type` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `date_created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `m_photos`
+-- ----------------------------
+DROP TABLE IF EXISTS `m_photos`;
+CREATE TABLE `m_photos` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `st` varchar(255) NOT NULL DEFAULT 'inactive',
+  `code` varchar(255) NOT NULL DEFAULT 'default',
+  `type` varchar(255) NOT NULL DEFAULT 'default',
+  `path` varchar(255) DEFAULT NULL,
+  `domain` varchar(255) DEFAULT NULL,
+  `height` int(8) unsigned NOT NULL DEFAULT '0',
+  `width` int(8) unsigned NOT NULL DEFAULT '0',
+  `mimetype` varchar(255) NOT NULL DEFAULT 'unknown',
+  `filesize` int(11) unsigned NOT NULL DEFAULT '0',
+  `views` int(11) NOT NULL DEFAULT '0',
+  `hits` int(11) unsigned NOT NULL DEFAULT '0',
+  `downloads` int(11) unsigned NOT NULL DEFAULT '0',
+  `date_created` datetime DEFAULT NULL,
+  `date_expire` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 --  Table structure for `m_search`
 -- ----------------------------
 DROP TABLE IF EXISTS `m_search`;
@@ -162,6 +258,35 @@ CREATE TABLE `m_settings` (
 BEGIN;
 INSERT INTO `m_settings` VALUES ('1', 'PAGE_TITLE', 'miniCMS v3 development', 'main');
 COMMIT;
+
+-- ----------------------------
+--  Table structure for `m_tag_values`
+-- ----------------------------
+DROP TABLE IF EXISTS `m_tag_values`;
+CREATE TABLE `m_tag_values` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) NOT NULL DEFAULT 'default',
+  `tag_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `hits` int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `m_tags`
+-- ----------------------------
+DROP TABLE IF EXISTS `m_tags`;
+CREATE TABLE `m_tags` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `lft` int(11) unsigned DEFAULT '0',
+  `rgt` int(11) unsigned DEFAULT '0',
+  `parent_id` int(11) unsigned DEFAULT '0',
+  `depth` int(11) unsigned DEFAULT '0',
+  `tag_value` varchar(255) NOT NULL,
+  `score` float(11,4) DEFAULT NULL,
+  `date_created` datetime DEFAULT NULL,
+  `date_updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `m_users`
