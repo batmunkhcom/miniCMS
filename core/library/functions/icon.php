@@ -60,7 +60,7 @@ function icon_content_type($type = '') {
             break;
     }
 
-    $buf .= ' <span class="' . $type_class . '" title="'.$type.'">';
+    $buf .= ' <span class="' . $type_class . '" title="'.__($type).'">';
     $buf .= '<i class="' . $type_icon . '"></i>';
     $buf .= '</span>';
 

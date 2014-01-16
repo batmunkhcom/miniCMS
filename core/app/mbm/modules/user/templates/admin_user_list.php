@@ -18,7 +18,7 @@
                     <table  class="display table table-bordered table-striped" id="userList">
                         <thead>
                             <tr>
-                                <th width="120"></th>
+                                <th width="30"></th>
                                 <th width="50"><?php echo __('ID'); ?></th>
                                 <th width="80"><?php echo __('Username'); ?></th>
                                 <th width="120"><?php echo __('Full name'); ?></th>
