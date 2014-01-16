@@ -31,6 +31,8 @@ class Category extends AbstractEntity {
         'name',
         'is_external',
         'external_url',
+        'module',
+        'action',
         'target',
         'lang',
         'hits',
@@ -270,6 +272,40 @@ class Category extends AbstractEntity {
             $is_external = "0";
         }
         $this->fields["is_external"] = $is_external;
+
+        return $this;
+    }
+
+    /**
+     * field info:
+     *    name:
+     *    type:
+     *    null:       YES
+     *    default:    content
+     *    extra:
+     *    generated:  2014-01-17 12:37:04 am
+     * @param $module  Category iin module
+     * @return object
+     */
+    public function setModule($module) {
+        $this->fields["module"] = $module;
+
+        return $this;
+    }
+
+    /**
+     * field info:
+     *    name:
+     *    type:
+     *    null:       YES
+     *    default:    index
+     *    extra:
+     *    generated:  2014-01-17 12:37:04 am
+     * @param $action  Category iin action
+     * @return object
+     */
+    public function setAction($action) {
+        $this->fields["action"] = $action;
 
         return $this;
     }

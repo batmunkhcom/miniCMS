@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace \D\Model;
+namespace D\Model;
 
 /**
                             * Comment model. Comments table.
@@ -38,7 +38,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $id  Comment iin id
      * @return object
      */
@@ -64,7 +64,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $parent_id  Comment iin parent_id
      * @return object
      */
@@ -82,7 +82,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $lft  Comment iin lft
      * @return object
      */
@@ -100,7 +100,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $rgt  Comment iin rgt
      * @return object
      */
@@ -118,7 +118,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $depth  Comment iin depth
      * @return object
      */
@@ -136,7 +136,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $user_id  Comment iin user_id
      * @return object
      */
@@ -158,7 +158,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $code  Comment iin code
      * @return object
      */
@@ -176,7 +176,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $name  Comment iin name
      * @return object
      */
@@ -194,7 +194,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $content  Comment iin content
      * @return object
      */
@@ -212,7 +212,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $date_created  Comment iin date_created
      * @return object
      */
@@ -232,7 +232,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $ip  Comment iin ip
      * @return object
      */
@@ -250,7 +250,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $browser  Comment iin browser
      * @return object
      */

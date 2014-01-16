@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace \D\Model;
+namespace D\Model;
 
 /**
                             * Setting model. Settings table.
@@ -30,7 +30,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $id  Setting iin id
      * @return object
      */
@@ -56,7 +56,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $setting_name  Setting iin setting_name
      * @return object
      */
@@ -78,7 +78,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $setting_value  Setting iin setting_value
      * @return object
      */
@@ -100,7 +100,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $setting_type  Setting iin setting_type
      * @return object
      */

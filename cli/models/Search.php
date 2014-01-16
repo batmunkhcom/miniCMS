@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace \D\Model;
+namespace D\Model;
 
 /**
                             * Search model. Search table.
@@ -33,7 +33,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $id  Search iin id
      * @return object
      */
@@ -59,7 +59,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $tags  Search iin tags
      * @return object
      */
@@ -77,7 +77,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $title  Search iin title
      * @return object
      */
@@ -95,7 +95,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $descr  Search iin descr
      * @return object
      */
@@ -113,7 +113,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $url  Search iin url
      * @return object
      */
@@ -131,7 +131,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $hits  Search iin hits
      * @return object
      */
@@ -149,7 +149,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $created_at  Search iin created_at
      * @return object
      */

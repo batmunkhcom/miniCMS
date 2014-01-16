@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace \D\Model;
+namespace D\Model;
 
 /**
                             * Category model. Categories table.
@@ -30,6 +30,8 @@ protected $allowedFields = array(
 'name',
 'is_external',
 'external_url',
+'module',
+'action',
 'target',
 'lang',
 'hits',
@@ -45,7 +47,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $id  Category iin id
      * @return object
      */
@@ -71,7 +73,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $parent_id  Category iin parent_id
      * @return object
      */
@@ -89,7 +91,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $code  Category iin code
      * @return object
      */
@@ -107,7 +109,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $depth  Category iin depth
      * @return object
      */
@@ -125,7 +127,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $lft  Category iin lft
      * @return object
      */
@@ -143,7 +145,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $rgt  Category iin rgt
      * @return object
      */
@@ -161,7 +163,7 @@ return $this;
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $st  Category iin st
      * @return object
      */
@@ -183,7 +185,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $user_id  Category iin user_id
      * @return object
      */
@@ -205,7 +207,7 @@ return $this;
            *    null:       NO
            *    default:    0.00
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $pos  Category iin pos
      * @return object
      */
@@ -227,7 +229,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $name  Category iin name
      * @return object
      */
@@ -245,7 +247,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $is_external  Category iin is_external
      * @return object
      */
@@ -267,7 +269,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $external_url  Category iin external_url
      * @return object
      */
@@ -283,9 +285,45 @@ return $this;
            *    name:       
            *    type:       
            *    null:       YES
+           *    default:    content
+           *    extra:      
+           *    generated:  2014-01-17 12:37:04 am
+     * @param $module  Category iin module
+     * @return object
+     */
+	public function setModule($module) {
+$this->fields["module"] = $module;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    index
+           *    extra:      
+           *    generated:  2014-01-17 12:37:04 am
+     * @param $action  Category iin action
+     * @return object
+     */
+	public function setAction($action) {
+$this->fields["action"] = $action;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $target  Category iin target
      * @return object
      */
@@ -303,7 +341,7 @@ return $this;
            *    null:       NO
            *    default:    mn
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $lang  Category iin lang
      * @return object
      */
@@ -325,7 +363,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $hits  Category iin hits
      * @return object
      */
@@ -347,7 +385,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $date_created  Category iin date_created
      * @return object
      */
@@ -371,7 +409,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $date_last_updated  Category iin date_last_updated
      * @return object
      */
@@ -389,7 +427,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $last_updated_user_id  Category iin last_updated_user_id
      * @return object
      */
@@ -411,7 +449,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-13 08:16:56 pm
+           *    generated:  2014-01-17 12:37:04 am
      * @param $is_adult  Category iin is_adult
      * @return object
      */
