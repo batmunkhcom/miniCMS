@@ -14,7 +14,9 @@
         <ul class="sub">
             <li><a  href="<?php echo get_url('admin_category_list') ?>"><?php echo __('Categories'); ?></a></li>
             <li><a  href="<?php echo get_url('admin_content_list') ?>"><?php echo __('Content'); ?></a></li>
-            <li><a  href="#"><?php echo __('Comments'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_tag_list') ?>"><?php echo __('Tags'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_photo_list') ?>"><?php echo __('Photos'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_comment_list') ?>"><?php echo __('Comments'); ?></a></li>
             <li><a  href="#"><?php echo __('Pano'); ?></a></li>
             <li><a  href="#"><?php echo __('Survey'); ?></a></li>
             <li><a  href="#"><?php echo __('Notification'); ?></a></li>
@@ -60,14 +62,11 @@
     <li class="sub-menu">
         <a href="javascript:;">
             <i class="fa fa-th"></i>
-            <span>Statistic</span>
+            <span><?php echo __('Objects'); ?></span>
         </a>
         <ul class="sub">
-            <li><a  href="basic_table.html">Basic Table</a></li>
-            <li><a  href="responsive_table.html">Responsive Table</a></li>
-            <li><a  href="dynamic_table.html">Dynamic Table</a></li>
-            <li><a  href="advanced_table.html">Advanced Table</a></li>
-            <li><a  href="editable_table.html">Editable Table</a></li>
+            <li><a  href="<?php echo get_url('admin_object_list') ?>"><?php echo __('Objects'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_option_list') ?>"><?php echo __('Options'); ?></a></li>
         </ul>
     </li>
     <li>
