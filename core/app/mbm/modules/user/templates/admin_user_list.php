@@ -23,7 +23,7 @@
                                 <th width="80"><?php echo __('Username'); ?></th>
                                 <th width="120"><?php echo __('Full name'); ?></th>
                                 <th width="80"><?php echo __('Email'); ?></th>
-                                <th width="80"><?php echo __('User info'); ?></th>
+                                <th width="80"><?php echo __('Info'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,7 +61,7 @@
                                 <th><?php echo __('username'); ?></th>
                                 <th><?php echo __('Full name'); ?></th>
                                 <th><?php echo __('Email'); ?></th>
-                                <th><?php echo __('User info'); ?></th>
+                                <th><?php echo __('Info'); ?></th>
                             </tr>
                         </tfoot>
                     </table>
