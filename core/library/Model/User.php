@@ -18,6 +18,19 @@
  */
 class User extends D\Model\User {
 
+    public static function fetchAll() {
+
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $user = $mapper_db->fetchAll();
+
+//        $this->username = $user->username;
+
+        return $user;
+    }
+
     public static function getById($id) {
 
         global $db;
@@ -25,19 +38,6 @@ class User extends D\Model\User {
         $mapper_db = db_unit($db, __CLASS__);
 
         $user = $mapper_db->fetchById($id);
-
-//        $this->username = $user->username;
-
-        return $user;
-    }
-
-    public static function getFetchAll() {
-
-        global $db;
-
-        $mapper_db = db_unit($db, __CLASS__);
-
-        $user = $mapper_db->fetchAll();
 
 //        $this->username = $user->username;
 

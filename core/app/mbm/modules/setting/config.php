@@ -9,4 +9,4 @@
  *
  * Module config file
  */
-$is_enabled_module['user'] = 1;
+$is_enabled_module['setting'] = 1;

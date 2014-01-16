@@ -9,9 +9,5 @@ require_once '../core/bootstrap.php';
 
 load_layout();
 
-echo '<hr>';
-echo \M\Config::get('module_current');
-echo '.....';
-echo \M\Config::get('action_current');
-echo '<hr>';
-
+//lang file -d bhgui ugsiig track hiih
+M\Language::log();

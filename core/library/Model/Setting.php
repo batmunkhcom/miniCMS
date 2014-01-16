@@ -18,8 +18,15 @@
  */
 class Setting {
 
-    public function __construct() {
+    public static function fetchAll() {
 
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $settings = $mapper_db->fetchAll();
+
+        return $settings;
     }
 
 }

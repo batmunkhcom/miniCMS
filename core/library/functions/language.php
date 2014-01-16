@@ -17,7 +17,14 @@
  */
 function __($txt = '') {
 
-    return M\Language::get($txt);
+    global $ln;
+
+    if (!isset($ln::$words[$txt])) {
+        $ln::$words_not_found[$txt] = $txt;
+
+        return $txt;
+    }
+    return $ln::$words[$txt];
 }
 
 function get_lang() {

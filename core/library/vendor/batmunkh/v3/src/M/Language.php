@@ -26,6 +26,7 @@ class Language {
     public $langFiles = array();
 
     public function __construct($ln = 'mn') {
+
         if (DIR_CORE . 'lang' . DS . $ln . DS . 'index.php') {
             $this->langFilesDir = DIR_CORE . 'lang' . DS . $ln . DS;
         } else {
@@ -40,24 +41,15 @@ class Language {
         self::$words = $lang;
     }
 
-    public function __($txt = '') {
+    static function log() {
 
-        if (!isset($this->words[$txt])) {
-            $this->words_not_found[] = $txt;
-            return $txt;
+        $message = '';
+        foreach (self::$words_not_found as $k => $v) {
+            $message.= '$lang["' . $k . '"], ';
         }
-        return $this->words[$txt];
-    }
+        $message .= '------------- total ' . count(self::$words_not_found) . ' words not found';
 
-    static function get($txt = '') {
-
-        if (!isset(self::$words[$txt])) {
-
-//            log_send('$lang[\'' . $txt . '\'] word not found.', 3);
-            self::$words_not_found[] = $txt;
-            return $txt;
-        }
-        return self::$words[$txt];
+        log_send($message, 2);
     }
 
 }
