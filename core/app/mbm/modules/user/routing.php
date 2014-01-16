@@ -15,28 +15,28 @@ set_route('admin_user_list', '/admin/user');
 
 $router->with('/admin/user', function () use ($router) {
 
-    //content home
+    //user home
     $router->respond('GET', '/?', function ($request, $response) {
 
         set_module('user');
         set_action('admin_user_list');
     });
 
-    //content create
+    //user create
     $router->respond('GET', '/new', function ($request, $response) {
 
         set_module('user');
         set_action('admin_user_new');
     });
 
-    //content save
+    //user save
     $router->respond('POST', '/save', function ($request, $response) {
 
         set_module('user');
         set_action('admin_user_save');
     });
 
-    //content update
+    //user update
     $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
 
         set_action('admin_user_edit');

@@ -7,40 +7,40 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-set_route('admin_user_list', '/admin/user');
+set_route('admin_setting_list', '/admin/setting');
 /*
  * admin route tohiruulah
  */
 //admin routes
 
-$router->with('/admin/user', function () use ($router) {
+$router->with('/admin/setting', function () use ($router) {
 
-    //content home
+    //setting home
     $router->respond('GET', '/?', function ($request, $response) {
 
-        set_module('user');
-        set_action('admin_user_list');
+        set_module('setting');
+        set_action('admin_setting_list');
     });
 
-    //content create
+    //setting create
     $router->respond('GET', '/new', function ($request, $response) {
 
-        set_module('user');
-        set_action('admin_user_new');
+        set_module('setting');
+        set_action('admin_setting_new');
     });
 
-    //content save
+    //setting save
     $router->respond('POST', '/save', function ($request, $response) {
 
-        set_module('user');
-        set_action('admin_user_save');
+        set_module('setting');
+        set_action('admin_setting_save');
     });
 
-    //content update
+    //setting update
     $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
 
-        set_action('admin_user_edit');
+        set_action('admin_setting_edit');
         set_get_parameter('id', $request->id);
-        set_module('user');
+        set_module('setting');
     });
 });

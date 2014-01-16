@@ -7,6 +7,4 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-$is_enabled_component['setting'] = 1;
-
-
+$template->set('settings', $db->fetchAll());

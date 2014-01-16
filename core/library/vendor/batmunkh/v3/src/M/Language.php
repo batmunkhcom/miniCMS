@@ -54,7 +54,7 @@ class Language {
         if (!isset(self::$words[$txt])) {
 
 //            log_send('$lang[\'' . $txt . '\'] word not found.', 3);
-            $this->words_not_found[] = $txt;
+            self::$words_not_found[] = $txt;
             return $txt;
         }
         return self::$words[$txt];
