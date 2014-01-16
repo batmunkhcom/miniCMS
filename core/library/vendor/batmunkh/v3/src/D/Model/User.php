@@ -429,7 +429,7 @@ class User extends AbstractEntity {
      */
     public function setBirthday($birthday) {
 
-        $this->fields["birthday"] = convert_date($birthday);
+//        $this->fields["birthday"] = $birthday;
 
         $this->fields["birthday"] = $birthday;
 
