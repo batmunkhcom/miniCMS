@@ -60,7 +60,7 @@ echo render_flash();
                                         ?>
                                     </td>
                                     <td class="center">
-                                        <?php echo printSt(__($category->st)); ?>
+                                        <?php echo printSt($category->st); ?>
                                     </td>
                                     <td class="center"><span class="badge bg-warning"><?php echo $category->hits; ?></span></td>
                                     <td class="center"><?php echo icon_1_0($category->is_adult); ?></td>
