@@ -31,4 +31,17 @@ class User extends D\Model\User {
         return $user;
     }
 
+    public static function getFetchAll() {
+
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $user = $mapper_db->fetchAll();
+
+//        $this->username = $user->username;
+
+        return $user;
+    }
+
 }
