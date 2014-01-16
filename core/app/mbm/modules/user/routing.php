@@ -13,34 +13,34 @@ set_route('admin_content_list', '/admin/user/list');
  */
 //admin routes
 
-$router->with('/admin/content', function () use ($router) {
+$router->with('/admin/user', function () use ($router) {
 
     //content home
     $router->respond('GET', '/?', function ($request, $response) {
 
-        set_action('admin_content_list');
-        set_module('content');
+        set_module('user');
+        set_action('admin_user_list');
     });
 
     //content create
     $router->respond('GET', '/new', function ($request, $response) {
 
-        set_module('content');
-        set_action('admin_content_new');
+        set_module('user');
+        set_action('admin_user_new');
     });
 
     //content save
     $router->respond('POST', '/save', function ($request, $response) {
 
-        set_module('content');
-        set_action('admin_content_save');
+        set_module('user');
+        set_action('admin_user_save');
     });
 
     //content update
     $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
 
-        set_action('admin_content_edit');
+        set_action('admin_user_edit');
         set_get_parameter('id', $request->id);
-        set_module('content');
+        set_module('user');
     });
 });
