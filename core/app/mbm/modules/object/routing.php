@@ -7,40 +7,40 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-set_route('admin_option_list', '/admin/option');
+set_route('admin_object_list', '/admin/object');
 /*
  * admin route tohiruulah
  */
 //admin routes
 
-$router->with('/admin/option', function () use ($router) {
+$router->with('/admin/object', function () use ($router) {
 
-    //option home
+    //object home
     $router->respond('GET', '/?', function ($request, $response) {
 
-        set_module('option');
-        set_action('admin_option_list');
+        set_module('object');
+        set_action('admin_object_list');
     });
 
-    //option create
+    //object create
     $router->respond('GET', '/new', function ($request, $response) {
 
-        set_module('option');
-        set_action('admin_option_new');
+        set_module('object');
+        set_action('admin_object_new');
     });
 
-    //option save
+    //object save
     $router->respond('POST', '/save', function ($request, $response) {
 
-        set_module('option');
-        set_action('admin_option_save');
+        set_module('object');
+        set_action('admin_object_save');
     });
 
-    //option update
+    //object update
     $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
 
-        set_action('admin_option_edit');
+        set_action('admin_object_edit');
         set_get_parameter('id', $request->id);
-        set_module('option');
+        set_module('object');
     });
 });
