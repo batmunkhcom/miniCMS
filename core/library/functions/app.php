@@ -37,6 +37,7 @@ function load_app_action() {
 
     //templte file bgaa esehiig shalgah
     if (!file_exists($action_file)) {
+        log_send("$action_file oldsongui", 3);
         $tpl_file = ERROR_MODULE_DIR . 'templates' . DS . '404_no_template_file.php';
     }
 

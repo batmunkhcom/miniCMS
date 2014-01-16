@@ -55,3 +55,7 @@ function set_template_variable($param, $value) {
     global $template;
     $template->set($param, $value);
 }
+
+function set_template_file($module, $file, $app) {
+    
+}

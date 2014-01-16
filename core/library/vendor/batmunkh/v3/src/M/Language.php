@@ -21,6 +21,7 @@ namespace M;
 class Language {
 
     public static $words = array();
+    public static $words_not_found = array();
     public $langFilesDir;
     public $langFiles = array();
 
@@ -42,7 +43,7 @@ class Language {
     public function __($txt = '') {
 
         if (!isset($this->words[$txt])) {
-            log_send('$lang[\'' . $txt . '\'] word not found.', 3);
+            $this->words_not_found[] = $txt;
             return $txt;
         }
         return $this->words[$txt];
@@ -52,7 +53,8 @@ class Language {
 
         if (!isset(self::$words[$txt])) {
 
-            log_send('$lang[\'' . $txt . '\'] word not found.', 3);
+//            log_send('$lang[\'' . $txt . '\'] word not found.', 3);
+            $this->words_not_found[] = $txt;
             return $txt;
         }
         return self::$words[$txt];

@@ -15,10 +15,13 @@ set_route('admin_setting_list', '/admin/setting/list');
 $router->with('/admin/setting', function () use ($router) {
 
     set_layout('admin');
-    
+
     //settings home
     $router->respond('GET', '/?', function ($request, $response) {
-
+//        $template->set('aa', '<br>aa variable iin utga n <br>');
+//        M\Config::set('action_file', DIR_COMPONENT . 'setting' . DS . 'action' . DS . 'list.php');
+        M\Config::set('tmp_file', DIR_COMPONENT . 'setting' . DS . 'templates' . DS . 'list.php');
+        echo M\Config::get('tpl_file');
     });
 
     //settings save
