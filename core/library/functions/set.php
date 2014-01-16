@@ -43,6 +43,10 @@ function set_module($module) {
  */
 function set_action($action) {
 
+    $actions_enabled = M\Config::get('action_enabled');
+    $actions_enabled[$action] = $action;
+    M\Config::set('action_enabled', $actions_enabled);
+
     \M\Config::set('action_current', $action);
 
     return \M\Config::get('action_current');

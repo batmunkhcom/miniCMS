@@ -26,6 +26,7 @@ namespace M;
  * @property array $data[module_enabled] zuvhun idevhjsen module uud
  * @property array $data[module_current] yag odoogiin module
  * @property array $data[module_current_dir] yag odoogiin module dir
+ * @property array $data[action_enabled] zuvhun idevhjsen action uud
  * @property array $data[action_current] yag odoogiin action
  * @property array $data[tpl_file] yag odoogiin duudah tpl file. ene template iig duudaj haruulna
  * @property array $data[css_files] ashiglagdah nemelt css file uud. compress hiigdene
