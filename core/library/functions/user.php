@@ -30,6 +30,14 @@ function is_logged_user() {
 }
 
 /**
+ * Tuhain hereglegchiig nevtersen esehiig shalgana
+ */
+function get_logged_username() {
+
+    return 'Administrator';
+}
+
+/**
  * Hereglegchiin handah erhiig shalgana
  */
 function check_authorization($required = array(), $condition = 'any') {

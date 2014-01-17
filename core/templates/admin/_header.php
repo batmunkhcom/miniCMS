@@ -118,7 +118,7 @@
                         <a href="#">
                             <span class="photo"><img alt="avatar" src="/assets/flatlab/admin/img/avatar-mini2.jpg"></span>
                             <span class="subject">
-                                <span class="from">Administrator</span>
+                                <span class="from"><?php echo get_logged_username(); ?></span>
                                 <span class="time">10 mins</span>
                             </span>
                             <span class="message">
