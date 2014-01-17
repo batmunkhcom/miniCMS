@@ -1,10 +1,22 @@
 <?php
+echo render_flash();
+?>
 
-/** 
- * This file is part of the miniCMS package.
- * (c) since 2005 SARUULBAT Amarsaikhan <a.saruulbat@gmail.com>
- * 
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+<div class="row">
+    <div class="col-lg-12">
+        <header class="panel-heading">
+            <?php echo __("Tags"); ?>
+        </header>
+    </div>
+</div>
+<div class="row">
+    <div class="panel">
+        <div class="panel-body">
+            <?php foreach ($tags as $tag): ?>
+                <?php echo print_tag($tag->tag_value, $tag->score, 25.0); ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+
 

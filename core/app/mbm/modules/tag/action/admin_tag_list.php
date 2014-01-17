@@ -8,3 +8,8 @@
  * file that was distributed with this source code.
  */
 
+css_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/css/demo_table.css', 9);
+css_set_loadfile('/css/admin/module_content.css');
+js_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/js/jquery.dataTables.js', 9);
+
+$template->set('tags', \Tag::fetchAll());
