@@ -31,7 +31,7 @@
                             <?php foreach ($options as $option): ?>
                                 <tr>
                                     <td><?php echo $option->id; ?>.</td>
-                                    <td><?php echo $option->code; ?>.</td>
+                                    <td><?php echo $option->code; ?></td>
                                     <td>
                                         <strong><?php echo $option->name; ?></strong>
                                         <p><?php echo $option->comment; ?></p>
