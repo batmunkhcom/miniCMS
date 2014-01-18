@@ -26,7 +26,8 @@ class Option extends AbstractEntity {
         'type',
         'name',
         'comment',
-        'date_created');
+        'date_created',
+        'module');
 
     /**
      * field info:
@@ -181,6 +182,27 @@ class Option extends AbstractEntity {
         $date_created = \M\Carbon::now();
 
         $this->fields["date_created"] = $date_created;
+
+        return $this;
+    }
+    
+    /**
+     * field info:
+     *    name:
+     *    type:
+     *    null:       NO
+     *    default:    default
+     *    extra:
+     *    generated:  2014-01-17 02:17:00 am
+     * @param $code  Option iin module
+     * @return object
+     */
+    public function setModule($module) {
+
+        if (!isset($module) || $module == "") {
+            $module = "default";
+        }
+        $this->fields["module"] = $module;
 
         return $this;
     }

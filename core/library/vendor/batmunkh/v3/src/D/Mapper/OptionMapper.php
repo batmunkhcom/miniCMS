@@ -27,7 +27,8 @@ class OptionMapper extends AbstractDataMapper {
             "type" => $row["type"],
             "name" => $row["name"],
             "comment" => $row["comment"],
-            "date_created" => $row["date_created"]
+            "date_created" => $row["date_created"],
+            "module" => $row["module"]
                 )
         );
     }

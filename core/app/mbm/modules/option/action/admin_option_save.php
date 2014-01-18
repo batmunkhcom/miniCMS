@@ -7,7 +7,7 @@ $option_db = new \D\Mapper\OptionMapper($db, new \D\Model\Collection\EntityColle
 
 $option = new D\Model\Option(
         array(
-    'code' => post('code'),
+    'module' => post('module'),
     'user_id' => get_logged_user_id(),
     'st' => post('st'),
     'type' => post('type'),
