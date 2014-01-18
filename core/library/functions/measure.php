@@ -14,7 +14,7 @@
 function get_all_measure() {
 
     return array(
-        'kg', 'm', 'm kb', 'gr', 'pcs', 'unit'
+        'kg' => 'kg', 'm' => 'm', 'mkb' => 'm kb', 'gr' => 'gr', 'pcs' => 'pcs', 'unit' => 'unit'
     );
 }
 

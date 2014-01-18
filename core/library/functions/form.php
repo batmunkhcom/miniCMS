@@ -10,3 +10,16 @@
 function load_form() {
 
 }
+
+function form_render_option($val = array(), $selected_value = '') {
+    $buf = '';
+    foreach ($val as $k => $v) {
+        $buf .= '<option value="' . $k . '" ';
+        if ($k == $selected_value) {
+            $buf .= ' selected ';
+        }
+        $buf .= '>' . $v . '</option>';
+    }
+
+    return $buf;
+}

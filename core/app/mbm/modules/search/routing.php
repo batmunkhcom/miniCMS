@@ -7,43 +7,40 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-set_route('admin_object_list', '/admin/object');
-set_route('admin_object_new', '/admin/object/new');
-set_route('admin_object_save', '/admin/object/save');
-set_route('admin_object_edit', '/admin/object/edit/{id}');
+set_route('admin_search_list', '/admin/search');
 /*
  * admin route tohiruulah
  */
 //admin routes
 
-$router->with('/admin/object', function () use ($router) {
+$router->with('/admin/search', function () use ($router) {
 
-    //object home
+    //search home
     $router->respond('GET', '/?', function ($request, $response) {
 
-        set_module('object');
-        set_action('admin_object_list');
+        set_module('search');
+        set_action('admin_search_list');
     });
 
-    //object create
+    //search create
     $router->respond('GET', '/new', function ($request, $response) {
 
-        set_module('object');
-        set_action('admin_object_new');
+        set_module('search');
+        set_action('admin_search_new');
     });
 
-    //object save
+    //search save
     $router->respond('POST', '/save', function ($request, $response) {
 
-        set_module('object');
-        set_action('admin_object_save');
+        set_module('search');
+        set_action('admin_search_save');
     });
 
-    //object update
+    //search update
     $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
 
-        set_action('admin_object_edit');
+        set_action('admin_search_edit');
         set_get_parameter('id', $request->id);
-        set_module('object');
+        set_module('search');
     });
 });
