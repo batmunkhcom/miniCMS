@@ -12,9 +12,12 @@ echo render_flash();
 <div class="row">
     <div class="panel">
         <div class="panel-body">
-            <?php foreach ($tags as $tag): ?>
-                <?php echo print_tag($tag->tag_value, $tag->score, 25.0); ?>
-            <?php endforeach; ?>
+            <?php
+            $max_score = \Tag::getMaxScore();
+            foreach ($tags as $tag):
+                echo print_tag($tag->tag_value, $tag->score, $max_score).' ';
+            endforeach;
+            ?>
         </div>
     </div>
 </div>

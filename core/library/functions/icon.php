@@ -69,23 +69,31 @@ function icon_content_type($type = '') {
 
 function print_tag($tag_value, $tag_score, $max_score) {
 
-    $buf = '<span class="badge bg-primary">
+    $bg_style = Array('','bg-primary','bg-success','bg-info','bg-inverse','bg-warning','bg-important');
+    
+    $buf = '<span class="badge '.$bg_style[array_rand($bg_style)].'">
                 <button data-dismiss="alert" class="close close-sm" type="button">
                     <i class="fa fa-times"></i>
                 </button>';
-    if($tag_score<$max_score/5)
-        $buf .='<h6>'.$tag_value.'&nbsp;</h6>';
-    if($tag_score<$max_score/5*2 && $tag_score>=$max_score/5)
-        $buf .='<h5>'.$tag_value.'&nbsp;</h5>';
-    if($tag_score<$max_score/5*3 && $tag_score>=$max_score/5*2)
-        $buf .='<h4>'.$tag_value.'&nbsp;</h4>';
-    if($tag_score<$max_score/5*4 && $tag_score>=$max_score/5*3)
-        $buf .='<h3>'.$tag_value.'&nbsp;</h3>';
-    if($tag_score<=$max_score/5*5 && $tag_score>=$max_score/5*4)
-        $buf .='<h2>'.$tag_value.'&nbsp;</h2>';
-    if($$tag_score>$max_score)
-        $buf .='<h1>'.$tag_value.'&nbsp;</h1>';
-    
+    if ($tag_score < $max_score / 5) {
+        $buf .='<h6>' . $tag_value . '&nbsp;</h6>';
+    }
+    if ($tag_score < $max_score / 5 * 2 && $tag_score >= $max_score / 5) {
+        $buf .='<h5>' . $tag_value . '&nbsp;</h5>';
+    }
+    if ($tag_score < $max_score / 5 * 3 && $tag_score >= $max_score / 5 * 2) {
+        $buf .='<h4>' . $tag_value . '&nbsp;</h4>';
+    }
+    if ($tag_score < $max_score / 5 * 4 && $tag_score >= $max_score / 5 * 3) {
+        $buf .='<h3>' . $tag_value . '&nbsp;</h3>';
+    }
+    if ($tag_score <= $max_score / 5 * 5 && $tag_score >= $max_score / 5 * 4) {
+        $buf .='<h2>' . $tag_value . '&nbsp;</h2>';
+    }
+    if ($tag_score > $max_score) {
+        $buf .='<h1>' . $tag_value . '&nbsp;</h1>';
+    }
+
     $buf .= '</span>';
     
     return $buf;

@@ -34,10 +34,16 @@ class Tag extends D\Model\Tag {
     
     public static function getMaxScore() {
         
-        $cc = new \D\Mapper\TagMapper($db, new \D\Model\Collection\EntityCollection);
-        $mapper = new \D\Mapper\TagMapper($db, new \D\Model\Collection\EntityCollection);
-        $score = $mapper->select('', 'MAX(score) FROM '.$cc->getTableName());
-        return $score;
+        global $db;
+        
+        $mapper = new \D\Mapper\TagMapper($db, new \D\Model\Collection\EntityCollection,null,array('MaxScore'));
+        
+        $score = $mapper->select(array(), 'id!=0 ORDER BY score ASC');
+        $ss= '';
+        foreach($score as $s){
+            $ss = $s->score;
+        }
+        return $ss;
     }
-
+    
 }
