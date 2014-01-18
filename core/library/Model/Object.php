@@ -17,9 +17,9 @@ class Object extends D\Model\Object {
 
         $mapper_db = db_unit($db, __CLASS__);
 
-        $user = $mapper_db->fetchAll();
+        $objects = $mapper_db->fetchAll();
 
-        return $user;
+        return $objects;
     }
 
     public static function getById($id) {
@@ -28,9 +28,9 @@ class Object extends D\Model\Object {
 
         $mapper_db = db_unit($db, __CLASS__);
 
-        $user = $mapper_db->fetchById($id);
+        $object = $mapper_db->fetchById($id);
 
-        return $user;
+        return $object;
     }
 
 }

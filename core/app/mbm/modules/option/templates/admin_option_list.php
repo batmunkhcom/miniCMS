@@ -5,8 +5,8 @@
         </header>
     </div>
     <div class="col-lg-6 text-right">
-        <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_content_new'); ?>'">
-            <i class="fa fa-plus-circle"></i> <?php echo __('Add content'); ?>
+        <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_option_new'); ?>'">
+            <i class="fa fa-plus-circle"></i> <?php echo __('Add option'); ?>
         </button>
     </div>
 </div>
@@ -29,7 +29,7 @@
                         </thead>
                         <tbody>
                             <?php foreach ($options as $option): ?>
-                                <tr >
+                                <tr>
                                     <td><?php echo $option->id; ?>.</td>
                                     <td><?php echo $option->code; ?>.</td>
                                     <td>
@@ -39,7 +39,7 @@
                                     <td><?php echo $option->type; ?></td>
                                     <td><?php echo \User::getById($option->user_id)->username; ?></td>
                                     <td><?php echo $option->st; ?></td>
-                                    <td><?php echo icon_date('createdDate', $option->created_date) . ' ' . $option->created_date; ?></td>
+                                    <td><?php echo icon_date('createdDate', $option->date_created) . ' ' . $option->date_created; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
