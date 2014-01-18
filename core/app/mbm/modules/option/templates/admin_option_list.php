@@ -38,7 +38,7 @@
                                     </td>
                                     <td><?php echo $option->type; ?></td>
                                     <td><?php echo \User::getById($option->user_id)->username; ?></td>
-                                    <td><?php echo $option->st; ?></td>
+                                    <td><?php echo printSt($option->st); ?></td>
                                     <td><?php echo icon_date('createdDate', $option->date_created) . ' ' . $option->date_created; ?></td>
                                 </tr>
                             <?php endforeach; ?>
