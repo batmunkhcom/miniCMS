@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-lg-6">
         <header class="panel-heading">
-            <?php echo __("Users"); ?>
+            <?php echo __("Options"); ?>
         </header>
     </div>
     <div class="col-lg-6 text-right">
-        <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_user_new'); ?>'">
-            <i class="fa fa-plus-circle"></i> <?php echo __('Add user'); ?>
+        <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_content_new'); ?>'">
+            <i class="fa fa-plus-circle"></i> <?php echo __('Add content'); ?>
         </button>
     </div>
 </div>
@@ -15,53 +15,43 @@
         <section class="panel">
             <div class="panel-body">
                 <div class="adv-table">
-                    <table  class="display table table-bordered table-striped" id="userList">
+                    <table  class="display table table-bordered table-striped" id="contentList">
                         <thead>
                             <tr>
-                                <th width="30"></th>
-                                <th width="50"><?php echo __('ID'); ?></th>
-                                <th width="80"><?php echo __('Username'); ?></th>
-                                <th width="120"><?php echo __('Full name'); ?></th>
-                                <th width="80"><?php echo __('Email'); ?></th>
-                                <th width="80"><?php echo __('Info'); ?></th>
+                                <th><?php echo __('ID'); ?></th>
+                                <th><?php echo __('Code'); ?></th>
+                                <th><?php echo __('Name'); ?></th>
+                                <th><?php echo __('Type'); ?></th>
+                                <th><?php echo __('Username'); ?></th>
+                                <th><?php echo __('Status'); ?></th>
+                                <th><?php echo __('Created date'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($users as $user): ?>
+                            <?php foreach ($options as $option): ?>
                                 <tr >
-                                    <td class="center">
-                                        <div class="btn-group">
-                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button">
-                                                <?php echo __('Actions'); ?>
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul role="menu" class="dropdown-menu">
-                                                <li>
-                                                    <a href="#"><?php echo __('Edit user'); ?></a>
-                                                </li>
-                                                <li><a href="#"><?php echo __('Delete user'); ?></a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Separated link</a></li>
-                                            </ul>
-                                        </div>
+                                    <td><?php echo $option->id; ?>.</td>
+                                    <td><?php echo $option->code; ?>.</td>
+                                    <td>
+                                        <strong><?php echo $option->name; ?></strong>
+                                        <p><?php echo $option->comment; ?></p>
                                     </td>
-                                    <td><?php echo $user->id; ?>.</td>
-                                    <td><?php echo $user->username; ?></td>
-                                    <td><?php echo $user->firstname . ' ' . $user->lastname; ?></td>
-                                    <td><?php echo $user->email; ?></td>
-                                    <td></td>
-
+                                    <td><?php echo $option->type; ?></td>
+                                    <td><?php echo \User::getById($option->user_id)->username; ?></td>
+                                    <td><?php echo $option->st; ?></td>
+                                    <td><?php echo icon_date('createdDate', $option->created_date) . ' ' . $option->created_date; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th></th>
                                 <th>#</th>
-                                <th><?php echo __('username'); ?></th>
-                                <th><?php echo __('Full name'); ?></th>
-                                <th><?php echo __('Email'); ?></th>
-                                <th><?php echo __('Info'); ?></th>
+                                <th><?php echo __('Code'); ?></th>
+                                <th><?php echo __('Name'); ?></th>
+                                <th><?php echo __('Type'); ?></th>
+                                <th><?php echo __('Username'); ?></th>
+                                <th><?php echo __('Status'); ?></th>
+                                <th><?php echo __('Created date'); ?></th>
                             </tr>
                         </tfoot>
                     </table>
@@ -73,7 +63,7 @@
 
 <script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function() {
-        $('#userList').dataTable({
+        $('#contentList').dataTable({
             'bSort': false
         });
     });

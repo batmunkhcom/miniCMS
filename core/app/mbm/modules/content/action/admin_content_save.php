@@ -35,7 +35,7 @@ if ($form->isValid('content')) {
             $photo->resizeInPixel($new_with, $new_height, true);
 
             //stamp zurag
-            if (CONTENT_PHOTO_STAMP_ENABLE == 1) {
+            if ((int) CONTENT_PHOTO_STAMP_ENABLE == 1) {
                 //stamp image iig beldeh
                 $photo_stamp = PHPImageWorkshop\ImageWorkshop::initFromPath(DIR_WEB . CONTENT_PHOTO_STAMP_IMAGE);
                 $s_width = floor((int) $new_with / 10);

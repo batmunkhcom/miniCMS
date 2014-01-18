@@ -9,4 +9,4 @@
  *
  * Module config file
  */
-$is_enabled_module['object'] = 1;
+$is_enabled_module['option'] = 1;

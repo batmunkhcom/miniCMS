@@ -8,6 +8,9 @@
  * file that was distributed with this source code.
  */
 set_route('admin_option_list', '/admin/option');
+set_route('admin_option_new', '/admin/option/new');
+set_route('admin_option_save', '/admin/option/save');
+set_route('admin_option_edit', '/admin/option/edit/{id}');
 /*
  * admin route tohiruulah
  */
