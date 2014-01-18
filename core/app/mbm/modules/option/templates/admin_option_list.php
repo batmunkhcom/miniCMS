@@ -1,69 +1,141 @@
 <div class="row">
     <div class="col-lg-6">
         <header class="panel-heading">
-            <?php echo __("Users"); ?>
+            <?php echo __("Object options"); ?>
         </header>
-    </div>
-    <div class="col-lg-6 text-right">
-        <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_user_new'); ?>'">
-            <i class="fa fa-plus-circle"></i> <?php echo __('Add user'); ?>
-        </button>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-12">
         <section class="panel">
             <div class="panel-body">
-                <div class="adv-table">
-                    <table  class="display table table-bordered table-striped" id="userList">
+                <div class="adv-table editable-table ">
+                    <div class="clearfix">
+                        <div class="btn-group">
+                            <button id="editable-sample_new" class="btn green">
+                                Add New <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="btn-group pull-right">
+                            <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
+                            </button>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="#">Print</a></li>
+                                <li><a href="#">Save as PDF</a></li>
+                                <li><a href="#">Export to Excel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="space15"></div>
+                    <table class="table table-striped table-hover table-bordered" id="editable-sample">
                         <thead>
                             <tr>
-                                <th width="30"></th>
-                                <th width="50"><?php echo __('ID'); ?></th>
-                                <th width="80"><?php echo __('Username'); ?></th>
-                                <th width="120"><?php echo __('Full name'); ?></th>
-                                <th width="80"><?php echo __('Email'); ?></th>
-                                <th width="80"><?php echo __('Info'); ?></th>
+                                <th>Username</th>
+                                <th>Full Name</th>
+                                <th>Points</th>
+                                <th>Notes</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($users as $user): ?>
-                                <tr >
-                                    <td class="center">
-                                        <div class="btn-group">
-                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button">
-                                                <?php echo __('Actions'); ?>
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul role="menu" class="dropdown-menu">
-                                                <li>
-                                                    <a href="#"><?php echo __('Edit user'); ?></a>
-                                                </li>
-                                                <li><a href="#"><?php echo __('Delete user'); ?></a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Separated link</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><?php echo $user->id; ?>.</td>
-                                    <td><?php echo $user->username; ?></td>
-                                    <td><?php echo $user->firstname . ' ' . $user->lastname; ?></td>
-                                    <td><?php echo $user->email; ?></td>
-                                    <td></td>
-
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>#</th>
-                                <th><?php echo __('username'); ?></th>
-                                <th><?php echo __('Full name'); ?></th>
-                                <th><?php echo __('Email'); ?></th>
-                                <th><?php echo __('Info'); ?></th>
+                            <tr class="">
+                                <td>Jondi Rose</td>
+                                <td>Alfred Jondi Rose</td>
+                                <td>1234</td>
+                                <td class="center">super user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
                             </tr>
-                        </tfoot>
+                            <tr class="">
+                                <td>Dulal</td>
+                                <td>Jonathan Smith</td>
+                                <td>434</td>
+                                <td class="center">new user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                            <tr class="">
+                                <td>Sumon</td>
+                                <td> Sumon Ahmed</td>
+                                <td>232</td>
+                                <td class="center">super user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                            <tr class="">
+                                <td>vectorlab</td>
+                                <td>dk mosa</td>
+                                <td>132</td>
+                                <td class="center">elite user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                            <tr class="">
+                                <td>Admin</td>
+                                <td> Flat Lab</td>
+                                <td>462</td>
+                                <td class="center">new user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                            <tr class="">
+                                <td>Rafiqul</td>
+                                <td>Rafiqul dulal</td>
+                                <td>62</td>
+                                <td class="center">new user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                            <tr class="">
+                                <td>Jhon Doe</td>
+                                <td>Jhon Doe </td>
+                                <td>1234</td>
+                                <td class="center">super user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                            <tr class="">
+                                <td>Dulal</td>
+                                <td>Jonathan Smith</td>
+                                <td>434</td>
+                                <td class="center">new user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                            <tr class="">
+                                <td>Sumon</td>
+                                <td> Sumon Ahmed</td>
+                                <td>232</td>
+                                <td class="center">super user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                            <tr class="">
+                                <td>vectorlab</td>
+                                <td>dk mosa</td>
+                                <td>132</td>
+                                <td class="center">elite user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                            <tr class="">
+                                <td>Admin</td>
+                                <td> Flat Lab</td>
+                                <td>462</td>
+                                <td class="center">new user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                            <tr class="">
+                                <td>Rafiqul</td>
+                                <td>Rafiqul dulal</td>
+                                <td>62</td>
+                                <td class="center">new user</td>
+                                <td><a class="edit" href="javascript:;">Edit</a></td>
+                                <td><a class="delete" href="javascript:;">Delete</a></td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -71,10 +143,9 @@
     </div>
 </div>
 
-<script type="text/javascript" charset="utf-8">
-    jQuery(document).ready(function() {
-        $('#userList').dataTable({
-            'bSort': false
-        });
+<script>
+    $(document).ready(function() {
+        EditableTable.init();
     });
+
 </script>

@@ -7,9 +7,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-css_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/css/demo_table.css', 9);
-js_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/js/jquery.dataTables.js', 9);
+css_set_loadfile('/assets/flatlab/admin/assets/data-tables/DT_bootstrap.css', 9);
+js_set_loadfile('/assets/flatlab/admin/assets/data-tables/jquery.dataTables.js', 91);
+js_set_loadfile('/assets/flatlab/admin/assets/data-tables/DT_bootstrap.js', 92);
 
 $template->set('is_admin', \M\Config::get('is_admin'));
 $template->set('users', \User::fetchAll());

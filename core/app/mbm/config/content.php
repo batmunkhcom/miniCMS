@@ -10,6 +10,9 @@
  */
 /* * **************Webiin undsen tohirgoo******************** */
 
+//content iin zurgiig tamgalah eseh
+$mbm_config ['content_photo_stamp_enable'] = 1;
+
 //urgund utga oruulaagui bol tuhain zuragnii urguniig avna
 $mbm_config ['content_photo_max_width'] = 200;
 //undriig 0 gej ugvul auto tootsoolno
@@ -27,9 +30,6 @@ $mbm_config ['content_photo_max_height'] = 0;
  * RB - baruun dood
  */
 $mbm_config ['content_photo_stamp_position'] = 'LB';
-
-//content iin zurgiig tamgalah eseh
-$mbm_config ['content_photo_stamp_enable'] = 1;
 
 //DIR_WEB ees hamaaraltai path iig zaana
 $mbm_config ['content_photo_stamp_image'] = '/images/stamp.png';
