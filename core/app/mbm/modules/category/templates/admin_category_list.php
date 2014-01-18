@@ -52,7 +52,7 @@ echo render_flash();
                                             <a href="<?php echo get_url('admin_category_list') ?>/<?php echo $category->id; ?>">
                                                 <?php echo $category->name; ?>
                                             </a>
-                                            <i class="fa fa-bars"></i>
+                                        <i class="fa fa-list" title="<?php echo __("Sub categories") ?>"></i>
                                             <?php
                                         } else {
                                             echo $category->name;
