@@ -11,7 +11,7 @@
  Target Server Version : 50169
  File Encoding         : utf-8
 
- Date: 01/17/2014 02:36:27 AM
+ Date: 01/19/2014 04:57:06 AM
 */
 
 SET NAMES utf8;
@@ -178,8 +178,9 @@ CREATE TABLE `m_objects` (
 DROP TABLE IF EXISTS `m_option_values`;
 CREATE TABLE `m_option_values` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `option_id` int(11) NOT NULL DEFAULT '0',
   `code` varchar(255) NOT NULL DEFAULT 'default',
+  `option_id` int(11) NOT NULL DEFAULT '0',
+  `option_value` varchar(255) NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -197,6 +198,7 @@ CREATE TABLE `m_options` (
   `name` varchar(255) DEFAULT NULL,
   `comment` varchar(255) DEFAULT NULL,
   `date_created` datetime DEFAULT NULL,
+  `module` varchar(255) NOT NULL DEFAULT 'default',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

@@ -81,6 +81,29 @@ function db_mapper($db, $mapper) {
 }
 
 /**
+ * Zuvhun 1 mapper duudah
+ *
+ * @param object $db Database connection adapter
+ * @param string $mapper Mapper iin Model ner. Ex: Category
+ *
+ * @return object Mapper iig butsaana
+ */
+function db_render_option($db, $mapper, $name_field = 'name') {
+
+    $db_mapper = db_mapper($db, $mapper);
+
+    $items = $db_mapper->fetchAll();
+
+    $buf = array();
+
+    foreach ($items as $item) {
+        $buf[$item->id] = $item->$name_field;
+    }
+
+    return $buf;
+}
+
+/**
  * field iin neriig Model export-d zoriulj yanzlah
  *
  * @param string $field Field iin ner
