@@ -60,7 +60,49 @@ function icon_content_type($type = '') {
             break;
     }
 
-    $buf .= ' <span class="' . $type_class . '" title="'.__($type).'">';
+    $buf .= '<span data-original-title="'.__('Content type').'" data-content="'.__($type).'"
+            data-placement="top"
+            data-trigger="hover"
+            class="' . $type_class . ' popovers" >';
+    $buf .= '<i class="' . $type_icon . '"></i>';
+    $buf .= '</span>';
+
+    return $buf;
+}
+
+/**
+ * Content-iin publish date bolon, uussen ognoog hewleh
+ *
+ * @param string $type publishDate, createdDate
+ * @param string $date Ognoog awah
+ */
+function icon_date($type, $date) {
+
+    $buf = '';
+
+    $type_class = 'badge ';
+    $type_icon = 'fa fa-clock-o';
+    $type_title = '';
+ 
+    switch ($type) {
+        case 'publishDate':
+            $type_class .= 'bg-warning';
+            $type_title = 'Publish date';
+            break;
+        case 'createdDate':
+            $type_class .= 'bg-success';
+            $type_title = 'Created date';
+            break;
+        default:
+            $type_class .= 'bg-default';
+            $type_title = 'Date';
+            break;
+    }
+
+    $buf .= '<span data-original-title="'.__($type_title).'" data-content="'.__($date).'"
+            data-placement="top"
+            data-trigger="hover"
+            class="' . $type_class . ' popovers" >';
     $buf .= '<i class="' . $type_icon . '"></i>';
     $buf .= '</span>';
 

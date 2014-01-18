@@ -61,9 +61,9 @@
                                     </td>
                                     <td class="center"><?php echo \User::getById($content->user_id)->username; ?></td>
                                     <td class="center"><?php
-                                        echo icon_content_type($content->content_type);
-                                        echo ' <span class="badge bg-success" title="' . __('Created date') . ': ' . $content->date_created . '"><i class="fa fa-clock-o"></i></span>';
-                                        echo ' <span class="badge bg-warning" title="' . __('Publish date') . ': ' . $content->date_publish . '"><i class="fa fa-clock-o"></i></span>';
+                                        echo icon_content_type($content->content_type).' ';
+                                        echo icon_date('createdDate', $content->date_created).' ';
+                                        echo icon_date('publishDate', $content->date_publish);
                                         ?></td>
                                     <td class="center">
                                         <?php
