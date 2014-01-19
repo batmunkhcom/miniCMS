@@ -21,7 +21,8 @@
                                 <th><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Code'); ?></th>
                                 <th><?php echo __('Option title'); ?></th>
-                                <th><?php echo __('Type'); ?></th>
+                                <th><?php echo __('Option type'); ?></th>
+                                <th><?php echo __('Form tag'); ?></th>
                                 <th><?php echo __('Module'); ?></th>
                                 <th><?php echo __('Username'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
@@ -38,6 +39,7 @@
                                         <p><?php echo $option->descr; ?></p>
                                     </td>
                                     <td><?php echo $option->group_name; ?></td>
+                                    <td><?php echo $option->form_tag; ?></td>
                                     <td><?php echo $option->module; ?></td>
                                     <td><?php echo \User::getById($option->user_id)->username; ?></td>
                                     <td><?php echo printSt($option->st); ?></td>
@@ -50,7 +52,8 @@
                                 <th>#</th>
                                 <th><?php echo __('Code'); ?></th>
                                 <th><?php echo __('Option title'); ?></th>
-                                <th><?php echo __('Type'); ?></th>
+                                <th><?php echo __('Option type'); ?></th>
+                                <th><?php echo __('Form tag'); ?></th>
                                 <th><?php echo __('Module'); ?></th>
                                 <th><?php echo __('Username'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
