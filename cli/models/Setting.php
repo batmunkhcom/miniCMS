@@ -30,7 +30,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $id  Setting iin id
      * @return object
      */
@@ -56,7 +56,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $setting_name  Setting iin setting_name
      * @return object
      */
@@ -78,7 +78,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $setting_value  Setting iin setting_value
      * @return object
      */
@@ -100,7 +100,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $setting_type  Setting iin setting_type
      * @return object
      */

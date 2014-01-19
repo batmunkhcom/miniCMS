@@ -33,7 +33,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $id  Search iin id
      * @return object
      */
@@ -59,7 +59,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $tags  Search iin tags
      * @return object
      */
@@ -77,7 +77,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $title  Search iin title
      * @return object
      */
@@ -95,7 +95,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $descr  Search iin descr
      * @return object
      */
@@ -113,7 +113,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $url  Search iin url
      * @return object
      */
@@ -131,7 +131,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $hits  Search iin hits
      * @return object
      */
@@ -149,7 +149,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $created_at  Search iin created_at
      * @return object
      */

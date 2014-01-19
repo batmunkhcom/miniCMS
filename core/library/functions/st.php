@@ -52,13 +52,7 @@ function st_dropdown_options($active = 'inactive') {
  */
 function st_array() {
 
-    $st = array(
-        'inactive' => __('Inactive'),
-        'active' => __('Active'),
-        'pending' => __('Pending')
-    );
-
-    return $st;
+    return get_all_st();
 }
 
 /**

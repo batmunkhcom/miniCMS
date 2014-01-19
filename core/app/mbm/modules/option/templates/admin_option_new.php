@@ -18,9 +18,14 @@
                 }
 
                 clear_flash();
-                ?>
-                <script>
-                    $('#element_external_url').hide();
+                ?><script type="text/javascript">
+                    $(function() {
+                        $('#element_photo').hide();
+                        $('#element_target').hide();
+                        $('#categories').multiSelect({
+                            selectableOptgroup: true
+                        });
+                    });
                 </script>
             </div>
         </section>

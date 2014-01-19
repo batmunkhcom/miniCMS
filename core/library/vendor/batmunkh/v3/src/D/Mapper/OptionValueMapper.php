@@ -21,8 +21,9 @@ class OptionValueMapper extends AbstractDataMapper {
         return new \D\Model\OptionValue(
                 array(
             "id" => $row["id"],
-            "option_id" => $row["option_id"],
             "code" => $row["code"],
+            "option_id" => $row["option_id"],
+            "option_value" => $row["option_value"],
             "is_active" => $row["is_active"]
                 )
         );

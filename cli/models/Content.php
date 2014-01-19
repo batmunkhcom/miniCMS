@@ -48,7 +48,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $id  Content iin id
      * @return object
      */
@@ -74,7 +74,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $parent_id  Content iin parent_id
      * @return object
      */
@@ -92,7 +92,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $lft  Content iin lft
      * @return object
      */
@@ -110,7 +110,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $rgt  Content iin rgt
      * @return object
      */
@@ -128,7 +128,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $depth  Content iin depth
      * @return object
      */
@@ -146,7 +146,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $user_id  Content iin user_id
      * @return object
      */
@@ -168,7 +168,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $code  Content iin code
      * @return object
      */
@@ -186,7 +186,7 @@ return $this;
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $st  Content iin st
      * @return object
      */
@@ -208,7 +208,7 @@ return $this;
            *    null:       NO
            *    default:    article
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $content_type  Content iin content_type
      * @return object
      */
@@ -230,7 +230,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $photo  Content iin photo
      * @return object
      */
@@ -248,7 +248,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $title  Content iin title
      * @return object
      */
@@ -266,7 +266,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $content_brief  Content iin content_brief
      * @return object
      */
@@ -284,7 +284,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $content_body  Content iin content_body
      * @return object
      */
@@ -302,7 +302,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $use_comment  Content iin use_comment
      * @return object
      */
@@ -324,7 +324,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $date_created  Content iin date_created
      * @return object
      */
@@ -344,7 +344,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $date_publish  Content iin date_publish
      * @return object
      */
@@ -362,7 +362,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $total_updated  Content iin total_updated
      * @return object
      */
@@ -384,7 +384,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $views  Content iin views
      * @return object
      */
@@ -406,7 +406,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $hits  Content iin hits
      * @return object
      */
@@ -428,7 +428,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $session_id  Content iin session_id
      * @return object
      */
@@ -446,7 +446,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $session_time  Content iin session_time
      * @return object
      */
@@ -464,7 +464,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $is_adult  Content iin is_adult
      * @return object
      */

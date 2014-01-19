@@ -11,7 +11,7 @@
  Target Server Version : 50169
  File Encoding         : utf-8
 
- Date: 01/17/2014 02:36:27 AM
+ Date: 01/19/2014 12:41:23 PM
 */
 
 SET NAMES utf8;
@@ -178,8 +178,9 @@ CREATE TABLE `m_objects` (
 DROP TABLE IF EXISTS `m_option_values`;
 CREATE TABLE `m_option_values` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `option_id` int(11) NOT NULL DEFAULT '0',
   `code` varchar(255) NOT NULL DEFAULT 'default',
+  `option_id` int(11) NOT NULL DEFAULT '0',
+  `option_value` varchar(255) NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -191,11 +192,14 @@ DROP TABLE IF EXISTS `m_options`;
 CREATE TABLE `m_options` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(255) NOT NULL DEFAULT 'default',
+  `module` varchar(255) NOT NULL DEFAULT 'default',
   `user_id` int(11) unsigned NOT NULL DEFAULT '0',
   `st` varchar(255) NOT NULL DEFAULT 'inactive',
-  `type` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `comment` varchar(255) DEFAULT NULL,
+  `is_active` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `form_tag` varchar(255) NOT NULL DEFAULT 'input',
+  `group_name` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `descr` varchar(255) DEFAULT NULL,
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

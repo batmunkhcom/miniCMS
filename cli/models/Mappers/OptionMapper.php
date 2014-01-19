@@ -23,11 +23,14 @@ protected $entityTable = "m_options";
                 
 "id" => $row["id"],
 "code" => $row["code"],
+"module" => $row["module"],
 "user_id" => $row["user_id"],
 "st" => $row["st"],
-"type" => $row["type"],
-"name" => $row["name"],
-"comment" => $row["comment"],
+"is_active" => $row["is_active"],
+"form_tag" => $row["form_tag"],
+"group_name" => $row["group_name"],
+"title" => $row["title"],
+"descr" => $row["descr"],
 "date_created" => $row["date_created"]
             )
         );

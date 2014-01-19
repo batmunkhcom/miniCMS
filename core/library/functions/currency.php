@@ -27,6 +27,18 @@ function get_all_currencies() {
     );
 }
 
+function get_all_currencies_name() {
+    $c = get_all_currencies();
+
+    $buf = array();
+
+    foreach ($c as $k => $v) {
+        $buf[$k] = $c[$k]['name'];
+    }
+
+    return $buf;
+}
+
 /**
  * Mungun temdegtiin urd haragdah temdegt
  */
