@@ -14,6 +14,5 @@ function get_all_codes() {
         'object' => __('Object'),
         'content' => __('Content'),
         'category' => __('Category')
-        
     );
 }

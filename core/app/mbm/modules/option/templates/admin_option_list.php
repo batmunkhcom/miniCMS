@@ -20,7 +20,7 @@
                             <tr>
                                 <th><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Code'); ?></th>
-                                <th><?php echo __('Title'); ?></th>
+                                <th><?php echo __('Option title'); ?></th>
                                 <th><?php echo __('Type'); ?></th>
                                 <th><?php echo __('Module'); ?></th>
                                 <th><?php echo __('Username'); ?></th>
@@ -49,7 +49,7 @@
                             <tr>
                                 <th>#</th>
                                 <th><?php echo __('Code'); ?></th>
-                                <th><?php echo __('Title'); ?></th>
+                                <th><?php echo __('Option title'); ?></th>
                                 <th><?php echo __('Type'); ?></th>
                                 <th><?php echo __('Module'); ?></th>
                                 <th><?php echo __('Username'); ?></th>
