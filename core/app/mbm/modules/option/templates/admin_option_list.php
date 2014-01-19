@@ -22,6 +22,7 @@
                                 <th><?php echo __('Code'); ?></th>
                                 <th><?php echo __('Name'); ?></th>
                                 <th><?php echo __('Type'); ?></th>
+                                <th><?php echo __('Module'); ?></th>
                                 <th><?php echo __('Username'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
                                 <th><?php echo __('Created date'); ?></th>
@@ -37,6 +38,7 @@
                                         <p><?php echo $option->comment; ?></p>
                                     </td>
                                     <td><?php echo $option->type; ?></td>
+                                    <td><?php echo $option->module; ?></td>
                                     <td><?php echo \User::getById($option->user_id)->username; ?></td>
                                     <td><?php echo printSt($option->st); ?></td>
                                     <td><?php echo icon_date('createdDate', $option->date_created) . ' ' . $option->date_created; ?></td>
@@ -49,6 +51,7 @@
                                 <th><?php echo __('Code'); ?></th>
                                 <th><?php echo __('Name'); ?></th>
                                 <th><?php echo __('Type'); ?></th>
+                                <th><?php echo __('Module'); ?></th>
                                 <th><?php echo __('Username'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
                                 <th><?php echo __('Created date'); ?></th>

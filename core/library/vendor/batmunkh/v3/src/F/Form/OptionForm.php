@@ -51,7 +51,7 @@ class OptionForm extends \F\Form {
             'minlength' => 2
         ));
 
-        $form->addElement(__('Code'), 'code', 'select', array(
+        $form->addElement(__('Module'), 'module', 'select', array(
             'class' => 'form-control',
             'value' => get_all_codes()
                 ), array());
