@@ -27,6 +27,7 @@ protected $entityTable = "m_options";
 "user_id" => $row["user_id"],
 "st" => $row["st"],
 "is_active" => $row["is_active"],
+"form_tag" => $row["form_tag"],
 "group_name" => $row["group_name"],
 "title" => $row["title"],
 "descr" => $row["descr"],

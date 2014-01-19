@@ -31,7 +31,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $id  OptionValue iin id
      * @return object
      */
@@ -57,7 +57,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $code  OptionValue iin code
      * @return object
      */
@@ -79,7 +79,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $option_id  OptionValue iin option_id
      * @return object
      */
@@ -101,7 +101,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $option_value  OptionValue iin option_value
      * @return object
      */
@@ -123,7 +123,7 @@ return $this;
            *    null:       NO
            *    default:    1
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $is_active  OptionValue iin is_active
      * @return object
      */

@@ -51,7 +51,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $id  Object iin id
      * @return object
      */
@@ -77,7 +77,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $user_id  Object iin user_id
      * @return object
      */
@@ -99,7 +99,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $lft  Object iin lft
      * @return object
      */
@@ -117,7 +117,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $rgt  Object iin rgt
      * @return object
      */
@@ -135,7 +135,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $depth  Object iin depth
      * @return object
      */
@@ -153,7 +153,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $parent_id  Object iin parent_id
      * @return object
      */
@@ -171,7 +171,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $code  Object iin code
      * @return object
      */
@@ -189,7 +189,7 @@ return $this;
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $st  Object iin st
      * @return object
      */
@@ -211,7 +211,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $is_featured  Object iin is_featured
      * @return object
      */
@@ -233,7 +233,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $is_sale  Object iin is_sale
      * @return object
      */
@@ -255,7 +255,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $photo  Object iin photo
      * @return object
      */
@@ -273,7 +273,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $name  Object iin name
      * @return object
      */
@@ -291,7 +291,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $measure_value  Object iin measure_value
      * @return object
      */
@@ -309,7 +309,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $measure_name  Object iin measure_name
      * @return object
      */
@@ -327,7 +327,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $price_per_measure  Object iin price_per_measure
      * @return object
      */
@@ -345,7 +345,7 @@ return $this;
            *    null:       NO
            *    default:    0.00
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $price_sale  Object iin price_sale
      * @return object
      */
@@ -367,7 +367,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $price_total  Object iin price_total
      * @return object
      */
@@ -385,7 +385,7 @@ return $this;
            *    null:       NO
            *    default:    MNT
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $currency_code  Object iin currency_code
      * @return object
      */
@@ -407,7 +407,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $content_brief  Object iin content_brief
      * @return object
      */
@@ -425,7 +425,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $content_body  Object iin content_body
      * @return object
      */
@@ -443,7 +443,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $views  Object iin views
      * @return object
      */
@@ -465,7 +465,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $hits  Object iin hits
      * @return object
      */
@@ -487,7 +487,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $date_created  Object iin date_created
      * @return object
      */
@@ -507,7 +507,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $date_publish  Object iin date_publish
      * @return object
      */
@@ -525,7 +525,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $date_expire  Object iin date_expire
      * @return object
      */

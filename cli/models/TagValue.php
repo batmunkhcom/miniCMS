@@ -30,7 +30,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $id  TagValue iin id
      * @return object
      */
@@ -56,7 +56,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $code  TagValue iin code
      * @return object
      */
@@ -78,7 +78,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $tag_id  TagValue iin tag_id
      * @return object
      */
@@ -100,7 +100,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $hits  TagValue iin hits
      * @return object
      */

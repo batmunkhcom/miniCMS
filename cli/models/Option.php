@@ -24,6 +24,7 @@ protected $allowedFields = array(
 'user_id',
 'st',
 'is_active',
+'form_tag',
 'group_name',
 'title',
 'descr',
@@ -36,7 +37,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $id  Option iin id
      * @return object
      */
@@ -62,7 +63,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $code  Option iin code
      * @return object
      */
@@ -84,7 +85,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $module  Option iin module
      * @return object
      */
@@ -106,7 +107,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $user_id  Option iin user_id
      * @return object
      */
@@ -128,7 +129,7 @@ return $this;
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $st  Option iin st
      * @return object
      */
@@ -150,7 +151,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $is_active  Option iin is_active
      * @return object
      */
@@ -169,10 +170,32 @@ return $this;
      * field info:
            *    name:       
            *    type:       
+           *    null:       NO
+           *    default:    input
+           *    extra:      
+           *    generated:  2014-01-19 12:40:14 pm
+     * @param $form_tag  Option iin form_tag
+     * @return object
+     */
+	public function setFormTag($form_tag) {
+
+            if(!isset($form_tag) || $form_tag == ""){
+            $form_tag = "input";
+            }
+    $this->fields["form_tag"] = $form_tag;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $group_name  Option iin group_name
      * @return object
      */
@@ -190,7 +213,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $title  Option iin title
      * @return object
      */
@@ -208,7 +231,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $descr  Option iin descr
      * @return object
      */
@@ -226,7 +249,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $date_created  Option iin date_created
      * @return object
      */

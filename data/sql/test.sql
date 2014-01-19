@@ -11,7 +11,7 @@
  Target Server Version : 50169
  File Encoding         : utf-8
 
- Date: 01/19/2014 12:18:19 PM
+ Date: 01/19/2014 12:41:23 PM
 */
 
 SET NAMES utf8;
@@ -196,6 +196,7 @@ CREATE TABLE `m_options` (
   `user_id` int(11) unsigned NOT NULL DEFAULT '0',
   `st` varchar(255) NOT NULL DEFAULT 'inactive',
   `is_active` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `form_tag` varchar(255) NOT NULL DEFAULT 'input',
   `group_name` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `descr` varchar(255) DEFAULT NULL,

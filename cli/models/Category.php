@@ -47,7 +47,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $id  Category iin id
      * @return object
      */
@@ -73,7 +73,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $parent_id  Category iin parent_id
      * @return object
      */
@@ -91,7 +91,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $code  Category iin code
      * @return object
      */
@@ -109,7 +109,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $depth  Category iin depth
      * @return object
      */
@@ -127,7 +127,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $lft  Category iin lft
      * @return object
      */
@@ -145,7 +145,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $rgt  Category iin rgt
      * @return object
      */
@@ -163,7 +163,7 @@ return $this;
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $st  Category iin st
      * @return object
      */
@@ -185,7 +185,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $user_id  Category iin user_id
      * @return object
      */
@@ -207,7 +207,7 @@ return $this;
            *    null:       NO
            *    default:    0.00
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $pos  Category iin pos
      * @return object
      */
@@ -229,7 +229,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $name  Category iin name
      * @return object
      */
@@ -247,7 +247,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $is_external  Category iin is_external
      * @return object
      */
@@ -269,7 +269,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $external_url  Category iin external_url
      * @return object
      */
@@ -287,7 +287,7 @@ return $this;
            *    null:       YES
            *    default:    content
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $module  Category iin module
      * @return object
      */
@@ -305,7 +305,7 @@ return $this;
            *    null:       YES
            *    default:    index
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $action  Category iin action
      * @return object
      */
@@ -323,7 +323,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $target  Category iin target
      * @return object
      */
@@ -341,7 +341,7 @@ return $this;
            *    null:       NO
            *    default:    mn
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $lang  Category iin lang
      * @return object
      */
@@ -363,7 +363,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $hits  Category iin hits
      * @return object
      */
@@ -385,7 +385,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $date_created  Category iin date_created
      * @return object
      */
@@ -409,7 +409,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $date_last_updated  Category iin date_last_updated
      * @return object
      */
@@ -427,7 +427,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $last_updated_user_id  Category iin last_updated_user_id
      * @return object
      */
@@ -449,7 +449,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:11:35 pm
+           *    generated:  2014-01-19 12:40:14 pm
      * @param $is_adult  Category iin is_adult
      * @return object
      */
