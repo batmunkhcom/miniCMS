@@ -49,7 +49,9 @@ class Language {
         }
         $message .= '------------- total ' . count(self::$words_not_found) . ' words not found';
 
-        log_send($message, 2);
+        if (count(self::$words_not_found) > 0) {
+            log_send($message, 2);
+        }
     }
 
 }

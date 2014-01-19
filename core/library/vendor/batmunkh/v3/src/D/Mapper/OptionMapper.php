@@ -20,7 +20,7 @@ class OptionMapper extends AbstractDataMapper {
     protected function loadEntity(array $row) {
         return new \D\Model\Option(
                 array(
-            "id" => $row["id"],
+            "id" => (int) $row["id"],
             "code" => $row["code"],
             "module" => $row["module"],
             "user_id" => $row["user_id"],
