@@ -20,7 +20,7 @@
                             <tr>
                                 <th><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Code'); ?></th>
-                                <th><?php echo __('Name'); ?></th>
+                                <th><?php echo __('Title'); ?></th>
                                 <th><?php echo __('Type'); ?></th>
                                 <th><?php echo __('Module'); ?></th>
                                 <th><?php echo __('Username'); ?></th>
@@ -34,10 +34,10 @@
                                     <td><?php echo $option->id; ?>.</td>
                                     <td><?php echo $option->code; ?></td>
                                     <td>
-                                        <strong><?php echo $option->name; ?></strong>
-                                        <p><?php echo $option->comment; ?></p>
+                                        <strong><?php echo $option->title; ?></strong>
+                                        <p><?php echo $option->descr; ?></p>
                                     </td>
-                                    <td><?php echo $option->type; ?></td>
+                                    <td><?php echo $option->group_name; ?></td>
                                     <td><?php echo $option->module; ?></td>
                                     <td><?php echo \User::getById($option->user_id)->username; ?></td>
                                     <td><?php echo printSt($option->st); ?></td>
@@ -49,7 +49,7 @@
                             <tr>
                                 <th>#</th>
                                 <th><?php echo __('Code'); ?></th>
-                                <th><?php echo __('Name'); ?></th>
+                                <th><?php echo __('Title'); ?></th>
                                 <th><?php echo __('Type'); ?></th>
                                 <th><?php echo __('Module'); ?></th>
                                 <th><?php echo __('Username'); ?></th>

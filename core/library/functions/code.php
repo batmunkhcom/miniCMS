@@ -11,8 +11,9 @@
 function get_all_codes() {
 
     return array(
+        'object' => __('Object'),
         'content' => __('Content'),
-        'category' => __('Category'),
-        'object' => __('Object')
+        'category' => __('Category')
+        
     );
 }

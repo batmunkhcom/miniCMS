@@ -27,7 +27,7 @@ class OptionForm extends \F\Form {
         $form = new \F\Form($name, $configure);
 
 
-        $form->addElement(__('Option name'), 'name', 'input', array(
+        $form->addElement(__('Title'), 'name', 'input', array(
             'class' => 'form-control',
             'value' => post('name')
                 ), array(
@@ -43,7 +43,7 @@ class OptionForm extends \F\Form {
             'minlength' => 2
         ));
         
-        $form->addElement(__('Type'), 'type', 'input', array(
+        $form->addElement(__('Group name'), 'type', 'input', array(
             'class' => 'form-control',
             'value' => post('type')
                 ), array(

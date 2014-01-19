@@ -10,9 +10,9 @@ $option = new D\Model\Option(
     'module' => post('module'),
     'user_id' => get_logged_user_id(),
     'st' => post('st'),
-    'type' => post('type'),
-    'name' => post('name'),
-    'comment' => post('comment'),
+    'group_name' => post('type'),
+    'title' => post('name'),
+    'descr' => post('comment'),
     'date_created' => convert_date(date("Y-M-D H:i:s"))
         )
 );
