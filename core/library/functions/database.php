@@ -81,19 +81,26 @@ function db_mapper($db, $mapper) {
 }
 
 /**
- * Zuvhun 1 mapper duudah
+ * OPTIONS uusgeh. $module ugugdsun bol m_options table tai hamaaraltai
  *
  * @param object $db Database connection adapter
  * @param string $mapper Mapper iin Model ner. Ex: Category
+ * @param string $name_field Haragdah field iin ner
+ * @param string $module m_options table ees avahaar bol module iig ugnu
  *
  * @return object Mapper iig butsaana
  */
-function db_render_option($db, $mapper, $name_field = 'name') {
+function db_render_option($db, $mapper, $name_field = 'name', $module = '') {
 
     $db_mapper = db_mapper($db, $mapper);
 
-    $items = $db_mapper->fetchAll();
-
+    if ($module == '') {
+        $items = $db_mapper->fetchAll();
+    } else {
+        $items = $db_mapper->select(array(
+            'module' => $module
+                ), 'module=:module');
+    }
     $buf = array();
 
     foreach ($items as $item) {

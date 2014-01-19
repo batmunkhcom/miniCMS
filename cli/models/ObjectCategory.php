@@ -29,7 +29,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $id  ObjectCategory iin id
      * @return object
      */
@@ -55,7 +55,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $category_id  ObjectCategory iin category_id
      * @return object
      */
@@ -77,7 +77,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $object_id  ObjectCategory iin object_id
      * @return object
      */

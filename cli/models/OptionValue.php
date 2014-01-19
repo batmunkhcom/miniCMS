@@ -19,8 +19,9 @@ class OptionValue extends AbstractEntity {
 */
 protected $allowedFields = array(
 'id',
-'option_id',
 'code',
+'option_id',
+'option_value',
 'is_active');
 
 /**
@@ -30,7 +31,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $id  OptionValue iin id
      * @return object
      */
@@ -54,31 +55,9 @@ return $this;
            *    name:       
            *    type:       
            *    null:       NO
-           *    default:    0
-           *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $option_id  OptionValue iin option_id
-     * @return object
-     */
-	public function setOptionId($option_id) {
-
-            if(!isset($option_id) || $option_id == ""){
-            $option_id = "0";
-            }
-    $this->fields["option_id"] = $option_id;
-
-return $this;
-
-    }
-
-/**
-     * field info:
-           *    name:       
-           *    type:       
-           *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $code  OptionValue iin code
      * @return object
      */
@@ -98,9 +77,53 @@ return $this;
            *    name:       
            *    type:       
            *    null:       NO
+           *    default:    0
+           *    extra:      
+           *    generated:  2014-01-19 12:11:35 pm
+     * @param $option_id  OptionValue iin option_id
+     * @return object
+     */
+	public function setOptionId($option_id) {
+
+            if(!isset($option_id) || $option_id == ""){
+            $option_id = "0";
+            }
+    $this->fields["option_id"] = $option_id;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
+           *    default:    
+           *    extra:      
+           *    generated:  2014-01-19 12:11:35 pm
+     * @param $option_value  OptionValue iin option_value
+     * @return object
+     */
+	public function setOptionValue($option_value) {
+
+            if(!isset($option_value) || $option_value == ""){
+            $option_value = "";
+            }
+    $this->fields["option_value"] = $option_value;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
            *    default:    1
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $is_active  OptionValue iin is_active
      * @return object
      */

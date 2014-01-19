@@ -20,11 +20,13 @@ class Option extends AbstractEntity {
 protected $allowedFields = array(
 'id',
 'code',
+'module',
 'user_id',
 'st',
-'type',
-'name',
-'comment',
+'is_active',
+'group_name',
+'title',
+'descr',
 'date_created');
 
 /**
@@ -34,7 +36,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $id  Option iin id
      * @return object
      */
@@ -60,7 +62,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $code  Option iin code
      * @return object
      */
@@ -80,9 +82,31 @@ return $this;
            *    name:       
            *    type:       
            *    null:       NO
+           *    default:    default
+           *    extra:      
+           *    generated:  2014-01-19 12:11:35 pm
+     * @param $module  Option iin module
+     * @return object
+     */
+	public function setModule($module) {
+
+            if(!isset($module) || $module == ""){
+            $module = "default";
+            }
+    $this->fields["module"] = $module;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $user_id  Option iin user_id
      * @return object
      */
@@ -104,7 +128,7 @@ return $this;
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $st  Option iin st
      * @return object
      */
@@ -123,15 +147,19 @@ return $this;
      * field info:
            *    name:       
            *    type:       
-           *    null:       YES
-           *    default:    
+           *    null:       NO
+           *    default:    0
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $type  Option iin type
+           *    generated:  2014-01-19 12:11:35 pm
+     * @param $is_active  Option iin is_active
      * @return object
      */
-	public function setType($type) {
-$this->fields["type"] = $type;
+	public function setIsActive($is_active) {
+
+            if(!isset($is_active) || $is_active == ""){
+            $is_active = "0";
+            }
+    $this->fields["is_active"] = $is_active;
 
 return $this;
 
@@ -144,12 +172,12 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $name  Option iin name
+           *    generated:  2014-01-19 12:11:35 pm
+     * @param $group_name  Option iin group_name
      * @return object
      */
-	public function setName($name) {
-$this->fields["name"] = $name;
+	public function setGroupName($group_name) {
+$this->fields["group_name"] = $group_name;
 
 return $this;
 
@@ -162,12 +190,12 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
-     * @param $comment  Option iin comment
+           *    generated:  2014-01-19 12:11:35 pm
+     * @param $title  Option iin title
      * @return object
      */
-	public function setComment($comment) {
-$this->fields["comment"] = $comment;
+	public function setTitle($title) {
+$this->fields["title"] = $title;
 
 return $this;
 
@@ -180,7 +208,25 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-17 02:17:00 am
+           *    generated:  2014-01-19 12:11:35 pm
+     * @param $descr  Option iin descr
+     * @return object
+     */
+	public function setDescr($descr) {
+$this->fields["descr"] = $descr;
+
+return $this;
+
+    }
+
+/**
+     * field info:
+           *    name:       
+           *    type:       
+           *    null:       YES
+           *    default:    
+           *    extra:      
+           *    generated:  2014-01-19 12:11:35 pm
      * @param $date_created  Option iin date_created
      * @return object
      */

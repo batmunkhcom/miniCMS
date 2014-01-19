@@ -22,8 +22,9 @@ protected $entityTable = "m_option_values";
                 array(
                 
 "id" => $row["id"],
-"option_id" => $row["option_id"],
 "code" => $row["code"],
+"option_id" => $row["option_id"],
+"option_value" => $row["option_value"],
 "is_active" => $row["is_active"]
             )
         );
