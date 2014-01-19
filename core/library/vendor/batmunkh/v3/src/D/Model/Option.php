@@ -50,7 +50,8 @@ class Option extends AbstractEntity {
 
         if (!is_int($id) || $id < 1) {
             throw new \InvalidArgumentException(__("The ID is invalid."));
-        }$this->fields["id"] = $id;
+        }
+        $this->fields["id"] = $id;
 
         return $this;
     }

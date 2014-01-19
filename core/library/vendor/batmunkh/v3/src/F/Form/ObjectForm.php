@@ -26,6 +26,10 @@ class ObjectForm extends \F\Form {
 
         $form = new \F\Form($name, $configure);
 
+        //object iin obtion uudiig avav.
+        //$obj_options[group_name][form_tag][id] = title;
+        $obj_options = \Option::getAllGroupNamesToArray();
+
         $form->addElement(__('Select status'), 'st', 'select', array(
             'class' => 'form-control',
             'value' => st_array()
@@ -96,11 +100,33 @@ class ObjectForm extends \F\Form {
             'value' => post('price_sale')
                 ), array());
 
-        $form->addElement(__('Sale total'), 'price_total', 'input', array(
+        $form->addElement(__('Price total'), 'price_total', 'input', array(
             'class' => 'form-control',
             'value' => post('price_total')
                 ), array());
 
+        //objectiin option uudiig hevelne
+        //$obj_options[group_name][form_tag][id] = title;
+        foreach ($obj_options as $group_name => $v) {
+            foreach ($obj_options[$group_name] as $form_tag => $val) {
+                switch ($form_tag) {
+                    case 'select':
+                        $form->addElement(__($group_name), 'options[' . $group_name . ']', 'select', array(
+                            'class' => 'form-control',
+                            'value' => $obj_options[$group_name][$form_tag]
+                                ), array());
+                        break;
+                    default:
+                        foreach ($obj_options[$group_name][$form_tag] as $id => $value) {
+                            $form->addElement(__($value), 'options[' . $value . ']', $form_tag, array(
+                                'class' => 'form-control',
+                                'value' => post($value)
+                                    ), array());
+                        }
+                        break;
+                }
+            }
+        }
 
         $form->addElement(__('Content brief'), 'content_brief', 'textarea', array(
             'class' => 'form-control',
