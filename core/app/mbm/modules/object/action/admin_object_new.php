@@ -17,6 +17,7 @@ css_set_loadfile('/assets/flatlab/admin/assets/jquery-multi-select/css/multi-sel
 css_set_loadfile('/assets/flatlab/admin/assets/bootstrap-fileupload/bootstrap-fileupload.css', 92);
 css_set_loadfile('/assets/flatlab/admin/assets/bootstrap-datetimepicker/css/datetimepicker.css', 93);
 //js_set_loadfile('/assets/flatlab/admin/');
+
 $form = new F\Form\ObjectForm('object', array(
     'action' => get_url('admin_object_save'),
     'class' => 'form-horizontal',

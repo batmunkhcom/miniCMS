@@ -246,4 +246,30 @@ class Category extends D\Model\Category {
         return self::$form_options;
     }
 
+    public static function categoriesMultiSelect() {
+        $categories = '
+            <!--multiple select start-->
+              <div class="row">
+              <div class="col-md-12">
+                  <section class="panel">
+                      <div class="panel-body">
+                              <div class="form-group">
+                                  <label class="control-label col-md-2"> ' . __('Select categories') . '</label>
+                                  <div class="col-md-10">
+                                      <select multiple="multiple" class="multi-select" id="categories" name="categories[]">
+                                          ';
+        foreach (\Category::formOptions() as $k => $v) {
+            $categories .= '<option value="' . $k . '">' . $v . '</option>';
+        }
+        $categories .='
+                                      </select>
+                                  </div>
+                              </div>
+
+
+        ';
+
+        return $categories;
+    }
+
 }

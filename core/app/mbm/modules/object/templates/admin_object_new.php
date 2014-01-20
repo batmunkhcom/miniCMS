@@ -18,9 +18,13 @@
                 }
 
                 clear_flash();
-                ?><script type="text/javascript">
-                    $(function() {
+                ?>
 
+
+                <script>
+                    $('#element_photo').hide();
+                    $('#categories').multiSelect({
+                        selectableOptgroup: true
                     });
                 </script>
             </div>

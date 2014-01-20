@@ -8,7 +8,7 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                <?php echo __('Create option'); ?>
+                <?php echo __('Create content'); ?>
             </header>
             <div class="panel-body">
                 <? /* Render whole form */ ?>
@@ -18,9 +18,14 @@
                 }
 
                 clear_flash();
-                ?>
-                <script>
-                    $('#element_external_url').hide();
+                ?><script type="text/javascript">
+                    $(function() {
+                        $('#element_photo').hide();
+                        $('#element_target').hide();
+                        $('#categories').multiSelect({
+                            selectableOptgroup: true
+                        });
+                    });
                 </script>
             </div>
         </section>

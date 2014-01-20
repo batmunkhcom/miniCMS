@@ -26,35 +26,7 @@ class ContentForm extends \F\Form {
 
         $form = new \F\Form($name, $configure);
 
-//        $form->addElement(__('Select category'), 'categories[]', 'select', array(
-//            'class' => 'form-control',
-//            'value' => \Category::formOptions(),
-//            'multiple' => 'multiple',
-//            'required' => 'true'
-//                ), array());
-        //categories beld
-        $categories = '
-            <!--multiple select start-->
-              <div class="row">
-              <div class="col-md-12">
-                  <section class="panel">
-                      <div class="panel-body">
-                              <div class="form-group">
-                                  <label class="control-label col-md-2"> ' . __('Select categories') . '</label>
-                                  <div class="col-md-10">
-                                      <select multiple="multiple" class="multi-select" id="categories" name="categories[]">
-                                          ';
-        foreach (\Category::formOptions() as $k => $v) {
-            $categories .= '<option value="' . $k . '">' . $v . '</option>';
-        }
-        $categories .='
-                                      </select>
-                                  </div>
-                              </div>
-
-
-        ';
-        $form->addElement(__('Select category'), 'categories1[]', 'html', array(), array(), $categories);
+        $form->addElement(__('Select category'), 'categories[]', 'html', array(), array(), \Category::categoriesMultiSelect());
 
         $form->addElement(__('Title'), 'title', 'input', array(
             'class' => 'form-control',

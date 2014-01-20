@@ -30,6 +30,10 @@ class ObjectForm extends \F\Form {
         //$obj_options[group_name][form_tag][id] = title;
         $obj_options = \Option::getAllGroupNamesToArray();
 
+
+
+        $form->addElement(__('Select category'), 'categories[]', 'html', array(), array(), \Category::categoriesMultiSelect());
+
         $form->addElement(__('Select status'), 'st', 'select', array(
             'class' => 'form-control',
             'value' => st_array()
@@ -50,6 +54,12 @@ class ObjectForm extends \F\Form {
                 1 => __('Yes')
             )
                 ), array());
+
+        $form->addElement(__('Use photo'), 'use_photo', 'checkbox', array(
+            'class' => 'form-control',
+            'value' => 1,
+            'onclick' => "$('#element_photo').toggle();"
+                ), array(), '');
 
         $form->addElement(__('Object photo'), 'photo', 'input', array(
             'class' => 'form-control',
@@ -118,7 +128,7 @@ class ObjectForm extends \F\Form {
                         break;
                     default:
                         foreach ($obj_options[$group_name][$form_tag] as $id => $value) {
-                            $form->addElement(__($value), 'options[' . $value . ']', $form_tag, array(
+                            $form->addElement(__($value), 'options[' . $id . ']', $form_tag, array(
                                 'class' => 'form-control',
                                 'value' => post($value)
                                     ), array());
