@@ -30,6 +30,10 @@ class ObjectForm extends \F\Form {
         //$obj_options[group_name][form_tag][id] = title;
         $obj_options = \Option::getAllGroupNamesToArray();
 
+
+
+        $form->addElement(__('Select category'), 'categories[]', 'html', array(), array(), \Category::categoriesMultiSelect());
+
         $form->addElement(__('Select status'), 'st', 'select', array(
             'class' => 'form-control',
             'value' => st_array()

@@ -23,6 +23,9 @@
 
                 <script>
                     $('#element_photo').hide();
+                    $('#categories').multiSelect({
+                        selectableOptgroup: true
+                    });
                 </script>
             </div>
         </section>

@@ -3,7 +3,7 @@
 $form = new F\Form\OptionForm('option');
 
 if ($form->isValid('option')) {
-    print_r($_POST);
+
     $option_db = new \D\Mapper\OptionMapper($db, new \D\Model\Collection\EntityCollection);
 
     $option = new D\Model\Option(
