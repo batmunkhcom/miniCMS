@@ -18,8 +18,10 @@
                 }
 
                 clear_flash();
-                ?><script type="text/javascript">
+                ?>
+                <script type="text/javascript">
                     $(function() {
+                        $('#use_photo').removeAttr('checked');
                         $('#element_photo').hide();
                         $('#element_target').hide();
                         $('#categories').multiSelect({

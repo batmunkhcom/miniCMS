@@ -20,8 +20,8 @@
                 clear_flash();
                 ?>
 
-
-                <script>
+                <script type="text/javascript">
+                    $('#use_photo').removeAttr('checked');
                     $('#element_photo').hide();
                     $('#categories').multiSelect({
                         selectableOptgroup: true

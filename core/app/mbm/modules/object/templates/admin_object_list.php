@@ -53,10 +53,11 @@
                                     </td>
                                     <td class="center"><?php echo \User::getById($object->user_id)->username; ?></td>
                                     <td class="center"><?php
-                                        echo icon_object_type($object->object_type);
                                         echo ' <span class="badge bg-success" title="' . __('Created date') . ': ' . $object->date_created . '"><i class="fa fa-clock-o"></i></span>';
                                         echo ' <span class="badge bg-warning" title="' . __('Publish date') . ': ' . $object->date_publish . '"><i class="fa fa-clock-o"></i></span>';
-                                        echo ' <span class="badge bg-important" title="' . __('Expire date') . ': ' . $object->date_expire . '"><i class="fa fa-clock-o"></i></span>';
+                                        if ($object->date_expire) {
+                                            echo ' <span class="badge bg-important" title="' . __('Expire date') . ': ' . $object->date_expire . '"><i class="fa fa-clock-o"></i></span>';
+                                        }
                                         ?></td>
                                     <td class="center">
                                         <?php

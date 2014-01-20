@@ -61,8 +61,8 @@
                                     </td>
                                     <td class="center"><?php echo \User::getById($content->user_id)->username; ?></td>
                                     <td class="center"><?php
-                                        echo icon_content_type($content->content_type).' ';
-                                        echo icon_date('createdDate', $content->date_created).' ';
+                                        echo icon_content_type($content->content_type) . ' ';
+                                        echo icon_date('createdDate', $content->date_created) . ' ';
                                         echo icon_date('publishDate', $content->date_publish);
                                         ?></td>
                                     <td class="center">

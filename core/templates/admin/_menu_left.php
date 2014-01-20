@@ -1,4 +1,23 @@
-<ul class="sidebar-menu" id="nav-accordion">
+<?php
+$admin_root_menus = array(
+    'dashboard' => __('Dashboard'),
+    'category' => __('Category'),
+    'content' => __('Content'),
+    'object' => __('Object'),
+    'tag' => __('Tags'),
+    'photo' => __('Photos'),
+    'comment' => __('Comments'),
+    'survey' => __('Survey'),
+    'pano' => __('Pano'),
+    'log' => __('Log'),
+    'member' => __('Members'),
+    'system' => __('System'),
+    'report' => __('Reports'),
+    'shopping' => __('Shopping'),
+    'other' => __('Other')
+);
+$admin_left_menu = new \AdminLeftMenu($admin_root_menus);
+?><ul class="sidebar-menu" id="nav-accordion">
     <li>
         <a href="<?php echo get_url('admin_home'); ?>">
             <i class="fa fa-dashboard"></i>

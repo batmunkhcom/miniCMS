@@ -7,8 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-
 class Object extends D\Model\Object {
 
     public static function fetchAll() {
@@ -31,6 +29,19 @@ class Object extends D\Model\Object {
         $object = $mapper_db->fetchById($id);
 
         return $object;
+    }
+
+    public static function getCategories($object_id) {
+
+        global $db;
+
+        $cc = new \D\Mapper\ObjectCategoryMapper($db, new \D\Model\Collection\EntityCollection);
+        $mapper_db = db_mapper($db, 'ObjectCategory');
+        $categories = $mapper_db->select(array(
+            'object_id' => $object_id
+                ), ' id IN (SELECT category_id FROM ' . $cc->getTableName() . ' WHERE object_id=:object_id)');
+
+        return $categories;
     }
 
 }
