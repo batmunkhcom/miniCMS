@@ -15,7 +15,7 @@ if ($form->isValid('category') == 1) {
     } else {
 
         $_lft = get_max_left('Category', post('parent_id'));
-        $parent_category = \Category::fetchById(post('parent_id'));
+        $parent_category = \Category::getById(post('parent_id'));
 
         $rgt = ($_lft + 3);
         $lft = ($_lft + 2);

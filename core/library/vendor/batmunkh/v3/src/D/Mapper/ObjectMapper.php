@@ -20,7 +20,7 @@ class ObjectMapper extends AbstractDataMapper {
     protected function loadEntity(array $row) {
         return new \D\Model\Object(
                 array(
-            "id" => $row["id"],
+            "id" => (int) $row["id"],
             "user_id" => $row["user_id"],
             "lft" => $row["lft"],
             "rgt" => $row["rgt"],

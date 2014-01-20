@@ -62,7 +62,7 @@ class Object extends AbstractEntity {
                     ("The ID has been set already."));
         }
 
-        if (!is_int($id) || $id < 1) {
+        if (!is_int($id) || (int) $id == 0) {
             throw new \InvalidArgumentException(__("The ID is invalid."));
         }$this->fields["id"] = $id;
 

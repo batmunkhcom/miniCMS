@@ -77,7 +77,7 @@ if ($form->isValid('content')) {
         $parent_id = 0;
     } else {
 
-        $parent_content = \Content::fetchById(post('parent_id'));
+        $parent_content = \Content::getById(post('parent_id'));
         $lft = ($parent_content->lft + 2);
         $rgt = ($parent_content->lft + 3);
         $depth = ($parent_content->depth + 1);

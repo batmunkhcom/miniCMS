@@ -46,15 +46,22 @@ class Category extends D\Model\Category {
         return $all_categories;
     }
 
-    public static function fetchById($id) {
+    /**
+     * ID field eer songoh
+     *
+     * @param integer $id ID field iin utga
+     *
+     * @return object : Oldson object iig butsaana.
+     */
+    public static function getById($id = 0) {
 
         global $db;
 
         $mapper_db = db_unit($db, __CLASS__);
 
-        $category = $mapper_db->fetchById($id);
+        $result = $mapper_db->fetchById($id);
 
-        return $category;
+        return $result;
     }
 
     public static function getPosition($parent_id = 0) {
@@ -74,24 +81,6 @@ class Category extends D\Model\Category {
         }
 
         return $pos;
-    }
-
-    /**
-     * ID field eer songoh
-     *
-     * @param integer $id ID field iin utga
-     *
-     * @return object : Oldson object iig butsaana.
-     */
-    public static function getById($id = 0) {
-
-        global $db;
-
-        $mapper_db = db_unit($db, __CLASS__);
-
-        $result = $mapper_db->fetchById($id);
-
-        return $result;
     }
 
     /**

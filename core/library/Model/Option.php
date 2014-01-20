@@ -20,6 +20,17 @@ class Option extends D\Model\Option {
         return $options;
     }
 
+    public static function getById($id) {
+
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $object = $mapper_db->fetchById($id);
+
+        return $object;
+    }
+
     public static function toArrayOptionsByModule($module = '', $group_name = '') {
 
         global $db;

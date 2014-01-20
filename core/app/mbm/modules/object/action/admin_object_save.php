@@ -94,14 +94,16 @@ if ($form->isValid('object')) {
     $c_option_db = db_unit($db, 'OptionValue');
     if (count(post('options') > 0)) {
         foreach (post('options') as $k => $v) {
-            $c_option_value = new \D\Model\OptionValue(array(
-                'code' => 'object_' . $last_insert_id,
-                'option_id' => $k,
-                'option_value' => $v,
-                'is_active' => 1
-            ));
-            $c_option_db->registerNew($c_option_value);
-            unset($c_option_value);
+            if ($v != '') {
+                $c_option_value = new \D\Model\OptionValue(array(
+                    'code' => 'object_' . $last_insert_id,
+                    'option_id' => $k,
+                    'option_value' => $v,
+                    'is_active' => 1
+                ));
+                $c_option_db->registerNew($c_option_value);
+                unset($c_option_value);
+            }
         }
     }
     $c_option_db->commit();

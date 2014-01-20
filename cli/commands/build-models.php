@@ -134,7 +134,11 @@ foreach ($tables as $t => $fields) {
     //field uudiig zarlah. $allowedFields = array();
     foreach ($fields as $k => $v) {
         $models[$t]['Model'] .= "\n'" . $k . "',";
-        $mapper_fields[$t] .= "\n\"" . $k . "\" => \$row[\"" . $k . "\"],";
+        $mapper_fields[$t] .= "\n\"" . $k . "\" => ";
+        if (strtolower($k) == 'id') {
+            $mapper_fields[$t] .= "(int)";
+        }
+        $mapper_fields[$t] .= "\$row[\"" . $k . "\"],";
 
         //function ii comment
         $field_functions .= db_create_field_comment($fields[$k], $k, $model_name);

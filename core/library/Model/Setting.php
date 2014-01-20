@@ -29,4 +29,15 @@ class Setting {
         return $settings;
     }
 
+    public static function getById($id) {
+
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $object = $mapper_db->fetchById($id);
+
+        return $object;
+    }
+
 }
