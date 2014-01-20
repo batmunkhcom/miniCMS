@@ -28,8 +28,7 @@ class ObjectForm extends \F\Form {
 
         //object iin obtion uudiig avav.
         //$obj_options[group_name][form_tag][id] = title;
-        $obj_options = \Option::getAllGroupNamesToArray();
-
+        $obj_options = \Option::getAllGroupNamesToArray('object');
 
 
         $form->addElement(__('Select category'), 'categories[]', 'html', array(), array(), \Category::categoriesMultiSelect());

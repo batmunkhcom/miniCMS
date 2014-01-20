@@ -36,6 +36,9 @@ date_default_timezone_set(TIME_ZONE);
 //session handler
 $session = new M\Registry\DataHandler(new M\Registry\SessionRegistry());
 
+//date time. Carbon library
+$date_time = new M\Carbon();
+
 //load DB
 $db = load_db($mbm_config);
 //$db = new \D\Adapter\PdoAdapter(DB_TYPE . ":dbname=" . $config['db_name'], $config['db_user'], $config['db_pass'], array(

@@ -244,7 +244,7 @@ class Category extends D\Model\Category {
                       <div class="panel-body">
                               <div class="form-group">
                                   <label class="control-label col-md-2"> ' . __('Select categories') . '</label>
-                                  <div class="col-md-10">
+                                  <div class="col-md-6">
                                       <select multiple="multiple" class="multi-select" id="categories" name="categories[]">
                                           ';
         foreach (\Category::formOptions() as $k => $v) {

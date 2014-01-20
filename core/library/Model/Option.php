@@ -51,12 +51,18 @@ class Option extends D\Model\Option {
         return $buf;
     }
 
-    public static function getAllGroupNamesToArray() {
+    public static function getAllGroupNamesToArray($module = '') {
         global $db;
 
         $mapper_db = db_unit($db, __CLASS__);
 
-        $group_names = self::fetchAll();
+        if ($module == '') {
+            $group_names = self::fetchAll();
+        } else {
+            $group_names = $mapper_db->select(array(
+                'module' => $module
+                    ), 'module=:module');
+        }
 
         $buf = array();
         foreach ($group_names as $g_name) {
