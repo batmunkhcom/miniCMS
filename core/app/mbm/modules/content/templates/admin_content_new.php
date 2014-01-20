@@ -21,6 +21,7 @@
                 ?>
                 <script>
                     $('#element_external_url').hide();
+                    $('#element_photo').hide();
                 </script>
             </div>
         </section>

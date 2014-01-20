@@ -51,6 +51,12 @@ class ObjectForm extends \F\Form {
             )
                 ), array());
 
+        $form->addElement(__('Use photo'), 'use_photo', 'checkbox', array(
+            'class' => 'form-control',
+            'value' => 1,
+            'onclick' => "$('#element_photo').toggle();"
+                ), array(), '');
+
         $form->addElement(__('Object photo'), 'photo', 'input', array(
             'class' => 'form-control',
             'value' => files('photo', 'name'),
@@ -118,7 +124,7 @@ class ObjectForm extends \F\Form {
                         break;
                     default:
                         foreach ($obj_options[$group_name][$form_tag] as $id => $value) {
-                            $form->addElement(__($value), 'options[' . $value . ']', $form_tag, array(
+                            $form->addElement(__($value), 'options[' . $id . ']', $form_tag, array(
                                 'class' => 'form-control',
                                 'value' => post($value)
                                     ), array());

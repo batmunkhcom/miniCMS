@@ -18,10 +18,11 @@
                 }
 
                 clear_flash();
-                ?><script type="text/javascript">
-                    $(function() {
+                ?>
 
-                    });
+
+                <script>
+                    $('#element_photo').hide();
                 </script>
             </div>
         </section>

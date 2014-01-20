@@ -3,3 +3,4 @@ core/log
 core/tmp
 core/cache
 *.swp
+error_log
