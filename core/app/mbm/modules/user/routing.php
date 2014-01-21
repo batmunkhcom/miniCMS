@@ -8,6 +8,19 @@
  * file that was distributed with this source code.
  */
 set_route('admin_user_list', '/admin/user');
+set_route('user_login', '/login');
+
+
+/* * *****FRONTEND ROUTING****** */
+$router->respond('GET', '/login', function ($request, $response, $service, $app) {
+
+    set_layout('empty');
+    set_application(APP_ENABLED);
+    set_module('user');
+    set_action('login');
+
+    return '';
+});
 /*
  * admin route tohiruulah
  */

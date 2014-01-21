@@ -20,7 +20,7 @@ class UserMapper extends AbstractDataMapper {
     protected function loadEntity(array $row) {
         return new \D\Model\User(
                 array(
-            "id" => $row["id"],
+            "id" => (int) $row["id"],
             "parent_id" => $row["parent_id"],
             "depth" => $row["depth"],
             "lft" => $row["lft"],

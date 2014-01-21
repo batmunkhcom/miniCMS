@@ -20,7 +20,7 @@ class ObjectCategoryMapper extends AbstractDataMapper {
     protected function loadEntity(array $row) {
         return new \D\Model\ObjectCategory(
                 array(
-            "id" => $row["id"],
+            "id" => (int) $row["id"],
             "category_id" => $row["category_id"],
             "object_id" => $row["object_id"]
                 )

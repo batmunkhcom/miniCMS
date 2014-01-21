@@ -214,7 +214,7 @@
     <div class="top-nav ">
         <ul class="nav pull-right top-menu">
             <li>
-                <input type="text" class="form-control search" placeholder="Search">
+                <input type="text" class="form-control search" placeholder="<?php echo __('Search'); ?>">
             </li>
             <!-- user login dropdown start-->
             <li class="dropdown">

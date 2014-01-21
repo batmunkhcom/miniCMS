@@ -54,7 +54,7 @@ if ($form->isValid('object')) {
             array(
         'parent_id' => 0,
         'user_id' => get_logged_user_id(),
-        'code' => post('code'),
+        'code' => 'default',
         'photo' => $photo_path,
         'st' => post('st'),
         'is_featured' => post('is_featured'),
@@ -70,8 +70,9 @@ if ($form->isValid('object')) {
         'content_body' => post('content_body'),
         'views' => 0,
         'hits' => 0,
-        'date_created' => convert_date(date("Y-M-D H:i:s")),
-        'date_publish' => post('date_publish')
+        'date_created' => $date_time,
+        'date_publish' => post('date_publish'),
+        'date_expire' => $date_time->addYears(10)
             )
     );
     $last_insert_id = $object_db->save($object);

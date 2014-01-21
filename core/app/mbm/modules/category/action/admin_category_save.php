@@ -42,8 +42,8 @@ if ($form->isValid('category') == 1) {
         'target' => post('target'),
         'lang' => get_lang(),
         'hits' => 0,
-        'date_created' => convert_date(date("Y-M-D H:i:s")),
-        'date_last_updated' => convert_date(date("Y-M-D H:i:s")),
+        'date_created' => $date_time,
+        'date_last_updated' => $date_time,
         'is_adult' => post('is_adult')
             )
     );

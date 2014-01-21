@@ -6,18 +6,7 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- */
-
-/**
- * ugugdsun date iig YYYY-MM-DD H:i:s format ruu hurvuulne
  *
- * @param $date string
- *
- * @return string
+ * Module config file
  */
-function convert_date($date) {
-
-    global $date_time;
-
-    return $date_time;
-}
+$is_enabled_module['real_estate'] = 1;

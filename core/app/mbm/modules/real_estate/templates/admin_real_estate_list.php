@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-lg-6">
         <header class="panel-heading">
-            <?php echo __("Contents"); ?>
+            <?php echo __("Objects"); ?>
         </header>
     </div>
     <div class="col-lg-6 text-right">
-        <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_content_new'); ?>'">
-            <i class="fa fa-plus-circle"></i> <?php echo __('Add content'); ?>
+        <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_real_estate_new'); ?>'">
+            <i class="fa fa-plus-circle"></i> <?php echo __('Add real estate'); ?>
         </button>
     </div>
 </div>
@@ -15,7 +15,7 @@
         <section class="panel">
             <div class="panel-body">
                 <div class="adv-table">
-                    <table  class="display table table-bordered table-striped" id="contentList">
+                    <table  class="display table table-bordered table-striped" id="objectList">
                         <thead>
                             <tr>
                                 <th width="120"></th>
@@ -28,7 +28,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($contents as $content): ?>
+                            <?php foreach ($objects as $object): ?>
                                 <tr >
                                     <td class="center">
                                         <div class="btn-group">
@@ -38,42 +38,33 @@
                                             </button>
                                             <ul role="menu" class="dropdown-menu">
                                                 <li>
-                                                    <a href="<?php echo get_url('admin_content_edit', array('id' => $content->id)) ?>"><?php echo __('Edit content'); ?></a>
+                                                    <a href="<?php echo get_url('admin_real_estate_edit', array('id' => $object->id)) ?>"><?php echo __('Edit object'); ?></a>
                                                 </li>
-                                                <li><a href="#"><?php echo __('Delete content'); ?></a></li>
+                                                <li><a href="#"><?php echo __('Delete object'); ?></a></li>
                                                 <li class="divider"></li>
                                                 <li><a href="#">Separated link</a></li>
                                             </ul>
                                         </div>
                                     </td>
-                                    <td><?php echo $content->id; ?>.</td>
+                                    <td><?php echo $object->id; ?>.</td>
                                     <td>
-                                        <strong><?php echo $content->title; ?></strong>
-                                        <p><?php echo $content->content_brief; ?></p>
-                                        <?php foreach (\Content::getCategories($content->id) as $category): ?>
-                                            <span class="badge bg-primary">
-                                                <button data-dismiss="alert" class="close close-sm" type="button"
-                                                        onclick="removeCategory(<?php echo $category->id . ',' . $content->id ?>)">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                                <?php echo $category->name; ?>&nbsp;
-                                            </span>
-                                        <?php endforeach; ?>
+                                        <strong><?php echo $object->name; ?></strong>
+                                        <p><?php echo $object->content_brief; ?></p>
                                     </td>
-                                    <td class="center"><?php echo \User::getById($content->user_id)->username; ?></td>
+                                    <td class="center"><?php echo \User::getById($object->user_id)->username; ?></td>
                                     <td class="center"><?php
-                                        echo icon_content_type($content->content_type) . ' ';
-                                        echo icon_date('createdDate', $content->date_created) . ' ';
-                                        echo icon_date('publishDate', $content->date_publish);
+                                        echo ' <span class="badge bg-success" title="' . __('Created date') . ': ' . $object->date_created . '"><i class="fa fa-clock-o"></i></span>';
+                                        echo ' <span class="badge bg-warning" title="' . __('Publish date') . ': ' . $object->date_publish . '"><i class="fa fa-clock-o"></i></span>';
+                                        echo ' <span class="badge bg-important" title="' . __('Expire date') . ': ' . $object->date_expire . '"><i class="fa fa-clock-o"></i></span>';
                                         ?></td>
                                     <td class="center">
                                         <?php
-                                        echo printSt($content->st);
+                                        echo printSt($object->st);
                                         ?>
                                     </td>
                                     <td class="center">
                                         <span class="badge bg-warning" style="font-weight: normal !important;">
-                                            <?php echo number_format($content->hits); ?>
+                                            <?php echo number_format($object->hits); ?>
                                         </span>
                                     </td>
 
@@ -100,22 +91,8 @@
 
 <script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function() {
-        $('#contentList').dataTable({
+        $('#objectList').dataTable({
             'bSort': false
         });
     });
-
-    function removeCategory(category_id, content_id) {
-        $.ajax({
-            type: "POST",
-            url: "<?php echo get_url('admin_content_delete_category') ?>",
-            data: {
-                category_id: category_id,
-                content_id: content_id
-            }
-        })
-                .done(function(msg) {
-                    alert(msg);
-                });
-    }
 </script>

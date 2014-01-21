@@ -1,10 +1,8 @@
 <?php
 
-$form = new F\Form\ContentForm();
-if ($form->isValid('content')) {
-//    print_r(post_exists('use_photo') . '..');
-//    print_r($_POST);
-//    die();
+$form = new F\Form\ObjectForm();
+if ($form->isValid('object')) {
+
     if (post_exists('use_photo') && post('use_photo') == 1) {
         //photo manage hiih.
         $file_path = DIR_WWW . DIR_MEDIA . 'photos' . DS;
@@ -35,25 +33,6 @@ if ($form->isValid('content')) {
             $photo->resizeInPixel($new_with, $new_height, true);
 
             //stamp zurag
-            if ((int) CONTENT_PHOTO_STAMP_ENABLE == 1) {
-                //stamp image iig beldeh
-                $photo_stamp = PHPImageWorkshop\ImageWorkshop::initFromPath(DIR_WEB . CONTENT_PHOTO_STAMP_IMAGE);
-                $s_width = floor((int) $new_with / 10);
-                $s_height = floor((int) $new_height / 10);
-                if ($s_width < 32) {
-                    $s_width = 32;
-                }
-                if ($s_height < 32) {
-                    $s_height = 32;
-                }
-                $photo_stamp->resizeInPixel($s_width, $s_height, true);
-                $photo_stamp_tmp_name = 'stam_img_' . uniqid() . '.' . getFileExtension(CONTENT_PHOTO_STAMP_IMAGE);
-                $photo_stamp->save(DIR_TMP, $photo_stamp_tmp_name, false, null, 100, false);
-
-                $photo_stamp_live = PHPImageWorkshop\ImageWorkshop::initFromPath(DIR_TMP . $photo_stamp_tmp_name);
-                $photo->addLayerOnTop($photo_stamp_live, CONTENT_PHOTO_STAMP_PADDING1, CONTENT_PHOTO_STAMP_PADDING2, CONTENT_PHOTO_STAMP_POSITION);
-                @unlink(DIR_TMP . $photo_stamp_tmp_name);
-            }
             $photo->save(DIR_WEB . $file_path, $new_filename, false, null, 95, false);
             if ((int) CONTENT_PHOTO_SAVE_ORIGINAL == 1) {
                 $photo2 = PHPImageWorkshop\ImageWorkshop::initFromPath(files('photo', 'tmp_name'));
@@ -69,52 +48,41 @@ if ($form->isValid('content')) {
 
 
     //content nemeh
-    //content left/right
-    if (post('parent_id') == 0) {
-        $lft = get_max_left('Content', post('parent_id')) + 2;
-        $rgt = $lft + 1;
-        $depth = 0;
-        $parent_id = 0;
-    } else {
-
-        $parent_content = \Content::getById(post('parent_id'));
-        $lft = ($parent_content->lft + 2);
-        $rgt = ($parent_content->lft + 3);
-        $depth = ($parent_content->depth + 1);
-        $parent_id = $parent_content->id;
-    }
-    //$content_db = db_mapper($db, 'Content');
-    $content_db = new \D\Mapper\ContentMapper($db, new \D\Model\Collection\EntityCollection);
-    $content = new D\Model\Content(
+    //$object_db = db_mapper($db, 'Object');
+    $object_db = new \D\Mapper\ObjectMapper($db, new \D\Model\Collection\EntityCollection);
+    $object = new D\Model\Object(
             array(
         'parent_id' => 0,
         'user_id' => get_logged_user_id(),
-        'code' => post('code'),
+        'code' => 'real_estate',
         'photo' => $photo_path,
         'st' => post('st'),
-        'content_type' => 'article',
-        'title' => post('title'),
+        'is_featured' => post('is_featured'),
+        'is_sale' => post('is_sale'),
+        'name' => post('name'),
+        'measure_value' => post('measure_value'),
+        'measure_name' => post('measure_name'),
+        'price_per_measure' => post('price_per_measure'),
+        'price_sale' => post('price_sale'),
+        'price_total' => post('price_total'),
+        'currency_code' => post('currency_code'),
         'content_brief' => post('content_brief'),
         'content_body' => post('content_body'),
-        'use_comment' => post('use_comment'),
-        'session_id' => post('session_id'),
-        'total_updated' => post('total_updated'),
         'views' => 0,
         'hits' => 0,
         'date_created' => $date_time,
         'date_publish' => post('date_publish'),
-        'session_time' => time(),
-        'is_adult' => post('is_adult')
+        'date_expire' => $date_time->addYears(10)
             )
     );
-    $last_insert_id = $content_db->save($content);
+    $last_insert_id = $object_db->save($object);
 
-    //content category nemeh
-    $c_category_db = db_unit($db, 'ContentCategory');
+    //object category nemeh
+    $c_category_db = db_unit($db, 'ObjectCategory');
     if (count(post('categories') > 0)) {
         foreach (post('categories') as $k => $v) {
-            $c_category = new \D\Model\ContentCategory(array(
-                'content_id' => $last_insert_id,
+            $c_category = new \D\Model\ObjectCategory(array(
+                'object_id' => $last_insert_id,
                 'category_id' => $v
             ));
             $c_category_db->registerNew($c_category);
@@ -123,13 +91,29 @@ if ($form->isValid('content')) {
     }
     $c_category_db->commit();
 
-    set_flash(__('Content has been created'), 'success');
-    $session->clearKey('content');
+    //object options nemeh
+    $c_option_db = db_unit($db, 'OptionValue');
+    if (count(post('options') > 0)) {
+        foreach (post('options') as $k => $v) {
+            if ($v != '') {
+                $c_option_value = new \D\Model\OptionValue(array(
+                    'code' => 'real_estate_' . $last_insert_id,
+                    'option_id' => $k,
+                    'option_value' => $v,
+                    'is_active' => 1
+                ));
+                $c_option_db->registerNew($c_option_value);
+                unset($c_option_value);
+            }
+        }
+    }
+    $c_option_db->commit();
 
-    header("Location: " . get_url('admin_content_list'));
+    set_flash(__('Object has been created'), 'success');
+    $session->clearKey('object');
+
+    header("Location: " . get_url('admin_real_estate_list'));
 } else {
     set_flash(__('Invalid form submition'), 'error');
-//    header("Location: " . get_url('admin_category_new'));
 }
-//die();
-header("Location: " . get_url('admin_content_new'));
+header("Location: " . get_url('admin_real_estate_new'));

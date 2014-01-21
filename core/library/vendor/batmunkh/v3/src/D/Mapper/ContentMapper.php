@@ -20,7 +20,7 @@ class ContentMapper extends AbstractDataMapper {
     protected function loadEntity(array $row) {
         return new \D\Model\Content(
                 array(
-            "id" => $row["id"],
+            "id" => (int) $row["id"],
             "parent_id" => $row["parent_id"],
             "lft" => $row["lft"],
             "rgt" => $row["rgt"],

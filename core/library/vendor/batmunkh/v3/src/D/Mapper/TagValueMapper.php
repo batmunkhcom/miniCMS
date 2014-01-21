@@ -20,7 +20,7 @@ class TagValueMapper extends AbstractDataMapper {
     protected function loadEntity(array $row) {
         return new \D\Model\TagValue(
                 array(
-            "id" => $row["id"],
+            "id" => (int) $row["id"],
             "code" => $row["code"],
             "tag_id" => $row["tag_id"],
             "hits" => $row["hits"]

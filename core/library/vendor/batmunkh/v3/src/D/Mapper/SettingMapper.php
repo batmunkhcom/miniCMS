@@ -20,7 +20,7 @@ class SettingMapper extends AbstractDataMapper {
     protected function loadEntity(array $row) {
         return new \D\Model\Setting(
                 array(
-            "id" => $row["id"],
+            "id" => (int) $row["id"],
             "setting_name" => $row["setting_name"],
             "setting_type" => $row["setting_type"],
             "setting_value" => $row["setting_value"]

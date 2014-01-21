@@ -20,7 +20,7 @@ class PhotoMapper extends AbstractDataMapper {
     protected function loadEntity(array $row) {
         return new \D\Model\Photo(
                 array(
-            "id" => $row["id"],
+            "id" => (int) $row["id"],
             "user_id" => $row["user_id"],
             "st" => $row["st"],
             "code" => $row["code"],
