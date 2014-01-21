@@ -51,6 +51,13 @@ class Option extends D\Model\Option {
         return $buf;
     }
 
+    /**
+     * Ugugdsun module iin option uudiig avah
+     *
+     * @param string $module Module iin ner
+     *
+     * @return array $buf[group_name][form_tag][id] = title; gej butsaana
+     */
     public static function getAllGroupNamesToArray($module = '') {
         global $db;
 

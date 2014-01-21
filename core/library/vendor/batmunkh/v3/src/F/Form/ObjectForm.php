@@ -22,13 +22,15 @@ class ObjectForm extends \F\Form {
 
     public $form;
 
-    public function __construct($name = 'object', $configure = array()) {
+    public function __construct($name = 'object', $configure = array(
+        'option_code' => 'object' //object module
+    )) {
 
         $form = new \F\Form($name, $configure);
 
         //object iin obtion uudiig avav.
         //$obj_options[group_name][form_tag][id] = title;
-        $obj_options = \Option::getAllGroupNamesToArray('object');
+        $obj_options = \Option::getAllGroupNamesToArray($configure['option_code']);
 
 
         $form->addElement(__('Select category'), 'categories[]', 'html', array(), array(), \Category::categoriesMultiSelect());
