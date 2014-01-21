@@ -11,6 +11,7 @@ set_route('admin_content_list', '/admin/content');
 set_route('admin_content_new', '/admin/content/new');
 set_route('admin_content_save', '/admin/content/save');
 set_route('admin_content_edit', '/admin/content/edit/{id}');
+set_route('admin_content_delete_category', '/admin/content/delete/category');
 
 /* * *****FRONTEND ROUTING****** */
 $router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service, $app) {
@@ -19,21 +20,6 @@ $router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service
     set_module('content');
     set_action('index');
 
-    /* testing---------
-     *
-      echo $request->id;
-      echo '<hr />';
-      print_r($request->paramsNamed());
-      echo '<hr />';
-      print_r($request->pathname());
-      echo '<hr />';
-      print_r($request->method());
-      echo '<hr />';
-      print_r($request->query('/r'));
-      echo '<hr />';
-      print_r($request->uri());
-      echo '<hr />';
-     */
     return '';
 });
 
@@ -69,8 +55,17 @@ $router->with('/admin/content', function () use ($router) {
     //content update
     $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
 
+        set_module('content');
         set_action('admin_content_edit');
         set_get_parameter('id', $request->id);
+    });
+
+    //content category iig ustgah
+    $router->respond('POST', '/delete/category', function ($request, $response) {
+
         set_module('content');
+        set_action('admin_content_delete_category');
+        set_get_parameter('content_id', $request->content_id);
+        set_get_parameter('category_id', $request->category_id);
     });
 });

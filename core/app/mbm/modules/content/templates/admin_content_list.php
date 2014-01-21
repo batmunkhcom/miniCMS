@@ -52,7 +52,8 @@
                                         <p><?php echo $content->content_brief; ?></p>
                                         <?php foreach (\Content::getCategories($content->id) as $category): ?>
                                             <span class="badge bg-primary">
-                                                <button data-dismiss="alert" class="close close-sm" type="button">
+                                                <button data-dismiss="alert" class="close close-sm" type="button"
+                                                        onclick="removeCategory(<?php echo $category->id . ',' . $content->id ?>)">
                                                     <i class="fa fa-times"></i>
                                                 </button>
                                                 <?php echo $category->name; ?>&nbsp;
@@ -103,4 +104,18 @@
             'bSort': false
         });
     });
+
+    function removeCategory(category_id, content_id) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo get_url('admin_content_delete_category') ?>",
+            data: {
+                category_id: category_id,
+                content_id: content_id
+            }
+        })
+                .done(function(msg) {
+                    alert(msg);
+                });
+    }
 </script>

@@ -20,7 +20,7 @@ class ContentCategoryMapper extends AbstractDataMapper {
     protected function loadEntity(array $row) {
         return new \D\Model\ContentCategory(
                 array(
-            "id" => $row["id"],
+            "id" => (int) $row["id"],
             "content_id" => $row["content_id"],
             "category_id" => $row["category_id"]
                 )

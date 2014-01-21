@@ -20,7 +20,7 @@ class SearchMapper extends AbstractDataMapper {
     protected function loadEntity(array $row) {
         return new \D\Model\Search(
                 array(
-            "id" => $row["id"],
+            "id" => (int) $row["id"],
             "tags" => $row["tags"],
             "title" => $row["title"],
             "descr" => $row["descr"],
