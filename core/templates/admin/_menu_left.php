@@ -12,12 +12,12 @@
             <span><?php echo __('Modules'); ?></span>
         </a>
         <ul class="sub">
-            <li><a  href="<?php echo get_url('admin_category_list') ?>"><?php echo __('Categories'); ?></a></li>
-            <li><a  href="<?php echo get_url('admin_content_list') ?>"><?php echo __('Content'); ?></a></li>
-            <li><a  href="<?php echo get_url('admin_real_estate_list') ?>"><?php echo __('Real estate'); ?></a></li>
-            <li><a  href="<?php echo get_url('admin_tag_list') ?>"><?php echo __('Tags'); ?></a></li>
-            <li><a  href="<?php echo get_url('admin_photo_list') ?>"><?php echo __('Photos'); ?></a></li>
-            <li><a  href="<?php echo get_url('admin_comment_list') ?>"><?php echo __('Comments'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_category_list') ?>"><?php echo __('Category module'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_content_list') ?>"><?php echo __('Content module'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_real_estate_list') ?>"><?php echo __('Real estate module'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_tag_list') ?>"><?php echo __('Tag module'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_photo_list') ?>"><?php echo __('Photo module'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_comment_list') ?>"><?php echo __('Comment module'); ?></a></li>
             <li><a  href="#"><?php echo __('Survey'); ?></a></li>
         </ul>
     </li>

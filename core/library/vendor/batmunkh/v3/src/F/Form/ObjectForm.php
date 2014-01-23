@@ -31,7 +31,7 @@ class ObjectForm extends \F\Form {
 
         $form = new \F\Form($name, $configure);
 
-        //object iin obtion uudiig avav.
+        //object iin option uudiig avav.
         //$obj_options[group_name][form_tag][id] = title;
         $obj_options = \Option::getAllGroupNamesToArray($configure['option_module']);
 
