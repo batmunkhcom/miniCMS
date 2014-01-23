@@ -24,11 +24,11 @@ a, a:hover, a:focus {
 }
 
 ::selection {
-    background: #F77B6F;
+    background: #F7941C;
     color: #fff;
 }
 ::-moz-selection {
-    background: #F77B6F;
+    background: #F7941C;
     color: #fff;
 }
 
@@ -41,7 +41,7 @@ a {
 }
 
 a:hover {
-    color: #f77b6f;
+    color: #F7941C;
 }
 
 p {line-height: 22px}
@@ -57,7 +57,7 @@ p {line-height: 22px}
 }
 
 .navbar-brand {
-    color: #bcc0cd;
+    color: #003663;
     font-size: 30px;
     font-weight: 100;
     line-height: 30px;
@@ -66,7 +66,7 @@ p {line-height: 22px}
 }
 
 .navbar-brand span{
-    color: #f25f5b;
+    color: #F7941C;
 }
 
 .header-frontend .navbar-collapse  ul.navbar-nav {
@@ -94,7 +94,7 @@ p {line-height: 22px}
 .header-frontend .nav li.active ul.dropdown-menu li a:hover,
 .header-frontend .nav li.active ul.dropdown-menu li.active a{
     color: #fff ;
-    background-color: #f77b6f;
+    background-color: #F7941C;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -107,7 +107,7 @@ p {line-height: 22px}
 .header-frontend .navbar-default .navbar-nav > .open > a:hover,
 .header-frontend .navbar-default .navbar-nav > .open > a:focus {
     color: #fff;
-    background-color: #f77b6f;
+    background-color: #F7941C;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -204,7 +204,7 @@ p {line-height: 22px}
 }
 
 .feature-head h1{
-    color: #475168;
+    color: #003663;
     font-size: 30px;
     font-weight: 300;
     text-transform: uppercase;
@@ -238,11 +238,11 @@ p {line-height: 22px}
     line-height: normal;
     margin-top: 40px;
     display: block;
-    color: #f77b6f;
+    color: #F7941C;
 }
 
 .f-box:hover, .f-box.active {
-    background: #f77b6f;
+    background: #F7941C;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -290,7 +290,7 @@ p {line-height: 22px}
 }
 
 .quote-info {
-    background: #475168;
+    background: #003663;
     padding: 20px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -379,7 +379,7 @@ p {line-height: 22px}
 }
 
 .p-head {
-    color: #F77B6F;
+    color: #F7941C;
     font-size: 14px;
     font-weight: 400;
 }
@@ -766,7 +766,7 @@ ul.about-flex-slides {
 }
 
 .r-work {
-    color: #475168;
+    color: #003663;
     text-transform: uppercase;
     font-size: 24px;
     font-weight: 400;
@@ -796,7 +796,7 @@ ul.about-flex-slides {
 }
 
 .most-popular {
-    background: #f77b6f;
+    background: #F7941C;
     color: #fff;
 }
 
@@ -924,7 +924,7 @@ ul.about-flex-slides {
 }
 
 .breadcrumb li a{
-    color: #f77b6f;
+    color: #F7941C;
 }
 
 .breadcrumb li.active {
@@ -951,7 +951,7 @@ ul.about-flex-slides {
 }
 
 .address h4 {
-    color: #475168;
+    color: #003663;
     text-transform: uppercase;
     margin-bottom: 20px;
     font-family: 'Fjalla One', sans-serif;
@@ -1010,7 +1010,7 @@ ul.about-flex-slides {
 
 .about h3 {
     /*text-transform: uppercase;*/
-    color: #475168;
+    color: #003663;
     font-family: 'Fjalla One', sans-serif;
     margin-top: 0;
 }
@@ -1038,7 +1038,7 @@ ul.about-flex-slides {
 
 .content h3, .media h3 {
     margin-top: 0;
-    color: #475168;
+    color: #003663;
     font-size: 20px;
     font-family: 'Fjalla One', sans-serif;
 }
@@ -1049,7 +1049,7 @@ ul.about-flex-slides {
 
 .media-body h4 {
     font-size: 16px;
-    color: #475168;
+    color: #003663;
 }
 
 .hiring, .services {
@@ -1131,11 +1131,11 @@ ul.about-flex-slides {
 }
 
 .team-social-link a:hover {
-    color: #f37c6b;
+    color: #f7941c;
 }
 
 .person-info h4, .person-info h4 a {
-    color: #f37c6b;
+    color: #f7941c;
     font-weight: 300;
     margin-bottom: 5px;
 }
@@ -1213,7 +1213,7 @@ ul.about-flex-slides {
 .date-wrap .date {
     font-size:30px;
     font-weight: 300;
-    background: #F77B6F;
+    background: #F7941C;
     color: #fff;
     border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
@@ -1250,7 +1250,7 @@ ul.about-flex-slides {
 
 .blog-item h1, .blog-item h1 a {
     font-size:25px;
-    color: #F77B6F;
+    color: #F7941C;
     font-weight: 300;
     font-family: 'Fjalla One', sans-serif;
 }
@@ -1270,7 +1270,7 @@ ul.about-flex-slides {
 }
 
 .author a, .shate-view a {
-    color: #F77B6F;
+    color: #F7941C;
 }
 
 .shate-view {
@@ -1331,7 +1331,7 @@ ul.tag li a {
 /*footer*/
 
 .footer {
-    background: #475268;
+    background: #003663;
     color: #fff;
     padding: 50px 0;
     margin-top: 50px;
@@ -1351,21 +1351,21 @@ ul.tag li a {
 
 
 .footer address a {
-    color: #f37c6b;
+    color: #f7941c;
 }
 
 .tweet-box {
-    background: #505b71;
+    background: #204462;
     padding: 20px 15px;
     border-radius: 5px;
     font-size: 14px;
 }
 
 .tweet-box:before {
-    background-color: #505b71;
-    border-color: #505b71;
+    background-color: #204462;
+    border-color: #204462;
     border-image: none;
-    border-right: 1px none #505b71;
+    border-right: 1px none #204462;
     border-style: none;
     content: "";
     display: block;
@@ -1383,7 +1383,7 @@ ul.tag li a {
 }
 
 .tweet-box  a:hover{
-    color: #F77B6F ;
+    color: #F7941C ;
 }
 
 .tweet-box i {
@@ -1415,7 +1415,7 @@ ul.tag li a {
 }
 
 .social-link-footer li a:hover {
-    background: #F77B6F;
+    background: #F7941C;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -1429,7 +1429,7 @@ ul.tag li a {
 /*slider css*/
 
 .main-slider {
-    background: #475168;
+    background: #003663;
     color: #fff;
 
     z-index: 1;
@@ -1446,7 +1446,7 @@ ul.tag li a {
 
 .slide_title {
     font-weight: 300;
-    color:#F77B6F;
+    color:#F7941C;
     text-transform: uppercase;
     font-size:35px;
     font-family: 'Fjalla One', sans-serif;
@@ -1485,7 +1485,7 @@ ul.tag li a {
 .slide_btn {
     font-family: 'Open Sans';
     font-weight: 300;
-    background:#F77B6F;
+    background:#F7941C;
     padding:15px 20px;
     color:#fff;
     font-size:14px;
@@ -1529,7 +1529,7 @@ ul.tag li a {
 }
 
 .bx-controls-direction a:hover {
-    background-color:#F77B6F !important;
+    background-color:#F7941C !important;
 
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
@@ -1560,7 +1560,7 @@ ul.tag li a {
 }
 
 .property h1 {
-    color: #475168;
+    color: #003663;
     font-size: 24px;
     text-transform: uppercase;
     font-family: 'Fjalla One',sans-serif;
@@ -1569,7 +1569,7 @@ ul.tag li a {
 }
 
 a.btn-purchase {
-    background: #475168;
+    background: #003663;
     color: #fff;
     text-transform: uppercase;
     padding: 20px 40px;
@@ -1581,7 +1581,7 @@ a.btn-purchase {
     transition: all .3s ease;
 }
 a.btn-purchase:hover, a.btn-purchase:focus{
-    background: #F77B6F;
+    background: #F7941C;
     color: #fff;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
@@ -1669,7 +1669,7 @@ ul#filters > li > a:hover,
 ul#filters > li > a:focus,
 ul#filters > .active > a,
 ul#filters > .active > span {
-    background: #f77b6f;
+    background: #F7941C;
     padding: 10px 15px;
     display: inline-block;
     color: #fff;
@@ -1770,7 +1770,7 @@ ul#filters > .active > span {
 /*parallax*/
 
 .parallax1 {
-    background: url("../img/flat_parallax.jpg") no-repeat fixed 0 0 #f77b6f;
+    background: url("../img/flat_parallax.jpg") no-repeat fixed 0 0 #F7941C;
     background-size:cover;
     width: 100%;
     min-height: 400px;
