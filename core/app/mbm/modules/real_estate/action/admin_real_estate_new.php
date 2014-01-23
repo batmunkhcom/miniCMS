@@ -12,6 +12,10 @@ js_set_loadfile('/assets/flatlab/admin/assets/bootstrap-fileupload/bootstrap-fil
 js_set_loadfile('/assets/flatlab/admin/assets/jquery-multi-select/js/jquery.multi-select.js', 93);
 js_set_loadfile('/assets/flatlab/admin/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js', 94);
 //js_set_loadfile('/assets/flatlab/admin/js/advanced-form-components.js', 94);
+//dropzone uploader
+css_set_loadfile('/assets/flatlab/admin/assets/dropzone/css/dropzone.css', 98);
+js_set_loadfile('/assets/flatlab/admin/assets/dropzone/dropzone.js', 98);
+
 
 css_set_loadfile('/assets/flatlab/admin/assets/jquery-multi-select/css/multi-select.css', 91);
 css_set_loadfile('/assets/flatlab/admin/assets/bootstrap-fileupload/bootstrap-fileupload.css', 92);

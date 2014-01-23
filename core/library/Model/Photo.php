@@ -41,7 +41,7 @@ class Photo extends D\Model\Photo {
             unset($_photo);
         }
 
-        $db->commit();
+        return $db->commit();
     }
 
 }

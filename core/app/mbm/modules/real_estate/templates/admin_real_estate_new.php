@@ -11,6 +11,15 @@
                 <?php echo __('Create object'); ?>
             </header>
             <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="<?php echo get_url('admin_photo_save') ?>" class="dropzone" id="my-awesome-dropzone">
+                            <input type="hidden" name="module" value="real_estate">
+                        </form>
+                    </div>
+                </div>
+
                 <? /* Render whole form */ ?>
                 <?php
                 if (get_flash_type() != 'success') {

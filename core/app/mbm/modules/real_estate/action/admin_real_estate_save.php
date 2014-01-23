@@ -1,7 +1,7 @@
 <?php
 
 $form = new F\Form\ObjectForm();
-if ($form->isValid('object')) {
+if ($form->isValid('real_estate')) {
 
     if (post_exists('use_photo') && post('use_photo') == 1) {
         //photo manage hiih.
@@ -109,8 +109,12 @@ if ($form->isValid('object')) {
     }
     $c_option_db->commit();
 
-    set_flash(__('Object has been created'), 'success');
-    $session->clearKey('object');
+    //medeelliin zurguudiiinc code iig shinechileh
+
+    \Photo::updatePhotoCodesBySession('real_estate_' . $last_insert_id, 'real_estate');
+
+    set_flash(__('Real estate object has been created'), 'success');
+    $session->clearKey('real_estate');
 
     header("Location: " . get_url('admin_real_estate_list'));
 } else {
