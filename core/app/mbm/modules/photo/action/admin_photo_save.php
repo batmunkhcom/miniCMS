@@ -50,6 +50,7 @@ if (post_exists('module')) {
     $code = post('module') . '_';
 }
 $code .= session_id();
+$code = 'delete_' . $code;
 
 //content nemeh
 //$photo_db = db_mapper($db, 'Object');

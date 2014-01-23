@@ -30,7 +30,7 @@ class Photo extends D\Model\Photo {
         $photos = db_unit($db, 'Photo');
 
         $photos->select(array(
-            'code' => $prefix . session_id()
+            'code' => 'delete_' . $prefix . session_id()
                 ), "code=:code");
 
         foreach ($photos as $photo) {
