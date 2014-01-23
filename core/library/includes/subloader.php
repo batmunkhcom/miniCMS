@@ -36,6 +36,14 @@ date_default_timezone_set(TIME_ZONE);
 //session handler
 $session = new M\Registry\DataHandler(new M\Registry\SessionRegistry());
 
+/**
+ * lang duudna
+ */
+if (!$session->check('ln')) {
+    $session->set('ln', DEFAULT_LANG);
+}
+$ln = new M\Language($session->get('ln'));
+
 //date time. Carbon library
 $date_time = new M\Carbon();
 
@@ -56,11 +64,6 @@ M\File::includePHPFiles($components->getAllComponents()->component_files);
  * Router tohirguulah
  */
 $router = new M\Router();
-
-/**
- * lang duudna
- */
-$ln = new M\Language(DEFAULT_LANG);
 
 /**
  * app/module/action/tpl file uudiig config-t onoono

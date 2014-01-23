@@ -24,6 +24,8 @@ interface RegistrableInterface {
 
     public function get($key);
 
+    public function check($key);
+
     public function clear();
 
     public function clearKey($key);

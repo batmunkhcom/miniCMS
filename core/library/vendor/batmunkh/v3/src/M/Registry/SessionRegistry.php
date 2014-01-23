@@ -45,6 +45,16 @@ class SessionRegistry implements RegistrableInterface, DumpableInterface {
     }
 
     /**
+     * Get the specified value from the session registry
+     */
+    public function check($key) {
+        $key = strtolower($key);
+        return isset($_SESSION[$key]) ?
+                true :
+                false;
+    }
+
+    /**
      * Dump the whole session registry
      */
     public function dump() {

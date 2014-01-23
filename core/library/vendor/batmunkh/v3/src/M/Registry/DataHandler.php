@@ -45,6 +45,13 @@ class DataHandler {
     }
 
     /**
+     * Get data from the registry
+     */
+    public function check($key) {
+        return $this->_registry->get($key);
+    }
+
+    /**
      * Clear the registry
      */
     public function clear() {
