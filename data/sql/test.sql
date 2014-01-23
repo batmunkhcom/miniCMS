@@ -11,7 +11,7 @@
  Target Server Version : 50169
  File Encoding         : utf-8
 
- Date: 01/19/2014 12:41:23 PM
+ Date: 01/23/2014 23:40:16 PM
 */
 
 SET NAMES utf8;
@@ -82,7 +82,7 @@ CREATE TABLE `m_content_categories` (
   `content_id` int(11) unsigned DEFAULT '0',
   `category_id` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `m_content_categories`
@@ -137,7 +137,14 @@ CREATE TABLE `m_object_categories` (
   `category_id` int(11) NOT NULL DEFAULT '0',
   `object_id` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `m_object_categories`
+-- ----------------------------
+BEGIN;
+INSERT INTO `m_object_categories` VALUES ('1', '31', '1'), ('2', '33', '1'), ('3', '37', '1');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `m_objects`
@@ -170,7 +177,14 @@ CREATE TABLE `m_objects` (
   `date_publish` datetime DEFAULT NULL,
   `date_expire` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `m_objects`
+-- ----------------------------
+BEGIN;
+INSERT INTO `m_objects` VALUES ('1', '1', '0', '0', '0', '0', '', 'active', '1', '1', '//www.minicms.me/media/photos/52dcdc167e2e0.jpg', 'obj name', '100', 'mkb', '2400000.00', '0.00', '108000000.00', '', 'tovch medeelel  tovch medeelel  tovch medeelel  tovch medeelel  tovch medeelel  tovch medeelel  tovch medeelel  tovch medeelel  tovch medeelel  tovch medeelel  tovch medeelel  ', '<p>more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;more content&nbsp;</p>', '0', '0', '2014-01-06 16:19:34', '2014-01-22 11:40:00', '2014-01-31 23:01:18');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `m_option_values`
@@ -183,7 +197,7 @@ CREATE TABLE `m_option_values` (
   `option_value` varchar(255) NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `m_options`
@@ -202,7 +216,14 @@ CREATE TABLE `m_options` (
   `descr` varchar(255) DEFAULT NULL,
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `m_options`
+-- ----------------------------
+BEGIN;
+INSERT INTO `m_options` VALUES ('1', 'real_estate', 'real_estate', '1', 'active', '0', 'input', 'location', 'altitude', 'urgurug', '2014-01-05 13:17:40'), ('2', 'real_estate', 'real_estate', '1', 'active', '0', 'input', 'location', 'longitude', 'urgurug', '2014-01-05 13:19:34'), ('3', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'building_type', 'ÐžÑ€Ð¾Ð½ ÑÑƒÑƒÑ†', 'ÐÐ¸Ð¹Ñ‚Ð¸Ð¹Ð½ Ð¾Ñ€Ð¾Ð½ ÑÑƒÑƒÑ†', '2014-01-23 22:43:56'), ('4', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'building_type', 'Ð¥Ð°ÑˆÐ°Ð° Ð±Ð°Ð¹ÑˆÐ¸Ð½', 'Ð¥Ð°ÑˆÐ°Ð° Ð±Ð°Ð¹ÑˆÐ¸Ð½', '2014-01-23 22:44:29'), ('5', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'building_type', 'ÐžÑ„Ñ„Ð¸Ñ', 'ÐžÑ„Ñ„Ð¸Ñ, Ð°Ð»Ð±Ð°Ð½ Ñ‚Ð°ÑÐ°Ð»Ð³Ð°Ð°', '2014-01-23 22:44:54'), ('6', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'building_type', 'Ð—ÑƒÑÐ»Ð°Ð½Ð³Ð¸Ð¹Ð½ Ð±Ð°Ð¹ÑˆÐ¸Ð½', 'Ð—ÑƒÑÐ»Ð°Ð½Ð³Ð¸Ð¹Ð½ Ð±Ð°Ð¹ÑˆÐ¸Ð½, Ñ…Ð°ÑƒÑ', '2014-01-23 22:45:54'), ('7', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'building_type', 'Ð¥ÑƒÐ´Ð°Ð»Ð´Ð°Ð° Ò¯Ð¹Ð»Ñ‡Ð¸Ð»Ð³ÑÑ', 'Ð¥ÑƒÐ´Ð°Ð»Ð´Ð°Ð° Ò¯Ð¹Ð»Ñ‡Ð¸Ð»Ð³ÑÑÐ½Ð¸Ð¹ Ð·Ð¾Ñ€Ð¸ÑƒÐ»Ð°Ð»Ñ‚Ñ‚Ð°Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚', '2014-01-23 22:48:24'), ('8', 'real_estate', 'real_estate', '1', 'active', '0', 'radio', 'is_new', 'Ð¨Ð¸Ð½Ñ', 'Ð¨Ð¸Ð½Ñ Ð±Ð°Ð¹Ñ€ ÑÑÑÑ…', '2014-01-23 22:50:55'), ('9', 'real_estate', 'real_estate', '1', 'active', '0', 'radio', 'is_new', 'Ð¥ÑƒÑƒÑ‡Ð¸Ð½', 'Ð‘Ð°Ð¹Ñ€Ð½Ñ‹ Ñ…ÑƒÑƒÑ‡Ð¸Ð½ ÑÑÑÑ…', '2014-01-23 22:51:14'), ('10', 'real_estate', 'real_estate', '1', 'active', '0', 'input', 'bld_info', 'Ð‘Ð°Ñ€Ð¸Ð»Ð³Ñ‹Ð½ Ð´Ð°Ð²Ñ…Ð°Ñ€', 'Ð¢ÑƒÑ…Ð°Ð¹Ð½ Ð±Ð°Ñ€Ð¸Ð»Ð³Ñ‹Ð½ Ð½Ð¸Ð¹Ñ‚ Ð´Ð°Ð²Ñ…Ð°Ñ€', '2014-01-23 23:18:06'), ('11', 'real_estate', 'real_estate', '1', 'active', '0', 'input', 'bld_info', 'Ð‘Ð°Ð¹Ñ€Ð»Ð°Ñ… Ð´Ð°Ð²Ñ…Ð°Ñ€', 'Ð¢ÑƒÑ…Ð°Ð¹Ð½ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¸Ð¹Ð½ Ð±Ð°Ð¹Ñ€Ð»Ð°Ñ… Ð´Ð°Ð²Ñ…Ð°Ñ€', '2014-01-23 23:18:53'), ('12', 'real_estate', 'real_estate', '1', 'active', '0', 'input', 'bld_info', 'Ó¨Ñ€Ó©Ó©Ð½Ð¸Ð¹ Ñ‚Ð¾Ð¾', 'ÐžÐ±ÑŠÐµÐºÑ‚Ð¸Ð¹Ð½ Ð½Ð¸Ð¹Ñ‚ Ó©Ñ€Ó©Ó©', '2014-01-23 23:20:10'), ('13', 'real_estate', 'real_estate', '1', 'active', '0', 'input', 'bld_info', '00-Ð¸Ð¹Ð½ Ó©Ñ€Ó©Ó©', 'Ð½Ð¸Ð¹Ñ‚ 00 Ó©Ñ€Ó©Ó©Ð½Ð¸Ð¹ Ñ‚Ð¾Ð¾', '2014-01-23 23:20:28'), ('14', 'real_estate', 'real_estate', '1', 'active', '0', 'input', 'bld_info', 'ÐÑˆÐ¸Ð³Ð»Ð°Ð»Ñ‚Ð°Ð½Ð´ Ð¾Ñ€ÑÐ¾Ð½', 'ÐÑˆÐ¸Ð³Ð»Ð°Ð»Ñ‚Ð°Ð½Ð´ Ð¾Ñ€ÑÐ¾Ð½ Ð¾Ð³Ð½Ð¾Ð¾', '2014-01-23 23:20:54'), ('15', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'repair_condition', 'Ð—Ð°ÑÐ²Ð°Ñ€ Ñ…Ð¸Ð¹Ð³ÑÑÐ³Ò¯Ð¹', 'Ð—Ð°ÑÐ²Ð°Ñ€ Ñ…Ð¸Ð¹ÑÑÐ½ ÑÑÑÑ…', '2014-01-23 23:22:05'), ('16', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'repair_condition', 'Ð—Ð°ÑÐ²Ð°Ñ€ Ñ…Ð¸Ð¹ÑÑÐ½', 'Ð—Ð°ÑÐ²Ð°Ñ€ Ñ…Ð¸Ð¹ÑÑÐ½ ÑÑÑÑ…', '2014-01-23 23:22:20'), ('17', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'repair_condition', 'Ð¡ÑƒÐ¿ÐµÑ€ Ð·Ð°ÑÐ²Ð°Ñ€ Ñ…Ð¸Ð¹ÑÑÐ½', 'Ð—Ð°ÑÐ²Ð°Ñ€ Ñ…Ð¸Ð¹ÑÑÐ½ ÑÑÑÑ…', '2014-01-23 23:22:37'), ('18', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'has_furniture', 'Ð¢Ð°Ð²Ð¸Ð»Ð³Ð°Ñ‚Ð°Ð¹', 'Ð¢Ð°Ð²Ð¸Ð»Ð³Ð°Ñ‚Ð°Ð¹ ÑÑÑÑ…', '2014-01-23 23:23:47'), ('19', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'has_furniture', 'Ð¢Ð°Ð²Ð¸Ð»Ð³Ð°Ð³Ò¯Ð¹', 'Ð¢Ð°Ð²Ð¸Ð»Ð³Ð°Ñ‚Ð°Ð¹ ÑÑÑÑ…', '2014-01-23 23:24:03'), ('20', 'real_estate', 'real_estate', '1', 'active', '0', 'input', 'bld_window', 'Ð¦Ð¾Ð½Ñ…Ð½Ñ‹ Ñ‚Ð¾Ð¾', 'Ð¦Ð¾Ð½Ñ…Ð½Ñ‹ Ñ‚Ð¾Ð¾', '2014-01-23 23:25:02'), ('21', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'window_type', 'Ð’Ð°ÐºÑƒÐ¼ Ñ†Ð¾Ð½Ñ…', 'Ð’Ð°ÐºÑƒÐ¼ Ñ†Ð¾Ð½Ñ…', '2014-01-23 23:25:36'), ('22', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'window_type', 'Ð­Ð½Ð³Ð¸Ð¹Ð½ Ñ†Ð¾Ð½Ñ…', 'Ð¦Ð¾Ð½Ñ…Ð½Ñ‹ Ñ‚Ó©Ñ€Ó©Ð»', '2014-01-23 23:25:55'), ('23', 'real_estate', 'real_estate', '1', 'active', '0', 'select', 'window_type', 'Ð‘ÑƒÑÐ°Ð´ Ñ‚Ó©Ñ€Ó©Ð»', 'Ð¦Ð¾Ð½Ñ…Ð½Ñ‹ Ñ‚Ó©Ñ€Ó©Ð»', '2014-01-23 23:26:08'), ('24', 'real_estate', 'real_estate', '1', 'active', '0', 'input', 'bld_builder', 'Ð‘Ð°Ñ€ÑŒÑÐ°Ð½ ÐºÐ¾Ð¼Ð¿Ð°Ð½Ð¸', 'Ð‘Ð°Ñ€Ð¸Ð»Ð³Ñ‹Ð½ Ð³Ò¯Ð¹Ñ†ÑÑ‚Ð³ÑÐ³Ñ‡', '2014-01-23 23:26:52');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `m_photos`

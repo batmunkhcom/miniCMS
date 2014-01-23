@@ -70,7 +70,6 @@ class Option extends D\Model\Option {
                 'module' => $module
                     ), 'module=:module');
         }
-
         $buf = array();
         foreach ($group_names as $g_name) {
             $buf[$g_name->group_name][$g_name->form_tag][$g_name->id] = $g_name->title;

@@ -8,6 +8,7 @@ if ($form->isValid('option')) {
 
     $option = new D\Model\Option(
             array(
+        'code' => post('module'),
         'module' => post('module'),
         'user_id' => get_logged_user_id(),
         'st' => post('st'),

@@ -23,14 +23,17 @@ class ObjectForm extends \F\Form {
     public $form;
 
     public function __construct($name = 'object', $configure = array(
-        'option_code' => 'object' //object module
+        'option_module' => 'object' //object module
     )) {
+        if (!isset($configure['option_module'])) {
+            $configure['option_module'] = 'object';
+        }
 
         $form = new \F\Form($name, $configure);
 
         //object iin obtion uudiig avav.
         //$obj_options[group_name][form_tag][id] = title;
-        $obj_options = \Option::getAllGroupNamesToArray($configure['option_code']);
+        $obj_options = \Option::getAllGroupNamesToArray($configure['option_module']);
 
 
         $form->addElement(__('Select category'), 'categories[]', 'html', array(), array(), \Category::categoriesMultiSelect());
@@ -122,10 +125,18 @@ class ObjectForm extends \F\Form {
             foreach ($obj_options[$group_name] as $form_tag => $val) {
                 switch ($form_tag) {
                     case 'select':
-                        $form->addElement(__($group_name), 'options[' . $group_name . ']', 'select', array(
+                        $form->addElement(__($group_name), 'options[' . $group_name . ']', $form_tag, array(
                             'class' => 'form-control',
                             'value' => $obj_options[$group_name][$form_tag]
                                 ), array());
+                        break;
+                    case 'radio':
+                        foreach ($obj_options[$group_name][$form_tag] as $id => $value) {
+                            $form->addElement(__($value), 'options[' . $group_name . ']', $form_tag, array(
+                                'class' => 'form-control',
+                                'value' => $id
+                                    ), array());
+                        }
                         break;
                     default:
                         foreach ($obj_options[$group_name][$form_tag] as $id => $value) {

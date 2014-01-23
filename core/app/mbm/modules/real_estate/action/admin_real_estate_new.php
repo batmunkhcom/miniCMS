@@ -18,14 +18,14 @@ css_set_loadfile('/assets/flatlab/admin/assets/bootstrap-fileupload/bootstrap-fi
 css_set_loadfile('/assets/flatlab/admin/assets/bootstrap-datetimepicker/css/datetimepicker.css', 93);
 //js_set_loadfile('/assets/flatlab/admin/');
 
-$form = new F\Form\ObjectForm('object', array(
+$form = new F\Form\ObjectForm('real_estate', array(
     'action' => get_url('admin_real_estate_save'),
     'class' => 'form-horizontal',
     'role' => 'form',
     'method' => 'post',
     'enctype' => 'multipart/form-data',
-    'option_code' => 'real_estate'
+    'option_module' => 'real_estate'
         ));
 
 $template->set('form', $form->form);
-$session->clearKey('object');
+$session->clearKey('real_estate');

@@ -24,13 +24,14 @@ function form_render_option($val = array(), $selected_value = '') {
     return $buf;
 }
 
-function form_render_tags(){
- 
+function form_render_tags() {
+
     return array(
-        'input'=>'input',
-        'checkbox'=>'checkbox',
-        'radio'=>'radio',
-        'textarea'=>'textarea',
-        'wysiwyg'=>'wysiwyg'
+        'input' => 'input',
+        'select' => 'select',
+        'checkbox' => 'checkbox',
+        'radio' => 'radio',
+        'textarea' => 'textarea',
+        'wysiwyg' => 'wysiwyg'
     );
 }

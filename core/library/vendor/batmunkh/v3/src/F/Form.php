@@ -201,6 +201,20 @@ class Form {
                 $buf .= '</div>' . "\n";
                 $buf .= '</div>' . "\n";
                 break;
+            case 'radio':
+                $buf .= '<div classs="row">';
+                $buf .= '<div class="form-group text-right" id="element_' . $this->fixElementId($name) . '">' . "\n";
+                $buf .= '<label for="' . $name . '" class="col-lg-2 col-sm-2 control-label">' . "\n";
+                $buf .= $label . "\n";
+                $buf .= '</label>' . "\n";
+                $buf .= '<div class="col-lg-6">' . "\n";
+                $buf .= '<div class="checkbox">';
+                $buf .= $this->radio($label, $name, $attributes, $validation, $text);
+                $buf .= '</div>';
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
+                $buf .= '</div>' . "\n";
+                break;
             case 'html':
                 $buf .= '<div classs="row">';
                 $buf .= $this->html($label, $name, $text);
@@ -435,6 +449,41 @@ class Form {
             }
         }
         $buf .= 'type="checkbox" >' . "\n";
+        $buf .= $text . "\n";
+        $buf .= '</label>' . "\n";
+        $buf .= '';
+
+        return $buf;
+    }
+
+    /**
+     *
+     * @param type $label Hereglegchded haragdah tuhain elementiin ner
+     * @param type $name Tuhain element iin ner
+     * @param type $attributes Tuhain elementiin attribute uud
+     * @param type $text Nemelt text. help text geh met-d ashiglagdana
+     *
+     * @return string tuhain elementiig hevleh html iig butsaana
+     */
+    public function radio($label, $name, $attributes, $validation, $text) {
+        $buf = '';
+        $buf .= '<label class="control-label" for="' . $name . '" >' . "\n";
+        $buf .= '<input name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
+
+        if (isset($this->session['fields_data'][$name]) && $this->session['fields_data'][$name] == $attributes['value']) {
+            $attributes['checked'] = 'checked';
+        }
+        foreach ($attributes as $k => $v) {
+            switch ($k) {
+                case 'checked':
+                    $buf .= 'checked ';
+                    break;
+                default :
+                    $buf .= $k . '="' . $v . '" ';
+                    break;
+            }
+        }
+        $buf .= 'type="radio" >' . "\n";
         $buf .= $text . "\n";
         $buf .= '</label>' . "\n";
         $buf .= '';
