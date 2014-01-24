@@ -1,3 +1,8 @@
+<?php if (has_flash()): ?>
+    <div class="col-lg-12">
+        <?php echo render_flash(); ?>
+    </div>
+<?php endif; ?>
 <div class="row">
     <div class="col-lg-6">
         <header class="panel-heading">

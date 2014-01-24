@@ -1,4 +1,5 @@
 <?php if (has_flash()): ?>
+    <?php $flash_type = get_flash_type(); ?>
     <div class="col-lg-12">
         <?php echo render_flash(); ?>
     </div>
@@ -13,11 +14,9 @@
             <div class="panel-body">
                 <? /* Render whole form */ ?>
                 <?php
-                if (get_flash_type() != 'success') {
+                if ($flash_type != 'success') {
                     echo $form->render();
                 }
-
-                clear_flash();
                 ?>
                 <script>
                     $('#element_external_url').hide();

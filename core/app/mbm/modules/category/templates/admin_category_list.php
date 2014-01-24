@@ -1,6 +1,8 @@
-<?php
-echo render_flash();
-?>
+<?php if (has_flash()): ?>
+    <div class="col-lg-12">
+        <?php echo render_flash(); ?>
+    </div>
+<?php endif; ?>
 <div class="row">
     <div class="col-lg-6">
         <header class="panel-heading">
@@ -52,7 +54,7 @@ echo render_flash();
                                             <a href="<?php echo get_url('admin_category_list') ?>/<?php echo $category->id; ?>">
                                                 <?php echo $category->name; ?>
                                             </a>
-                                        <i class="fa fa-list" title="<?php echo __("Sub categories") ?>"></i>
+                                            <i class="fa fa-list" title="<?php echo __("Sub categories") ?>"></i>
                                             <?php
                                         } else {
                                             echo $category->name;

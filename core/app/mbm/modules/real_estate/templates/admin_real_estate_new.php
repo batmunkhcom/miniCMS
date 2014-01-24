@@ -1,4 +1,5 @@
 <?php if (has_flash()): ?>
+    <?php $flash_type = get_flash_type(); ?>
     <div class="col-lg-12">
         <?php echo render_flash(); ?>
     </div>
@@ -23,11 +24,9 @@
 
                 <? /* Render whole form */ ?>
                 <?php
-                if (get_flash_type() != 'success') {
+                if ($flash_type != 'success') {
                     echo $form->render();
                 }
-
-                clear_flash();
                 ?>
 
                 <script type="text/javascript">
