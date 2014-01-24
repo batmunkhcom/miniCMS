@@ -18,6 +18,16 @@
  */
 class Photo extends D\Model\Photo {
 
+    public static function fetchAll() {
+
+        global $db;
+
+        $photo_mapper = db_unit($db, 'Photo');
+        $photos = $photo_mapper->fetchAll();
+
+        return $photos;
+    }
+
     /**
      * DROPZONE ii photo nuudiig update hiine.
      *

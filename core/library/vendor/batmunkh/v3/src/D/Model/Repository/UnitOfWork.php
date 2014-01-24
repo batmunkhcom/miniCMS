@@ -33,6 +33,14 @@ class UnitOfWork implements UnitOfWorkInterface {
         }
     }
 
+    public function count() {
+        $entity = $this->dataMapper->fetchAll()->count();
+        if ($entity) {
+            $this->registerClean($entity);
+            return $entity;
+        }
+    }
+
     public function registerNew(\D\Model\EntityInterface $entity) {
         $this->registerEntity($entity, self::STATE_NEW);
         return $this;

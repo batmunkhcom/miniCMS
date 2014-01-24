@@ -122,6 +122,10 @@ if ($form->isValid($current_module)) {
     }
     $c_option_db->commit();
 
+//medeelliin zurguudiiinc code iig shinechileh
+    \Photo::updatePhotoCodesBySession($current_module . '_' . $last_insert_id, $current_module);
+
+
     set_flash(__('Object has been created'), 'success');
     $session->clearKey('object');
 

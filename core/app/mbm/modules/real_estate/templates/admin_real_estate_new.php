@@ -16,6 +16,7 @@
                     <div class="col-md-12">
                         <form action="<?php echo get_url('admin_photo_save') ?>" class="dropzone" id="my-awesome-dropzone">
                             <input type="hidden" name="module" value="real_estate">
+                            <input type="hidden" name="photo_type" value="slider">
                         </form>
                     </div>
                 </div>

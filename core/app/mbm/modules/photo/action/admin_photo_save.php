@@ -55,6 +55,7 @@ $photo = new D\Model\Photo(
     'code' => $code,
     'path' => $photo_path,
     'st' => 'active',
+    'type' => post('photo_type'),
     'mimetype' => files('file', 'type'),
     'filesize' => files('file', 'size'),
     'height' => $new_height,
