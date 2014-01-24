@@ -31,7 +31,7 @@ class ObjectForm extends \F\Form {
 
         $form = new \F\Form($name, $configure);
 
-        //object iin obtion uudiig avav.
+        //object iin option uudiig avav.
         //$obj_options[group_name][form_tag][id] = title;
         $obj_options = \Option::getAllGroupNamesToArray($configure['option_module']);
 
@@ -117,6 +117,11 @@ class ObjectForm extends \F\Form {
         $form->addElement(__('Price total'), 'price_total', 'input', array(
             'class' => 'form-control',
             'value' => post('price_total')
+                ), array());
+
+        $form->addElement(__('Currency'), 'currency_code', 'select', array(
+            'class' => 'form-control',
+            'value' => get_all_currencies_name()
                 ), array());
 
         //objectiin option uudiig hevelne

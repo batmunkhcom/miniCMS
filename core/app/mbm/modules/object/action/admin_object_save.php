@@ -1,7 +1,12 @@
 <?php
 
-$form = new F\Form\ObjectForm();
-if ($form->isValid('object')) {
+//yamar module deer ashiglagdaj bgaag onooh
+if (!isset($current_module)) {
+    $current_module = 'object';
+}
+
+$form = new F\Form\ObjectForm($current_module);
+if ($form->isValid($current_module)) {
 
     if (post_exists('use_photo') && post('use_photo') == 1) {
         //photo manage hiih.
@@ -30,8 +35,8 @@ if ($form->isValid('object')) {
                 $new_height = (int) round(($photo->getHeight() * CONTENT_PHOTO_MAX_WIDTH) / ($photo->getWidth()));
             }
 
-            $photo->resizeInPixel($new_with, $new_height, true);
-
+            $photo->cropInPixel($new_with, null, true);
+//            $photo->resizeInPixel($new_with, $new_height, true);
             //stamp zurag
             $photo->save(DIR_WEB . $file_path, $new_filename, false, null, 95, false);
             if ((int) CONTENT_PHOTO_SAVE_ORIGINAL == 1) {
@@ -54,7 +59,7 @@ if ($form->isValid('object')) {
             array(
         'parent_id' => 0,
         'user_id' => get_logged_user_id(),
-        'code' => 'default',
+        'code' => $current_module,
         'photo' => $photo_path,
         'st' => post('st'),
         'is_featured' => post('is_featured'),
@@ -72,10 +77,19 @@ if ($form->isValid('object')) {
         'hits' => 0,
         'date_created' => $date_time,
         'date_publish' => post('date_publish'),
-        'date_expire' => $date_time->addYears(10)
+        //10 jiliin daraa expire bolno
+        'date_expire' => $date_time->addYears(10),
+        'module_name' => $current_module
             )
     );
     $last_insert_id = $object_db->save($object);
+
+    //object iin code iig shinechileh
+    $obj_update = db_unit($db, 'Object');
+    $obj_item = $obj_update->fetchById($last_insert_id);
+    $obj_item->code = $current_module . '_' . $last_insert_id;
+    $obj_update->registerDirty($obj_item);
+    $obj_update->commit();
 
     //object category nemeh
     $c_category_db = db_unit($db, 'ObjectCategory');
@@ -97,7 +111,7 @@ if ($form->isValid('object')) {
         foreach (post('options') as $k => $v) {
             if ($v != '') {
                 $c_option_value = new \D\Model\OptionValue(array(
-                    'code' => 'object_' . $last_insert_id,
+                    'code' => $current_module . '_' . $last_insert_id,
                     'option_id' => $k,
                     'option_value' => $v,
                     'is_active' => 1
@@ -109,11 +123,15 @@ if ($form->isValid('object')) {
     }
     $c_option_db->commit();
 
+//medeelliin zurguudiiinc code iig shinechileh
+    \Photo::updatePhotoCodesBySession($current_module . '_' . $last_insert_id, $current_module);
+
+
     set_flash(__('Object has been created'), 'success');
     $session->clearKey('object');
 
-    header("Location: " . get_url('admin_object_list'));
+    header("Location: " . get_url('admin_' . $current_module . '_list'));
 } else {
     set_flash(__('Invalid form submition'), 'error');
 }
-header("Location: " . get_url('admin_object_new'));
+header("Location: " . get_url('admin_' . $current_module . '_new'));

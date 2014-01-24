@@ -20,6 +20,8 @@ interface UnitOfWorkInterface {
 
     public function commit();
 
+    public function count();
+
     public function rollback();
 
     public function clear();

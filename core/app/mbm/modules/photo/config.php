@@ -9,7 +9,11 @@
  *
  * Module config file
  */
-$is_enabled_module['object'] = 1;
+$is_enabled_module['photo'] = 1;
 
-//object save hiideg action file path
-define("OBJECT_SAVE_ACTION_PATH", DIR_MODULE . 'object' . DS . 'action' . DS . 'admin_object_save.php');
+
+//media file iin properties
+define("MEDIA_PHOTO_MAX_WIDTH", 800);
+define("MEDIA_PHOTO_MAX_HEIGHT", 600);
+define("MEDIA_PHOTO_SAVE_ORIGINAL", 1);
+define("MEDIA_PHOTO_SAVE_ORIGINAL_PATH", CONTENT_PHOTO_SAVE_ORIGINAL_PATH);

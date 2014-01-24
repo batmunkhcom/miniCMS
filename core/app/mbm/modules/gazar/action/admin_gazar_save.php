@@ -1,4 +1,4 @@
 <?php
 
-$current_module = 'real_estate';
+$current_module = 'gazar';
 require OBJECT_SAVE_ACTION_PATH;

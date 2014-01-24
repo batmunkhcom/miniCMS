@@ -140,6 +140,9 @@ function render_flash() {
         $buf .= '</div>';
         $session->clearKey('flash_txt');
         $session->clearKey('flash_type');
+
+        clear_flash();
+
         return $buf;
     } else {
 
