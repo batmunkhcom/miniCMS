@@ -119,6 +119,11 @@ class ObjectForm extends \F\Form {
             'value' => post('price_total')
                 ), array());
 
+        $form->addElement(__('Currency'), 'currency_code', 'select', array(
+            'class' => 'form-control',
+            'value' => get_all_currencies_name()
+                ), array());
+
         //objectiin option uudiig hevelne
         //$obj_options[group_name][form_tag][id] = title;
         foreach ($obj_options as $group_name => $v) {

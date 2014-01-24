@@ -9,7 +9,4 @@
  *
  * Module config file
  */
-$is_enabled_module['object'] = 1;
-
-//object save hiideg action file path
-define("OBJECT_SAVE_ACTION_PATH", DIR_MODULE . 'object' . DS . 'action' . DS . 'admin_object_save.php');
+$is_enabled_module['gazar'] = 1;
