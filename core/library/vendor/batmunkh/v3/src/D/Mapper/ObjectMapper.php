@@ -44,7 +44,8 @@ class ObjectMapper extends AbstractDataMapper {
             "hits" => $row["hits"],
             "date_created" => $row["date_created"],
             "date_publish" => $row["date_publish"],
-            "date_expire" => $row["date_expire"]
+            "date_expire" => $row["date_expire"],
+            "module_name" => $row["module_name"]
                 )
         );
     }

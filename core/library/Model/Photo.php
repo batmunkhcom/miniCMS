@@ -37,21 +37,23 @@ class Photo extends D\Model\Photo {
     public static function updatePhotoCodesBySession($code = '', $prefix = '') {
 
         global $db;
-        $photos = db_unit($db, 'Photo');
+        $photos_mapper = db_unit($db, 'Photo');
 
-        $photos->select(array(
-            'code' => 'delete_' . $prefix . session_id()
+        $photos = $photos_mapper->select(array(
+            'code' => 'delete_' . $prefix . '_' . session_id()
                 ), "code=:code");
 
         foreach ($photos as $photo) {
             $_photo = $db->fetchById($photo->id);
             $_photo->code = $code;
-            $db->registerDirty($_photo);
+            $photos_mapper->registerDirty($_photo);
 
             unset($_photo);
         }
 
-        return $db->commit();
+        $command = $photos_mapper->commit();
+
+        return $command;
     }
 
 }

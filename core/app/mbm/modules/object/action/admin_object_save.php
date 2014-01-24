@@ -35,8 +35,8 @@ if ($form->isValid($current_module)) {
                 $new_height = (int) round(($photo->getHeight() * CONTENT_PHOTO_MAX_WIDTH) / ($photo->getWidth()));
             }
 
-            $photo->resizeInPixel($new_with, $new_height, true);
-
+            $photo->cropInPixel($new_with, null, true);
+//            $photo->resizeInPixel($new_with, $new_height, true);
             //stamp zurag
             $photo->save(DIR_WEB . $file_path, $new_filename, false, null, 95, false);
             if ((int) CONTENT_PHOTO_SAVE_ORIGINAL == 1) {
@@ -78,7 +78,8 @@ if ($form->isValid($current_module)) {
         'date_created' => $date_time,
         'date_publish' => post('date_publish'),
         //10 jiliin daraa expire bolno
-        'date_expire' => $date_time->addYears(10)
+        'date_expire' => $date_time->addYears(10),
+        'module_name' => $current_module
             )
     );
     $last_insert_id = $object_db->save($object);

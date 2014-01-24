@@ -10,5 +10,4 @@
 css_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/css/demo_table.css', 9);
 js_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/js/jquery.dataTables.js', 9);
 
-$template->set('is_admin', \M\Config::get('is_admin'));
-$template->set('objects', \Object::fetchAll());
+$template->set('objects', \Object::fetchByModule('object'));

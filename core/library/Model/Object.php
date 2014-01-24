@@ -20,6 +20,20 @@ class Object extends D\Model\Object {
         return $objects;
     }
 
+    public static function fetchByModule($module = '') {
+
+        global $db;
+
+        $mapper_db = db_unit($db, __CLASS__);
+
+        $objects = $mapper_db->select(array(
+            'module' => $module . '%'
+//            'module' => "'" . $module . "%'"
+                ), "code LIKE :module");
+
+        return $objects;
+    }
+
     public static function getById($id) {
 
         global $db;

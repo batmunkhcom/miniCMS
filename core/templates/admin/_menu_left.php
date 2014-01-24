@@ -15,6 +15,7 @@
             <li><a  href="<?php echo get_url('admin_category_list') ?>"><?php echo __('Category module'); ?></a></li>
             <li><a  href="<?php echo get_url('admin_content_list') ?>"><?php echo __('Content module'); ?></a></li>
             <li><a  href="<?php echo get_url('admin_real_estate_list') ?>"><?php echo __('Real estate module'); ?></a></li>
+            <li><a  href="<?php echo get_url('admin_gazar_list') ?>"><?php echo __('Places'); ?></a></li>
             <li><a  href="<?php echo get_url('admin_tag_list') ?>"><?php echo __('Tag module'); ?></a></li>
             <li><a  href="<?php echo get_url('admin_photo_list') ?>"><?php echo __('Photo module'); ?></a></li>
             <li><a  href="<?php echo get_url('admin_comment_list') ?>"><?php echo __('Comment module'); ?></a></li>

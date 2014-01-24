@@ -43,7 +43,8 @@ class Object extends AbstractEntity {
         'hits',
         'date_created',
         'date_publish',
-        'date_expire');
+        'date_expire',
+        'module_name');
 
     /**
      * field info:
@@ -507,6 +508,23 @@ class Object extends AbstractEntity {
      */
     public function setDateExpire($date_expire) {
         $this->fields["date_expire"] = $date_expire;
+
+        return $this;
+    }
+
+    /**
+     * field info:
+     *    name: module_name
+     *    type:
+     *    null:       YES
+     *    default:
+     *    extra:
+     *    generated:  2014-01-17 02:17:00 am
+     * @param $module_name  Object iin module_name
+     * @return object
+     */
+    public function setModuleName($module_name) {
+        $this->fields["module_name"] = $module_name;
 
         return $this;
     }
