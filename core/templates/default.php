@@ -45,38 +45,48 @@
                             <span class="fa fa-bar"></span>
                             <span class="fa fa-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html">mini<span>CMS</span>&trade;</a>
+                        <a class="navbar-brand" href="#">mBm<span> TECHNOLOGY</span> LLC</a>
                     </div>
                     <div class="navbar-collapse collapse ">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Service</a></li>
+                            <li class="active"><a href="#">Нүүр хуудас</a></li>
+                            <li><a href="services.html"></a></li>
                             <li class="dropdown ">
-                                <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Feature <b class=" fa fa-angle-down"></b></a>
+                                <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Үйлчилгээ<b class=" fa fa-angle-down"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="typography.html">Typography</a></li>
-                                    <li><a href="button.html">Buttons</a></li>
+                                    <li><a href="#">Вэб хөгжүүлэлт</a></li>
+                                    <li><a href="#">Вэб хостинг</a></li>
+                                    <li><a href="#">Buttons</a></li>
+                                    <li><a href="#">Buttons</a></li>
                                 </ul>
                             </li>
-                            <li><a href="portfolio.html">Portfolio</a></li>
-                            <li><a href="price.html">Price</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li class="dropdown ">
+                                <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">miniCMS &trade;<b class=" fa fa-angle-down"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Танилцуулга</a></li>
+                                    <li><a href="#">Боломжууд</a></li>
+                                    <li><a href="#">Технологи</a></li>
+                                    <li><a href="#">Давуу тал</a></li>
+                                    <li><a href="#">Гарын авлага</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Бүтээл</a></li>
+                            <li><a href="#">Тусламж</a></li>
+                            <li><a href="#">Мэдээ</a></li>
                             <li class="dropdown language">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" src="/assets/flatlab/frontend/img/flags/us.png">
-                                    <span class="username">US</span>
+                                    <img alt="" src="/assets/flatlab/frontend/img/flags/mn.png">
+                                    <span class="username">Монгол</span>
                                     <b class=" fa fa-angle-down"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><img alt="" src="/assets/flatlab/frontend/img/flags/es.png"> Spanish</a></li>
-                                    <li><a href="#"><img alt="" src="/assets/flatlab/frontend/img/flags/de.png"> German</a></li>
-                                    <li><a href="#"><img alt="" src="/assets/flatlab/frontend/img/flags/ru.png"> Russian</a></li>
-                                    <li><a href="#"><img alt="" src="/assets/flatlab/frontend/img/flags/fr.png"> French</a></li>
+                                    <li><a href="#"><img alt="" src="/assets/flatlab/frontend/img/flags/gb.png"> Англи</a></li>
+                                    <li><a href="#"><img alt="" src="/assets/flatlab/frontend/img/flags/ru.png"> Орос</a></li>
+                                    <li><a href="#"><img alt="" src="/assets/flatlab/frontend/img/flags/es.png"> Испани</a></li>
+                                    <li><a href="#"><img alt="" src="/assets/flatlab/frontend/img/flags/ae.png"> Араб</a></li>
                                 </ul>
                             </li>
-                            <li><input type="text" placeholder=" Search" class="form-control search"></li>
+                            <li><input type="text" placeholder=" Хайлт хийх.." class="form-control search"></li>
                         </ul>
                     </div>
                 </div>
@@ -88,7 +98,66 @@
         <div class="fullwidthbanner-container main-slider">
             <div class="fullwidthabnner">
                 <ul id="revolutionul" style="display:none;">
-                    <!-- 1st slide -->
+                    
+
+                    <!-- 1st slide  -->
+                    <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="">
+                        <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
+                        <img src="/assets/flatlab/frontend/img/banner/banner_bg.jpg" alt="">
+                        <div class="caption lft slide_title"
+                             data-x="10"
+                             data-y="125"
+                             data-speed="400"
+                             data-start="1500"
+                             data-easing="easeOutExpo">
+                            mBm TECHNOLOGY LLC
+                        </div>
+                        <div class="caption lft slide_subtitle dark-text"
+                             data-x="10"
+                             data-y="180"
+                             data-speed="400"
+                             data-start="2000"
+                             data-easing="easeOutExpo">
+                             Шуурхай, найдвартай, баталгаатай үйлчилгээ
+                        </div>
+                        <div class="caption lft slide_desc dark-text"
+                             data-x="10"
+                             data-y="240"
+                             data-speed="400"
+                             data-start="2500"
+                             data-easing="easeOutExpo">
+                            - Вэб сайт, гар утас, дэлгэцийн программ хангамж хөгжүүлэлт <br>
+                            - Вэб байрлуулах талбар олгох, домэйн нэр олгох үйлчилгээ<br>
+                            - Сургалт явуулах, зөвлөгөө өгөх үйлчилгэээ
+                        </div>
+                        <a class="caption lft slide_btn btn red slide_item_left" href="#" target="_blank"
+                           data-x="10"
+                           data-y="360"
+                           data-speed="400"
+                           data-start="3000"
+                           data-easing="easeOutExpo">
+                            Дэлгэрэнгүй
+                        </a>
+                        <div class="caption lft start"
+                             data-x="640"
+                             data-y="55"
+                             data-speed="400"
+                             data-start="2000"
+                             data-easing="easeOutBack"  >
+                            <img src="/assets/flatlab/frontend/img/banner/man1.png" alt="man">
+                        </div>
+                        <div class="caption lft slide_item_right"
+                             data-x="330"
+                             data-y="20"
+                             data-speed="500"
+                             data-start="5000"
+                             data-easing="easeOutBack">
+                            <img src="/assets/flatlab/frontend/img/banner/test_man.png" id="rev-hint2" alt="txt img">
+                        </div>
+
+                    </li>
+                    
+                    <!-- 2nd slide -->
                     <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="">
                         <div class="caption lfl slide_item_left"
                              data-x="10"
@@ -104,7 +173,7 @@
                              data-speed="400"
                              data-start="1000"
                              data-easing="easeOutExpo">
-                            Clean & Creative
+                            miniCMS v3 &trade;
                         </div>
 
                         <div class="caption lfr slide_subtitle dark-text"
@@ -113,7 +182,7 @@
                              data-speed="400"
                              data-start="2000"
                              data-easing="easeOutExpo">
-                            A Responsive Frontend Template
+                            Илүү хялбар, илүү хурдан
                         </div>
                         <div class="caption lfr slide_desc"
                              data-x="670"
@@ -121,81 +190,24 @@
                              data-speed="400"
                              data-start="2500"
                              data-easing="easeOutExpo">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem <br>
-                            accusantium doloremque laudantium, totam rem aperiam,<br>
-                            eaque ipsa quae ablic jiener.
+                            miniCMS буюу Вэбийн мэдээлэл боловсруулагч систем нь 2005 онд бүтээгдсэн <br>
+                            бөгөөд, шинэ хувилбар болох v3-аа 2014 онд гаргаад байна. Шинэ хувилбар <br>
+                            ажиллагааны хувьд энгийн, хялбар, ойлгомжтой болсон.
                         </div>
-                        <a class="caption lfr btn yellow slide_btn" href="http://thevectorlab.net/flatlab" target="_blank"
+                        <a class="caption lfr btn yellow slide_btn" href="#"
                            data-x="670"
                            data-y="400"
                            data-speed="400"
                            data-start="3500"
                            data-easing="easeOutExpo">
-                            Watch Dashboard
+                            Дэлгэрэнгүй
                         </a>
-
-                    </li>
-
-                    <!-- 2nd slide  -->
-                    <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="">
-                        <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                        <img src="/assets/flatlab/frontend/img/banner/banner_bg.jpg" alt="">
-                        <div class="caption lft slide_title"
-                             data-x="10"
-                             data-y="125"
-                             data-speed="400"
-                             data-start="1500"
-                             data-easing="easeOutExpo">
-                            YAHOOOOO. TWO IN ONE
-                        </div>
-                        <div class="caption lft slide_subtitle dark-text"
-                             data-x="10"
-                             data-y="180"
-                             data-speed="400"
-                             data-start="2000"
-                             data-easing="easeOutExpo">
-                            Admin & Fronend in a single bundle
-                        </div>
-                        <div class="caption lft slide_desc dark-text"
-                             data-x="10"
-                             data-y="240"
-                             data-speed="400"
-                             data-start="2500"
-                             data-easing="easeOutExpo">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem <br>
-                            accusantium doloremque laudantium, totam rem aperiam,<br>
-                            eaque ipsa quae ablic jiener.
-                        </div>
-                        <a class="caption lft slide_btn btn red slide_item_left" href="#" target="_blank"
-                           data-x="10"
-                           data-y="360"
-                           data-speed="400"
-                           data-start="3000"
-                           data-easing="easeOutExpo">
-                            Purchase Now
-                        </a>
-                        <div class="caption lft start"
-                             data-x="640"
-                             data-y="55"
-                             data-speed="400"
-                             data-start="2000"
-                             data-easing="easeOutBack"  >
-                            <img src="/assets/flatlab/frontend/img/banner/man.png" alt="man">
-                        </div>
-                        <div class="caption lft slide_item_right"
-                             data-x="330"
-                             data-y="20"
-                             data-speed="500"
-                             data-start="5000"
-                             data-easing="easeOutBack">
-                            <img src="/assets/flatlab/frontend/img/banner/test_man.png" id="rev-hint2" alt="txt img">
-                        </div>
 
                     </li>
 
                     <!-- 3rd slide  -->
                     <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400" data-thumb="">
-                        <img src="/assets/flatlab/frontend/img/banner/red-bg.jpg" alt="">
+                        <img src="/assets/flatlab/frontend/img/banner/white-bg.jpg" alt="">
                         <div class="caption lfl slide_item_right"
                              data-x="10"
                              data-y="105"
@@ -237,31 +249,31 @@
                             <img src="/assets/flatlab/frontend/img/banner/text_imac.png" id="rev-hint1" alt="Image 1">
                         </div>
 
-                        <div class="caption lfr slide_title slide_item_left yellow-txt"
+                        <div class="caption lfr slide_title slide_item_left"
                              data-x="670"
                              data-y="145"
                              data-speed="400"
                              data-start="3500"
                              data-easing="easeOutExpo">
-                            Full Responsive
+                            Цогц үйлилгээ
                         </div>
-                        <div class="caption lfr slide_subtitle slide_item_left"
+                        <div class="caption lfr slide_subtitle slide_item_left dark-text"
                              data-x="670"
                              data-y="200"
                              data-speed="400"
                              data-start="4000"
                              data-easing="easeOutExpo">
-                            And Awesome Flat Design
+                            Веб, мобайл, десктоп
                         </div>
-                        <div class="caption lfr slide_desc slide_item_left"
+                        <div class="caption lfr slide_desc slide_item_left dark-text"
                              data-x="670"
                              data-y="280"
                              data-speed="400"
                              data-start="4500"
                              data-easing="easeOutExpo">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem <br>
-                            accusantium doloremque laudantium, totam rem aperiam,<br>
-                            eaque ipsa quae ablic jiener.
+                            Бүх төрлийн веб сайт <br>
+                            Андройд болон iOs ухаалаг утасны аппликешн,<br>
+                            Windows, Mac дэлгэцийн программууд.
                         </div>
 
 
