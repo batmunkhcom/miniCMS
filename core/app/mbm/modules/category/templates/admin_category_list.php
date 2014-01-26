@@ -20,15 +20,15 @@
         <section class="panel">
             <div class="panel-body">
                 <div class="adv-table">
-                    <table  class="display table table-bordered table-striped" id="categoryList">
+                    <table  class="display table table-bordered table-striped dataTable" id="categoryList">
                         <thead>
                             <tr>
-                                <th width="120"></th>
-                                <th width="50"><?php echo __('ID'); ?></th>
+                                <th></th>
+                                <th ><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Category name'); ?></th>
                                 <th width="60"><?php echo __('Status'); ?></th>
-                                <th width="60"><?php echo __('Hits'); ?></th>
-                                <th width="30" class="fa-ba"><?php echo __('18+'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Hits'); ?></th>
+                                <th  class="hidden-xs"><?php echo __('18+'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,8 +64,8 @@
                                     <td class="center">
                                         <?php echo printSt($category->st); ?>
                                     </td>
-                                    <td class="center"><span class="badge bg-warning"><?php echo $category->hits; ?></span></td>
-                                    <td class="center"><?php echo icon_1_0($category->is_adult); ?></td>
+                                    <td class="center hidden-xs"><span class="badge bg-warning"><?php echo $category->hits; ?></span></td>
+                                    <td class="center hidden-xs"><?php echo icon_1_0($category->is_adult); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -75,8 +75,8 @@
                                 <th>#</th>
                                 <th><?php echo __('Category name'); ?></th>
                                 <th><?php echo __('Status'); ?></th>
-                                <th><?php echo __('Hits'); ?></th>
-                                <th><?php echo __('18+'); ?></th>
+                                <th class=" hidden-xs"><?php echo __('Hits'); ?></th>
+                                <th class=" hidden-xs"><?php echo __('18+'); ?></th>
                             </tr>
                         </tfoot>
                     </table>

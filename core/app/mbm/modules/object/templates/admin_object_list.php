@@ -20,16 +20,16 @@
         <section class="panel">
             <div class="panel-body">
                 <div class="adv-table">
-                    <table  class="display table table-bordered table-striped table-responsive" id="objectList">
+                    <table  class="display table table-bordered dataTable" id="objectList">
                         <thead>
                             <tr>
-                                <th class="col-xs-2"></th>
-                                <th class="col-xs-1"><?php echo __('ID'); ?></th>
-                                <th class="col-xs-5"><?php echo __('Title'); ?></th>
-                                <th class="col-lg-1"><?php echo __('Username'); ?></th>
-                                <th class="col-lg-1"><?php echo __('Info'); ?></th>
-                                <th class="col-xs-1"><?php echo __('Status'); ?></th>
-                                <th class="col-lg-1"><?php echo __('Hits'); ?></th>
+                                <th></th>
+                                <th class="">#</th>
+                                <th class=""><?php echo __('Title'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Username'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Info'); ?></th>
+                                <th ><?php echo __('Status'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Hits'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,9 +54,9 @@
                                     <td><?php echo $object->id; ?>.</td>
                                     <td>
                                         <strong><?php echo $object->name; ?></strong>
-                                        <p><?php echo $object->content_brief; ?></p>
+                                        <p class="hidden-xs"><?php echo $object->content_brief; ?></p>
                                         <?php foreach (\Object::getCategories($object->id) as $category): ?>
-                                            <span class="badge bg-primary">
+                                            <span class="badge bg-primary hidden-xs">
                                                 <button data-dismiss="alert" class="close close-sm" type="button"
                                                         onclick="removeCategory(<?php echo $category->id . ',' . $object->id ?>)">
                                                     <i class="fa fa-times"></i>
@@ -65,8 +65,8 @@
                                             </span>
                                         <?php endforeach; ?>
                                     </td>
-                                    <td class="center"><?php echo \User::getById($object->user_id)->username; ?></td>
-                                    <td class="center"><?php
+                                    <td class="center hidden-xs"><?php echo \User::getById($object->user_id)->username; ?></td>
+                                    <td class="center hidden-xs"><?php
                                         echo ' <span class="badge bg-success" title="' . __('Created date') . ': ' . $object->date_created . '"><i class="fa fa-clock-o"></i></span>';
                                         echo ' <span class="badge bg-warning" title="' . __('Publish date') . ': ' . $object->date_publish . '"><i class="fa fa-clock-o"></i></span>';
                                         if ($object->date_expire) {
@@ -78,7 +78,7 @@
                                         echo printSt($object->st);
                                         ?>
                                     </td>
-                                    <td class="center">
+                                    <td class="center hidden-xs">
                                         <span class="badge bg-warning" style="font-weight: normal !important;">
                                             <?php echo number_format($object->hits); ?>
                                         </span>
@@ -90,12 +90,12 @@
                         <tfoot>
                             <tr>
                                 <th></th>
-                                <th>#</th>
-                                <th><?php echo __('Title'); ?></th>
-                                <th><?php echo __('Username'); ?></th>
-                                <th><?php echo __('Info'); ?></th>
-                                <th><?php echo __('Status'); ?></th>
-                                <th ><?php echo __('Hits'); ?></th>
+                                <th class=""><?php echo __('ID'); ?></th>
+                                <th class=""><?php echo __('Title'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Username'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Info'); ?></th>
+                                <th ><?php echo __('Status'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Hits'); ?></th>
                             </tr>
                         </tfoot>
                     </table>

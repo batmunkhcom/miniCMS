@@ -20,16 +20,16 @@
         <section class="panel">
             <div class="panel-body">
                 <div class="adv-table">
-                    <table  class="display table table-bordered table-striped" id="contentList">
+                    <table  class="display table table-bordered table-striped dataTable" id="contentList">
                         <thead>
                             <tr>
-                                <th width="120"></th>
-                                <th width="50"><?php echo __('ID'); ?></th>
+                                <th ></th>
+                                <th ><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Title'); ?></th>
-                                <th width="60"><?php echo __('Username'); ?></th>
-                                <th width="80"><?php echo __('Info'); ?></th>
-                                <th width="80"><?php echo __('Status'); ?></th>
-                                <th width="60"><?php echo __('Hits'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Username'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Info'); ?></th>
+                                <th ><?php echo __('Status'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Hits'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,10 +53,10 @@
                                     </td>
                                     <td><?php echo $content->id; ?>.</td>
                                     <td>
-                                        <strong><?php echo $content->title; ?></strong>
-                                        <p><?php echo $content->content_brief; ?></p>
+                                        <?php echo $content->title; ?>
+                                        <p class="hidden-xs"><?php echo $content->content_brief; ?></p>
                                         <?php foreach (\Content::getCategories($content->id) as $category): ?>
-                                            <span class="badge bg-primary">
+                                            <span class="badge bg-primary hidden-xs">
                                                 <button data-dismiss="alert" class="close close-sm" type="button"
                                                         onclick="removeCategory(<?php echo $category->id . ',' . $content->id ?>)">
                                                     <i class="fa fa-times"></i>
@@ -65,8 +65,8 @@
                                             </span>
                                         <?php endforeach; ?>
                                     </td>
-                                    <td class="center"><?php echo \User::getById($content->user_id)->username; ?></td>
-                                    <td class="center"><?php
+                                    <td class="center hidden-xs"><?php echo \User::getById($content->user_id)->username; ?></td>
+                                    <td class="center hidden-xs"><?php
                                         echo icon_content_type($content->content_type) . ' ';
                                         echo icon_date('createdDate', $content->date_created) . ' ';
                                         echo icon_date('publishDate', $content->date_publish);
@@ -76,7 +76,7 @@
                                         echo printSt($content->st);
                                         ?>
                                     </td>
-                                    <td class="center">
+                                    <td class="center hidden-xs">
                                         <span class="badge bg-warning" style="font-weight: normal !important;">
                                             <?php echo number_format($content->hits); ?>
                                         </span>
@@ -87,13 +87,13 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th></th>
-                                <th>#</th>
+                                <th ></th>
+                                <th ><?php echo __('ID'); ?></th>
                                 <th><?php echo __('Title'); ?></th>
-                                <th><?php echo __('Username'); ?></th>
-                                <th><?php echo __('Info'); ?></th>
-                                <th><?php echo __('Status'); ?></th>
-                                <th ><?php echo __('Hits'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Username'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Info'); ?></th>
+                                <th ><?php echo __('Status'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Hits'); ?></th>
                             </tr>
                         </tfoot>
                     </table>
