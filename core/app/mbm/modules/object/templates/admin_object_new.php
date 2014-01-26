@@ -9,7 +9,7 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                <?php echo __('Create object'); ?>
+                <?php echo __('Create ' . $current_module); ?>
             </header>
             <div class="panel-body">
                 <? /* Render whole form */ ?>
@@ -18,20 +18,20 @@
                     echo $form->render();
                 }
                 ?>
-
-                <script type="text/javascript">
-
-                    $(function() {
-                        $('#use_photo').removeAttr('checked');
-                        $('#element_photo').hide();
-                        $('#categories').multiSelect({
-                            selectableOptgroup: true
-                        });
-                        // Tags Input
-                        $(".tagsinput").tagsInput();
-                    });
-
-                </script>
             </div>
         </section>
     </div>
+
+    <script type="text/javascript">
+
+        $(function() {
+            $('#use_photo').removeAttr('checked');
+            $('#photo').hide();
+            $('#categories').multiSelect({
+                selectableOptgroup: true
+            });
+            // Tags Input
+            $(".tagsinput").tagsInput();
+        });
+
+    </script>

@@ -21,7 +21,7 @@
                 <script type="text/javascript">
                     $(function() {
                         $('#use_photo').removeAttr('checked');
-                        $('#element_photo').hide();
+                        $('#photo').hide();
                         $('#element_target').hide();
                         $('#categories').multiSelect({
                             selectableOptgroup: true

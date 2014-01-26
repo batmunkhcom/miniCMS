@@ -607,10 +607,7 @@ class Form {
      */
     public function fixElementId($name) {
 
-        $name = str_replace(array('[', ']'), '', $name);
-        $name = str_replace(array('-'), '_', $name);
-
-        return $name;
+        return fix_element_id($name);
     }
 
     /**

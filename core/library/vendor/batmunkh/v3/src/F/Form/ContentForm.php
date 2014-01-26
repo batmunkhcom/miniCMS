@@ -51,14 +51,15 @@ class ContentForm extends \F\Form {
         $form->addElement(__('Use photo'), 'use_photo', 'checkbox', array(
             'class' => 'form-control',
             'value' => 1,
-            'onclick' => "$('#element_photo').toggle();"
+            'onclick' => "$('#photo').toggle();"
                 ), array(), '');
 
-        $form->addElement(__('Content photo'), 'photo', 'input', array(
-            'class' => 'form-control',
-            'value' => files('photo', 'name'),
-            'type' => 'file'
-                ), array());
+        $form->addElement(__('Content photo'), 'photo', 'html', array(), array(), form_fileupload_with_preview('photo'));
+//        $form->addElement(__('Content photo'), 'photo', 'input', array(
+//            'class' => 'form-control',
+//            'value' => files('photo', 'name'),
+//            'type' => 'file'
+//                ), array());
 
         $form->addElement(__('Use comment'), 'use_comment', 'checkbox', array(
             'class' => 'form-control',
