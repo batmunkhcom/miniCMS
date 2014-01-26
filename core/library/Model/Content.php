@@ -59,7 +59,7 @@ class Content extends D\Model\Content {
 
         $cc = new \D\Mapper\ContentCategoryMapper($db, new \D\Model\Collection\EntityCollection);
 //        $mapper_db = db_mapper($db, 'ContentCategory');
-        $mapper_db = new \D\Mapper\CategoryMapper($db, new \D\Model\Collection\EntityCollection);
+        $mapper_db = db_mapper($db, 'Category');
         $categories = $mapper_db->select(array(
             'content_id' => $content_id
                 ), ' id IN (SELECT category_id FROM ' . $cc->getTableName() . ' WHERE content_id=:content_id)');

@@ -50,7 +50,7 @@ class Object extends D\Model\Object {
         global $db;
 
         $cc = new \D\Mapper\ObjectCategoryMapper($db, new \D\Model\Collection\EntityCollection);
-        $mapper_db = db_mapper($db, 'ObjectCategory');
+        $mapper_db = db_mapper($db, 'Category');
         $categories = $mapper_db->select(array(
             'object_id' => $object_id
                 ), ' id IN (SELECT category_id FROM ' . $cc->getTableName() . ' WHERE object_id=:object_id)');

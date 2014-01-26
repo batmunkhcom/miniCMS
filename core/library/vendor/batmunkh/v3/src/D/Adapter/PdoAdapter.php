@@ -131,7 +131,7 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
         if (strlen($where) > 2) {
             $sql .= "WHERE " . $where;
         }
-
+//        echo $sql . '<hr>';
 //        set_flash($sql);
         $this->prepare($sql)
                 ->execute($bind);

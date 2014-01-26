@@ -20,16 +20,16 @@
         <section class="panel">
             <div class="panel-body">
                 <div class="adv-table">
-                    <table  class="display table table-bordered table-striped" id="objectList">
+                    <table  class="display table table-bordered table-striped table-responsive" id="objectList">
                         <thead>
                             <tr>
-                                <th width="120"></th>
-                                <th width="50"><?php echo __('ID'); ?></th>
-                                <th><?php echo __('Title'); ?></th>
-                                <th width="60"><?php echo __('Username'); ?></th>
-                                <th width="80"><?php echo __('Info'); ?></th>
-                                <th width="80"><?php echo __('Status'); ?></th>
-                                <th width="60"><?php echo __('Hits'); ?></th>
+                                <th class="col-xs-2"></th>
+                                <th class="col-xs-1"><?php echo __('ID'); ?></th>
+                                <th class="col-xs-5"><?php echo __('Title'); ?></th>
+                                <th class="col-lg-1"><?php echo __('Username'); ?></th>
+                                <th class="col-lg-1"><?php echo __('Info'); ?></th>
+                                <th class="col-xs-1"><?php echo __('Status'); ?></th>
+                                <th class="col-lg-1"><?php echo __('Hits'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,7 +55,6 @@
                                     <td>
                                         <strong><?php echo $object->name; ?></strong>
                                         <p><?php echo $object->content_brief; ?></p>
-                                        <?php echo \Object::getCategories($object->id)->count(); ?>...
                                         <?php foreach (\Object::getCategories($object->id) as $category): ?>
                                             <span class="badge bg-primary">
                                                 <button data-dismiss="alert" class="close close-sm" type="button"
