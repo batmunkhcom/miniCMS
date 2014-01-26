@@ -7,10 +7,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+js_set_loadfile('/assets/flatlab/admin/js/bootstrap-switch.js', 90);
 js_set_loadfile('/assets/flatlab/admin/assets/fuelux/js/spinner.min.js', 91);
 js_set_loadfile('/assets/flatlab/admin/assets/bootstrap-fileupload/bootstrap-fileupload.js', 92);
 js_set_loadfile('/assets/flatlab/admin/assets/jquery-multi-select/js/jquery.multi-select.js', 93);
 js_set_loadfile('/assets/flatlab/admin/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js', 94);
+js_set_loadfile('/assets/flatlab/admin/js/jquery.tagsinput.js', 95);
+js_set_loadfile('/assets/flatlab/admin/js/ga.js', 96);
 //js_set_loadfile('/assets/flatlab/admin/js/advanced-form-components.js', 94);
 
 css_set_loadfile('/assets/flatlab/admin/assets/jquery-multi-select/css/multi-select.css', 91);

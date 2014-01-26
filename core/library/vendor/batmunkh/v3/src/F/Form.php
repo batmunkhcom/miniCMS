@@ -432,7 +432,7 @@ class Form {
      */
     public function checkbox($label, $name, $attributes, $validation, $text) {
         $buf = '';
-        $buf .= '<label class="control-label" for="' . $name . '" >' . "\n";
+        $buf .= '<label class="label_check c_on" for="' . $name . '" >' . "\n";
         $buf .= '<input name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
 
         if (isset($this->session['fields_data'][$name]) && $this->session['fields_data'][$name] == $attributes['value']) {

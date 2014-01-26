@@ -70,6 +70,13 @@ class ContentForm extends \F\Form {
             'value' => 1
                 ), array());
 
+        $form->addElement(__('Tags'), 'tagsinput', 'input', array(
+            'class' => 'form-control tagsinput',
+            'value' => post('tagsinput')
+                ), array(
+            'is_required' => 0
+        ));
+
         $form->addElement(__('Content brief'), 'content_brief', 'textarea', array(
             'class' => 'form-control',
             'value' => post('content_brief')

@@ -41,7 +41,9 @@ function ajax_load(url, data, title) {
                 show_notification_box(title + ':', msg);
             });
 }
-
+/**
+ * Notification haruulna
+ * */
 function show_notification_box(title, text, image, sticky, time) {
 
     if (!title) {

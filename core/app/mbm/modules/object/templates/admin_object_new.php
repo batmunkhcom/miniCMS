@@ -20,11 +20,17 @@
                 ?>
 
                 <script type="text/javascript">
-                    $('#use_photo').removeAttr('checked');
-                    $('#element_photo').hide();
-                    $('#categories').multiSelect({
-                        selectableOptgroup: true
+
+                    $(function() {
+                        $('#use_photo').removeAttr('checked');
+                        $('#element_photo').hide();
+                        $('#categories').multiSelect({
+                            selectableOptgroup: true
+                        });
+                        // Tags Input
+                        $(".tagsinput").tagsInput();
                     });
+
                 </script>
             </div>
         </section>

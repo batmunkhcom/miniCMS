@@ -12,4 +12,6 @@
 $is_enabled_module['object'] = 1;
 
 //object save hiideg action file path
-define("OBJECT_SAVE_ACTION_PATH", DIR_MODULE . 'object' . DS . 'action' . DS . 'admin_object_save.php');
+define("OBJECT_SAVE_ACTION_FILEPATH", DIR_MODULE . 'object' . DS . 'action' . DS . 'admin_object_save.php');
+define("OBJECT_NEW_ACTION_FILEPATH", DIR_MODULE . 'object' . DS . 'action' . DS . 'admin_object_new.php');
+define("OBJECT_NEW_TEMPLATE_FILEPATH", DIR_MODULE . 'object' . DS . 'templates' . DS . 'admin_object_new.php');
