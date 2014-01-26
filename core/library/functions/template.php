@@ -58,5 +58,7 @@ function set_template_variable($param, $value) {
 
 function set_template_file($module, $file) {
 
-    M\Config::set('tpl_file', DIR_MODULE . $module . '/templates/' . $file . '.php');
+    global $template;
+
+    $template->set_template_file(DIR_MODULE . $module . '/templates/' . $file . '.php');
 }

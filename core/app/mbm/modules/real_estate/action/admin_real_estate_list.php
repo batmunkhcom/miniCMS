@@ -11,4 +11,5 @@ css_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/css/demo
 js_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/js/jquery.dataTables.js', 9);
 
 $template->set('objects', \Object::fetchByModule('real_estate'));
+$template->set('current_module', 'real_estate');
 set_template_file('object', 'admin_object_list');

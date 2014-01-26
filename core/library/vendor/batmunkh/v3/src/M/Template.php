@@ -3,7 +3,7 @@
 /**
  * This file is part of the miniCMS package.
  * (c) since 2005 BATMUNKH Moltov <contact@batmunkh.com>
- * 
+ *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -16,14 +16,14 @@ namespace M;
  * @package    miniCMS
  * @subpackage -
  * @author     BATMUNKH Moltov <contact@batmunkh.com>
- * @version    SVN: $Id 
+ * @version    SVN: $Id
  */
 class Template extends Core {
 
     // template file iig render hiisen ur dun.
     // template file ruu damjuulah huvisagchuudiig $page_vars -d hadgalna
     private $page_vars = array();
-    // ali template file iig duudahiig $template_file -d zaaj ugnu 
+    // ali template file iig duudahiig $template_file -d zaaj ugnu
     private $template_file;
 
     // example: $template_file = new Template("helloworld/templates/helloworld.php");
@@ -36,10 +36,15 @@ class Template extends Core {
         $this->template_file = $template_file;
     }
 
-    // Example: 
+    public function set_template_file($template_file) {
+
+        $this->template_file = $template_file;
+    }
+
+    // Example:
     // action file-d daraah baidlaar templte ruu ilgeene
     // $template_file->set("title", "hello world");
-    // 
+    //
     // template file-d ashiglahdaa daraah baidlaar ashiglana:
     // <h1><?php echo $title; ? ></h1>
     public function set($var, $val) {
@@ -62,7 +67,7 @@ class Template extends Core {
         ob_start();
         if (file_exists($this->template_file)) {
             require($this->template_file);
-        }else{
+        } else {
             require(ERROR_MODULE_DIR . 'templates' . DS . '404_no_template_file.php');
         }
 

@@ -7,10 +7,11 @@
     <div class="col-lg-6">
         <header class="panel-heading">
             <?php echo __("Objects"); ?>
+            ..<?php echo $current_module; ?>
         </header>
     </div>
     <div class="col-lg-6 text-right">
-        <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_object_new'); ?>'">
+        <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_' . $current_module . '_new'); ?>'">
             <i class="fa fa-plus-circle"></i> <?php echo __('Add object'); ?>
         </button>
     </div>
@@ -43,7 +44,7 @@
                                             </button>
                                             <ul role="menu" class="dropdown-menu">
                                                 <li>
-                                                    <a href="<?php echo get_url('admin_object_edit', array('id' => $object->id)) ?>"><?php echo __('Edit object'); ?></a>
+                                                    <a href="<?php echo get_url('admin_' . $current_module . '_edit', array('id' => $object->id)) ?>"><?php echo __('Edit object'); ?></a>
                                                 </li>
                                                 <li><a href="#"><?php echo __('Delete object'); ?></a></li>
                                                 <li class="divider"></li>
