@@ -4,12 +4,12 @@
     </div>
 <?php endif; ?>
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-6 pull-left">
         <header class="panel-heading">
             <?php echo __($current_module); ?>
         </header>
     </div>
-    <div class="col-lg-6 text-right">
+    <div class="col-lg-6 text-right pull-right">
         <button type="button" class="btn btn-round btn-success" onclick="window.location = '<?php echo get_url('admin_' . $current_module . '_new'); ?>'">
             <i class="fa fa-plus-circle"></i> <?php echo __('Add object'); ?>
         </button>
@@ -55,6 +55,7 @@
                                     <td>
                                         <strong><?php echo $object->name; ?></strong>
                                         <p><?php echo $object->content_brief; ?></p>
+                                        <?php echo \Object::getCategories($object->id)->count(); ?>...
                                         <?php foreach (\Object::getCategories($object->id) as $category): ?>
                                             <span class="badge bg-primary">
                                                 <button data-dismiss="alert" class="close close-sm" type="button"
