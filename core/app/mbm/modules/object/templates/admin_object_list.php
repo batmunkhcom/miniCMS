@@ -55,15 +55,17 @@
                                     <td>
                                         <strong><?php echo $object->name; ?></strong>
                                         <p class="hidden-xs"><?php echo $object->content_brief; ?></p>
-                                        <?php foreach (\Object::getCategories($object->id) as $category): ?>
-                                            <span class="badge bg-primary hidden-xs">
-                                                <button data-dismiss="alert" class="close close-sm" type="button"
-                                                        onclick="removeCategory(<?php echo $category->id . ',' . $object->id ?>)">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                                <?php echo $category->name; ?>&nbsp;
-                                            </span>
-                                        <?php endforeach; ?>
+                                        <div class="hidden-xs">
+                                            <?php foreach (\Object::getCategories($object->id) as $category): ?>
+                                                <span class="badge bg-primary">
+                                                    <button data-dismiss="alert" class="close close-sm" type="button"
+                                                            onclick="ajax_load('<?php echo get_url('admin_object_delete_category') ?>', 'category_id=<?php echo $category->id; ?>&object_id=<?php echo $object->id; ?>', '<?php echo __('Category delete process'); ?>');">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <?php echo $category->name; ?>&nbsp;
+                                                </span>
+                                            <?php endforeach; ?>
+                                        </div>
                                     </td>
                                     <td class="center hidden-xs"><?php echo \User::getById($object->user_id)->username; ?></td>
                                     <td class="center hidden-xs"><?php
@@ -104,26 +106,11 @@
         </section>
     </div>
 </div>
-
 <script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function() {
         $('#objectList').dataTable({
             'bSort': false
         });
+
     });
-
-
-    function removeCategory(category_id, object_id) {
-        $.ajax({
-            type: "POST",
-            url: "<?php echo get_url('admin_object_delete_category') ?>",
-            data: {
-                category_id: category_id,
-                object_id: object_id
-            }
-        })
-                .done(function(msg) {
-                    alert(msg);
-                });
-    }
 </script>
