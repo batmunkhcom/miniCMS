@@ -6,8 +6,7 @@
 <div class="row">
     <div class="col-lg-6">
         <header class="panel-heading">
-            <?php echo __("Objects"); ?>
-            ..<?php echo $current_module; ?>
+            <?php echo __($current_module); ?>
         </header>
     </div>
     <div class="col-lg-6 text-right">
