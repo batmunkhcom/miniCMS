@@ -18,6 +18,7 @@
                             <h3><?php echo 'Photo #' . $photo->id; ?></h3>
                             <span><?php echo __('Uploaded by') . ': ' . \User::getById($photo->user_id)->username; ?></span>
                             <a class="fancybox" rel="group" href="<?php echo $photo->path; ?>"><?php echo __('View'); ?></a>
+                            <a href="<?php echo $photo->path; ?>"><?php echo __('Delete'); ?></a>
                         </figcaption>
                     </figure>
                 </li>

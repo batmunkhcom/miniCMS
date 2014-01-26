@@ -55,6 +55,15 @@
                                     <td>
                                         <strong><?php echo $object->name; ?></strong>
                                         <p><?php echo $object->content_brief; ?></p>
+                                        <?php foreach (\Object::getCategories($object->id) as $category): ?>
+                                            <span class="badge bg-primary">
+                                                <button data-dismiss="alert" class="close close-sm" type="button"
+                                                        onclick="removeCategory(<?php echo $category->id . ',' . $object->id ?>)">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                                <?php echo $category->name; ?>&nbsp;
+                                            </span>
+                                        <?php endforeach; ?>
                                     </td>
                                     <td class="center"><?php echo \User::getById($object->user_id)->username; ?></td>
                                     <td class="center"><?php
@@ -102,4 +111,19 @@
             'bSort': false
         });
     });
+
+
+    function removeCategory(category_id, object_id) {
+        $.ajax({
+            type: "POST",
+            url: "<?php echo get_url('admin_object_delete_category') ?>",
+            data: {
+                category_id: category_id,
+                object_id: object_id
+            }
+        })
+                .done(function(msg) {
+                    alert(msg);
+                });
+    }
 </script>

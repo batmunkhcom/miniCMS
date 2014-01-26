@@ -11,3 +11,4 @@ css_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/css/demo
 js_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/js/jquery.dataTables.js', 9);
 
 $template->set('objects', \Object::fetchByModule('gazar'));
+set_template_file('object', 'admin_object_list');

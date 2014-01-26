@@ -11,6 +11,7 @@ set_route('admin_object_list', '/admin/object');
 set_route('admin_object_new', '/admin/object/new');
 set_route('admin_object_save', '/admin/object/save');
 set_route('admin_object_edit', '/admin/object/edit/{id}');
+set_route('admin_object_delete_category', '/admin/object/delete/category');
 /*
  * admin route tohiruulah
  */
@@ -45,5 +46,14 @@ $router->with('/admin/object', function () use ($router) {
         set_action('admin_object_edit');
         set_get_parameter('id', $request->id);
         set_module('object');
+    });
+
+    //pbject category iig ustgah
+    $router->respond('POST', '/delete/category', function ($request, $response) {
+
+        set_module('object');
+        set_action('admin_object_delete_category');
+        set_get_parameter('object_id', $request->content_id);
+        set_get_parameter('category_id', $request->category_id);
     });
 });

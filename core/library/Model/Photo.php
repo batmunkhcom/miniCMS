@@ -28,6 +28,16 @@ class Photo extends D\Model\Photo {
         return $photos;
     }
 
+    public static function getAll($bind, $where, $options) {
+
+        global $db;
+
+        $photo_mapper = db_unit($db, 'Photo');
+        $photos = $photo_mapper->select($bind, $where, $options);
+
+        return $photos;
+    }
+
     /**
      * DROPZONE ii photo nuudiig update hiine.
      *

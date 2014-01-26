@@ -13,4 +13,4 @@ js_set_loadfile('/assets/flatlab/admin/assets/fancybox/source/jquery.fancybox.js
 js_set_loadfile('/assets/flatlab/admin/js/modernizr.custom.js', 92);
 js_set_loadfile('/assets/flatlab/admin/js/toucheffects.js', 93);
 
-$template->set('photos', \Photo::fetchAll());
+$template->set('photos', \Photo::getAll(array(), "id!=0 ORDER BY id DESC"));
