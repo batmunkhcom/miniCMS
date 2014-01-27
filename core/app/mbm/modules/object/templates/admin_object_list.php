@@ -45,7 +45,11 @@
                                                 <li>
                                                     <a href="<?php echo get_url('admin_' . $current_module . '_edit', array('id' => $object->id)) ?>"><?php echo __('Edit object'); ?></a>
                                                 </li>
-                                                <li><a href="#"><?php echo __('Delete object'); ?></a></li>
+                                                <li>
+                                                    <a href="#deleteObject" data-toggle="modal" data-target="modal" class="btn btn-xs btn-danger">
+                                                        <?php echo __('Delete object'); ?>
+                                                    </a>
+                                                </li>
                                                 <li class="divider"></li>
                                                 <li><a href="#">Separated link</a></li>
                                             </ul>
@@ -106,11 +110,16 @@
         </section>
     </div>
 </div>
+<div id="modal">
+    ddd
+</div>
 <script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function() {
         $('#objectList').dataTable({
             'bSort': false
         });
+
+        $('#deleteObject').modal();
 
     });
 </script>

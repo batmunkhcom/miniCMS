@@ -12,6 +12,14 @@
                 <?php echo __('Create ' . $current_module); ?>
             </header>
             <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="<?php echo get_url('admin_photo_save') ?>" class="dropzone" id="my-awesome-dropzone">
+                            <input type="hidden" name="module" value="real_estate">
+                            <input type="hidden" name="photo_type" value="slider">
+                        </form>
+                    </div>
+                </div>
                 <? /* Render whole form */ ?>
                 <?php
                 if ($flash_type != 'success') {
