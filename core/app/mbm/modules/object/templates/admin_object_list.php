@@ -46,7 +46,7 @@
                                                     <a href="<?php echo get_url('admin_' . $current_module . '_edit', array('id' => $object->id)) ?>"><?php echo __('Edit object'); ?></a>
                                                 </li>
                                                 <li>
-                                                    <a href="#deleteObject" data-toggle="modal" data-target="modal" class="btn btn-xs btn-danger">
+                                                    <a href="#myModal2" data-toggle="modal" data-target="modal" class="btn btn-xs btn-danger">
                                                         <?php echo __('Delete object'); ?>
                                                     </a>
                                                 </li>
@@ -110,16 +110,30 @@
         </section>
     </div>
 </div>
-<div id="modal">
-    ddd
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><?php echo __('Confirmation'); ?></h4>
+            </div>
+            <div class="modal-body">
+
+                <?php echo __('Do you really want to delete this item. If yes please click confirm button'); ?>
+
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button"><?php echo __('Close button'); ?></button>
+                <button class="btn btn-warning" type="button"><?php echo __('Confirm button'); ?></button>
+            </div>
+        </div>
+    </div>
 </div>
 <script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function() {
         $('#objectList').dataTable({
             'bSort': false
         });
-
-        $('#deleteObject').modal();
 
     });
 </script>
