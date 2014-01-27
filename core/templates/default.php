@@ -45,7 +45,7 @@
                             <span class="fa fa-bar"></span>
                             <span class="fa fa-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">mBm<span> TECHNOLOGY</span> LLC</a>
+                        <a class="navbar-brand" href="#"><span> miniCMSv3</span></a>
                     </div>
                     <div class="navbar-collapse collapse ">
                         <ul class="nav navbar-nav">
