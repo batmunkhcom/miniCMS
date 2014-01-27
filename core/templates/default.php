@@ -45,7 +45,7 @@
                             <span class="fa fa-bar"></span>
                             <span class="fa fa-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"><span> miniCMSv3</span></a>
+                        <a class="navbar-brand" href="#"><span> miniCMS v3</span></a>
                     </div>
                     <div class="navbar-collapse collapse ">
                         <ul class="nav navbar-nav">
@@ -76,7 +76,7 @@
                             <li class="dropdown language">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                     <img alt="" src="/assets/flatlab/frontend/img/flags/mn.png">
-                                    <span class="username">Монгол</span>
+                                    <span class="username"></span>
                                     <b class=" fa fa-angle-down"></b>
                                 </a>
                                 <ul class="dropdown-menu">
