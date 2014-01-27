@@ -36,16 +36,9 @@
                                 <tr >
                                     <td class="center">
                                         <div class="btn-group">
-                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle btn-sm" type="button">
-                                                <?php echo __('Commands'); ?>
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul role="menu" class="dropdown-menu">
-                                                <li><a href="<?php echo get_url('admin_category_edit', array('id' => $category->id)) ?>"><?php echo __('Edit category'); ?></a></li>
-                                                <li><a href="#"><?php echo __('Delete category'); ?></a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Separated link</a></li>
-                                            </ul>
+                                            <a class="btn btn-default" ><i class="fa fa-eye"></i></a>
+                                            <a class="btn btn-warning" href="<?php echo get_url('admin_category_edit', array('id' => $category->id)) ?>"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                                         </div>
                                     </td>
                                     <td class="text-center"><?php echo $category->id; ?>.</td>
