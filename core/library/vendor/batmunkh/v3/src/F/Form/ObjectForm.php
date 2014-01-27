@@ -62,14 +62,16 @@ class ObjectForm extends \F\Form {
         $form->addElement(__('Use photo'), 'use_photo', 'checkbox', array(
             'class' => 'form-control',
             'value' => 1,
-            'onclick' => "$('#element_photo').toggle();"
+            'onclick' => "$('#photo').toggle();"
                 ), array(), '');
 
-        $form->addElement(__('Object photo'), 'photo', 'input', array(
-            'class' => 'form-control',
-            'value' => files('photo', 'name'),
-            'type' => 'file'
-                ), array());
+        $form->addElement(__('Object photo'), 'photo', 'html', array(), array(), form_fileupload_with_preview('photo'));
+//
+//        $form->addElement(__('Object photo'), 'photo', 'input', array(
+//            'class' => 'form-control',
+//            'value' => files('photo', 'name'),
+//            'type' => 'file'
+//                ), array());
 
 
         $form->addElement(__('Date to publish'), 'date_publish', 'datetime', array(
@@ -154,6 +156,13 @@ class ObjectForm extends \F\Form {
                 }
             }
         }
+
+        $form->addElement(__('Tags'), 'tagsinput', 'input', array(
+            'class' => 'form-control tagsinput',
+            'value' => post('tagsinput')
+                ), array(
+            'is_required' => 0
+        ));
 
         $form->addElement(__('Content brief'), 'content_brief', 'textarea', array(
             'class' => 'form-control',

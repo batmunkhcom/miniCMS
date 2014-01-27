@@ -23,4 +23,57 @@ function elFinderBrowser(field_name, url, type, win) {
     });
     return false;
 }
+/**
+ * @param {string} url descriptionurl /page/url geh met
+ * @param {string} data a=123&b=my_text_value geh met
+ * */
+function ajax_load(url, data, title) {
+    if (!title) {
+        title = 'Command result';
+    }
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data
+    })
+            .done(function(msg) {
+                //alert(msg);
+                show_notification_box(title + ':', msg);
+            });
+}
+/**
+ * Notification haruulna
+ * */
+function show_notification_box(title, text, image, sticky, time) {
 
+    if (!title) {
+        title = 'No title';
+    }
+    if (!text) {
+        text = 'No data';
+    }
+    if (!image) {
+        image = '';
+    }
+    if (!sticky) {
+        sticky = false;
+    }
+    if (!time) {
+        time = '';
+    }
+
+    $.gritter.add({
+        // (string | mandatory) the heading of the notification
+        title: title,
+        // (string | mandatory) the text inside the notification
+        text: text,
+        // (string | optional) the image to display on the left
+        image: image,
+        // (bool | optional) if you want it to fade out on its own or just sit there
+        sticky: sticky,
+        // (int | optional) the time you want it to be alive for before fading out
+        time: time
+    });
+
+    return false;
+}

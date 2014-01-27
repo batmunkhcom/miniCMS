@@ -21,12 +21,21 @@
                 <script type="text/javascript">
                     $(function() {
                         $('#use_photo').removeAttr('checked');
-                        $('#element_photo').hide();
+                        $('#photo').hide();
                         $('#element_target').hide();
                         $('#categories').multiSelect({
                             selectableOptgroup: true
                         });
+
+                        // Tags Input
+                        $(".tagsinput").tagsInput();
+
+                        // Switch
+//                        $("[data-toggle='switch']").wrap('<div class="switch" />').parent().bootstrapSwitch();
                     });
+
+
+
                 </script>
             </div>
         </section>

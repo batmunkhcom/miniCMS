@@ -55,15 +55,17 @@
                                     <td>
                                         <?php echo $content->title; ?>
                                         <p class="hidden-xs"><?php echo $content->content_brief; ?></p>
-                                        <?php foreach (\Content::getCategories($content->id) as $category): ?>
-                                            <span class="badge bg-primary hidden-xs">
-                                                <button data-dismiss="alert" class="close close-sm" type="button"
-                                                        onclick="removeCategory(<?php echo $category->id . ',' . $content->id ?>)">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                                <?php echo $category->name; ?>&nbsp;
-                                            </span>
-                                        <?php endforeach; ?>
+                                        <div class="hidden-xs">
+                                            <?php foreach (\Content::getCategories($content->id) as $category): ?>
+                                                <span class="badge bg-primary">
+                                                    <button data-dismiss="alert" class="close close-sm" type="button"
+                                                            onclick="ajax_load('<?php echo get_url('admin_content_delete_category') ?>', 'category_id=<?php echo $category->id; ?>&content_id=<?php echo $content->id; ?>', '<?php echo __('Remove content category'); ?>');">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <?php echo $category->name; ?>&nbsp;
+                                                </span>
+                                            <?php endforeach; ?>
+                                        </div>
                                     </td>
                                     <td class="center hidden-xs"><?php echo \User::getById($content->user_id)->username; ?></td>
                                     <td class="center hidden-xs"><?php
@@ -110,17 +112,4 @@
         });
     });
 
-    function removeCategory(category_id, content_id) {
-        $.ajax({
-            type: "POST",
-            url: "<?php echo get_url('admin_content_delete_category') ?>",
-            data: {
-                category_id: category_id,
-                content_id: content_id
-            }
-        })
-                .done(function(msg) {
-                    alert(msg);
-                });
-    }
 </script>
