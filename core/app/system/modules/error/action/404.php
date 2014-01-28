@@ -1,3 +1,3 @@
 <?php
 
-set_layout('empty');
+set_layout('404');

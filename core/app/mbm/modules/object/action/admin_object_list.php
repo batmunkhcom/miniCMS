@@ -18,5 +18,11 @@ css_set_loadfile('/assets/flatlab/admin/assets/gritter/css/jquery.gritter.css', 
 js_set_loadfile('/assets/flatlab/admin/assets/advanced-datatable/media/js/jquery.dataTables.js', 9);
 js_set_loadfile('/assets/flatlab/admin/assets/gritter/js/jquery.gritter.js', 91);
 
-$template->set('objects', \Object::fetchByModule('object'));
-$template->set('current_module', 'object');
+if (!isset($current_module)) {
+    $current_module = 'object';
+}
+$template->set('objects', \Object::fetchByModule($current_module));
+$template->set('current_module', $current_module);
+
+//olon gazar ashiglah tul template file iig davhar zaaj ugnu
+set_template_file('object', 'admin_object_list');

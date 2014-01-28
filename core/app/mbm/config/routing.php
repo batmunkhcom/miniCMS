@@ -21,6 +21,10 @@
  * .[:format]?          - 'format' - a / or . duriin format. optional
  * /?                   - / -r tugsuj bolno tugsuhgui bsan ch bolno
  */
+set_route('home_page', '/');
+set_route('homepage', '/');
+set_route('home', '/');
+
 /**
  * Route tohiruulj bna. suuld haa negteei shuud get_route('admin_home') gej ashiglaj link zaaj bolno.
  */
