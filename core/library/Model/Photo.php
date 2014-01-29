@@ -54,7 +54,7 @@ class Photo extends D\Model\Photo {
                 ), "code=:code");
 
         foreach ($photos as $photo) {
-            $_photo = $db->fetchById($photo->id);
+            $_photo = $photos_mapper->fetchById($photo->id);
             $_photo->code = $code;
             $photos_mapper->registerDirty($_photo);
 
