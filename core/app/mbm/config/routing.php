@@ -42,10 +42,19 @@ $router->respond('GET', '/test.php', function ($request, $response, $service, $a
     set_action(DEFAULT_ACTION);
 });
 
+
 //admin gej ehleegui buh huudsuud
 $router->respond('!@^/admin', function() {
     \M\Config::set('is_admin', 0);
-    set_layout('default');
+    set_layout(DEFAULT_LAYOUT);
+});
+
+//flatroom
+$router->respond('@^/flatroom', function() {
+    \M\Config::set('is_admin', 0);
+    set_layout('flatroom');
+    set_module('home');
+    set_action('index');
 });
 
 //admin gej ehlesen tohioldold buh huudsuud

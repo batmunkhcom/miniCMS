@@ -30,7 +30,11 @@ function set_layout($name) {
     //tuhain layout bgaa esehiig shalgaad bval onoono
     if (file_exists(DIR_TEMPLATE . $name . '.php')) {
 
+        log_send('layout set to "' . $name . '" file: ' . DIR_TEMPLATE . $name . '.php', 6);
         return \M\Config::set('layout', $name);
+    } else {
+
+        log_send('Not found: ' . DIR_TEMPLATE . $name . '.php', 1);
     }
 
     return false;
@@ -56,6 +60,12 @@ function set_template_variable($param, $value) {
     $template->set($param, $value);
 }
 
+/**
+ * Onoogdson module file iin template iig duudna. action-d ihevchlen ashiglagdana
+ *
+ * @param string $module Module iin ner
+ * @param string $file Module iin template file iin ner
+ */
 function set_template_file($module, $file) {
 
     global $template;
