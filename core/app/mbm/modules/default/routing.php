@@ -23,6 +23,13 @@ $router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service
     return '';
 });
 
+//default home
+$router->respond('GET', '/default?', function ($request, $response) {
+
+    set_module('default');
+    set_action('index');
+    set_layout('empty');
+});
 
 /*
  * admin route tohiruulah
@@ -31,42 +38,4 @@ $router->respond('GET', '/r.*/[i:id].*', function ($request, $response, $service
 
 $router->with('/admin/default', function () use ($router) {
 
-    //default home
-    $router->respond('GET', '/?', function ($request, $response) {
-
-        set_module('default');
-        set_action('index');
-        set_layout('empty');
-    });
-
-    //default create
-    $router->respond('GET', '/new', function ($request, $response) {
-
-        set_module('default');
-        set_action('admin_default_new');
-    });
-
-    //default save
-    $router->respond('POST', '/save', function ($request, $response) {
-
-        set_module('default');
-        set_action('admin_default_save');
-    });
-
-    //default update
-    $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
-
-        set_module('default');
-        set_action('admin_default_edit');
-        set_get_parameter('id', $request->id);
-    });
-
-    //default category iig ustgah
-    $router->respond('POST', '/delete/category', function ($request, $response) {
-
-        set_module('default');
-        set_action('admin_default_delete_category');
-        set_get_parameter('default_id', $request->default_id);
-        set_get_parameter('category_id', $request->category_id);
-    });
 });

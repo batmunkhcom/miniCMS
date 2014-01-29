@@ -1,0 +1,97 @@
+.home-map #map-canvas {
+  height: 760px;
+}
+.hidden {
+  display: none;
+}
+.home-map img.propery-thumbnail-marker {
+  float: left;
+  padding-top: 4px;
+  padding-right: 6px;
+}
+
+.home-map .property .images img {
+  width: 248px;
+  height: 168px;
+}
+
+.home-map img, #property-map img {
+  max-width: none;
+}
+
+.home-map *, #property-map * {
+  border-style: none;
+}
+
+.home-map .property {
+  width: 250px;
+}
+
+#property-map {
+  height: 429px;
+}
+#property-map iframe {
+  height: 100%;
+  width: 100%;
+}
+
+.span3 .property .location {
+  height: 20px;
+  overflow: hidden;
+}
+
+.span3 .property h3.property-title {
+  height: 26px;
+  overflow: hidden;
+}
+
+.agent-view .agent .autor-meta .email {
+  margin-right: 30px;
+}
+
+.enquire-status .status-success {
+  color: #ADD6FF;
+}
+
+.enquire-status .status-error {
+  color: #E86C6C;
+}
+
+.property-view .map, .property-view .agent-info {
+  margin-bottom: 21px;
+}
+
+.search-agents {
+  position: relative;
+  margin-bottom: 28px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.agents-not-found {
+  padding: 10px;
+}
+.search-agents img {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.sbHolder ul.sbOptions li a span.not-any {
+  display: none;
+}
+
+.sbHolder a.sbSelector span.any {
+  display: none;
+}
+
+.property-loader img {
+  margin-top: 75px;
+  margin-left: 108px;
+}
+
+#map-canvas > div.gm-style > div.gmnoprint[style="z-index: 1; margin: 3px; position: absolute; right: 0px; top: 0px;"] {
+  margin-top: 180px !important;
+}
