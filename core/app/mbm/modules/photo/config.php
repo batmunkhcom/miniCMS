@@ -13,7 +13,7 @@ $is_enabled_module['photo'] = 1;
 
 
 //media file iin properties
-define("MEDIA_PHOTO_MAX_WIDTH", 800);
-define("MEDIA_PHOTO_MAX_HEIGHT", 600);
-define("MEDIA_PHOTO_SAVE_ORIGINAL", 1);
+define("MEDIA_PHOTO_MAX_WIDTH", 649);
+define("MEDIA_PHOTO_MAX_HEIGHT", 487);
+define("MEDIA_PHOTO_SAVE_ORIGINAL", 0);
 define("MEDIA_PHOTO_SAVE_ORIGINAL_PATH", CONTENT_PHOTO_SAVE_ORIGINAL_PATH);
