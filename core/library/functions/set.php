@@ -18,6 +18,7 @@
 function set_application($app) {
 
     \M\Config::set('app_current', $app);
+    log_send('App set to "' . $app . '"', 6);
 }
 
 /**
@@ -30,6 +31,8 @@ function set_application($app) {
 function set_module($module) {
 
     \M\Config::set('module_current', $module);
+
+    log_send('Module set to "' . $module . '"', 6);
 
     return \M\Config::get('module_current');
 }
@@ -48,6 +51,8 @@ function set_action($action) {
     M\Config::set('action_enabled', $actions_enabled);
 
     \M\Config::set('action_current', $action);
+
+    log_send('Action set to "' . $action . '"', 6);
 
     return \M\Config::get('action_current');
 }

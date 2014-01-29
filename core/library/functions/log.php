@@ -166,7 +166,14 @@ function log_send($message, $error_code) {
         return false;
     }
 
+    $bt = debug_backtrace();
+
     $logger->log(
-            $error_code, $message, array('domain' => DOMAIN)
+            $error_code, $message, array(
+        'domain' => DOMAIN,
+        'file' => $bt[0]['file'],
+        'line' => $bt[0]['line'],
+        'uri' => $_SERVER['SCRIPT_FILENAME']
+            )
     );
 }
