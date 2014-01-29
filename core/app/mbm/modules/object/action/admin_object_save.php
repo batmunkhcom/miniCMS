@@ -128,7 +128,7 @@ if ($form->isValid($current_module)) {
 
 
     set_flash(__('Object has been created'), 'success');
-    $session->clearKey('object');
+    $session->clearKey($current_module);
 
     header("Location: " . get_url('admin_' . $current_module . '_list'));
 } else {

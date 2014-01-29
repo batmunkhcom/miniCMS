@@ -72,3 +72,15 @@ function set_template_file($module, $file) {
 
     $template->set_template_file(DIR_MODULE . $module . '/templates/' . $file . '.php');
 }
+
+/**
+ * Layout iin tuslah file iig duudah
+ *
+ * @param string $filename DIR_TEMPLATE/filename.php gesen ug
+ */
+function load_layout_component($filename, $var = array()) {
+
+    if (file_exists(DIR_TEMPLATE . $filename . '.php')) {
+        require DIR_TEMPLATE . $filename . '.php';
+    }
+}
