@@ -38,7 +38,13 @@
                                                             <img src="/assets/flatroom/1/content/properties/small/4.png" alt="">
                                                         </a>
                                                         <a href="property.html">
-                                                            <img src="/assets/flatroom/1/content/properties/small/5.png" alt="">
+                                                            <img src="/assets/flatroom/1/content/properties/small/4.png" alt="">
+                                                        </a>
+                                                        <a href="property.html">
+                                                            <img src="/assets/flatroom/1/content/properties/small/4.png" alt="">
+                                                        </a>
+                                                        <a href="property.html">
+                                                            <img src="/assets/flatroom/1/content/properties/small/4.png" alt="">
                                                         </a>
                                                     </div>
 

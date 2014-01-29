@@ -98,11 +98,11 @@
 
         <div class="header-icons-body">
             <div class="text email no-border">
-                <a href="mailto:example@itembridge.com">example@itembridge.com</a>
+                <a href="mailto:example@itembridge.com">info@zarzuuch.com</a>
             </div>
             <div class="text phone">
                 <span>Call Us:</span>
-                123-45-678
+                96901160
             </div>
             <div class="active search">
                 <form method="get" class="searchform">

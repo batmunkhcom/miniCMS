@@ -41,10 +41,7 @@
 
             <div id="main">
                 <div class="bg-images"></div>
-                <?php require_once(DIR_TEMPLATE . 'flatroom' . DS . 'home_slider.php'); ?>
-                <?php require_once(DIR_TEMPLATE . 'flatroom' . DS . 'home_tabs.php'); ?>
-                <?php require(DIR_TEMPLATE . 'flatroom' . DS . 'property.php'); ?>
-                <?php require(DIR_TEMPLATE . 'flatroom' . DS . 'property.php'); ?>
+                <?php require_once(DIR_TEMPLATE . 'flatroom' . DS . 'properties.php'); ?>
             </div><!-- #main -->
 
             <?php require_once(DIR_TEMPLATE . 'flatroom' . DS . 'footer.php'); ?>
