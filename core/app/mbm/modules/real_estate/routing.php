@@ -42,8 +42,8 @@ $router->with('/admin/real_estate', function () use ($router) {
     //real_estate update
     $router->respond('GET', '/edit/[i:id]', function ($request, $response) {
 
+        set_module('real_estate');
         set_action('admin_real_estate_edit');
         set_get_parameter('id', $request->id);
-        set_module('real_estate');
     });
 });
