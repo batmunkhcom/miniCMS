@@ -21,7 +21,7 @@ protected $entityTable = "m_objects";
         return new \D\Model\Object(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "user_id" => $row["user_id"],
 "lft" => $row["lft"],
 "rgt" => $row["rgt"],
@@ -45,7 +45,8 @@ protected $entityTable = "m_objects";
 "hits" => $row["hits"],
 "date_created" => $row["date_created"],
 "date_publish" => $row["date_publish"],
-"date_expire" => $row["date_expire"]
+"date_expire" => $row["date_expire"],
+"module_name" => $row["module_name"]
             )
         );
     }

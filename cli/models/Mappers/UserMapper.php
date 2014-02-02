@@ -21,7 +21,7 @@ protected $entityTable = "m_users";
         return new \D\Model\User(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "parent_id" => $row["parent_id"],
 "depth" => $row["depth"],
 "lft" => $row["lft"],

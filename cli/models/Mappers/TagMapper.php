@@ -21,7 +21,7 @@ protected $entityTable = "m_tags";
         return new \D\Model\Tag(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "lft" => $row["lft"],
 "rgt" => $row["rgt"],
 "parent_id" => $row["parent_id"],

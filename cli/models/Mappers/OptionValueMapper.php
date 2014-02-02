@@ -21,7 +21,7 @@ protected $entityTable = "m_option_values";
         return new \D\Model\OptionValue(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "code" => $row["code"],
 "option_id" => $row["option_id"],
 "option_value" => $row["option_value"],

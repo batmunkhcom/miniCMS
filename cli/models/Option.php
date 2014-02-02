@@ -37,7 +37,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $id  Option iin id
      * @return object
      */
@@ -63,7 +63,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $code  Option iin code
      * @return object
      */
@@ -85,7 +85,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $module  Option iin module
      * @return object
      */
@@ -107,7 +107,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $user_id  Option iin user_id
      * @return object
      */
@@ -129,7 +129,7 @@ return $this;
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $st  Option iin st
      * @return object
      */
@@ -151,7 +151,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $is_active  Option iin is_active
      * @return object
      */
@@ -173,7 +173,7 @@ return $this;
            *    null:       NO
            *    default:    input
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $form_tag  Option iin form_tag
      * @return object
      */
@@ -195,7 +195,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $group_name  Option iin group_name
      * @return object
      */
@@ -213,7 +213,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $title  Option iin title
      * @return object
      */
@@ -231,7 +231,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $descr  Option iin descr
      * @return object
      */
@@ -249,7 +249,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $date_created  Option iin date_created
      * @return object
      */

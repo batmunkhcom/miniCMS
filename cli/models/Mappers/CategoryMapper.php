@@ -21,7 +21,7 @@ protected $entityTable = "m_categories";
         return new \D\Model\Category(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "parent_id" => $row["parent_id"],
 "code" => $row["code"],
 "depth" => $row["depth"],

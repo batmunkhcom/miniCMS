@@ -21,7 +21,7 @@ protected $entityTable = "m_comments";
         return new \D\Model\Comment(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "parent_id" => $row["parent_id"],
 "lft" => $row["lft"],
 "rgt" => $row["rgt"],

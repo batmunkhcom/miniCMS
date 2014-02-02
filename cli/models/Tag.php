@@ -35,7 +35,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $id  Tag iin id
      * @return object
      */
@@ -61,7 +61,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $lft  Tag iin lft
      * @return object
      */
@@ -79,7 +79,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $rgt  Tag iin rgt
      * @return object
      */
@@ -97,7 +97,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $parent_id  Tag iin parent_id
      * @return object
      */
@@ -115,7 +115,7 @@ return $this;
            *    null:       YES
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $depth  Tag iin depth
      * @return object
      */
@@ -133,7 +133,7 @@ return $this;
            *    null:       NO
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $tag_value  Tag iin tag_value
      * @return object
      */
@@ -155,7 +155,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $score  Tag iin score
      * @return object
      */
@@ -173,7 +173,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $date_created  Tag iin date_created
      * @return object
      */
@@ -193,7 +193,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $date_updated  Tag iin date_updated
      * @return object
      */

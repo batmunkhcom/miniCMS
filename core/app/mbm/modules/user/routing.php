@@ -9,6 +9,7 @@
  */
 set_route('admin_user_list', '/admin/user');
 set_route('user_login', '/login');
+set_route('user_register', '/register');
 
 
 /* * *****FRONTEND ROUTING****** */
@@ -18,9 +19,16 @@ $router->respond('GET', '/login', function ($request, $response, $service, $app)
     set_application(APP_ENABLED);
     set_module('user');
     set_action('login');
-
-    return '';
 });
+$router->respond('GET', '/register', function ($request, $response, $service, $app) {
+
+    set_layout('empty');
+    set_application(APP_ENABLED);
+    set_module('user');
+    set_action('register');
+});
+
+
 /*
  * admin route tohiruulah
  */

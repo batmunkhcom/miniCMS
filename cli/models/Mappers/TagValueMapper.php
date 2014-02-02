@@ -21,7 +21,7 @@ protected $entityTable = "m_tag_values";
         return new \D\Model\TagValue(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "code" => $row["code"],
 "tag_id" => $row["tag_id"],
 "hits" => $row["hits"]

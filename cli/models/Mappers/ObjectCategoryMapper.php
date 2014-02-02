@@ -21,7 +21,7 @@ protected $entityTable = "m_object_categories";
         return new \D\Model\ObjectCategory(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "category_id" => $row["category_id"],
 "object_id" => $row["object_id"]
             )

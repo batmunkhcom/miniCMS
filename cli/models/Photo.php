@@ -42,7 +42,7 @@ protected $allowedFields = array(
            *    null:       NO
            *    default:    
            *    extra:      auto_increment
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $id  Photo iin id
      * @return object
      */
@@ -68,7 +68,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $user_id  Photo iin user_id
      * @return object
      */
@@ -90,7 +90,7 @@ return $this;
            *    null:       NO
            *    default:    inactive
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $st  Photo iin st
      * @return object
      */
@@ -112,7 +112,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $code  Photo iin code
      * @return object
      */
@@ -134,7 +134,7 @@ return $this;
            *    null:       NO
            *    default:    default
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $type  Photo iin type
      * @return object
      */
@@ -156,7 +156,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $path  Photo iin path
      * @return object
      */
@@ -174,7 +174,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $domain  Photo iin domain
      * @return object
      */
@@ -192,7 +192,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $height  Photo iin height
      * @return object
      */
@@ -214,7 +214,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $width  Photo iin width
      * @return object
      */
@@ -236,7 +236,7 @@ return $this;
            *    null:       NO
            *    default:    unknown
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $mimetype  Photo iin mimetype
      * @return object
      */
@@ -258,7 +258,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $filesize  Photo iin filesize
      * @return object
      */
@@ -280,7 +280,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $views  Photo iin views
      * @return object
      */
@@ -302,7 +302,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $hits  Photo iin hits
      * @return object
      */
@@ -324,7 +324,7 @@ return $this;
            *    null:       NO
            *    default:    0
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $downloads  Photo iin downloads
      * @return object
      */
@@ -346,7 +346,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $date_created  Photo iin date_created
      * @return object
      */
@@ -366,7 +366,7 @@ return $this;
            *    null:       YES
            *    default:    
            *    extra:      
-           *    generated:  2014-01-19 12:40:14 pm
+           *    generated:  2014-02-03 01:06:06 am
      * @param $date_expire  Photo iin date_expire
      * @return object
      */

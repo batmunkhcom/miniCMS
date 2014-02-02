@@ -21,7 +21,7 @@ protected $entityTable = "m_content_categories";
         return new \D\Model\ContentCategory(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "content_id" => $row["content_id"],
 "category_id" => $row["category_id"]
             )

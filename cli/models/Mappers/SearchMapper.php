@@ -21,7 +21,7 @@ protected $entityTable = "m_search";
         return new \D\Model\Search(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "tags" => $row["tags"],
 "title" => $row["title"],
 "descr" => $row["descr"],

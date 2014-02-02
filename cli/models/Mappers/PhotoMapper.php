@@ -21,7 +21,7 @@ protected $entityTable = "m_photos";
         return new \D\Model\Photo(
                 array(
                 
-"id" => $row["id"],
+"id" => (int)$row["id"],
 "user_id" => $row["user_id"],
 "st" => $row["st"],
 "code" => $row["code"],
