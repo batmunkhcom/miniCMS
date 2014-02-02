@@ -26,7 +26,7 @@
                                 <th></th>
                                 <th class="">#</th>
                                 <th class=""><?php echo __('Title'); ?></th>
-                                <th class="hidden-xs"><?php echo __('Username'); ?></th>
+                                <th class="hidden-xs"><?php echo __('Added by'); ?></th>
                                 <th class="hidden-xs"><?php echo __('Info'); ?></th>
                                 <th ><?php echo __('Status'); ?></th>
                                 <th class="hidden-xs"><?php echo __('Hits'); ?></th>
@@ -64,6 +64,7 @@
                                         ?>
                                         <strong><?php echo $object->name; ?></strong>
                                         <p class="hidden-xs"><?php echo $object->content_brief; ?></p>
+                                        <div class="clearfix"></div>
                                         <div class="hidden-xs">
                                             <?php foreach (\Object::getCategories($object->id) as $category): ?>
                                                 <span class="badge bg-primary">

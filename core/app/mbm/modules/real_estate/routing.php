@@ -11,6 +11,21 @@ set_route('admin_real_estate_list', '/admin/real_estate');
 set_route('admin_real_estate_new', '/admin/real_estate/new');
 set_route('admin_real_estate_save', '/admin/real_estate/save');
 set_route('admin_real_estate_edit', '/admin/real_estate/edit/{id}');
+set_route('real_estate_readmore', '/flatroom/real_estate/{id}');
+
+
+$router->with('/flatroom/real_estate/[i:id]', function () use ($router) {
+
+    //real_estate home
+    $router->respond('GET', '/?', function ($request, $response) {
+
+        set_module('real_estate');
+        set_action('readmore');
+
+        set_get_parameter('id', $request->id);
+    });
+});
+
 /*
  * admin route tohiruulah
  */

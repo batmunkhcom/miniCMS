@@ -1,43 +1,53 @@
 <div class="property">
     <div class="images-box property-images-container">
         <div class="images">
-            <a href="property.html">
-                <img src="/assets/flatroom/1/content//properties/small/1.png" alt="">
-            </a>
-            <a href="property.html">
-                <img src="/assets/flatroom/1/content//properties/small/2.png" alt="">
-            </a>
-            <a href="property.html">
-                <img src="/assets/flatroom/1/content//properties/small/3.png" alt="">
-            </a>
-            <a href="property.html">
-                <img src="/assets/flatroom/1/content//properties/small/4.png" alt="">
-            </a>
-            <a href="property.html">
-                <img src="/assets/flatroom/1/content//properties/small/5.png" alt="">
-            </a>
+
+            <?php
+//            $photos = \Photo::getPhotosByCode($object->code);
+            $photos = \Photo::getPhotosByCode($object->module_name . '_' . $object->id);
+            foreach ($photos as $photo) {
+                echo '<a href="property1.html">';
+                echo '<img src="' . $photo->path . '" alt="">';
+                echo '</a>';
+            }
+            unset($photos);
+            ?>
         </div>
         <div class="pagination switches"></div>
     </div>
 
     <div class="property-content">
         <div class="options">
-            <div class="area tooltip-link" data-toggle="tooltip" title="" data-original-title="Area">1400 m<sup>2</sup></div>
-            <div class="bedrooms tooltip-link" data-toggle="tooltip" title="" data-original-title="Bedrooms">2</div>
-            <div class="bathroom tooltip-link" data-toggle="tooltip" title="" data-original-title="Bathrooms">2</div>
+            <div class="area tooltip-link" data-toggle="tooltip" title="" data-original-title="<?php echo __('Area'); ?>">
+                <?php echo $object->measure_value; ?> <?php echo __($object->measure_name); ?>
+            </div>
+            <div class="area tooltip-link" data-toggle="tooltip" title="" data-original-title="<?php echo __('Date added'); ?>">
+                <?php echo substr($object->date_created, 0, 10); ?>
+            </div>
         </div>
 
         <h3 class="property-title no-border">
-            <a href="property.html">4512 Brookmill Rd, Downey, CA</a>
+            <a href="property.html"><?php echo $object->name; ?></a>
         </h3>
 
         <div class="location"><i class="fa fa-map-marker"></i> Los Angeles County, CA, USA</div>
 
-        <div class="description"><p>Head on city views in this renovated, furnished Pied a Terre. 2 units combined that allow for excellent separation of Bedrooms for privacy: master suite plus large 2nd bedroom; open living space with sliding doors to balcony overlooking the City Views....</div>
+        <div class="description"><p><?php echo $object->content_brief; ?></div>
 
         <div class="bottom-box">
-            <div class="pull-left">Rent</div>
-            <div class="pull-right">On Request</div>
+            <div class="pull-left">
+                <?php
+                echo number_format($object->price_total);
+                echo ' ' . $object->currency_code;
+                ?>
+            </div>
+            <div class="pull-right">
+                <a href="<?php
+                echo get_url('real_estate_readmore', array(
+                    'id' => $object->id
+                ));
+                ?>"><?php echo __('Read more'); ?></a>
+            </div>
         </div>
     </div>
 

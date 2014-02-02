@@ -85,18 +85,24 @@ class Object extends D\Model\Object {
      * ugugdsun object id aar category uudiig avah
      *
      * @param integer $object_id Object iin id
+     * @param string $module Yamar module iin object iig avah eseh
      * @return object Category object iig butsaana
      */
-    public static function getByCategory($category_id) {
+    public static function getByCategoryAndModule($category_id = 0, $module = 'object') {
 
         global $db;
 
         $oc = new \D\Mapper\ObjectCategoryMapper($db, new \D\Model\Collection\EntityCollection);
         $mapper_db = db_mapper($db, 'Object');
-        $objects = $mapper_db->select(array(
-            'category_id' => $category_id
-                ), ' id IN (SELECT object_id FROM ' . $oc->getTableName() . ' WHERE category_id=:category_id)');
 
+        if ($category_id == 0) {
+            $objects = self::fetchByModule($module);
+        } else {
+            $objects = $mapper_db->select(array(
+                'category_id' => $category_id,
+                'module' => $module
+                    ), ' module=:module AND id IN (SELECT object_id FROM ' . $oc->getTableName() . ' WHERE category_id=:category_id)');
+        }
         return $objects;
     }
 

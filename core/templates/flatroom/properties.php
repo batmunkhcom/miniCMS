@@ -71,9 +71,12 @@
                 </div>
 
                 <div class="properties-list">
-                    <?php for ($i = 1; $i < 10; $i++): ?>
+                    <?php
+                    $objects = \Object::fetchAll();
+                    ?>
+                    <?php foreach ($objects as $object): ?>
                         <?php require '_property_list.php'; ?>
-                    <?php endfor; ?>
+                    <?php endforeach; ?>
                 </div><!-- .properties-list -->
 
                 <div class="pagination">

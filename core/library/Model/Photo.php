@@ -66,4 +66,22 @@ class Photo extends D\Model\Photo {
         return $command;
     }
 
+    /**
+     * Code oor photog songoh
+     *
+     * @param string $code photo nii code
+     */
+    public static function getPhotosByCode($code = '') {
+
+        global $db;
+
+        $photos_mapper = db_unit($db, 'Photo');
+
+        $photos = $photos_mapper->select(array(
+            'code' => $code
+                ), "code=:code ORDER BY RAND()");
+
+        return $photos;
+    }
+
 }
