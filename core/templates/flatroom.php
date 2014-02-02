@@ -41,7 +41,8 @@
 
             <div id="main">
                 <div class="bg-images"></div>
-                <?php require_once(DIR_TEMPLATE . 'flatroom' . DS . '_property.php'); ?>
+                <?php load_template($template); ?>
+                <?php // require_once(DIR_TEMPLATE . 'flatroom' . DS . '_property.php'); ?>
                 <?php // require_once(DIR_TEMPLATE . 'flatroom' . DS . 'properties.php'); ?>
             </div><!-- #main -->
 

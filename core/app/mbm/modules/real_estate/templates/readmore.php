@@ -1,6 +1,3 @@
-<?php
-$object = \Object::getById(10);
-?>
 <div class='row'>
     <div class="span12">
         <p>&nbsp;</p>

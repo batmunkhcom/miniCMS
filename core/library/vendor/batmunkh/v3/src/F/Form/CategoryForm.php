@@ -66,16 +66,14 @@ class CategoryForm extends \F\Form {
             'class' => 'form-control',
             'value' => post('external_url')
         ));
-       $form->addElement(__('Link target'), 'target', 'input', array(
+        $form->addElement(__('Link target'), 'target', 'input', array(
             'class' => 'form-control',
             'value' => post('target')
         ));
         $form->addElement(__('Module'), 'module', 'input', array(
             'class' => 'form-control',
-            'value' => post('module'),
-            'minlength' => 2
+            'value' => post('module')
                 ), array(
-            'minlength' => 2
         ));
         $form->addElement('', 'add_category', 'button', array(
             'class' => 'btn btn-success',

@@ -7,10 +7,12 @@
                     <nav role="navigation">
                         <div class="menu-welcome-container">
                             <ul id="menu-welcome" class="menu">
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="contact-us.html">Contact Us</a></li>
-                                <li><a href="plan.html">Payments</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="#"><span><?php echo __('About Us'); ?></span></a></li>
+                                <li><a href="#"><span><?php echo __('News'); ?></span></a></li>
+                                <li><a href="#"><span><?php echo __('FAQ'); ?></span></a></li>
+                                <li><a href="#"><span><?php echo __('Privacy Policy'); ?></span></a></li>
+                                <li><a href="#"><span><?php echo __('Terms of Service'); ?></span></a></li>
+                                <li><a href="#"><span><?php echo __('Contact Us'); ?></span></a></li>
                             </ul>
                         </div>
                     </nav>
@@ -54,35 +56,25 @@
                 <div class="span6 pull-right">
                     <ul class="social-icon">
                         <li class="no-border">
-                            <a href="https://www.facebook.com/ItemBridge" target="_self">
+                            <a href="https://www.facebook.com/www.yadii.net" target="_blank">
                                 <i class="icon-facebook"></i>
                             </a>
                         </li>
                         <li class="no-border">
-                            <a href="https://twitter.com/ItemBridge" target="_self">
+                            <a href="https://twitter.com/az_network" target="_blank">
                                 <i class="icon-twitter"></i>
                             </a>
                         </li>
                         <li class="no-border">
-                            <a href="https://plus.google.com/109912245583663219097/posts" target="_self">
-                                <i class="icon-gplus"></i>
-                            </a>
-                        </li>
-                        <li class="no-border">
-                            <a href="http://www.flickr.com/photos/itembridge" target="_self">
-                                <i class="icon-flickr"></i>
-                            </a>
-                        </li>
-                        <li class="no-border">
-                            <a href="support%40itembridge.html" target="_self">
+                            <a href="mailto:info@zarzuuch.com" target="_self">
                                 <i class="icon-email"></i>
                             </a>
                         </li>
                     </ul>
                 </div>
-                <div class="span6">Copyright © ItemBridge inc., 2013</div>
+                <div class="span6">Copyright © Zarzuuch.com since 2009</div>
             </div>
         </div>
-        <a href="#" id="up">Up</a>
+        <a href="#" id="up"><?php echo __('Up'); ?></a>
     </div><!-- .bottom-box -->
 </footer><!-- #colophon -->

@@ -73,9 +73,6 @@
                 //-->
 
                 <div class="properties-list">
-                    <?php
-                    $objects = \Object::fetchAll();
-                    ?>
                     <?php foreach ($objects as $object): ?>
                         <?php require DIR_TEMPLATE . 'flatroom/_property_list.php'; ?>
                     <?php endforeach; ?>
