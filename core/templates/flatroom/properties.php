@@ -32,43 +32,45 @@
     <div class="row">
         <div id="content" class="span9">
             <div class="properies-list-container">
-                <div class="toolbar properties-toolbar clearfix">
-                    <div class="btn-group pull-right">
-                        <a class="btn btn-select dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span>Sort by:</span> Price<span class="caret"></span>
-                        </a>
+                <!--
+            <div class="toolbar properties-toolbar clearfix">
+                <div class="btn-group pull-right">
+                    <a class="btn btn-select dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span>Sort by:</span> Price<span class="caret"></span>
+                    </a>
 
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Price</a>
-                            </li>
-                            <li>
-                                <a href="#">Type</a>
-                            </li>
-                            <li>
-                                <a href="#">Area</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="btn-group pull-right">
-                        <a class="btn btn-select dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span>Order:</span> Asc<span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Asc</a>
-                            </li>
-
-                            <li>
-                                <a href="#">Desc</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="clearfix"></div>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Price</a>
+                        </li>
+                        <li>
+                            <a href="#">Type</a>
+                        </li>
+                        <li>
+                            <a href="#">Area</a>
+                        </li>
+                    </ul>
                 </div>
+
+                <div class="btn-group pull-right">
+                    <a class="btn btn-select dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span>Order:</span> Asc<span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Asc</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Desc</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+                //-->
 
                 <div class="properties-list">
                     <?php

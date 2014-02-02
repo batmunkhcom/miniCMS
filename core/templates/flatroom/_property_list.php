@@ -30,7 +30,7 @@
             <a href="property.html"><?php echo $object->name; ?></a>
         </h3>
 
-        <div class="location"><i class="fa fa-map-marker"></i> Los Angeles County, CA, USA</div>
+        <div class="location"><i class="fa fa-map-marker"></i> --</div>
 
         <div class="description"><p><?php echo $object->content_brief; ?></div>
 

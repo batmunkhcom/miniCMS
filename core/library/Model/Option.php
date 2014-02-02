@@ -78,4 +78,14 @@ class Option extends D\Model\Option {
         return $buf;
     }
 
+    /**
+     * Id aar n avah
+     */
+    public static function getFieldById($id = '', $field = 'title') {
+
+        $option = self::getById($id);
+
+        return $option->$field;
+    }
+
 }

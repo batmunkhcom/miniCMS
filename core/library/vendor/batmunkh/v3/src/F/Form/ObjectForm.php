@@ -132,14 +132,16 @@ class ObjectForm extends \F\Form {
             foreach ($obj_options[$group_name] as $form_tag => $val) {
                 switch ($form_tag) {
                     case 'select':
-                        $form->addElement(__($group_name), 'options[' . $group_name . ']', $form_tag, array(
+                        $form->addElement(__($group_name), 'options[' . $id . ']', $form_tag, array(
+//                        $form->addElement(__($group_name), 'options[' . $group_name . ']', $form_tag, array(
                             'class' => 'form-control',
                             'value' => $obj_options[$group_name][$form_tag]
                                 ), array());
                         break;
                     case 'radio':
                         foreach ($obj_options[$group_name][$form_tag] as $id => $value) {
-                            $form->addElement(__($value), 'options[' . $group_name . ']', $form_tag, array(
+                            $form->addElement(__($value), 'options[' . $id . ']', $form_tag, array(
+//                            $form->addElement(__($value), 'options[' . $group_name . ']', $form_tag, array(
                                 'class' => 'form-control',
                                 'value' => $id
                                     ), array());

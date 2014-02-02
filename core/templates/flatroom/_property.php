@@ -1,3 +1,6 @@
+<?php
+$object = \Object::getById(9);
+?>
 <header class="page-header bg-color">
     <div class="container">
         <div class="row">
@@ -12,7 +15,7 @@
                     <span class="separator">/</span>
                     <a href="properties.html">Properties</a>
                     <span class="separator">/</span>
-                    4512 Brookmill Rd, Downey, CA
+                    <?php echo $object->name; ?>
                 </div>
             </div>
         </div>
@@ -33,74 +36,51 @@
     <div class="row">
         <div id="content" class="span9 bg-dark">
             <div class="overview">
-                <h2 class="title">Overview</h2>
+                <h2 class="title"><?php echo __('Specification'); ?></h2>
 
                 <div class="options row">
-                    <div class="span3">
-                        <div><strong>ID:</strong> #488</div>
-
-                        <div><strong>Price:</strong> On Request</div>
-
-                        <div><strong>Contract type:</strong> Rent</div>
-                    </div>
-
-                    <div class="span3">
-                        <div><strong>Type:</strong> Apartment</div>
-
-                        <div><strong>Location:</strong> Los Angeles County, CA, USA</div>
-
-                        <div><strong>Bathrooms:</strong> 2</div>
-                    </div>
-
-                    <div class="span3">
-                        <div><strong>Bedrooms:</strong> 2</div>
-
-                        <div><strong>Area:</strong> 1400 m<sup>2</sup></div>
-                    </div>
+                    <?php
+                    $object_options = array();
+                    $option_i = 0;
+                    $options = \OptionValue::getAllByCodeToArray($object->module_name . '_' . $object->id);
+                    echo '<div class="span3">';
+                    foreach ($options as $k => $v) {
+                        if (($option_i % 3) == 0 && $option_i > 0) {
+                            echo '</div>';
+                            echo '<div class="span3">';
+                        }
+                        echo '<div>';
+                        echo '<strong>';
+                        echo __($k);
+                        echo ': </strong>';
+                        echo $v;
+                        echo '</div>';
+                        $option_i++;
+                    }
+                    echo '</div>';
+                    unset($option_i);
+                    ?>
                 </div><!-- .options -->
-
                 <div class="galery">
                     <div class="images-box">
                         <div class="images">
-                            <a id="image-1" class="fancybox" rel="group" href="content/properties/big/1.jpg">
-                                <img src="/assets/flatroom/1/content/properties/big/1.jpg" alt="" />
-                            </a>
-
-                            <a id="image-2" class="fancybox" rel="group" href="content/properties/big/2.jpg">
-                                <img src="/assets/flatroom/1/content/properties/big/2.jpg" alt="" />
-                            </a>
-
-                            <a id="image-3" class="fancybox" rel="group" href="content/properties/big/3.jpg">
-                                <img src="/assets/flatroom/1/content/properties/big/3.jpg" alt="" />
-                            </a>
-
-                            <a id="image-4" class="fancybox" rel="group" href="content/properties/big/4.jpg">
-                                <img src="/assets/flatroom/1/content/properties/big/4.jpg" alt="" />
-                            </a>
-
-                            <a id="image-5" class="fancybox" rel="group" href="content/properties/big/5.jpg">
-                                <img src="/assets/flatroom/1/content/properties/big/5.jpg" alt="" />
-                            </a>
-
-                            <a id="image-6" class="fancybox" rel="group" href="content/properties/big/6.jpg">
-                                <img src="/assets/flatroom/1/content/properties/big/6.jpg" alt="" />
-                            </a>
-
-                            <a id="image-7" class="fancybox" rel="group" href="content/properties/big/7.jpg">
-                                <img src="/assets/flatroom/1/content/properties/big/7.jpg" alt="" />
-                            </a>
-
-                            <a id="image-8" class="fancybox" rel="group" href="content/properties/big/8.jpg">
-                                <img src="/assets/flatroom/1/content/properties/big/8.jpg" alt="" />
-                            </a>
-
-                            <a id="image-9" class="fancybox" rel="group" href="content/properties/big/9.jpg">
-                                <img src="/assets/flatroom/1/content/properties/big/9.jpg" alt="" />
-                            </a>
-
-                            <a id="image-10" class="fancybox" rel="group" href="content/properties/big/10.jpg">
-                                <img src="/assets/flatroom/1/content/properties/big/10.jpg" alt="" />
-                            </a>
+                            <?php
+                            $thums = '';
+                            $photos = \Photo::getPhotosByCode($object->module_name . '_' . $object->id);
+                            $photo_i = 1;
+                            foreach ($photos as $photo) {
+                                echo '<a id="image-' . $photo_i . '" class="fancybox" rel="group" href="' . $photo->path . '">';
+                                echo '<img src="' . $photo->path . '" alt="">';
+                                echo '</a>';
+                                $thumbs .= '<div>
+                                        <a href="#image-' . $photo_i . '">
+                                            <img src="' . $photo->path . '" alt="" />
+                                        </a>
+                                    </div>';
+                                $photo_i++;
+                            }
+                            unset($photos, $photo_i);
+                            ?>
                         </div>
                     </div><!-- .images-box -->
 
@@ -108,56 +88,10 @@
                         <a class="prev" href="#"></a>
 
                         <div id="thumbs">
-                            <div>
-                                <a href="#image-1">
-                                    <img src="/assets/flatroom/1/content/properties/mini/1.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#image-2">
-                                    <img src="/assets/flatroom/1/content/properties/mini/2.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#image-3">
-                                    <img src="/assets/flatroom/1/content/properties/mini/3.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#image-4">
-                                    <img src="/assets/flatroom/1/content/properties/mini/4.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#image-5">
-                                    <img src="/assets/flatroom/1/content/properties/mini/5.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#image-6">
-                                    <img src="/assets/flatroom/1/content/properties/mini/6.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#image-7">
-                                    <img src="/assets/flatroom/1/content/properties/mini/7.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#image-8">
-                                    <img src="/assets/flatroom/1/content/properties/mini/8.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#image-9">
-                                    <img src="/assets/flatroom/1/content/properties/mini/9.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#image-10">
-                                    <img src="/assets/flatroom/1/content/properties/mini/10.jpg" alt="" />
-                                </a>
-                            </div>
+                            <?php
+                            echo $thumbs;
+                            unset($thumbs);
+                            ?>
                         </div><!-- #thumbs -->
 
                         <a class="next" href="#"></a>
@@ -166,9 +100,7 @@
                     <div class="clearfix"></div>
                 </div><!-- .galery -->
 
-                <p>Head on city views in this renovated, furnished Pied a Terre. 2 units combined that allow for excellent separation of Bedrooms for privacy: master suite plus large 2nd bedroom; open living space with sliding doors to balcony overlooking the City Views.</p>
-                <p>A full service building that is close to shops, restaurants on the Sunset Strip. The unit is offered furnished and is also offered for sale.</p>
-                <p>Enjoy this 2 bdrm/2.5 bath light infused space with high ceilings, huge windows and wood burning fireplace. Each bedroom has its own private bathroom. Beautiful natural materials w/ concrete, slate and hardwood floors throughout. Wonderful open kitchen designed for entertaining. Well designed floor-plan with a beautiful roof-top terrace.</p>
+                <?php echo $object->content_brief; ?>
                 <div class="clearfix"></div>
 
             </div><!-- .overview -->
@@ -263,26 +195,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="enquire">
-                <h2 class="title">Enquire</h2>
-
-                <div class="enquire-property-form row-fluid">
-                    <div class="span6">
-                        <input type="text" name="name" class="input-block-level" placeholder="Name *"/>
-
-                        <input type="text" name="phone" class="input-block-level" placeholder="Phone *"/>
-
-                        <input type="text" name="email" class="input-block-level" placeholder="Email *"/>
-                    </div>
-
-                    <div class="span6">
-                        <textarea class="input-block-level enquire-textarea" name="message" placeholder="Message *"></textarea>
-
-                        <input type="button" value="Send" name="send_enquire" class="btn btn-block" />
                     </div>
                 </div>
             </div>
