@@ -30,10 +30,17 @@ class Template extends Core {
 
     public function __construct($template_file) {
 
+        global $db, $session, $ln, $date_time, $components, $router;
 
         // Let's build and set our class var $template_file to the
         // value of $template_file that was passed into our __construct method
         $this->template_file = $template_file;
+        $this->set('db', $db);
+        $this->set('session', $session);
+        $this->set('ln', $ln);
+        $this->set('date_time', $date_time);
+        $this->set('components', $components);
+        $this->set('router', $router);
     }
 
     public function set_template_file($template_file) {
