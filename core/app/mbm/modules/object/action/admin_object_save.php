@@ -35,7 +35,7 @@ if ($form->isValid($current_module)) {
                 $new_height = (int) round(($photo->getHeight() * CONTENT_PHOTO_MAX_WIDTH) / ($photo->getWidth()));
             }
 
-            $photo->cropInPixel($new_with, null, true);
+            $photo->cropInPixel($new_with, $new_height, true);
 //            $photo->resizeInPixel($new_with, $new_height, true);
             //stamp zurag
             $photo->save(DIR_WEB . $file_path, $new_filename, false, null, 95, false);
