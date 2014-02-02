@@ -1,5 +1,5 @@
 <?php
-$object = \Object::getById(9);
+$object = \Object::getById(10);
 ?>
 <header class="page-header bg-color">
     <div class="container">
@@ -45,7 +45,7 @@ $object = \Object::getById(9);
                     $options = \OptionValue::getAllByCodeToArray($object->module_name . '_' . $object->id);
                     echo '<div class="span3">';
                     foreach ($options as $k => $v) {
-                        if (($option_i % 3) == 0 && $option_i > 0) {
+                        if (($option_i % 3 ) == 0 && $option_i > 0) {
                             echo '</div>';
                             echo '<div class="span3">';
                         }
@@ -105,7 +105,7 @@ $object = \Object::getById(9);
 
             </div><!-- .overview -->
 
-            <div class="amenities">
+            <div class="amenities" style="display: none;">
                 <h2 class="title">General Amenities</h2>
 
                 <div class="row-fluid">
@@ -143,10 +143,44 @@ $object = \Object::getById(9);
 
             <div class="map">
                 <h2 class="title">Map</h2>
-
                 <div class="map-box">
                     <div id="property-map">
-                        <iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Los+Angeles+County,+CA,+USA&amp;aq=&amp;sll=40.528197,-74.23554&amp;sspn=0.061063,0.127716&amp;ie=UTF8&amp;hq=&amp;hnear=Los+Angeles+County,+California&amp;t=m&amp;z=9&amp;iwloc=A&amp;output=embed"></iframe>
+                        <div id='map-canvas'>
+                        </div>
+                        <div class="clearfix"></div>
+                        <script>
+                            function initialize() {
+                                var mapOptions = {
+                                    zoom: 16,
+                                    mapTypeId: google.maps.MapTypeId.SATELLITE,
+                                    center: new google.maps.LatLng(<?php echo map_fix_value($options['latitude']); ?>,<?php echo map_fix_value($options['longitude']); ?>)
+                                };
+
+                                var map = new google.maps.Map(document.getElementById('map-canvas'),
+                                        mapOptions);
+
+//                                map.setTilt(45);
+//                                map.setHeading(90);
+
+                                var image = 'http://mng.cc/mnglogo.jpg';
+                                var myLatLng = new google.maps.LatLng(<?php echo map_fix_value($options['latitude']); ?>, <?php echo map_fix_value($options['longitude']); ?>);
+                                var beachMarker = new google.maps.Marker({
+                                    position: myLatLng,
+                                    map: map,
+                                    icon: image
+                                });
+                            }
+
+                            function loadScript() {
+                                var script = document.createElement('script');
+                                script.type = 'text/javascript';
+                                script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+                                        'callback=initialize';
+                                document.body.appendChild(script);
+                            }
+
+                            window.onload = loadScript;
+                        </script>
                     </div>
                 </div>
             </div><!-- .map -->
