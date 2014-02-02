@@ -57,6 +57,11 @@
                                     </td>
                                     <td><?php echo $object->id; ?>.</td>
                                     <td>
+                                        <?php
+                                        if (strlen($object->photo) > 4) {
+                                            echo '<img src="' . $object->photo . '" class="list_thumb">';
+                                        }
+                                        ?>
                                         <strong><?php echo $object->name; ?></strong>
                                         <p class="hidden-xs"><?php echo $object->content_brief; ?></p>
                                         <div class="hidden-xs">

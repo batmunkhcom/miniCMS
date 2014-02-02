@@ -5026,3 +5026,14 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 .recent-highlight {
     background: #FF6C60 !important;
 }
+
+
+/* huviiin css*/
+.list_thumb{
+    float: left;
+    margin: 5px;
+    max-width: 150px;
+    max-height: 150px;
+    min-width: 50px;
+    min-height: 50px;
+}

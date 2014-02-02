@@ -9,6 +9,11 @@
  */
 class Object extends D\Model\Object {
 
+    /**
+     * Buh object iih avah
+     *
+     * @return object Objects iig butsaana
+     */
     public static function fetchAll() {
 
         global $db;
@@ -20,6 +25,11 @@ class Object extends D\Model\Object {
         return $objects;
     }
 
+    /**
+     * Ugugdsun module iin object uudiig avah
+     *
+     * @param string $module Module iin ner
+     */
     public static function fetchByModule($module = '') {
 
         global $db;
@@ -34,6 +44,13 @@ class Object extends D\Model\Object {
         return $objects;
     }
 
+    /**
+     * id aar n object iig avah
+     *
+     * @param integer $id object iin id
+     *
+     * @return object Object iig butsaana
+     */
     public static function getById($id) {
 
         global $db;
@@ -45,17 +62,42 @@ class Object extends D\Model\Object {
         return $object;
     }
 
+    /**
+     * ugugdsun object id aar category uudiig avah
+     *
+     * @param integer $object_id Object iin id
+     * @return object Category object iig butsaana
+     */
     public static function getCategories($object_id) {
 
         global $db;
 
-        $cc = new \D\Mapper\ObjectCategoryMapper($db, new \D\Model\Collection\EntityCollection);
+        $oc = new \D\Mapper\ObjectCategoryMapper($db, new \D\Model\Collection\EntityCollection);
         $mapper_db = db_mapper($db, 'Category');
         $categories = $mapper_db->select(array(
             'object_id' => $object_id
-                ), ' id IN (SELECT category_id FROM ' . $cc->getTableName() . ' WHERE object_id=:object_id)');
+                ), ' id IN (SELECT category_id FROM ' . $oc->getTableName() . ' WHERE object_id=:object_id)');
 
         return $categories;
+    }
+
+    /**
+     * ugugdsun object id aar category uudiig avah
+     *
+     * @param integer $object_id Object iin id
+     * @return object Category object iig butsaana
+     */
+    public static function getByCategory($category_id) {
+
+        global $db;
+
+        $oc = new \D\Mapper\ObjectCategoryMapper($db, new \D\Model\Collection\EntityCollection);
+        $mapper_db = db_mapper($db, 'Object');
+        $objects = $mapper_db->select(array(
+            'category_id' => $category_id
+                ), ' id IN (SELECT object_id FROM ' . $oc->getTableName() . ' WHERE category_id=:category_id)');
+
+        return $objects;
     }
 
 }
