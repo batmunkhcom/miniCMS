@@ -55,6 +55,8 @@ class User extends D\Model\User {
 
         global $db, $session;
 
+        $username = strtolower($username);
+
         $is_logged = 0;
 
         $mapper_db = db_unit($db, __CLASS__);
@@ -68,7 +70,7 @@ class User extends D\Model\User {
         foreach ($users as $user) {
             $active_user = $user;
         }
-        if ($user->count() > 0) {
+        if ($users->count() > 0) {
 
             if (md5($user->username . $password) == $user->password) {
 
@@ -81,6 +83,8 @@ class User extends D\Model\User {
                     $roles [$urole->id] = $urole->name;
                 }
 
+//                print_r($user);
+//                die();
                 $user_data = array();
                 $user_data['user'] = array(
                     $user->id => array(
@@ -113,7 +117,7 @@ class User extends D\Model\User {
                 $session->set('roles', $roles);
                 $is_logged = 1;
             } else {
-                set_flash(__('Invalid password'), 'error');
+                set_flash(__('Invalid password') . ' ' . $password, 'error');
             }
         } else {
             set_flash(__('No such user found'), 'error');

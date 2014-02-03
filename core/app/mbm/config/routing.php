@@ -45,7 +45,6 @@ $router->respond('GET', '/test.php', function ($request, $response, $service, $a
 
 //admin gej ehleegui buh huudsuud
 $router->respond('!@^/admin', function() {
-    \M\Config::set('is_admin', 0);
     set_layout(DEFAULT_LAYOUT);
 });
 

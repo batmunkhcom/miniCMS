@@ -1,10 +1,3 @@
-<div class='row'>
-    <div class="span12">
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-    </div>
-</div>
 <header class="page-header bg-color">
     <div class="container">
         <div class="row">

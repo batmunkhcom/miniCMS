@@ -41,6 +41,15 @@
 
             <div id="main">
                 <div class="bg-images"></div>
+
+                <div class='row'>
+                    <div class="span12">
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
                 <?php load_template($template); ?>
                 <?php // require_once(DIR_TEMPLATE . 'flatroom' . DS . '_property.php'); ?>
                 <?php // require_once(DIR_TEMPLATE . 'flatroom' . DS . 'properties.php'); ?>
