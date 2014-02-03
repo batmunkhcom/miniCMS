@@ -71,15 +71,25 @@ class Photo extends D\Model\Photo {
      *
      * @param string $code photo nii code
      */
-    public static function getPhotosByCode($code = '') {
+    public static function getPhotosByCode($code = '', $options = array()) {
 
         global $db;
 
+        if (isset($options['limit'])) {
+            $limit = " LIMIT " . $options['limit'];
+        } else {
+            $limit = '';
+        }
+        if (isset($options['order_by'])) {
+            $order_by = " ORDER BY " . $options['order_by'];
+        } else {
+            $order_by = ' ORDER BY RAND()';
+        }
         $photos_mapper = db_unit($db, 'Photo');
 
         $photos = $photos_mapper->select(array(
             'code' => $code
-                ), "code=:code ORDER BY RAND()");
+                ), "code=:code " . $order_by . $limit);
 
         return $photos;
     }

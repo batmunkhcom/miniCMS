@@ -2042,7 +2042,7 @@ body.dark .bg-dark select:focus:invalid:focus {
     width: auto;
 }
 .shortcode {
-    margin-bottom: 90px;
+    margin-bottom: 15px;
     position: relative;
 }
 .shortcode.col-1 {
@@ -2057,7 +2057,7 @@ body.dark .bg-dark select:focus:invalid:focus {
     overflow: hidden;
 }
 .shortcode.first {
-    margin-top: 90px;
+    margin-top: 15px;
 }
 .shortcode .shortcode-title {
     border-bottom: 2px solid #e8e8e8;
@@ -2232,7 +2232,7 @@ body.dark .bg-dark .agent-shortcode .autor-content {
     width: 270px;
 }
 .properties-shortcode {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 .properties-shortcode.carousel-box {
     margin-bottom: 90px;

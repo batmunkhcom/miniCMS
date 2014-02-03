@@ -13,7 +13,7 @@
     <head>
         <meta charset="UTF-8">
         <meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title><?php echo __('Real estate'); ?></title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="shortcut icon" href="/assets/flatroom/images/favicon.ico">
 
