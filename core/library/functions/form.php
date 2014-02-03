@@ -40,8 +40,8 @@ function form_render_tags() {
  * @param string $name Element iin id attribute iin neriig yanzalna
  */
 function fix_element_id($name) {
-    $name = str_replace(array('[', ']'), '', $name);
-    $name = str_replace(array('-'), '_', $name);
+    $name = str_replace(array('[', ']'), array('_'), $name);
+    $name = str_replace(array('-'), array('_'), $name);
 
     return $name;
 }
@@ -53,7 +53,7 @@ function form_fileupload_with_preview($form_element_name = '') {
                 <div class="col-lg-10">
                 <div class="fileupload fileupload-new" data-provides="fileupload">
                         <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="">
+                            <img src="//' . DOMAIN . DS . 'images/no-image.gif" alt="">
                         </div>
                         <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                         <div>

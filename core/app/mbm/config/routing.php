@@ -43,6 +43,23 @@ $router->respond('GET', '/test.php', function ($request, $response, $service, $a
 });
 
 
+//default module/action route
+// odoogoot zuvhun /m/module/ buyu slash aar tugssun utgiig avch bgaa
+$router->with('/m', function () use ($router) {
+
+    $router->respond('/[:module]/.[:action]?[.*]?', function($request, $response, $service, $app) use($router) {
+        set_module($request->module);
+        if (!$request->action) {
+            set_action('index');
+            set_get_parameter('action', 'index');
+        } else {
+            set_action($request->action);
+            set_get_parameter('action', $request->action);
+        }
+        set_get_parameter('module', $request->module);
+    });
+});
+
 //admin gej ehleegui buh huudsuud
 $router->respond('!@^/admin', function() {
     set_layout(DEFAULT_LAYOUT);

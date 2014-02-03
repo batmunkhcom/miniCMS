@@ -35,11 +35,19 @@ $object = \Object::getById(10);
                 <div class="options row">
                     <?php
                     $object_options = array();
-                    $option_i = 0;
+                    $option_i = 2;
                     $options = \OptionValue::getAllByCodeToArray($object->module_name . '_' . $object->id);
                     echo '<div class="span3">';
+                    echo '<div>';
+                    echo '<strong>' . __('Price') . ': </strong>';
+                    echo number_format((int) $object->price_total) . ' ' . $object->currency_code;
+                    echo '</div>';
+                    echo '<div>';
+                    echo '<strong>' . __('Area') . ': </strong>';
+                    echo $object->measure_value . '' . get_measure($object->measure_name);
+                    echo '</div>';
                     foreach ($options as $k => $v) {
-                        if (($option_i % 3 ) == 0 && $option_i > 0) {
+                        if (($option_i % 4 ) == 0 && $option_i > 0) {
                             echo '</div>';
                             echo '<div class="span3">';
                         }
@@ -164,9 +172,9 @@ $object = \Object::getById(10);
                                     icon: image
                                 });
 
-                                google.maps.event.addListener(map, 'onclick', function(event) {
-                                    alert("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
-                                });
+//                                google.maps.event.addListener(map, 'click', function(event) {
+//                                    alert("Latitude: " + event.latLng.lat() + " " + ", longitude: " + event.latLng.lng());
+//                                });
                             }
 
                             function loadScript() {
@@ -181,6 +189,7 @@ $object = \Object::getById(10);
                         </script>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div><!-- .map -->
 
             <?php require(DIR_TEMPLATE . 'flatroom/_agent_info.php'); ?>

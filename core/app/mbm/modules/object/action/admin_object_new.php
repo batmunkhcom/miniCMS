@@ -25,6 +25,10 @@ css_set_loadfile('/assets/flatlab/admin/assets/bootstrap-datetimepicker/css/date
 css_set_loadfile('/assets/flatlab/admin/assets/dropzone/css/dropzone.css', 98);
 js_set_loadfile('/assets/flatlab/admin/assets/dropzone/dropzone.js', 98);
 
+//google map
+//js_set_loadfile('//maps.google.com/maps/api/js?sensor=true', 991);
+//js_set_loadfile('/assets/flatlab/admin/js/gmaps.js', 992);
+//js_set_loadfile('/assets/flatlab/admin/js/gmaps-scripts.js', 993);
 
 $form = new F\Form\ObjectForm($current_module, array(
     'action' => get_url('admin_' . $current_module . '_save'),

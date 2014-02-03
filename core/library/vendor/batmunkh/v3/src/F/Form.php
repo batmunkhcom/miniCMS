@@ -313,7 +313,7 @@ class Form {
      */
     public function input($label, $name, $attributes = array(), $validation, $text = '') {
 
-        $buf = '<input name="' . $name . '" id="' . $name . '" ';
+        $buf = '<input name="' . $name . '" id="' . $this->fixElementId($name) . '" ';
         if (is_array($attributes)) {
             foreach ($attributes as $k => $v) {
                 switch ($k) {
