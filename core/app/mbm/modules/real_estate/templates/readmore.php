@@ -32,11 +32,19 @@
                 <div class="options row">
                     <?php
                     $object_options = array();
-                    $option_i = 0;
+                    $option_i = 2;
                     $options = \OptionValue::getAllByCodeToArray($object->module_name . '_' . $object->id);
                     echo '<div class="span3">';
+                    echo '<div>';
+                    echo '<strong>' . __('Price') . ': </strong>';
+                    echo number_format((int) $object->price_total) . ' ' . $object->currency_code;
+                    echo '</div>';
+                    echo '<div>';
+                    echo '<strong>' . __('Area') . ': </strong>';
+                    echo $object->measure_value . '' . get_measure($object->measure_name);
+                    echo '</div>';
                     foreach ($options as $k => $v) {
-                        if (($option_i % 3 ) == 0 && $option_i > 0) {
+                        if (($option_i % 4 ) == 0 && $option_i > 0) {
                             echo '</div>';
                             echo '<div class="span3">';
                         }
@@ -174,8 +182,10 @@
                         </script>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div><!-- .map -->
 
+            <!--
             <div class="agent-info">
                 <h2 class="title">Agent info</h2>
 
@@ -223,6 +233,7 @@
                     </div>
                 </div>
             </div>
+            //-->
         </div><!-- #content -->
 
         <?php require_once(DIR_TEMPLATE . 'flatroom/_property_sidebar.php'); ?>

@@ -19,7 +19,7 @@
     <div class="property-content">
         <div class="options">
             <div class="area tooltip-link" data-toggle="tooltip" title="" data-original-title="<?php echo __('Area'); ?>">
-                <?php echo $object->measure_value; ?> <?php echo __($object->measure_name); ?>
+                <?php echo $object->measure_value; ?> <?php echo get_measure($object->measure_name); ?>
             </div>
             <div class="area tooltip-link" data-toggle="tooltip" title="" data-original-title="<?php echo __('Date added'); ?>">
                 <?php echo substr($object->date_created, 0, 10); ?>

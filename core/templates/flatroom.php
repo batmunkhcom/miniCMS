@@ -42,14 +42,15 @@
             <div id="main">
                 <div class="bg-images"></div>
 
-                <div class='row'>
-                    <div class="span12">
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
+                <?php if (M\Config::get('module_current') != 'home' && M\Config::get('action_current') != 'index'): ?>
+                    <div class='row'>
+                        <div class="span12">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
                 <?php load_template($template); ?>
                 <?php // require_once(DIR_TEMPLATE . 'flatroom' . DS . '_property.php'); ?>
                 <?php // require_once(DIR_TEMPLATE . 'flatroom' . DS . 'properties.php'); ?>

@@ -26,7 +26,7 @@ $router->with('/flatroom', function () use ($router) {
         set_get_parameter('id', $request->id);
     });
     //real_estate list
-    $router->respond('GET', '/real_estate/list/[i:category_id]', function ($request, $response) {
+    $router->respond('GET', '/real_estate/list/[i:category_id].*', function ($request, $response) {
 
         set_layout('flatroom');
         set_module('real_estate');
