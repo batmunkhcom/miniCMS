@@ -46,6 +46,25 @@ class Config extends Core {
 
     public function __construct($config = array()) {
 
+        global $session;
+        $roles = $session->get('roles');
+        Config::set('roles', $roles);
+        //site admin
+        if (in_array('admin', $roles)) {
+            Config::set('is_admin', 1);
+        }
+        //site manager
+        if (in_array('manager', $roles)) {
+            Config::set('is_manager', 1);
+        }
+        //site operator
+        if (in_array('operator', $roles)) {
+            Config::set('is_operator', 1);
+        }
+        //ul hudluhiin agent
+        if (in_array('agent', $roles)) {
+            Config::set('is_agent', 1);
+        }
         //undsen tohirgoonii utguud
         Config::$data = $config;
         foreach ($config as $k => $v) {

@@ -43,13 +43,15 @@ class Language {
 
     static function log() {
 
+        global $ln;
+
         $message = '';
-        foreach (self::$words_not_found as $k => $v) {
+        foreach ($ln::$words_not_found as $k => $v) {
             $message.= '$lang["' . $k . '"], ';
         }
-        $message .= '------------- total ' . count(self::$words_not_found) . ' words not found';
+        $message .= '------------- total ' . count($ln::$words_not_found) . ' words not found';
 
-        if (count(self::$words_not_found) > 0) {
+        if (count($ln::$words_not_found) > 0) {
             log_send($message, 2);
         }
     }

@@ -13,7 +13,7 @@
     <head>
         <meta charset="UTF-8">
         <meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title><?php echo __('Real estate'); ?></title>
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="shortcut icon" href="/assets/flatroom/images/favicon.ico">
 
@@ -41,6 +41,16 @@
 
             <div id="main">
                 <div class="bg-images"></div>
+
+                <?php if (M\Config::get('module_current') != 'home' && M\Config::get('action_current') != 'index'): ?>
+                    <div class='row'>
+                        <div class="span12">
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 <?php load_template($template); ?>
                 <?php // require_once(DIR_TEMPLATE . 'flatroom' . DS . '_property.php'); ?>
                 <?php // require_once(DIR_TEMPLATE . 'flatroom' . DS . 'properties.php'); ?>

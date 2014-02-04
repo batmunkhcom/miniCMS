@@ -21,5 +21,10 @@ $router->with('/api', function () use ($router) {
     $router->respond('GET', '/index_to_search', function ($request, $response) {
         set_action('index_to_search');
     });
+    //API email
+    $router->respond('GET', '/email', function ($request, $response) {
+        echo 'dddd';
+        die();
+    });
 });
 

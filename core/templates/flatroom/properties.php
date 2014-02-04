@@ -1,4 +1,3 @@
-<div class="clearfix"></div>
 <header class="page-header bg-color">
     <div class="container">
         <div class="row">

@@ -70,6 +70,11 @@
             <span><?php echo __('Other'); ?></span>
         </a>
         <ul class="sub">
+            <li><a  href="<?php
+                echo get_url('admin_tools_list', array(
+                    'action' => 'map'
+                ))
+                ?>"><?php echo __('Google Map'); ?></a></li>
             <li><a  href="#"><?php echo __('Notification'); ?></a></li>
             <li><a  href="#"><?php echo __('Log'); ?></a></li>
         </ul>

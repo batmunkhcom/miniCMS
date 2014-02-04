@@ -26,15 +26,14 @@
                     </div>
 
                     <div class="slide-content">
-                        <div class="slide-title">Welcome<br> to the Flat Room</div>
+                        <div class="slide-title">Welcome<br> to ZarZuuch.Com</div>
 
                         <div class="slide-text">
-                            <p>Praesent tristique volutpat mollis. Pellentesque egestas sapien neque, eget laoreet libero ullamcorper et. Donec<br> in sapien a dui suscipit semper.</p>
+                            <p>Buh tuliin ul hudluh zuuchlaliin tuv<br> asdfads.</p>
                         </div>
 
                         <div class="slide-buttons">
-                            <a href="properties.html" class="btn btn-colored">View Properties</a>
-                            <a href="agents.html" class="btn btn-gray">Search agents</a>
+                            <a href="<?php echo get_url('real_estate_list', array('category_id' => 0)); ?>" class="btn btn-colored">Үл хөдлөхийн зарууд харах</a>
                         </div>
 
                         <div class="pagination"></div>
@@ -58,37 +57,13 @@
                         </div>
 
                         <div class="slide-buttons">
-                            <a href="properties.html" class="btn btn-colored">View Properties</a>
+                            <a href="<?php echo get_url('real_estate_list', array('category_id' => 0)); ?>" class="btn btn-colored">Үл хөдлөхийн зарууд харах</a>
                         </div>
 
                         <div class="pagination"></div>
                     </div>
                 </div>
 
-                <div class="slide">
-                    <div class="slide-image video">
-                        <video class="slide-video" loop muted loop>
-                            <source src="/assets/flatroom/1/content/video/video2.mp4" type="video/mp4" />
-                            <source src="/assets/flatroom/1/content/video/video2.webm" type="video/webm" />
-                        </video>
-
-                        <img src="/assets/flatroom/1/content/slider/slider3.jpg" alt="">
-                    </div>
-
-                    <div class="slide-content">
-                        <div class="slide-title">More than<br> 1,000 qualified agents</div>
-
-                        <div class="slide-text">
-                            <p>Pellentesque egestas sapien neque, eget laoreet libero ullamcorper et. Donec in sapien a dui suscipit semper.  Praesent tristique volutpat mollis.</p>
-                        </div>
-
-                        <div class="slide-buttons">
-                            <a href="agents.html" class="btn btn-gray">Search agents</a>
-                        </div>
-
-                        <div class="pagination"></div>
-                    </div>
-                </div>
             </div><!-- .slider-slides -->
         </div>
     </div><!-- .home-slider -->

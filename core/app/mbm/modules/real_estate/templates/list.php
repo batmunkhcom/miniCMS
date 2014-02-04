@@ -3,15 +3,15 @@
     <div class="container">
         <div class="row">
             <div class="span9">
-                <h1 class="entry-title"><?php echo __('Real estate'); ?></h1>
+                <h1 class="entry-title"><?php echo $entry_title; ?></h1>
             </div>
 
             <div class="span3">
                 <div id="breadcrumb">
                     <div class="title"><?php echo __('You are here'); ?>:</div>
-                    <a href="index-2.html"><?php echo __('Home'); ?></a>
+                    <a href="<?php echo get_url('homepage'); ?>"><?php echo __('Home'); ?></a>
                     <span class="separator">/</span>
-                    <?php echo __('Real estate'); ?>
+                    <?php echo $entry_title; ?>
                 </div>
             </div>
         </div>
