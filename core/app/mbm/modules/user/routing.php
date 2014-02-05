@@ -8,43 +8,6 @@
  * file that was distributed with this source code.
  */
 set_route('admin_user_list', '/admin/user');
-set_route('user_login', '/login');
-set_route('user_register', '/register');
-set_route('user_profile', '/profile');
-
-
-/* * *****FRONTEND ROUTING****** */
-$router->respond('GET', '/login', function ($request, $response, $service, $app) {
-
-    set_layout('flatroom');
-    set_application(APP_ENABLED);
-    set_module('user');
-    set_action('login');
-});
-$router->respond('POST', '/login', function ($request, $response, $service, $app) {
-
-//    set_layout('login');
-    set_application(APP_ENABLED);
-    set_module('user');
-    set_action('login_check');
-    $url = '';
-});
-$router->respond('GET', '/profile', function ($request, $response, $service, $app) {
-
-//    set_layout('login');
-    set_application(APP_ENABLED);
-    set_module('user');
-    set_action('profile');
-    $url = '';
-});
-$router->respond('GET', '/register', function ($request, $response, $service, $app) {
-
-    set_layout('empty');
-    set_application(APP_ENABLED);
-    set_module('user');
-    set_action('register');
-});
-
 
 /*
  * admin route tohiruulah
