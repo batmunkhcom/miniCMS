@@ -110,11 +110,12 @@ class User extends D\Model\User {
                         'default_layout' => $user->default_layout,
                         'date_created' => $user->date_created,
                         'date_password_reset' => $user->date_password_reset,
-                        'parent_id' => $user->parent_id
+                        'parent_id' => $user->parent_id,
+                        'roles' => $roles
                     )
                 );
                 $session->set('user', $user_data['user']);
-                $session->set('roles', $roles);
+                $session->set('user_id', $user->id);
                 $is_logged = 1;
             } else {
                 set_flash(__('Invalid password') . ' ' . $password, 'error');
