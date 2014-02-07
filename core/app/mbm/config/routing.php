@@ -21,15 +21,20 @@
  * .[:format]?          - 'format' - a / or . duriin format. optional
  * /?                   - / -r tugsuj bolno tugsuhgui bsan ch bolno
  */
-set_route('home_page', '/');
-set_route('homepage', '/');
-set_route('home', '/');
-
 /**
  * Route tohiruulj bna. suuld haa negteei shuud get_route('admin_home') gej ashiglaj link zaaj bolno.
  */
 set_route('admin_home', '/admin');
+set_route('home_page', '/');
+set_route('homepage', '/');
+set_route('home', '/');
 
+//user default routes
+set_route('user_login', '/login');
+set_route('user_register', '/register');
+set_route('user_profile', '/profile');
+
+/* * *****FRONTEND ROUTING****** */
 $router->respond('GET', '/', function ($request, $response, $service, $app) use($router) {
     set_application(APP_ENABLED);
     set_module(DEFAULT_MODULE);
@@ -37,7 +42,7 @@ $router->respond('GET', '/', function ($request, $response, $service, $app) use(
 });
 
 //default module/action route
-// odoogoot zuvhun /m/module/ buyu slash aar tugssun utgiig avch bgaa
+// odoogoor zuvhun /m/module/ buyu slash aar tugssun utgiig avch bgaa
 $router->with('/m', function () use ($router) {
 
     $router->respond('/[:module]/.[:action]?[.*]?', function($request, $response, $service, $app) use($router) {
@@ -53,36 +58,28 @@ $router->with('/m', function () use ($router) {
     });
 });
 
-//user default routes
-
-set_route('user_login', '/login');
-set_route('user_register', '/register');
-set_route('user_profile', '/profile');
-
-
-/* * *****FRONTEND ROUTING****** */
+//user login route
 $router->respond('GET', '/login', function ($request, $response, $service, $app) {
 
-    set_layout('flatroom');
     set_application(APP_ENABLED);
     set_module('user');
     set_action('login');
 });
+
+//user login check
 $router->respond('POST', '/login', function ($request, $response, $service, $app) {
 
-//    set_layout('login');
     set_application(APP_ENABLED);
     set_module('user');
     set_action('login_check');
-    $url = '';
 });
+
+//user profile page
 $router->respond('GET', '/profile', function ($request, $response, $service, $app) {
 
-//    set_layout('login');
     set_application(APP_ENABLED);
     set_module('user');
     set_action('profile');
-    $url = '';
 });
 $router->respond('GET', '/register', function ($request, $response, $service, $app) {
 
@@ -102,10 +99,11 @@ $router->respond('@^/admin', function($request, $response, $service, $app) {
     $response->noCache();
     set_layout('admin');
 
-
+    //handah erhiig shalgah
     if (check_logged_user_authorization(array('admin', 'manager'))) {
         M\Config::set('is_admin', 1);
     } else {
+        set_flash(__('Not enough privilege'), 'warn');
         header("Location: " . get_url('user_login'));
     }
 });
