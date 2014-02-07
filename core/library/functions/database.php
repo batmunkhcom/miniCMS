@@ -19,13 +19,7 @@ function load_db($config = array()) {
 
     switch (DB_ADAPTER) {
         case 'pdo':
-//            $db = new \D\Adapter\PdoAdapter2(array(
-//                'dsn' => DB_TYPE . ":dbname=" . $config['db_name'],
-//                'db_user' => $config['db_user'],
-//                'db_pass' => $config['db_pass'],
-//                'db_name' => $config['db_name']
-//            ));
-            $db = new \D\Adapter\PdoAdapter(DB_TYPE . ":dbname=" . $config['db_name'], $config['db_user'], $config['db_pass'], array(
+            $db = new \D\Adapter\PdoAdapter(DB_TYPE . ":host=" . $config['db_host'] . ";dbname=" . $config['db_name'], $config['db_user'], $config['db_pass'], array(
                 'db_name' => $config['db_name']
             ));
             break;
@@ -62,7 +56,7 @@ function db_unit($db, $mapper) {
 }
 
 /**
- * Zuvhun 1 mapper duudah
+ * Zuvhun 1 mapper duudah. unit of Work pattern ashiglaagui
  *
  * @param object $db Database connection adapter
  * @param string $mapper Mapper iin Model ner. Ex: Category
@@ -88,7 +82,7 @@ function db_mapper($db, $mapper) {
  * @param string $name_field Haragdah field iin ner
  * @param string $module m_options table ees avahaar bol module iig ugnu
  *
- * @return object Mapper iig butsaana
+ * @return array $buf[id]=$name_field helbereer array butsaana
  */
 function db_render_option($db, $mapper, $name_field = 'name', $module = '') {
 
