@@ -34,6 +34,19 @@ set_route('user_login', '/login');
 set_route('user_register', '/register');
 set_route('user_profile', '/profile');
 
+/**
+ * buh route iin huvid
+ */
+$router->respond(function ($request, $response, $service, $app) {
+    foreach ($request->paramsGet() as $k => $v) {
+        set_get_parameter($k, $v);
+    }
+
+    foreach ($request->paramsPost() as $k => $v) {
+        set_post_parameter($k, $v);
+    }
+});
+
 /* * *****FRONTEND ROUTING****** */
 $router->respond('GET', '/', function ($request, $response, $service, $app) use($router) {
     set_application(APP_ENABLED);

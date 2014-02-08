@@ -10,3 +10,4 @@
  * Module config file
  */
 $is_enabled_module['real_estate'] = 1;
+define('REAL_ESTATE_PER_PAGE', 2);
