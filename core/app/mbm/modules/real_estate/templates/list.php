@@ -71,24 +71,26 @@
                 <div class="clearfix"></div>
             </div>
                 //-->
-
+                <?php
+                if (!get_exists('start')) {
+                    set_get_parameter('start', 0);
+                }
+                echo get('start') . '.' . REAL_ESTATE_PER_PAGE;
+                ?>
                 <div class="properties-list">
+                    <?php $i = 0; ?>
                     <?php foreach ($objects as $object): ?>
-                        <?php require DIR_TEMPLATE . 'flatroom/_property_list.php'; ?>
+                        <?php if (get('start') <= $i && (get('start') + REAL_ESTATE_PER_PAGE) > $i) { ?>
+                            <?php require DIR_TEMPLATE . 'flatroom/_property_list.php'; ?>
+                            <?php echo $i; ?>
+                        <?php } ?>
+                        <?php $i++; ?>
                     <?php endforeach; ?>
                 </div><!-- .properties-list -->
 
-                <div class="pagination">
-                    <ul>
-                        <li class="disabled"><span>&#9001;</span></li>
-                        <li class="active"><span class='page-numbers current'>1</span></li>
-                        <li><a class='page-numbers' href='#'>2</a></li>
-                        <li><a class='page-numbers' href='#'>3</a></li>
-                        <li><a class='page-numbers' href='#'>4</a></li>
-                        <li><a class='page-numbers' href='#'>5</a></li>
-                        <li><a class="next page-numbers" href="#">&#9002;</a></li>
-                    </ul>
-                </div>
+                <?php
+                echo mbmNextPrev(get_url('real_estate_list', array('category_id' => get('category_id'))), $objects->count(), get('start'), REAL_ESTATE_PER_PAGE);
+                ?>
             </div><!-- .properies-list-container -->
         </div><!-- #content -->
 
