@@ -75,14 +75,12 @@
                 if (!get_exists('start')) {
                     set_get_parameter('start', 0);
                 }
-                echo get('start') . '.' . REAL_ESTATE_PER_PAGE;
                 ?>
                 <div class="properties-list">
                     <?php $i = 0; ?>
                     <?php foreach ($objects as $object): ?>
                         <?php if (get('start') <= $i && (get('start') + REAL_ESTATE_PER_PAGE) > $i) { ?>
                             <?php require DIR_TEMPLATE . 'flatroom/_property_list.php'; ?>
-                            <?php echo $i; ?>
                         <?php } ?>
                         <?php $i++; ?>
                     <?php endforeach; ?>
