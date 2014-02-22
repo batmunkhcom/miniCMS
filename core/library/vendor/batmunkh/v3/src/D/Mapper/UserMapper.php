@@ -37,6 +37,7 @@ class UserMapper extends AbstractDataMapper {
             "phone" => $row["phone"],
             "gender" => $row["gender"],
             "birthday" => $row["birthday"],
+            "country" => $row["birthday"],
             "city_birth" => $row["city_birth"],
             "city_living" => $row["city_living"],
             "address_living" => $row["address_living"],

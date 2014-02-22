@@ -117,12 +117,12 @@ $router->respond('@^/admin', function($request, $response, $service, $app) {
         M\Config::set('is_admin', 1);
     } else {
         set_flash(__('Not enough privilege'), 'warn');
-        header("Location: " . get_url('user_login'));
+        $response->redirect(get_url('user_login'), 403);
     }
 });
 
 //admin ii route
-$router->with('/admin', function () use ($router, $session) {
+$router->with('/admin', function () use ($router) {
 
     //admin home
     $router->respond('GET', '/?', function ($request, $response) {

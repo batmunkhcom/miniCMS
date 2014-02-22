@@ -11,6 +11,16 @@
 /**
  * Nevterch orson hereglegchiin id -g butsaana
  */
+function get_user_avatar($user_id) {
+
+    global $session;
+
+    return '/assets/flatlab/admin/img/profile-avatar.jpg';
+}
+
+/**
+ * Nevterch orson hereglegchiin id -g butsaana
+ */
 function get_logged_user_id() {
 
     global $session;

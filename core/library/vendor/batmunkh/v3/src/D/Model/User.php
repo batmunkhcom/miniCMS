@@ -36,6 +36,7 @@ class User extends AbstractEntity {
         'phone',
         'gender',
         'birthday',
+        'country',
         'city_birth',
         'city_living',
         'address_living',
@@ -379,6 +380,26 @@ class User extends AbstractEntity {
      */
     public function setBirthday($birthday) {
         $this->fields["birthday"] = $birthday;
+
+        return $this;
+    }
+
+    /**
+     * field info:
+     *    name:
+     *    type:
+     *    null:       YES
+     *    default:
+     *    extra:
+     *    generated:  2014-02-03 01:06:06 am
+     * @param $country  User iin country
+     * @return object
+     */
+    public function setCountry($country) {
+        if ($country == '' || !isset($country)) {
+            $country = 'Mongolia';
+        }
+        $this->fields["country"] = $country;
 
         return $this;
     }
