@@ -4,3 +4,4 @@ core/tmp
 core/cache
 *.swp
 error_log
+core/app/mbm/config/database.php
