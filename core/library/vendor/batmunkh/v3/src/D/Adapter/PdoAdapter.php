@@ -36,7 +36,9 @@ class PdoAdapter implements \D\DB\DatabaseInterface {
             $this->connection->setAttribute(
                     \PDO::ATTR_EMULATE_PREPARES, false);
         } catch (\PDOException $e) {
-            throw new \RunTimeException($e->getMessage());
+            header("Location: " . get_route('aldaa_db'));
+//            log_send('db holbolt alga: ' . $e->getMessage(), 3);
+            throw new \RunTimeException($e->getMessage() . ' URL: ' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
         }
     }
 

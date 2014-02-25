@@ -168,12 +168,24 @@ function log_send($message, $error_code) {
 
     $bt = debug_backtrace();
 
+    if (count($_POST) > 0) {
+        $method = 'POST';
+    } else {
+        $method = 'OTHER';
+    }
     $logger->log(
             $error_code, $message, array(
         'domain' => DOMAIN,
+        'current_app' => \M\Config::get('app_enabled'),
+        'current_module' => \M\Config::get('module_current'),
+        'module_dir' => \M\Config::get('module_current_dir'),
+        'current_action' => \M\Config::get('action_current'),
         'file' => $bt[0]['file'],
         'line' => $bt[0]['line'],
-        'uri' => $_SERVER['SCRIPT_FILENAME']
+        'uri' => $_SERVER['SCRIPT_FILENAME'],
+        'URL ' => $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+        'HTTP_REFERER' => $_SERVER['HTTP_REFERER'],
+        'method' => $method
             )
     );
 }

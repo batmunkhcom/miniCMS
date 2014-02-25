@@ -32,10 +32,11 @@ function load_app_action() {
 
     //action file bgaa esehiig shalgah
     if (!file_exists($action_file)) {
+        log_send($action_file . ' action file not found', 3);
         $action_file = get_error_page('404');
     }
 
-    //templte file bgaa esehiig shalgah
+    //template file bgaa esehiig shalgah
     if (!file_exists($action_file)) {
         log_send("$action_file oldsongui", 3);
         $tpl_file = ERROR_MODULE_DIR . 'templates' . DS . '404_no_template_file.php';
@@ -43,6 +44,7 @@ function load_app_action() {
 
     //yamar template duudah n onoogdoogui bol tohiruulah
     if (!\M\Config::get('tpl_file') || \M\Config::get('tpl_file') == '') {
+        log_send('Template file not defined.', 3);
         \M\Config::set('tpl_file', $tpl_file);
     }
 
