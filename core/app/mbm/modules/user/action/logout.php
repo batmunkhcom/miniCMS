@@ -7,9 +7,4 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-$session->set('user_id', 0);
-$session->clearKey('user');
-set_flash(__('Successfully logged out'));
-header("Location: " . get_url('user_login'));
-echo get_url('user_login');
-die();
+echo 'user logout template';
