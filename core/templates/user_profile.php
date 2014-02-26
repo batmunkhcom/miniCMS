@@ -8,7 +8,7 @@
         <meta name="keyword" content="miniCMS v3 Content Management System">
         <link rel="shortcut icon" href="/assets/favicon.png">
 
-        <title>Administration :: miniCMS v3</title>
+        <title>Profile :: miniCMS v3</title>
         <?php
         /*         * *********** setting JS files ************ */
         //jquery duudah

@@ -34,6 +34,9 @@ set_route('user_login', '/login');
 set_route('user_register', '/register');
 set_route('user_profile', '/profile');
 
+//error
+set_route('aldaa_db', '/aldaa/db');
+
 /**
  * buh route iin huvid
  */
@@ -128,5 +131,16 @@ $router->with('/admin', function () use ($router) {
     $router->respond('GET', '/?', function ($request, $response) {
         set_module('admin');
         set_action('index');
+    });
+});
+
+//error ii route
+$router->with('/aldaa', function () use ($router) {
+
+    set_application(SYSTEM_APP_NAME);
+    //error db
+    $router->respond('GET', '/db', function ($request, $response) {
+        set_module('error');
+        set_action('db');
     });
 });
