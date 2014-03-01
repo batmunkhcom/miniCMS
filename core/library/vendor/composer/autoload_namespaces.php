@@ -7,14 +7,17 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Upload' => $vendorDir . '/codeguy/upload/src',
-    'Test' => $vendorDir . '/batmunkh/v3/src',
+    'Symfony\\Component\\EventDispatcher\\' => $vendorDir . '/symfony/event-dispatcher',
     'Psr\\Log\\' => $vendorDir . '/psr/log',
+    'Pimple' => $vendorDir . '/pimple/pimple/lib',
     'PHPImageWorkshop' => $vendorDir . '/sybio/image-workshop/src',
-    'PFBC' => $vendorDir . '/batmunkh/v3/src',
-    'M' => $vendorDir . '/batmunkh/v3/src',
+    'Monolog' => $vendorDir . '/monolog/monolog/src',
     'Klein' => $vendorDir . '/klein/klein',
+    'Guzzle\\Tests' => $vendorDir . '/guzzle/guzzle/tests',
+    'Guzzle' => $vendorDir . '/guzzle/guzzle/src',
     'Gelf' => $vendorDir . '/bzikarsky/gelf-php/src',
-    'F' => $vendorDir . '/batmunkh/v3/src',
-    'D' => $vendorDir . '/batmunkh/v3/src',
+    'Elasticsearch\\Tests' => $vendorDir . '/elasticsearch/elasticsearch/tests',
+    'Elasticsearch\\Benchmarks' => $vendorDir . '/elasticsearch/elasticsearch/benchmarks',
+    'Elasticsearch' => $vendorDir . '/elasticsearch/elasticsearch/src',
     '' => array($baseDir . '/Model', $baseDir . '/MBM'),
 );

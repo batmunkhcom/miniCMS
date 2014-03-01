@@ -1,10 +1,10 @@
 {
     "require": {
-        "batmunkh/v3": "dev-master",
         "codeguy/upload": "*",
         "bzikarsky/gelf-php": "*",
         "klein/klein": "*",
-        "sybio/image-workshop": "*"
+        "sybio/image-workshop": "*",
+        "elasticsearch/elasticsearch": "*"
     },
     "autoload": {
         "classmap": [
