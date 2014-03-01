@@ -1,21 +1,19 @@
 <?php
 
-$form = new F\Form\UsersForm();
+$form = new F\Form\UserForm();
 if ($form::isValid('user')) {
-    $template->set('is_valid', 'yesss');
 
-
-    //category iin baruun zuuniig todorhoiloh
+    //user iin iin baruun zuuniig todorhoiloh
 
     $category_db = new D\Model\Repository\UnitOfWork(
             new D\Mapper\UserMapper($db, new D\Model\Collection\EntityCollection), new D\Storage\ObjectStorage
     );
-    $category = new D\Model\Category(
+    $category = new D\Model\User(
             array(
         'user_id' => post(''),
-        'defth' => post(''),        
+        'depth' => post(''),
         'lft' => post(''),
-        'rgt' =>  post(''),
+        'rgt' => post(''),
         'code' => post(),
         'st' => post(),
         'role' => post(''),
@@ -47,7 +45,5 @@ if ($form::isValid('user')) {
     set_flash(__('Valid form submition'), 'info');
 } else {
     set_flash(__('Invalid form submition'), 'error');
-//    header("Location: " . get_url('admin_category_new'));
 }
 //die();
-header("Location: " . get_url('admin_content_new'));

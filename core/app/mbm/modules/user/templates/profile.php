@@ -118,42 +118,20 @@
                 <div class="col-lg-6">
                     <div class="panel">
                         <div class="panel-body">
-                            <div class="bio-chart">
-                                <input class="knob" data-width="100" data-height="100" data-displayPrevious=true  data-thickness=".2" value="63" data-fgColor="#4CC5CD" data-bgColor="#e8e8e8">
-                            </div>
-                            <div class="bio-desk">
-                                <h4 class="terques">ThemeForest CMS </h4>
-                                <p>Started : 15 July</p>
-                                <p>Deadline : 15 August</p>
-                            </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="panel">
                         <div class="panel-body">
-                            <div class="bio-chart">
-                                <input class="knob" data-width="100" data-height="100" data-displayPrevious=true  data-thickness=".2" value="75" data-fgColor="#96be4b" data-bgColor="#e8e8e8">
-                            </div>
-                            <div class="bio-desk">
-                                <h4 class="green">VectorLab Portfolio</h4>
-                                <p>Started : 15 July</p>
-                                <p>Deadline : 15 August</p>
-                            </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="panel">
                         <div class="panel-body">
-                            <div class="bio-chart">
-                                <input class="knob" data-width="100" data-height="100" data-displayPrevious=true  data-thickness=".2" value="50" data-fgColor="#cba4db" data-bgColor="#e8e8e8">
-                            </div>
-                            <div class="bio-desk">
-                                <h4 class="purple">Adobe Muse Template</h4>
-                                <p>Started : 15 July</p>
-                                <p>Deadline : 15 August</p>
-                            </div>
                         </div>
                     </div>
                 </div>

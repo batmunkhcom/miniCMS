@@ -31,6 +31,7 @@ set_route('home', '/');
 
 //user default routes
 set_route('user_login', '/login');
+set_route('user_logout', '/logout');
 set_route('user_register', '/register');
 set_route('user_profile', '/profile');
 
@@ -88,6 +89,14 @@ $router->respond('POST', '/login', function ($request, $response, $service, $app
     set_application(APP_ENABLED);
     set_module('user');
     set_action('login_check');
+});
+
+//user logout route
+$router->respond('GET', '/logout', function ($request, $response, $service, $app) {
+
+    set_application(APP_ENABLED);
+    set_module('user');
+    set_action('logout');
 });
 
 //user profile page
