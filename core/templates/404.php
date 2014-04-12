@@ -36,7 +36,7 @@
             <section class="error-wrapper">
                 <i class="icon-404"></i>
                 <h1>404</h1>
-                <h2>page not found</h2>
+                <h2><?php echo __('page not found'); ?></h2>
                 <p class="page-404"><?php echo __('Something went wrong or that page doesn’t exist yet.'); ?>
                     <a href="<?php echo get_url('home'); ?>"><?php echo __('Return Home'); ?></a>
                     <?php echo __('or'); ?>

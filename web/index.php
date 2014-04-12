@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(E_ALL ^ E_NOTICE);
 define('APP_ENABLED', 'mbm');
 define('APPMODE', 'dev');
 
