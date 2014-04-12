@@ -9,6 +9,7 @@
  */
 
 $lang['page not found'] = 'хуудас олдсонгүй';
+$lang['Page Not Found'] = 'Хуудас Олдсонгүй';
 $lang['Something went wrong or that page doesn’t exist yet.'] = 'Таны хандсан хуудас олдсонгүй';
 $lang['Return Home'] = 'Нүүр хуудас руу очих';
 $lang['or'] = 'эсвэл';
