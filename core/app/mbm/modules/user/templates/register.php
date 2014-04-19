@@ -9,7 +9,7 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                <?php echo __('Edit category'); ?>
+                <?php echo __('Registration'); ?>
             </header>
             <div class="panel-body">
                 <? /* Render whole form */ ?>
@@ -18,9 +18,6 @@
                     echo $form->render();
                 }
                 ?>
-                <script>
-                    $('#element_external_url').hide();
-                </script>
             </div>
         </section>
     </div>

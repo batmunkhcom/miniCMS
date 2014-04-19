@@ -16,7 +16,7 @@ $mbm_config ['content_photo_stamp_enable'] = 1;
 //urgund utga oruulaagui bol tuhain zuragnii urguniig avna
 $mbm_config ['content_photo_max_width'] = 200;
 //undriig 0 gej ugvul auto tootsoolno
-$mbm_config ['content_photo_max_height'] = 0;
+$mbm_config ['content_photo_max_height'] = 150;
 /**
  * Zurgiin haana tamgalahiig todorhoilno
  * LB - zuun dood

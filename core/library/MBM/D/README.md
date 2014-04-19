@@ -1,3 +1,5 @@
+DB undsen san. Model,Mapper bolon busad hereglegdeh class file uud....
+
 //http://www.sitepoint.com/implementing-a-unit-of-work/
 //Unit Of Work Design Pattern
 
