@@ -10,7 +10,7 @@
 /* * **************Webiin DB write holboltiin medeelel******************** */
 $mbm_config ['db_host'] = 'localhost';
 //$mbm_config ['db_port'] = '1521';
-$mbm_config ['db_name'] = 'test';
+$mbm_config ['db_name'] = 'demoaz_v3';
 $mbm_config ['db_user'] = 'root';
 $mbm_config ['db_pass'] = '';
 //$mbm_config ['db_name'] = 'orcl';
