@@ -19,11 +19,7 @@ $mbm_config ['default_lang'] = 'mn';
 $mbm_config ['default_app'] = 'mbm';
 $mbm_config ['default_module'] = 'home';
 $mbm_config ['default_action'] = 'index';
-<<<<<<< HEAD
-$mbm_config ['default_layout'] = 'pms';
-=======
 $mbm_config ['default_layout'] = 'layout';
->>>>>>> f5dbfd8eebe5d15798350376aedebedb215b5ae5
 
 /* * **************htaccess ashiglah eseh******************** */
 $mbm_config ['use_htaccess'] = 1;
