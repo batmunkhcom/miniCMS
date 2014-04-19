@@ -1,0 +1,502 @@
+
+/* Main Menu */
+#container h1,
+#container h2,
+#container h3,
+#container h4,
+#container h5,
+#container h6 {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: baseline;
+}
+#container {
+    clear: both;
+    margin: 30px auto;
+}
+#menuMega {
+    font-size: 15px;
+    width: 100%;
+}
+
+.menu-heading {
+
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 23px;
+    padding: 22px;
+}
+.menu-heading > span > i {
+    padding-right: 35px;
+}
+
+/* ---------------------------------- HORIZONTAL STYLE ---------------------------------- */
+
+.menu3dmega ul {
+    margin: 0px;
+    padding: 0px;
+}
+.menu3dmega li .dropdown-menu {
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+.menu3dmega ul li {
+    list-style: none;
+}
+.menu3dmega li > a:hover {
+    background: none !important;
+}
+.menu3dmega a,
+.menu3dmega a:visited {
+    outline: 0px none;
+}
+.menu3dmega {
+    position: relative;
+}
+.menu3dmega:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+.menu3dmega > ul > li {
+    float: none;
+	display: block;
+    line-height: 24px;
+    position: static;
+    text-align: left;
+}
+.menu3dmega > ul > li.last {
+    border-right: none !important;
+}
+.menu3dmega > ul > li.first {
+    border-left: none !important;
+}
+/*AUTO WIDTH COL*/
+.menu3dmega > ul > li.full-width {
+    position: static;
+}
+.menu3dmega .full-width .dropdown-menu {
+    left: -1px;
+    width: 100%;
+}
+/*FIX WIDTH COL*/
+.menu3dmega > ul > li > a,
+.menu3dmega > ul > li > span {
+
+    display: block;
+   
+    outline: 0px;
+    text-decoration: none;
+}
+.menu3dmega > ul > li .icon-menu {
+    float: left;
+    height: 16px;
+    margin-right: 7px;
+}
+
+.menu3dmega > ul > li > .arrow-icon,
+.menu3dmega > ul > li > .arrow-icon-bottom {
+    cursor: pointer;
+    padding-right: 25px;
+    position: relative;
+}
+.menu3dmega > ul > li p a {
+    text-decoration: none;
+}
+.menu3dmega > ul li > a {
+
+    display: block;
+    text-decoration: none;
+}
+
+.menu3dmega > ul > li > .dropdown-menu {
+    left: auto;
+}
+.menu3dmega li .dropdown-menu {
+    display: none;
+    margin: 0px;
+    position: absolute;
+    text-align: left;
+    white-space: nowrap;
+}
+.menu3dmega .dropdown-menu > ul > li > a {
+    display: block;
+    line-height: 20px;
+    padding: 19px 20px;
+    white-space: nowrap;
+}
+.menu3dmega .dropdown-menu [class *="col-lg"]:first-child {
+    margin-left: 0px;
+}
+.menu3dmega .grid-demo [class *="col-lg"] {
+
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+}
+.menu3dmega li .sub {
+    display: none;
+    position: absolute;
+    top: 0px;
+    width: 200px;
+    z-index: 20;
+}
+.menu3dmega span.arrow-icon:after {
+    content: "";
+    display: inline-block;
+    font-size: 0px;
+    height: 0px;
+    position: absolute;
+    right: 16px;
+    top: 30%;
+    width: 0px;
+}
+.menu3dmega span.arrow-icon-bottom:after {
+    content: "";
+    display: inline-block;
+    font-size: 0px;
+    height: 0px;
+    position: absolute;
+    right: 8px;
+    top: 46%;
+    width: 0px;
+}
+/*MENU TOGGLE*/
+.menu3dmega .menuToggle {
+    cursor: pointer;
+    display: none;
+    padding: 18px;
+    text-align: left;
+    text-transform: uppercase;
+}
+.menu3dmega .menuToggle .megaMenuToggle-icon {
+    background: none repeat scroll 0px 0px rgba(230, 230, 230, 0.7);
+    display: inline-block;
+    float: right;
+    height: 2px;
+    margin-top: 12px;
+    position: relative;
+    text-align: left;
+    width: 16px;
+}
+.menu3dmega .menuToggle .megaMenuToggle-icon:before {
+    background: none repeat scroll 0px 0px rgba(230, 230, 230, 0.8);
+    content: "";
+    height: 2px;
+    position: absolute;
+    top: -4px;
+    width: 16px;
+}
+.menu3dmega .menuToggle .megaMenuToggle-icon:after {
+    background: none repeat scroll 0px 0px rgba(230, 230, 230, 0.9);
+    content: "";
+    height: 2px;
+    position: absolute;
+    top: -8px;
+    width: 16px;
+}
+.menu3dmega p {
+    clear: both;
+    line-height: 18px;
+    margin: 0px;
+    text-align: justify;
+    white-space: normal;
+}
+.menu3dmega li .blackbox {
+    padding: 4px 6px;
+  
+}
+.menu3dmega li .blue {
+    padding: 7px 10px;
+
+}
+
+.menu3dmega li ul {
+    list-style: none;
+    margin: 0px;
+}
+.menu3dmega li ul li {
+    float: none;
+    font-size: 12px;
+    margin: 0px;
+    position: relative;
+    text-align: left;
+}
+.menu3dmega li .grisbox li {
+
+    margin: 0px 0px 4px;
+    padding: 4px 6px;
+    width: 116px;
+}
+/* SEARCH */
+.menu3dmega .wp-non-dropdown {
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px 15px;
+    width: 100%;
+}
+.menu3dmega .wp-non-dropdown:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0px;
+    line-height: 0px;
+    visibility: hidden;
+}
+.menu3dmega .search-form .input-group-btn {
+    width: auto;
+}
+@-moz-document url-prefix() {
+    .wp-non-dropdown .btn {
+        padding-bottom: 6px;
+        padding-top: 6px;
+    }
+}
+/* CONTACT */
+.menu3dmega .contact-form span {
+ 
+    display: block;
+}
+.menu3dmega .contact-form li {
+    margin-bottom: 2px !important;
+}
+.menu3dmega .imgclass {
+
+    float: left;
+    margin-right: 10px;
+    margin-top: 3px;
+    padding: 4px;
+}
+.menu3dmega .text {
+    display: block;
+    width: 230px;
+}
+.menu3dmega .menu-title {
+    
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    padding-bottom: 3px;
+}
+
+.menu3dmega .dropdown-menu .content ul li a {
+ 
+    padding: 5px 10px;
+}
+.menu3dmega .desc {
+   
+    display: block;
+    font-size: 10px;
+    font-style: italic;
+    font-weight: normal;
+}
+.menu3dmega .separator {
+  
+    clear: both;
+    display: block;
+    height: 1px;
+    margin: 0px 0px 10px;
+}
+.menu3dmega .separator:before,
+.separator:after {
+    content: "";
+    display: table;
+    line-height: 0px;
+}
+.menu3dmega .content {
+    padding: 10px 20px 20px;
+}
+.menu3dmega .content .row {
+    padding-top: 10px;
+}
+.menu3dmega .content:after {
+    clear: both;
+    content: "";
+    display: table;
+    line-height: 0px;
+}
+
+.menu3dmega .clearfix > .menu-title {
+    margin: 10px 20px;
+}
+.menu3dmega .left {
+    float: left;
+}
+.menu3dmega .right {
+    float: right !important;
+}
+.menu3dmega div[class *="animate-"] {
+    display: none;
+    position: absolute;
+}
+.menu3dmega > ul > li.right {
+    border-left: none !important;
+    border-right: none !important;
+}*/
+
+/* ======= RESPONSIVE ======= */
+
+/* TABLET*/
+@media (min-width:480px) and (max-width:767px) {
+    .menu3dmega.responsive > ul > li,
+    .menu3dmega.responsive li.menu-non-dropdown {
+        width: 50%;
+    }
+    .menu3dmega.responsive .wp-non-dropdown {
+        width: auto;
+    }
+    .menu3dmega.responsive > ul > li > div {
+        left: 0px;
+        width: 100%;
+    }
+}
+
+/* MOBILE*/
+@media (max-width:480px) {
+  
+    .menu3dmega.responsive > ul > li,
+    .menu3dmega.responsive li.menu-non-dropdown {
+        width: 100%;
+    }
+    .menu3dmega.responsive > ul > li > .arrow-icon-bottom:after {
+        right: 5%;
+    }
+}
+
+/* SCREEN */
+@media (min-width:768px) {
+    .menu3dmega.responsive .menuToggle {
+        display: none;
+    }
+    .menu3dmega.responsive {
+        display: block;
+    }
+    .menu3dmega.responsive > ul {
+        display: block !important;
+    }
+}
+
+/* MOBILE & TABLET*/
+@media (max-width:767px) {
+    .menu3dmega.responsive {
+        border: none !important;
+    }
+    .menu3dmega.responsive .menuToggle {
+        display: block;
+    }
+    .menu3dmega.responsive > ul {
+        display: none;
+    }
+    .menu3dmega.responsive .contact-form input[type=text],
+    .menu3dmega.responsive .contact-form textarea {
+        width: 98%;
+    }
+    .menu3dmega.responsive > ul > li > a,
+    .menu3dmega.responsive > ul > li > .arrow-icon,
+    .menu3dmega.responsive > ul > li > .arrow-icon-bottom {
+        position: relative;
+    }
+    .menu3dmega.responsive li > .arrow-icon:after {
+      
+        content: "";
+        display: inline-block;
+        font-size: 0px;
+        margin-top: -1px;
+        padding-top: 1px;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+    }
+    .menu3dmega.responsive > ul > li {
+        border-left: none !important;
+        border-right: none !important;
+		display: block !important;
+		float: none !important;
+    }
+    .menu3dmega.responsive li .dropdown-menu {
+        border-left: none !important;
+        border-right: none !important;
+        left: 0px;
+        top: auto;
+        width: 100%;
+    }
+}
+
+/* ---------------------------------- VERTICAL STYLE ONLY SCREEN---------------------------------- */
+.menu3dmega > ul > li i {
+   
+    font-size: 18px;
+    line-height: 58px;
+    text-align: center;
+    vertical-align: middle;
+    width: 58px;
+}
+.menu3dmega > ul > li span {
+    padding-left: 15px;
+}
+.menu3dmega > ul > li .fa-angle-right {
+    border: none;
+    float: right;
+    width: 30px;
+}
+.menu3dmega .dropdown-menu .fa-caret-right {
+    border: none;
+    float: right;
+    font-size: 15px;
+    height: 10px;
+    padding: 0px;
+    width: 8px;
+	line-height: 20px;
+}
+.menu3dmega.responsive .dropdown-menu > ul > li > a {
+    padding: 19px 15px;
+}
+@media (min-width:768px) {
+    .menu3dmega.vertical {
+        float: left;
+        width: auto;
+    }
+    .menu3dmega.vertical .dropdown-menu.flyout-menu {
+        min-width: 200px;
+        width: auto;
+    }
+    .menu3dmega.vertical .dropdown-menu {
+        left: 100% !important;
+        max-width: 800px;
+        top: 0px;
+        width: 500px;
+       
+    }
+    .menu3dmega.vertical .full-width {
+        width: 800px;
+    }
+    .menu3dmega.vertical > ul > li {
+        position: relative;
+    }
+ 
+    .menu3dmega.vertical > ul > li {
+        border-left: none !important;
+        border-right: none !important;
+    }
+    .menu3dmega.vertical .dropdown-menu span {
+        padding-left: 0px;
+    }
+	.menu3dmega > ul > li i {line-height: 36px;}
+}
+
+@media (min-width: 992px){
+.menu3dmega > ul > li i {line-height: 49px;}
+}
+@media (min-width: 1200px) {
+.menu3dmega > ul > li i {line-height: 58px;}
+}

@@ -1,0 +1,181 @@
+#style-switch {
+}
+#style-switch h3 {
+	color: #fff;
+	font-size: 12px;
+	margin: 5px 0 5px 3px;
+}
+#style-switch {
+	width: 195px;
+	position: fixed;
+	top: 157px;
+	z-index: 999999999;
+	left: -195px;
+}
+#style-switch div.inner {
+	padding: 5px 10px;
+}
+#style-switch h2 {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 13px;
+	padding: 8px 0 7px 10px;
+}
+#style-switch h2 a {
+	display: block;
+position: absolute;
+right: -39px;
+text-align: center;
+color: #FFF;
+font-size: 22px;
+top: 0;
+padding: 5px 10px;
+}
+#layout-bg {
+	opacity: 10
+}
+#layout-bg.active {
+	opacity: 100
+}
+.colors {
+	list-style: none;
+	margin: 0px 0px 10px 0px;
+	overflow: hidden
+}
+.colors li {
+	float: left;
+	margin: 2px;
+}
+.colors li a {
+	display: block;
+	height: 20px;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+	padding: 2px;
+}
+
+.colors li a i {font-size: 20px;}
+
+.select {
+	width: 100%;
+	padding: 5px;
+	border: none;
+	width: 165px;
+	margin: -3px 0 12px 3px;
+	color: #666;
+
+	cursor: pointer;
+}
+#reset {
+	margin: 0 0 15px 2px;
+}
+#reset a {
+	color: #fff;
+	font-size: 12px;
+	padding: 5px 14px;
+	box-shadow: none;
+
+}
+
+a.blue-red > i.one {
+	color: #00aff0;
+}
+a.blue-red > i.two {
+	color: #E65A4B;
+}
+
+a.midnight-blue > i.one {
+	color: #243441;
+}
+a.midnight-blue > i.two {
+	color: #3b699a;
+}
+
+a.mono-red > i.one {
+	color: #312E2D;
+}
+a.mono-red > i.two {
+	color: #E65A4B;
+}
+
+a.pinegreen-purple > i.one {
+	color: #66B9B4;
+}
+a.pinegreen-purple > i.two {
+	color: #6E6588;
+}
+
+a.darkmagenta-rosybrown > i.one {
+	color: #712164;
+}
+a.darkmagenta-rosybrown > i.two {
+	color: #e76278;
+}
+
+a.darkorchid-seagreen > i.one {
+	color: #9b59b6;
+}
+a.darkorchid-seagreen > i.two {
+	color: #16a085;
+}
+a.steel-blue > i.one {
+	color: #2B8CBE;
+}
+a.steel-blue > i.two {
+	color: #009BDD;
+}
+a.cadetblue-violetred > i.one {
+	color: #33A0AA;
+}
+a.cadetblue-violetred > i.two {
+	color: #FE6C6E;
+}
+
+a.mediumpurple-seagreen > i.one {
+	color: #494A83;
+}
+a.mediumpurple-seagreen > i.two {
+	color: #007788;
+}
+
+a.steelblue-leafgreen > i.one {
+	color: #5B82AB;
+}
+a.steelblue-leafgreen > i.two {
+	color: #99B563;
+}
+a.orange-steelblue > i.one {
+	color: #FC8D59;
+}
+a.orange-steelblue > i.two {
+	color: #4575B4;
+}
+a.gray > i.one {
+	color: #999999;
+}
+a.gray > i.two {
+	color: #666666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.colors li a.active {
+	box-shadow: 0 0 0 2px #fff inset
+}

@@ -18,7 +18,7 @@ function load_template(\M\Template $template) {
 function load_layout() {
     global $template;
 
-    require_once(DIR_TEMPLATE . \M\Config::get('layout') . '.php');
+    require_once(DIR_TEMPLATE .\M\Config::get('layout') . '.php');
 }
 
 /**
@@ -83,4 +83,26 @@ function load_layout_component($filename, $var = array()) {
     if (file_exists(DIR_TEMPLATE . $filename . '.php')) {
         require DIR_TEMPLATE . $filename . '.php';
     }
+}
+
+/**
+ * partial duudah
+ *
+ * @param string $module Module iin ner
+ * @param string $template_file Template file iini ner. urgutgulguigeer. EX: top_menu
+ * @param array $var Template file ruu damjuulah parameters
+ * 
+ * @return 
+ */
+function load_partial($module,$template_file,$var = array()){
+    
+    if(is_array($var)){
+        foreach($var as $k=>$v){
+            ${$k}=$v;
+        }
+    }
+    if($template_file{0} == '_'){
+        $template_file{0}='';
+    }
+    require(DIR_MODULE.$module.DS.'templates'.DS.$template_file.'.php');
 }
