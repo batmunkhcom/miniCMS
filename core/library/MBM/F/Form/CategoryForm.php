@@ -30,40 +30,53 @@ class CategoryForm extends \F\Form {
      *
      * @return object Form obj iig butsaana
      */
-    public function __construct($name = 'category', $configure = array()) {
-
+    public function __construct($name = 'category', $configure = array(),$parameter=null) {
+      //  var_dump($parameter->name); die;
         $form = new \F\Form($name, $configure);
-
+        
+        $form->addElement(__('id'), 'id', 'hidden', array(
+            'class' => 'form-control',
+            'type' => 'hidden',
+            'value' => $parameter->id,
+         ));
+        
         $form->addElement(__('Name'), 'name', 'input', array(
             'class' => 'form-control',
-            'value' => post('name'),
+            'value' =>  $parameter->name,
             'required' => 'true'
                 ), array(
             'minlength' => 2
         ));
         $form->addElement(__('Parent category'), 'parent_id', 'select', array(
             'class' => 'form-control',
+            'selected' => $parameter->parent_id,
             'value' => array(0 => __('Set as main')) + \Category::formOptions()
         ));
 
         $form->addElement(__('Select status'), 'st', 'select', array(
             'class' => 'form-control',
+            'selected'=>$parameter->st,
             'value' => st_array()
                 ), array());
 
         $form->addElement(__('Is 18+'), 'is_adult', 'checkbox', array(
             'class' => 'checkbox form-control',
+            ($parameter->is_adult==1) ? 'checked' : ''=>'',
             'value' => 1
                 ), array(
         ));
-        $form->addElement(__('Is external'), 'is_external', 'checkbox', array(
+
+    
+       $form->addElement(__('Is external'), 'is_external', 'checkbox', array(
             'class' => 'checkbox form-control',
+            ($parameter->is_external==1) ? 'checked' : ''=>'',
             'value' => 1,
             'onclick' => "$('#element_external_url').toggle();$('#element_target').toggle();"
         ));
+      
         $form->addElement(__('External URL'), 'external_url', 'input', array(
             'class' => 'form-control',
-            'value' => post('external_url')
+            'value' => ($parameter->external_url) ? $parameter->external_url : post('external_url')
         ));
         $form->addElement(__('Link target'), 'target', 'input', array(
             'class' => 'form-control',
@@ -71,13 +84,13 @@ class CategoryForm extends \F\Form {
         ));
         $form->addElement(__('Module'), 'module', 'input', array(
             'class' => 'form-control',
-            'value' => post('module')
+            'value' => ($parameter->module) ? $parameter->module : post('module')
                 ), array(
         ));
         $form->addElement('', 'add_category', 'button', array(
             'class' => 'btn btn-success',
             'type' => 'submit',
-            'value' => __('Add category')
+            'value' => ($parameter) ? __('Save') : __('Add category')
         ));
 
 
