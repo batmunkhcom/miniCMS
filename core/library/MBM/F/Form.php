@@ -140,6 +140,11 @@ class Form {
                 $buf .= '</div>' . "\n";
                 $buf .= '</div>' . "\n";
                 break;
+           case 'hidden':
+                $buf .= '<div classs="row">';
+                $buf .= $this->input($label, $name, $attributes, $validation, $text);
+                $buf .= '</div>' . "\n";
+                break;
             case 'password':
                 $buf .= '<div classs="row">';
                 $buf .= '<div class="form-group text-right" id="element_' . $this->fixElementId($name) . '">' . "\n";
@@ -339,7 +344,7 @@ class Form {
                         if (isset($this->session['fields_data'][$name])) {
                             $buf .= $k . '="' . $this->session['fields_data'][$name] . '" ';
                         } else {
-                            $buf .= '' . $k . ' ';
+                            $buf .= $k . '="' . $v . '" ';
                         }
                         break;
                     default:

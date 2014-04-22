@@ -101,8 +101,5 @@ function load_partial($module,$template_file,$var = array()){
             ${$k}=$v;
         }
     }
-    if($template_file{0} == '_'){
-        $template_file{0}='';
-    }
-    require(DIR_MODULE.$module.DS.'templates'.DS.$template_file.'.php');
+     require(DIR_MODULE.$module.DS.'templates'.DS.'_'.$template_file.'.php');
 }

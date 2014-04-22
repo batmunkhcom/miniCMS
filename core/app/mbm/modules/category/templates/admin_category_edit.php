@@ -1,3 +1,10 @@
+<?php  
+//var_dump($category->name);
+//var_dump($category->parent_id);
+//var_dump($category);
+?>
+
+
 <?php if (has_flash()): ?>
     <?php $flash_type = get_flash_type(); ?>
     <div class="col-lg-12">
