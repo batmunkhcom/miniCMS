@@ -1,0 +1,3 @@
+<?php
+
+require OBJECT_NEW_TEMPLATE_FILEPATH;

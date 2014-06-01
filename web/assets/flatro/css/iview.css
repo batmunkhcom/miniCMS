@@ -1,0 +1,371 @@
+#iview {
+  display: block;
+  max-width: 960px;
+  min-width: 280px;
+  position: relative;
+  overflow: hidden;
+}
+#iview .iviewSlider {
+  display: block;
+  width: 867px;
+  height: 406px;
+  overflow: hidden;
+}
+#iview div.iview-directionNav {
+  position: absolute;
+  top: 47%;
+  top: 45%;
+  left: 0px;
+  z-index: 9;
+  width: 100%;
+}
+#iview div.iview-directionNav a {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  color: #ffffff;
+  -webkit-transition: left 0.3s ease-in-out;
+  -webkit-transition-property: left, right;
+  -moz-transition: left 0.3s ease-in-out;
+  -moz-transition-property: left, right;
+  -o-transition: left 0.3s ease-in-out;
+  -o-transition-property: left, right;
+  -ms-transition: left 0.3s ease-in-out;
+  -ms-transition-property: left, right;
+  transition: left 0.3s ease-in-out;
+  transition-property: left, right;
+  font-size: 30px;
+}
+#iview div.iview-directionNav a.iview-nextNav {
+  right: -27px;
+  background-position: 27px 0px;
+}
+#iview div.iview-directionNav a.iview-prevNav {
+  left: -27px;
+  left: -35px;
+  background-position: 0px 0px;
+}
+#iview.iview-hover div.iview-directionNav a.iview-nextNav {
+  right: 20px;
+  right: 45px;
+}
+#iview.iview-hover div.iview-directionNav a.iview-prevNav {
+  left: 20px;
+  left: 30px;
+}
+#iview-preloader {
+  border: #000000 1px solid;
+  border: #666666 1px solid;
+  width: 100px;
+  width: 150px;
+  position: absolute;
+  z-index: 1000;
+  padding: 1px;
+  height: 3px;
+}
+#iview-preloader div {
+  background: #000000;
+  background: #666666;
+  float: left;
+  height: 3px;
+  width: 0px;
+}
+#iview-timer {
+  position: absolute;
+  z-index: 100;
+  cursor: pointer;
+}
+.iviewSlider {
+  overflow: hidden;
+}
+.iview-strip {
+  display: block;
+  position: absolute;
+  z-index: 5;
+}
+.iview-block {
+  display: block;
+  position: absolute;
+  z-index: 5;
+}
+.iview-directionNav a {
+  position: absolute;
+  top: 45%;
+  z-index: 9;
+  cursor: pointer;
+}
+.iview-prevNav {
+  left: 0px;
+}
+.iview-nextNav {
+  right: 0px;
+}
+.iview-controlNav {
+  position: absolute;
+  z-index: 9;
+}
+.iview-controlNav a {
+  z-index: 9;
+  cursor: pointer;
+}
+.iview-controlNav a.active {
+  font-weight: bold;
+}
+.iview-controlNav .iview-items ul {
+  list-style: none;
+}
+.iview-controlNav .iview-items ul li {
+  display: inline;
+  position: relative;
+}
+.iview-controlNav .iview-tooltip {
+  position: absolute;
+}
+.iview-caption {
+  position: absolute;
+  z-index: 4;
+  overflow: hidden;
+  cursor: default;
+  color: #ffffff;
+  padding: 0;
+  font-size: 12px;
+}
+.iview-caption a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.iview-caption a:hover {
+  color: #eeeeee;
+  text-decoration: none;
+}
+.iview-caption > .caption-contain .box-hover {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  border: 7px solid rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  z-index: 1;
+  -webkit-transition: 0.2s ease-in-out all;
+  -moz-transition: 0.2s ease-in-out all;
+  -o-transition: 0.2s ease-in-out all;
+  transition: 0.2s ease-in-out all;
+  -webkit-transform: scale(0.95);
+  -moz-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  transform: scale(0.95);
+}
+.iview-caption > .caption-contain:hover .box-hover {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.iview-video-show {
+  background: #000000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+}
+.iview-video-show .iview-video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.iview-video-show .iview-video-container a.iview-video-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #222222;
+  color: #ffffff;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  line-height: 29px;
+  font-size: 22px;
+  font-weight: bold;
+  overflow: hidden;
+}
+.iview-video-show .iview-video-container a.iview-video-close:hover {
+  background: #444444;
+}
+.iview-caption.caption1 {
+  font-size: 100px;
+  font-weight: 900;
+}
+.iview-caption.caption2 {
+  font-size: 40px;
+}
+.iview-caption.caption3 {
+  font-size: 17px;
+  line-height: 18px;
+}
+.iview-caption.btn-more {
+  font-size: 14px;
+  width: 142px;
+  height: 50px;
+  text-align: center;
+  -webkit-transition: all 100ms ease-in-out;
+  -moz-transition: all 100ms ease-in-out;
+  -o-transition: all 100ms ease-in-out;
+  -ms-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+}
+.iview-caption.btn-more > .caption-contain {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #035a85;
+  -webkit-transition: all 100ms ease-in-out;
+  -moz-transition: all 100ms ease-in-out;
+  -o-transition: all 100ms ease-in-out;
+  -ms-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+}
+.iview-caption.btn-more a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.iview-caption.btn-more > .caption-contain:hover {
+  cursor: pointer;
+  background-color: #003a57;
+}
+.iview-caption.btm-bar > .caption-contain {
+  padding: 15px 30px;
+  background-color: #e65a4c;
+}
+.iview-caption.btm-bar > .caption-contain h1 {
+  font-size: 25px;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.iview-caption.btm-bar > .caption-contain p {
+  line-height: 18px;
+  font-size: 13px;
+  color: #ffffff;
+}
+.iview-caption.btm-bar > .caption-contain a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.iview-caption.metro-heading h1 {
+  display: block;
+  text-align: right;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 23px;
+  font-weight: 900;
+  width: 330px;
+}
+.iview-caption.metro-heading span {
+  display: block;
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: right;
+  width: 330px;
+}
+.iview-caption.metro-box1 a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.iview-caption.metro-box1 a > i {
+  font-size: 50px;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100px;
+}
+.iview-caption.metro-box1 a > span {
+  line-height: 75px;
+  font-size: 14px;
+}
+.iview-caption.metro-box1 > .caption-contain {
+  height: 163px;
+  width: 163px;
+  padding: 10px;
+}
+.iview-caption.metro-box2 a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.iview-caption.metro-box2 a > i {
+  font-size: 50px;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100px;
+}
+.iview-caption.metro-box2 a > img {
+  top: 0px;
+  right: 0px;
+}
+.iview-caption.metro-box2 span {
+  line-height: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.67);
+  color: #000000;
+  z-index: 10;
+}
+.iview-caption.metro-box2 .monthlydeals .fa {
+  font-size: 25px;
+  line-height: 163px;
+  opacity: 0.2;
+}
+.iview-caption.metro-box2 .monthlydeals .fa:hover {
+  opacity: 1;
+}
+.iview-caption.metro-box2 .monthlydeals .carousel-control {
+  text-shadow: none;
+  background-image: none;
+}
+.iview-caption.metro-box2 > .caption-contain {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  height: 163px;
+  width: 335px;
+}
+.monthlydeals .active.left,
+.monthlydeals .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+}
+.monthlydeals .next,
+.monthlydeals .prev {
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+}
+.monthlydeals .item {
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+.iview-caption.orange {
+  background-color: #d35400;
+}
+.iview-caption.blue {
+  background-color: #2980b9;
+}
+.iview-caption.purple {
+  background-color: #8e44ad;
+}
+.iview-caption.dark-blue {
+  background-color: #2c3e50;
+}

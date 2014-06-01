@@ -1,0 +1,21 @@
+{
+    "require": {
+        "codeguy/upload": "*",
+        "bzikarsky/gelf-php": "*",
+        "klein/klein": "*",
+        "sybio/image-workshop": "*",
+        "elasticsearch/elasticsearch": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "functions/"
+        ],
+        "exclude": [
+            "test"
+        ],
+        "psr-0": {
+            "": ["Model/", "MBM/"]
+        }
+    },
+    "minimum-stability": "stable"
+}
