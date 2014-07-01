@@ -17,23 +17,23 @@ session:
 online:
     host: ns5.mng.cc
     user: v3_user
-    password: Pass123
+    password: userpass
     dbname: v3_db
     prefix: m_
     driver: pdo_mysql
     driverOptions: { 1002: 'SET NAMES utf8' }
 v3:
-    host: ns5.mng.cc
+    host: localhost
     user: v3_user2
-    password: Pass123
+    password: userpass
     dbname: v3_db2
     prefix: c_
     driver: pdo_mysql
     driverOptions: { 1002: 'SET NAMES utf8' }
 cli:
-    host: ns5.mng.cc
+    host: localhost
     user: v3_user
-    password: Pass123
+    password: userpass
     dbname: v3_db
     prefix: m_
     driver: pdo_mysql
