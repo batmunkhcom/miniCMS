@@ -15,4 +15,4 @@ system:
 session:
     storage: \MBM\Lib\Session\File
     save_path: tmp/sessions
-installed: 'true'
+installed: 'false'
