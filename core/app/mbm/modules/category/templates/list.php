@@ -1,1 +1,0 @@
-<h2>Category list template</h2>
