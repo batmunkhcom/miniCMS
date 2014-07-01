@@ -1,0 +1,18 @@
+app:
+    name: MINICMS
+homepage:
+    module: home
+    action: index
+dir:
+    web: public_html
+template:
+    admin: flatlab
+    app: flatlab
+system:
+    protocol: http
+    version: 3.2
+    copyright: 'mBm TECHNOLOGY LLC'
+session:
+    storage: \MBM\Lib\Session\File
+    save_path: tmp/sessions
+installed: 'true'

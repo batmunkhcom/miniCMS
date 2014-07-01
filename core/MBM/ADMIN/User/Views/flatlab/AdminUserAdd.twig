@@ -1,0 +1,168 @@
+{% extends "base.twig" %}
+{% block title %}{{ lang.addUser }}{% endblock %}
+
+{% block css %}   
+<link rel="stylesheet" type="text/css" href="{{ assets['admin'] }}assets/bootstrap-fileupload/bootstrap-fileupload.css" />
+<link rel="stylesheet" type="text/css" href="{{ assets['admin'] }}assets/jquery-multi-select/css/multi-select.css" />
+{% endblock %}
+{% block content %}
+<section class="wrapper">
+    <!-- page start-->
+    <div class="row">
+        <div class="col-lg-7">
+            <section class="panel">
+                <header class="panel-heading">
+                        {{ lang.addUser }}
+                </header>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="userAdd" role="form" id="userAdd" method="post" action="/admin/user/add">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">{{ lang.role }}</label>
+                            <div class="col-md-9">
+                                <select multiple="multiple" class="multi-select" id="roles" name="roles[]" required>
+                                   {% for role in allRoles %}
+                                    <option value="{{role.id}}">{{role.name}}</option>
+                                   {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="col-lg-3 col-sm-3 control-label">{{ lang.username}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="{{ lang.username}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-lg-3 col-sm-3 control-label">{{ lang.password}}</label>
+                            <div class="col-lg-9">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="{{ lang.password}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-lg-3 col-sm-3 control-label">{{ lang.email}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="{{ lang.email}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstname" class="col-lg-3 col-sm-3 control-label">{{ lang.firstname}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="{{ lang.firstname}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="col-lg-3 col-sm-3 control-label">{{ lang.lastname}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="{{ lang.lastname}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="col-lg-3 col-sm-3 control-label">{{ lang.phone}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="{{ lang.phone}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="col-lg-3 col-sm-3 control-label">{{ lang.gender }}</label>
+                            <div class="col-lg-9">
+                                <select name="gender" id="gender" class="form-control" selected="active" placeholder="{{ lang.gender }}">
+                                    <option value="unknown">{{lang.genderUnknown }}</option>
+                                    <option value="male" >{{lang.male}}</option>
+                                    <option value="female">{{lang.female}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthday" class="col-lg-3 col-sm-3 control-label">{{ lang.birthday}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" data-mask="9999/99/99" class="form-control" id="birthday" name="birthday" placeholder="{{ lang.birthday}}">
+                                <span class="help-inline">yyyy/mm/dd</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">{{ lang.profileImage }}</label>
+                            <div class="col-lg-9">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                        <img src="{{ assets['admin'] }}img/no_image.jpg" alt="" />
+                                    </div>
+                                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                    <div>
+                                        <span class="btn btn-white btn-file">
+                                            <span class="fileupload-new"><i class="fa fa-paper-clip"></i> {{ lang.selectImage }}</span>
+                                            <span class="fileupload-exists"><i class="fa fa-undo"></i> {{ lang.change }}</span>
+                                            <input type="file" name="file" class="default" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cityBirth" class="col-lg-3 col-sm-3 control-label">{{ lang.cityBirth}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="cityBirth" name="cityBirth" placeholder="{{ lang.cityBirth}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cityLiving" class="col-lg-3 col-sm-3 control-label">{{ lang.cityLiving}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="cityLiving" name="cityLiving" placeholder="{{ lang.cityLiving}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addressLiving" class="col-lg-3 col-sm-3 control-label">{{ lang.addressLiving}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="addressLiving" name="addressLiving" placeholder="{{ lang.addressLiving}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addressBilling" class="col-lg-3 col-sm-3 control-label">{{ lang.addressBilling}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="addressBilling" name="addressBilling" placeholder="{{ lang.addressBilling}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="addressShipping" class="col-lg-3 col-sm-3 control-label">{{ lang.addressShipping}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="addressShipping" name="addressShipping" placeholder="{{ lang.addressShipping}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="website" class="col-lg-3 col-sm-3 control-label">{{ lang.website}}</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="website" name="website" placeholder="{{ lang.website}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-9">
+                                <button type="submit" class="btn btn-success">{{ lang.add }}</button>
+                                <a href="admin/user" type="button" class="btn btn-default">{{lang.cancel}}</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-5">
+            <section class="panel">
+                <header class="panel-heading">
+                        {{ lang.help }}
+                </header>
+                <div class="panel-body">
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- page end-->
+</section>
+{% endblock %}
+{% block javascripts%}
+<script type="text/javascript" src="{{ assets['admin'] }}assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+<script type="text/javascript" src="{{ assets['admin'] }}assets/bootstrap-fileupload/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="{{ assets['admin'] }}assets/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script>
+    jQuery(".mod").addClass("active");
+    jQuery(".modUser").addClass("active");
+    $('#roles').multiSelect();
+</script>
+{% endblock %}

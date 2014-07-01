@@ -1,0 +1,244 @@
+{% extends "base.twig" %} {# base.twig-s udamshina #}
+
+{% block title %}{{ lang.contentList }}{% endblock %}
+
+{% block css %}
+    <link href="{{ assets['admin'] }}assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+    <link href="{{ assets['admin'] }}assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ assets['admin'] }}assets/data-tables/DT_bootstrap.css" />
+{% endblock %}
+
+{% block content %} {# content block-g override hiine #}
+
+    <section class="wrapper site-min-height">
+        <!-- page start-->
+        <section class="panel">
+            <header class="panel-heading">{{ lang.contentList }}</header>
+            <div class="panel-body">
+                {% set canAdd = factory.getObject("\\MBM\\Lib\\Auth").checkPermission("/admin/content/add") %}
+                {% if canAdd %}
+                <a href="admin/content/add" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> {{ lang.addContent }}</a>
+                {% endif %}
+                <div class="adv-table">
+                    <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="dynamicList">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>{{ lang.title }}</th>
+                                <th>{{ lang.status }}</th>
+                                <th class="hidden-phone">{{ lang.contentType }}</th>
+                                <th class="hidden-phone">{{ lang.isAdult }}</th>
+                                <th class="hidden-phone">{{ lang.useComment }}</th>
+                                <th class="hidden-phone">{{ lang.dateCreated }}</th>
+                                <th class="hidden-phone">{{ lang.datePublish }}</th>
+                                <th class="hidden-phone">{{ lang.totalUpdated }}</th>
+                                <th class="hidden-phone">{{ lang.views }}</th>
+                                <th class="hidden-phone">{{ lang.hits }}</th>
+                                <th class="hidden-phone">{{ lang.actions }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set canDelete = factory.getObject("\\MBM\\Lib\\Auth").checkPermission("/admin/content/delete")%}
+                            {% set canEdit = factory.getObject("\\MBM\\Lib\\Auth").checkPermission("/admin/content/edit") %}
+                            {% for content in contentList %}
+                                <tr class="gradeX" id="{{content['id']}}">
+                                    <td>{{content['id']}}</td>
+                                    <td>{{content['title']}}</td>
+                                    <td class="hidden-phone">
+                                        {% if content['st']=="active" %}
+                                            <span class="label label-success label-mini">{{content['st']}}</span>
+                                        {% elseif content['st']=="inactive" %}
+                                            <span class="label label-danger label-mini">{{content['st']}}</span>
+                                        {% elseif content['st']=="pending" %}
+                                            <span class="label label-warning label-mini">{{content['st']}}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{content['contentType']}}</td>
+                                    <td class="center hidden-phone">
+                                        {% if content['isAdult']==1 %}
+                                            <span class="badge bg-info">+</span>
+                                        {% else %}
+                                            <span class="badge">-</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="center hidden-phone">
+                                        {% if content['useComment']==1 %}
+                                            <span class="badge bg-info">+</span>
+                                        {% else %}
+                                            <span class="badge">-</span>
+                                        {% endif %}</td>
+                                    </td>
+                                    <td class="center hidden-phone">{{content['dateCreated']|date("y/m/d")}}</td>
+                                    <td class="center hidden-phone">{{category['datePublish']|date("y/m/d")}}</td>
+                                    <td class="center hidden-phone">{{category['datePublish']|date("y/m/d")}}</td>
+                                    <td class="center hidden-phone">{{category['views']}}</td>
+                                    <td class="center hidden-phone">{{category['hits']}}</td>
+                                    <td>
+                                        {% if canEdit %}
+                                        <a href="/admin/content/edit/{{content['id']}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                        {% endif%}
+                                        {% if canDelete %}
+                                        <a href="javascript:deleteRow({{content['id']}});" class="btn btn-xs btn-danger"><i class="fa fa-trash-o "></i></a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </section>
+        <!-- page end-->
+    </section>
+
+{% endblock %}
+
+{% block popupwindow %}
+    <input type="hidden" id="deleteRowQuestion" value="{{ lang.confirm }}"/>
+    <input type="hidden" id="deleteConfirmList" value="{{ lang.deleteConfirmList }}"/>
+    <input type="hidden" id="deleteRowBtnDelete" value="{{ lang.delete }}"/>
+    <input type="hidden" id="deleteRowBtnCancel" value="{{ lang.cancel }}"/>
+{% endblock %}
+
+{% block bootboxDialog %}
+    <script type="text/javascript" src="{{ assets['admin'] }}js/bootbox.min.js"></script>
+{% endblock %}
+
+{% block javascripts%}
+    <script type="text/javascript" language="javascript" src="{{ assets['admin'] }}assets/advanced-datatable/media/js/jquery.js"></script>
+    <script class="include" type="text/javascript" src="{{ assets['admin'] }}js/jquery.dcjqaccordion.2.7.js"></script>
+    <script type="text/javascript" language="javascript" src="{{ assets['admin'] }}assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="{{ assets['admin'] }}assets/data-tables/DT_bootstrap.js"></script>
+    <script type="text/javascript">
+        /* Formating function for row details */
+        function fnFormatDetails(oTable, nTr)
+        {
+            var aData = oTable.fnGetData(nTr);
+            var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+            sOut += '<tr><td>Rendering engine:</td><td>' + aData[1] + ' ' + aData[4] + '</td></tr>';
+            sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
+            sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
+            sOut += '</table>';
+            return sOut;
+        }
+
+        $(document).ready(function() {
+
+
+            $(document).ready(function() {
+                $('#dynamicList').dataTable({
+                    "aaSorting": [[4, "desc"]],
+                    "oLanguage": {
+				"oPaginate": {
+				"sNext": "{{lang.next}}",
+                                "sPrevious": "{{lang.previous}}",
+                            },
+                            "sSearch" : "{{lang.search}}",
+                            "sEmptyTable": "{{lang.emptyTable}}",
+                            "sInfo": "{{lang.tableShowInfo}}",
+                            "sInfoEmpty" : "{{lang.tableInfoEmpty}}",
+                            "sInfoFiltered" : "{{lang.tableInfoFiltered}}",
+                            "sLengthMenu": '{{lang.perPageDisplay}} <select>'+
+			            '<option value="10">10</option>'+
+			            '<option value="20">25</option>'+
+			            '<option value="30">50</option>'+
+			            '<option value="40">100</option>'+
+			            '</select> {{lang.recordsPerShow}}',
+                            "sProcessing" : "{{lang.tableProcessing}}",
+                            "sZeroRecords" : "{{lang.tableZeroRecords}}",
+			}
+                });
+            });
+
+            /*
+             * Insert a 'details' column to the table
+             */
+            var nCloneTh = document.createElement('th');
+            var nCloneTd = document.createElement('td');
+            nCloneTd.innerHTML = '<img src="{{ assets['admin'] }}assets/advanced-datatable/examples/examples_support/details_open.png">';
+            nCloneTd.className = "center";
+
+            $('#hidden-table-info thead tr').each(function() {
+                this.insertBefore(nCloneTh, this.childNodes[0]);
+            });
+
+            $('#hidden-table-info tbody tr').each(function() {
+                this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
+            });
+
+            /*
+             * Initialse DataTables, with no sorting on the 'details' column
+             */
+            var oTable = $('#hidden-table-info').dataTable({
+                "aoColumnDefs": [
+                    {"bSortable": false, "aTargets": [0]}
+                ],
+                "aaSorting": [[1, 'asc']]
+            });
+
+            /* Add event listener for opening and closing details
+             * Note that the indicator for showing which row is open is not controlled by DataTables,
+             * rather it is done here
+             */
+            $('#hidden-table-info tbody td img').live('click', function() {
+                var nTr = $(this).parents('tr')[0];
+                if (oTable.fnIsOpen(nTr))
+                {
+                    /* This row is already open - close it */
+                    this.src = "{{ assets['admin'] }}assets/advanced-datatable/examples/examples_support/details_open.png";
+                    oTable.fnClose(nTr);
+                }
+                else
+                {
+                    /* Open this row */
+                    this.src = "{{ assets['admin'] }}assets/advanced-datatable/examples/examples_support/details_close.png";
+                    oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
+                }
+            });
+        });
+    </script>
+    <script>
+        jQuery(".mod").addClass("active");
+        jQuery(".modContent").addClass("active");
+
+        function deleteRow(contentId) {
+            bootbox.dialog({
+                message: jQuery("#deleteConfirmList").val(),
+                title: jQuery("#deleteRowQuestion").val(),
+                buttons: {
+                    success: {
+                        label: jQuery("#deleteRowBtnDelete").val(),
+                        className: "btn-danger",
+                        callback: function() {
+                            deleteRowAction(contentId);
+                        }
+                    },
+                    danger: {
+                        label: jQuery("#deleteRowBtnCancel").val(),
+                        className: "btn-default",
+                        callback: function() {
+                        }
+                    }
+                }
+            });
+        }
+        ;
+
+        function deleteRowAction(delContentId) {
+            jQuery.post("/admin/content/delete", {
+                id: delContentId
+            }, function(data) {
+                if (data != -1) {
+                    jQuery(data).fadeOut();
+                    setTimeout(function() {
+                        jQuery(data).remove();
+                    }, 2000);
+
+                }
+
+            });
+        }
+
+    </script>
+{% endblock %}

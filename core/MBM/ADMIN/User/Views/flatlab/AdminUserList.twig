@@ -1,0 +1,225 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ lang.userList }}{% endblock %}
+
+{% block css %}
+<link href="{{ assets['admin'] }}assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+<link rel="stylesheet" href="{{ assets['admin'] }}assets/data-tables/DT_bootstrap.css" />
+{% endblock %}
+
+{% block content %}
+<section class="wrapper site-min-height">
+    <!-- page start-->
+    <section class="panel">
+        <header class="panel-heading">{{ lang.userList }}</header>
+        <div class="panel-body">
+           {%  set canAdd = factory.getObject("\\MBM\\Lib\\Auth").checkPermission("/admin/user/add") %}
+           {%  if canAdd  %}
+            <a href="admin/user/add" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> {{ lang.addUser }}</a>
+           {% endif %}
+           {%  set canViewRole = factory.getObject("\\MBM\\Lib\\Auth").checkPermission("/admin/user/role") %}
+           {%  if canViewRole  %}
+            <a href="admin/user/role" type="button" class="btn btn-primary btn-group">{{ lang.role }}</a>
+           {% endif %}
+            <div class="adv-table">
+                <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="dynamicList">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>{{ lang.username }}</th>
+                            <th>{{ lang.firstname }}</th>
+                            <th>{{ lang.lastname }}</th>
+                            <th>{{ lang.gender }}</th>
+                            <th>{{ lang.role }}</th>
+                            <th>{{ lang.email }}</th>
+                            <th>{{ lang.website }}</th>
+                            <th>{{ lang.actions }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       {%  set canEdit = factory.getObject("\\MBM\\Lib\\Auth").checkPermission("/admin/user/edit") %}
+                       {%  set canDelete = factory.getObject("\\MBM\\Lib\\Auth").checkPermission("/admin/user/delete") %}
+                                 {% for user in allUsers %}
+                        <tr class="gradeX" id="{{user['id']}}">
+                            <td>{{user['id']}}</td>
+                            <td>{{user['username']}}</td>
+                            <td>{{user['firstname']}}</td>
+                            <td>{{user['lastname']}}</td>
+                            <td>{% if user['gender']=="unknown" %}
+                                <span class="badge"><i class="fa fa-meh-o"></i></span>
+                                {% elseif user['gender']=="male" %}
+                                <span class="badge bg-info"><i class="fa fa-male"></i></span>
+                                {% elseif user['gender']=="female" %}
+                                <span class="badge bg-important"><i class="fa fa-female"></i></span>
+                                {% endif %}</td>
+                            <td>{{user['role']}}</td>
+                            <td><a href="mailto:{{user['email']}}">{{user['email']}}</a></td>
+                            <td><a href="{{user['website']}}" target="_blank">{{user['website']}}</a></td>
+                            <td>
+                              {%  if canEdit  %}
+                                <a href="/admin/user/edit/{{user['id']}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                              {% endif %}
+                              {%  if canDelete  %}
+                                <a href="javascript:deleteRow({{user['id']}});" class="btn btn-xs btn-danger"><i class="fa fa-trash-o "></i></a>
+                               {% endif %}
+                            </td>
+
+                        </tr>
+                                {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </section>
+    <!-- page end-->
+</section>
+{% endblock %}
+
+{% block popupwindow %}
+<input type="hidden" id="deleteRowQuestion" value="{{ lang.confirm }}"/>
+<input type="hidden" id="deleteConfirmList" value="{{ lang.deleteConfirmList }}"/>
+<input type="hidden" id="deleteRowBtnDelete" value="{{ lang.delete }}"/>
+<input type="hidden" id="deleteRowBtnCancel" value="{{ lang.cancel }}"/>
+{% endblock %}
+
+{% block bootboxDialog %}
+<script type="text/javascript" src="{{ assets['admin'] }}js/bootbox.min.js"></script>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" language="javascript" src="{{ assets['admin'] }}assets/advanced-datatable/media/js/jquery.js"></script>
+<script class="include" type="text/javascript" src="{{ assets['admin'] }}js/jquery.dcjqaccordion.2.7.js"></script>
+<script type="text/javascript" language="javascript" src="{{ assets['admin'] }}assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="{{ assets['admin'] }}assets/data-tables/DT_bootstrap.js"></script>
+<script type="text/javascript">
+    /* Formating function for row details */
+    function fnFormatDetails(oTable, nTr)
+    {
+        var aData = oTable.fnGetData(nTr);
+        var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+        sOut += '<tr><td>Rendering engine:</td><td>' + aData[1] + ' ' + aData[4] + '</td></tr>';
+        sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
+        sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
+        sOut += '</table>';
+
+        return sOut;
+    }
+
+    $(document).ready(function() {
+
+
+        $(document).ready(function() {
+            $('#dynamicList').dataTable({
+                "aaSorting": [[4, "desc"]],
+                "oLanguage": {
+				"oPaginate": {
+				"sNext": "{{lang.next}}",
+                                "sPrevious": "{{lang.previous}}",
+                            },
+                            "sSearch" : "{{lang.search}}",
+                            "sEmptyTable": "{{lang.emptyTable}}",
+                            "sInfo": "{{lang.tableShowInfo}}",
+                            "sInfoEmpty" : "{{lang.tableInfoEmpty}}",
+                            "sInfoFiltered" : "{{lang.tableInfoFiltered}}",
+                            "sLengthMenu": '{{lang.perPageDisplay}} <select>'+
+			            '<option value="10">10</option>'+
+			            '<option value="20">25</option>'+
+			            '<option value="30">50</option>'+
+			            '<option value="40">100</option>'+
+			            '</select> {{lang.recordsPerShow}}',
+                            "sProcessing" : "{{lang.tableProcessing}}"
+			}
+            });
+        });
+
+        /*
+         * Insert a 'details' column to the table
+         */
+        var nCloneTh = document.createElement('th');
+        var nCloneTd = document.createElement('td');
+        nCloneTd.innerHTML = '<img src="{{ assets['admin'] }}assets/advanced-datatable/examples/examples_support/details_open.png">';
+        nCloneTd.className = "center";
+
+        $('#hidden-table-info thead tr').each(function() {
+            this.insertBefore(nCloneTh, this.childNodes[0]);
+        });
+
+        $('#hidden-table-info tbody tr').each(function() {
+            this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
+        });
+
+        /*
+         * Initialse DataTables, with no sorting on the 'details' column
+         */
+        var oTable = $('#hidden-table-info').dataTable({
+            "aoColumnDefs": [
+                {"bSortable": false, "aTargets": [0]}
+            ],
+            "aaSorting": [[1, 'asc']]
+        });
+
+        /* Add event listener for opening and closing details
+         * Note that the indicator for showing which row is open is not controlled by DataTables,
+         * rather it is done here
+         */
+        $('#hidden-table-info tbody td img').live('click', function() {
+            var nTr = $(this).parents('tr')[0];
+            if (oTable.fnIsOpen(nTr))
+            {
+                /* This row is already open - close it */
+                this.src = "{{ assets['admin'] }}assets/advanced-datatable/examples/examples_support/details_open.png";
+                oTable.fnClose(nTr);
+            }
+            else
+            {
+                /* Open this row */
+                this.src = "{{ assets['admin'] }}assets/advanced-datatable/examples/examples_support/details_close.png";
+                oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
+            }
+        });
+    });
+
+    jQuery(".mod").addClass("active");
+    jQuery(".modUser").addClass("active");
+
+    function deleteRow(userId) {
+        bootbox.dialog({
+            message: jQuery("#deleteConfirmList").val(),
+            title: jQuery("#deleteRowQuestion").val(),
+            buttons: {
+                success: {
+                    label: jQuery("#deleteRowBtnDelete").val(),
+                    className: "btn-danger",
+                    callback: function() {
+                        deleteRowAction(userId);
+                    }
+                },
+                danger: {
+                    label: jQuery("#deleteRowBtnCancel").val(),
+                    className: "btn-default",
+                    callback: function() {
+                    }
+                }
+            }
+        });
+    }
+    ;
+
+    function deleteRowAction(delUserId) {
+        jQuery.post("/admin/user/delete", {
+            userId: delUserId
+        }, function(data) {
+            if (data != -1) {
+                jQuery(data).fadeOut();
+                setTimeout(function() {
+                    jQuery(data).remove();
+                }, 2000);
+
+            }
+
+        });
+    }
+
+</script>
+{% endblock %}

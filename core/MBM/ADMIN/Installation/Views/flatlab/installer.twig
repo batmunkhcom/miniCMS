@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="miniCMS installation page">
+        <meta name="keyword" content="miniCMS, installation, admin, Mongolia, Start, quick">
+        <base href="{{ constant('URL') }}">
+        <link rel="shortcut icon" href="img/favicon.png">
+        
+        <title>{{lang.installationTitle}}</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="{{ assets['admin'] }}css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ assets['admin'] }}css/bootstrap-reset.css" rel="stylesheet">
+        <!--external css-->
+        <link href="{{ assets['admin'] }}assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <link href="{{ assets['admin'] }}css/style.css" rel="stylesheet">
+        <link href="{{ assets['admin'] }}css/style-responsive.css" rel="stylesheet" />
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <section id="container" class="">
+
+
+            <!-- page start-->
+            <div class="row">
+                <div style=" max-width: 600px;  margin: 100px auto 0;">
+                    <section class="panel">
+                        <header class="panel-heading" style="text-align: center; background: #eee; border-radius: 5px 5px 0 0; color: #757575;">
+                            <h3>miniCMS™</h3>
+                        </header>
+                        <div class="panel-body">
+                            <div class="stepy-tab">
+                                <ul id="default-titles" class="stepy-titles clearfix">
+                                    <li id="default-title-0" class="current-step">
+                                        <div>{{lang.step}} 1</div>
+                                    </li>
+                                    <li id="default-title-1" class="">
+                                        <div>{{lang.step}} 2</div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <form class="form-horizontal cmxform" id="installation" method="post" action="/installation">
+                                <fieldset title="{{lang.step}} 1" class="step" id="default-step-0">
+                                    <legend>{{lang.database}}</legend>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">{{lang.databaseName}}</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" name="dbName" placeholder="{{ lang.example }}: my_db" 
+                                             value="{% if error is not null %}{{request.param('dbName')}}{% endif %}"  required>
+                                            {% if error == 1049 %}
+                                            <label for="dbName" class="error">{{lang.dbe1049}}</label>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">{{lang.databaseUser}}</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" name="dbUser" placeholder="{{ lang.example }}: root" required
+                                                   value="{% if error is not null %}{{request.param('dbUser')}}{% endif %}" >
+                                            {% if error == 1044 %}
+                                            <label for="dbUser" class="error">{{lang.dbe1044}}</label>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">{{lang.databasePassword}}</label>
+                                        <div class="col-lg-8">
+                                            <input type="password" class="form-control" name="dbPass" placeholder="{{lang.databasePassword}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">{{lang.databaseHost}}</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" name="dbHost" placeholder="{{ lang.example }}: localhost"
+                                               value="{% if error is not null %}{{request.param('dbHost')}}{% endif %}"  required>
+                                            {% if error == 2002 %}
+                                            <label for="dbHost" class="error">{{lang.dbe2002}}</label>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                                <fieldset title="{{lang.step}} 2" class="step" id="default-step-1" >
+                                    <legend>{{lang.admin}}</legend>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">{{lang.siteTitle}}</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" name="siteTitle" placeholder="{{ lang.example }}: miniCMS"
+                                                    value="{% if error is not null %}{{request.param('siteTitle')}}{% endif %}"  required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">{{lang.adminUser}}</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" name="adminUser" id="adminUser" placeholder="{{ lang.example }}: Admin"
+                                                   value="{% if error is not null %}{{request.param('adminUser')}}{% endif %}"  required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">{{lang.adminPassword}}</label>
+                                        <div class="col-lg-8">
+                                            <input type="password" class="form-control" name="adminPass" id="adminPass" placeholder="{{lang.adminPassword}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">{{lang.adminPasswordAgain}}</label>
+                                        <div class="col-lg-8">
+                                            <input type="password" name="confirmPass" id="confirmPass" class="form-control" placeholder="{{lang.adminPasswordAgain}}" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-4 control-label">{{lang.adminEmail}}</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" class="form-control" name="adminEmail" placeholder="{{ lang.example }}: contact@example.com"
+                                                   value="{% if error is not null %}{{request.param('adminEmail')}}{% endif %}" >
+                                        </div>
+                                    </div>
+                                    
+
+                                </fieldset>
+                                <input type="submit" class="finish btn btn-success" value="{{lang.finish}}"/>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="{{ assets['admin'] }}js/jquery.js"></script>
+        <script src="{{ assets['admin'] }}js/bootstrap.min.js"></script>
+        <script class="include" type="text/javascript" src="{{ assets['admin'] }}js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="{{ assets['admin'] }}js/jquery.scrollTo.min.js"></script>
+        <script src="{{ assets['admin'] }}js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script src="{{ assets['admin'] }}js/respond.min.js" ></script>
+
+
+        <!--common script for all pages-->
+        <script src="{{ assets['admin'] }}js/common-scripts.js"></script>
+        <!--script for this page-->
+        <script src="{{ assets['admin'] }}js/jquery.stepy.js"></script>
+        <script type="text/javascript" src="{{ assets['admin'] }}js/jquery.validate.min.js"></script>
+        {% include "validation.twig" %}
+        <script>
+            
+            //step wizard
+
+            $(function() {
+                $('#installation').stepy({
+                    backLabel: '{{lang.previous}}',
+                    block: true,
+                    nextLabel: '{{lang.continue}}',
+                    titleClick: true,
+                    titleTarget: '.stepy-tab',
+                    validate: true
+                });
+            });
+            
+           //validate 
+               $("form#installation").validate({
+                rules: {
+                            confirmPass: {
+                              equalTo: "#adminPass"
+                            }
+                          }
+                   });
+        </script>
+
+
+    </body>
+</html>

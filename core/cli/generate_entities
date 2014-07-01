@@ -1,0 +1,117 @@
+#!/usr/bin/env php
+<?php
+/**
+ * This file is part of the miniCMS package.
+ * (c) since 2005 BATMUNKH Moltov <contact@batmunkh.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+define('APPMODE', 'cli');
+
+define('DS', DIRECTORY_SEPARATOR);
+
+define('DIR_ABS', realpath('../../') . DS);
+define('DIR_CORE', realpath('../') . DS);
+define('DIR_LIB', DIR_CORE . 'MBM' . DS);
+define('DIR_CONFIG', DIR_CORE . 'config' . DS);
+define('DIR_ADMIN', DIR_LIB . DS . 'ADMIN' . DS);
+
+$loader = require DIR_CORE . 'vendor/autoload.php';
+
+//$db = new \MBM\Lib\Model('default');
+//$em = $db->getConnection();
+//load config file
+$dbParams = \Symfony\Component\Yaml\Yaml::parse(DIR_CONFIG . 'database.yml');
+
+$classLoader = new \Doctrine\Common\ClassLoader('Entities', DIR_LIB . 'Entity');
+$classLoader->register();
+
+$classLoader = new \Doctrine\Common\ClassLoader('Proxies', DIR_LIB . 'Entity' . DS . 'Proxy');
+$classLoader->register();
+
+
+// cache
+$cache = new \Doctrine\Common\Cache\ArrayCache();
+// annotation reader
+$annotationReader = new \Doctrine\Common\Annotations\AnnotationReader();
+
+// cached annotation reader
+$cachedAnnotationReader = new \Doctrine\Common\Annotations\CachedReader($annotationReader, $cache);
+
+// driver chain
+$driverChain = new \Doctrine\ORM\Mapping\Driver\DriverChain();
+
+// annotation driver
+$annotationDriver = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($cachedAnnotationReader, array(DIR_LIB . 'Entity'));
+
+// add entity namespaces
+$driverChain->addDriver($annotationDriver, 'MBM\Entity');
+
+
+// config
+$config = new \Doctrine\ORM\Configuration();
+$config->setMetadataDriverImpl($config->newDefaultAnnotationDriver(DIR_LIB . 'Entity'));
+$config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ArrayCache);
+$config->setMetadataCacheImpl($cache);
+$config->setMetadataDriverImpl($driverChain);
+$config->setProxyDir(DIR_LIB . 'Entity' . DS . 'Proxies');
+$config->setProxyNamespace('Proxies');
+
+//event manager
+$evm = new \Doctrine\Common\EventManager;
+$entityPrefix = new \MBM\Extentions\Doctrine\EntityPrefix('m_');
+$evm->addEventListener(\Doctrine\ORM\Events::loadClassMetadata, $entityPrefix);
+
+
+
+$entityManager = \Doctrine\ORM\EntityManager::create($dbParams['cli'], $config, $evm);
+
+// custom datatypes (not mapped for reverse engineering)
+$entityManager->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('set', 'string');
+$entityManager->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
+
+$em = $entityManager;
+
+
+
+
+
+
+
+// fetch metadata
+$driver = new \Doctrine\ORM\Mapping\Driver\DatabaseDriver(
+        $em->getConnection()->getSchemaManager()
+);
+//$driver->setNamespace("MBM\\Entity\\");
+$em->getConfiguration()->setMetadataDriverImpl($driver);
+$cmf = new \Doctrine\ORM\Tools\DisconnectedClassMetadataFactory($em);
+$cmf->setEntityManager($em);
+$classes = $driver->getAllClassNames();
+
+
+$metadata = $cmf->getAllMetadata();
+
+$generator = new \Doctrine\ORM\Tools\EntityGenerator();
+echo "\n\n....loading generator...\n\n";
+
+//$generator->setAnnotationPrefix('');
+
+$generator->setUpdateEntityIfExists(true);
+echo "\n\n....Updating if exists...\n\n";
+
+$generator->setGenerateStubMethods(true);
+echo "\n\n....3...\n\n";
+
+$generator->setGenerateAnnotations(true);
+
+echo "\n\n....4...\n\n";
+
+
+$generator->generate($metadata, DIR_LIB . 'Entity');
+
+echo "\n";
+echo "\n";
+print 'Done!';
+echo "\n";
+echo "\n";

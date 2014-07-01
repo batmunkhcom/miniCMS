@@ -1,0 +1,113 @@
+{% extends "base.twig" %} {# base.twig-s udamshina #}
+
+{% block title %}{{ lang.photoList }}{% endblock %}
+
+{% block css %}
+    <link href="{{ assets['admin'] }}assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+    <link href="{{ templatePath }}/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+    <link href="{{ templatePath }}/assets/data-tables/DT_bootstrap.css" rel="stylesheet"/>
+    <link href="{{ templatePath }}/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="{{ templatePath }}/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+    <link href="{{ templatePath }}/css/gallery.css" type="text/css" rel="stylesheet"/>
+    <link href="{{ templatePath }}/css/style-responsive.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %} {# content block-g override hiine #}
+    <section class="wrapper">
+        <!-- page start-->
+        <section class="panel">
+            <header class="panel-heading">
+                {{lang.gallery}}
+            </header>
+
+            <div class="panel-body">
+                <a href="admin/photo" type="button" class="btn btn-primary">{{ lang.photoAdd }}</a><br/><br/>
+                <ul class="grid cs-style-3">
+                    {% for photo in allPhotos %}
+                    <li id="p_{{photo['id']}}">
+                        <figure>
+                            <img src="{{ photo['path'] }}"{{asdasd}}>
+                            <figcaption>
+                                <h3>{{lang.code}}</h3>
+                                <span>lorem ipsume</span>
+                                <a rel="group" href="/{{ templatePath }}/img/gallery/4.jpg" class="btn btn-primary btn-xs fancybox" style="margin-right:40px;" alt="{{lang.view}}"><i class="fa fa-expand"></i></a>
+                                <a href="javascript:deleteRow({{photo['id']}});" class="btn btn-xs btn-danger"><i class="fa fa-trash-o" alt="{{lang.cancel}}"></i></a>
+                            </figcaption>                          
+                        </figure>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- page end-->
+    </section>
+
+{% endblock %}
+
+{% block popupwindow %}
+    <input type="hidden" id="deleteRowQuestion" value="{{ lang.confirm }}"/>
+    <input type="hidden" id="deleteConfirmList" value="{{ lang.deleteConfirmList }}"/>
+    <input type="hidden" id="deleteRowBtnDelete" value="{{ lang.delete }}"/>
+    <input type="hidden" id="deleteRowBtnCancel" value="{{ lang.cancel }}"/>
+{% endblock %}
+
+{% block bootboxDialog %}
+<script type="text/javascript" src="{{ templatePath }}/js/bootbox.min.js"></script>
+{% endblock %}
+
+{% block javascripts%}
+    <script src="/{{ templatePath }}/js/modernizr.custom.js" ></script>
+    <script src="/{{ templatePath }}/js/toucheffects.js"></script>
+    <script src="/{{ templatePath }}/assets/fancybox/source/jquery.fancybox.js"></script>
+    <script src="/{{ templatePath }}/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jQuery(".mod").addClass("active");
+        jQuery(".modGallery").addClass("active");
+        $(function() {
+            //    fancybox
+            jQuery(".fancybox").fancybox();
+        });
+
+        function deleteRow(photoId) {
+            bootbox.dialog({
+                message: jQuery("#deleteConfirmList").val(),
+                title: jQuery("#deleteRowQuestion").val(),
+                buttons: {
+                    success: {
+                        label: jQuery("#deleteRowBtnDelete").val(),
+                        className: "btn-danger",
+                        callback: function() {
+                            deleteRowAction(photoId);
+                        }
+                    },
+                    danger: {
+                        label: jQuery("#deleteRowBtnCancel").val(),
+                        className: "btn-default",
+                        callback: function() {
+                        }
+                    }
+                }
+            });
+        }
+        ;
+
+        function deleteRowAction(id) {
+            jQuery.post("/admin/photo/delete", {
+                photoId: id
+            }, function(data) {
+
+                if (data != -1) {
+                    jQuery(data).fadeOut();
+                    setTimeout(function() {
+                        jQuery(data).remove();
+                    }, 2000);
+                    window.location.reload();
+                }
+
+            });
+        }
+    </script>
+
+{% endblock %}

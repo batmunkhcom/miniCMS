@@ -1,0 +1,8 @@
+image:
+  directory: images/
+  type:
+       0: image/png
+       1: image/jpg
+       2: image/gif
+       3: image/jpeg
+  size: 5M 

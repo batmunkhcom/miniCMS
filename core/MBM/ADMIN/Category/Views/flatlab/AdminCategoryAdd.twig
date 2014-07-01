@@ -1,0 +1,204 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ lang.addCategory }}{% endblock %}
+
+{% block css %}
+<!--external css-->
+<link href="{{ assets['admin'] }}assets/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+<link href="{{ assets['admin'] }}assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet"/>
+<link href="{{ assets['admin'] }}assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"/>
+<link rel="stylesheet" href="{{ assets['admin'] }}assets/data-tables/DT_bootstrap.css"/>
+{% endblock %}
+
+{% block content %}
+
+<section class="wrapper">
+    <!-- page start-->
+    <div class="row">
+        <div class="col-lg-7">
+            <section class="panel">
+                <header class="panel-heading">
+                        {{ lang.addCategory }}
+                </header>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="category" role="form" id="categoryAdd" method="post"
+                          action="/admin/category/add">
+                        <div class="form-group">
+                            <label for="name" class="col-lg-3 col-sm-3 control-label">{{ lang.name }}</label>
+
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="{{ lang.name }}" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="slug" class="col-lg-3 col-sm-3 control-label">{{ lang.slug }}</label>
+
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" id="slug" name="slug"
+                                       placeholder="{{ lang.slug }}" minlength="3" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="parent_id"
+                                   class="col-lg-3 col-sm-3 control-label">{{ lang.parentCategory }}</label>
+
+                            <div class="col-lg-9">
+                                <select name="parent_id" id="parent_id" class="form-control" selected="active"
+                                        placeholder="{{ lang.parentCategory }}">
+                                    <option value="">{{ lang.root }}</option>
+                                        {% for aCategory in allCategories %}
+                                    <option value="{{ aCategory["id"] }}">{{ aCategory["name"] }}</option>
+                                        {% endfor %}
+                                </select>
+
+                                <p class="help-block">{{ lang.parentCategoryDesc }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="per_page" class="col-lg-3 col-sm-3 control-label">{{ lang.perPage }}</label>
+
+                            <div class="col-lg-9">
+                                <input type="number" class="form-control" id="per_page" name="per_page"
+                                       placeholder="{{ lang.perPage }}" min="1" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="view_type" class="col-lg-3 col-sm-3 control-label">{{ lang.viewType }}</label>
+
+                            <div class="col-lg-9">
+                                <select name="view_type" id="view_type" class="form-control" selected="list"
+                                        placeholder="{{ lang.viewType }}">
+                                    <option value="list">{{ lang.list }}</option>
+                                    <option value="grid">{{ lang.grid }}</option>
+                                    <option value="listText">{{ lang.listText }}</option>
+                                    <option value="blank">{{ lang.blank }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="parent_id" class="col-lg-3 col-sm-3 control-label">{{ lang.status }}</label>
+
+                            <div class="col-lg-9">
+                                <select name="st" id="st" class="form-control" selected="active"
+                                        placeholder="{{ lang.status }}">
+                                    <option value="inactive">{{ lang.inactive }}</option>
+                                    <option value="active" >{{ lang.active }}</option>
+                                    <option value="pending">{{ lang.pending }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="is_adult" type="checkbox"> 18+
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="is_external" id="is_external" value="0" type="checkbox" onclick="showMe()"/> {{ lang.isExternal }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="external_elements" style="display: none;">
+                            <div class="form-group" >
+                                <label for="element_external_url"
+                                       class="col-lg-3 col-sm-3 control-label">{{ lang.elementExternalUrl }}</label>
+
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" name="element_external_url"
+                                           id="element_external_url" placeholder="{{ lang.elementExternalUrl }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="target" class="col-lg-3 col-sm-3 control-label">{{ lang.target }}</label>
+
+                                <div class="col-lg-9">
+                                    <select name="target" id="target" class="form-control" selected="active"
+                                            placeholder="{{ lang.target }}">
+                                        <option value="_blank">_blank</option>
+                                        <option value="_self">_self</option>
+                                        <option value="_parent">_parent</option>
+                                        <option value="_top">_top</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="module" class="col-lg-3 col-sm-3 control-label">{{ lang.module }}</label>
+
+                            <div class="col-lg-9">
+                                <select name="module" id="module" class="form-control" selected="active"
+                                        placeholder="{{ lang.module }}">
+                                        {% for aModule in allModules %}
+                                    <option value="{{ aModule["id"] }}">{{ aModule["name"] }}</option>
+                                        {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="catIcon" class="col-lg-3 col-sm-3 control-label">{{ lang.icon }}</label>
+
+                            <div class="col-lg-9">
+                                <input type="text" name="catIcon" id="catIcon" class="form-control"
+                                       selected="active" placeholder="icon-home"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-9">
+                                <button type="submit" class="btn btn-success">{{ lang.add }}</button>
+                                <a href="admin/category" type="button" class="btn btn-default">{{ lang.cancel }}</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-5">
+            <section class="panel">
+                <header class="panel-heading">
+                        {{ lang.help }}
+                </header>
+                <div class="panel-body">
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- page end-->
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ assets['admin'] }}js/jquery.validate.min.js"></script>
+{% include "validation.twig" %}
+<script>
+    jQuery(".mod").addClass("active");
+    jQuery(".modCat").addClass("active");
+     $("form#categoryAdd").validate({ });
+    function showMe()
+    {
+        var i;
+        var optionIndex = document.getElementById("is_external");
+
+        if (optionIndex.checked == true) {
+            document.getElementById('external_elements').setAttribute("style", "");
+        }
+        else {
+            document.getElementById('external_elements').setAttribute("style", "display: none;");
+        }
+
+    }
+
+</script>
+
+
+<!--script for this page-->
+<!--<script src="{{ assets['admin'] }}js/form-validation-script.js"></script> -->
+{% endblock %}

@@ -1,0 +1,4 @@
+#!/usr/bin/env php
+<?php
+define("DIR_ENTITY", '/Users/decoder/Sites/miniCMSv3/core/MBM/Entity');
+include('doctrine.php');

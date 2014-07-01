@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <title>{% block title %} {% endblock %}</title>
+        {% embed "head.twig" %}{% endembed %}
+        {% block css %}{% endblock %}
+          <!-- Custom styles for this template -->
+   <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  {% block body %}
+  <body>      
+     <section id="container" class="">
+      <!--header start-->
+      <header class="header white-bg">
+        {% include "header.twig" %}
+      </header>
+      <!--header end-->
+      <!--sidebar start-->
+      <aside>
+        {% include "menu.twig" %}
+      </aside>
+      <!--sidebar end-->
+      <!--main content start-->
+      <section id="main-content">
+        {% block content %}
+        {% endblock %}
+      </section>
+      <!--main content end-->
+      <!--footer start-->
+      
+      <!--popup window-->
+        {% block popupwindow %}
+        {% endblock %}
+      <!--popup-->
+      
+      <!--photo script-->
+        {% block photoscript %}
+        {% endblock %}
+      <!--photo script-->
+      
+      <footer class="site-footer">
+        {% embed "footer.twig" %}
+        {% endembed %}
+      </footer>
+      <!--footer end-->
+  </section>
+    <script src="{{ assets['admin'] }}js/jquery.js"></script>
+    <script src="{{ assets['admin'] }}js/bootstrap.min.js"></script>
+    {% block bootboxDialog %}
+    {% endblock %}
+    
+    <script class="include" type="text/javascript" src="{{ assets['admin'] }}js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="{{ assets['admin'] }}js/jquery.scrollTo.min.js"></script>
+    <script src="{{ assets['admin'] }}js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="{{ assets['admin'] }}js/respond.min.js" ></script>
+    <script src="{{ assets['admin'] }}js/common-scripts.js"></script>
+    {% block javascripts %}
+    {% endblock %}
+    
+    {% block js_after_common %}
+    {% endblock %}
+  </body>
+   {% endblock %}
+</html>

@@ -1,0 +1,84 @@
+{% extends "base.twig" %}
+{% block content %}
+   <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+            <div class="col-lg-7">
+                <section class="panel">
+                    <header class="panel-heading">
+                        {{ lang.addCurrency }}
+                    </header>
+                    <div class="panel-body">
+                        <form class="form-horizontal" name="currencyAdd" role="form" id="currencyAdd" method="post" action="/admin/currency/add">
+                        	<div class="form-group">
+                                <label for="name" class="col-lg-3 col-sm-3 control-label">{{ lang.name}}</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="{{ lang.name}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="prefix" class="col-lg-3 col-sm-3 control-label">{{ lang.prefix}}</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="prefix" name="prefix" placeholder="{{ lang.prefix}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="suffix" class="col-lg-3 col-sm-3 control-label">{{ lang.suffix}}</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="suffix" name="suffix" placeholder="{{ lang.suffix}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="symbol" class="col-lg-3 col-sm-3 control-label">{{ lang.symbol}}</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="symbol" name="symbol" placeholder="{{ lang.symbol}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="currencyCode" class="col-lg-3 col-sm-3 control-label">{{ lang.currencyCode}}</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="currencyCode" name="currencyCode" placeholder="{{ lang.currencyCode}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="oneUsd" class="col-lg-3 col-sm-3 control-label">{{ lang.oneUsd}}</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" id="oneUsd" name="oneUsd" placeholder="{{ lang.oneUsd}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-9">
+                                    <button type="submit" class="btn btn-success">{{ lang.add }}</button>
+                                    <a href="admin/currency" type="button" class="btn btn-default">{{lang.cancel}}</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-5">
+                <section class="panel">
+                    <header class="panel-heading">
+                        {{ lang.help }}
+                    </header>
+                    <div class="panel-body">
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- page end-->
+    </section>
+{% endblock %}
+{% block javascripts%}
+<<<<<<< HEAD:core/MBM/Modules/Settings/Views/AdminCurrencyAdd.twig
+<script type="text/javascript" src="flatlab/admin/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/flatlab/admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+=======
+<script type="text/javascript" src="{{ assets['admin'] }}assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+>>>>>>> 4eee031c46da82aeb526807879326052b0e179f3:core/MBM/ADMIN/Settings/Views/flatlab/AdminCurrencyAdd.twig
+<script>
+    jQuery(".menuSettings").addClass("active");
+    jQuery(".menuSettingsCurrency").addClass("active");
+</script>
+<script type="text/javascript" src="/flatlab/admin/js/form-validation-script.js"></script>
+{% endblock %}

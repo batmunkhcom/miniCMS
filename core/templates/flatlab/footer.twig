@@ -1,0 +1,8 @@
+          <div class="text-center">
+              {% block footer %}
+              {{ "now"|date("Y") }} © miniCMS version {{ config.get('system').version }} {{ config.get('system').copyright }}
+              <a href="#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+              {% endblock %}
+          </div>

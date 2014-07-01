@@ -1,0 +1,18 @@
+#php_flag apc.cache_by_default Off
+#php_flag apc.enabled Off
+
+RewriteEngine On
+
+#www ruu shideh
+RewriteCond %{HTTP_HOST} ^(?!www\.)(.+) [NC]
+RewriteRule ^(.*) http://www.%1/$1 [R=301,NE,L]
+
+#RewriteRule ^css/main.css$ css/main.php [L]
+#RewriteRule ^js/main.js$ js/main.php [L]
+
+#daraahi file uudiig algasna
+RewriteCond %{REQUEST_URI} !^(.+\.(flv|f4v|m4v|mov|php|swf|mp3|css|js|gif|jpg|png|jpeg|html|htm|swf))$
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]

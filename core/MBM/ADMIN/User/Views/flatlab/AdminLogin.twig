@@ -1,0 +1,37 @@
+{% extends "base.twig" %}
+{% block body %}
+
+<body class="login-body">
+    <div class="container">
+        <form class="form-signin" action="/login" method="POST">
+            <h2 class="form-signin-heading">{{lang.rightNowLogin}}</h2>
+            <div class="login-wrap">
+                <input type="text" class="form-control" placeholder="{{lang.username}}" name="username" autofocus>
+                <input type="password" class="form-control" name="password" placeholder="{{lang.password}}">
+                <label class="checkbox">
+                    <input type="checkbox" value="remember-me"> {{lang.rememberMe}}
+                    <span class="pull-right">
+                        <a data-toggle="modal" href="#myModal">{{lang.doYouRememberPassword}}</a>
+                    </span>
+                    <span class="pull-right"></span>
+                </label>
+                <button class="btn btn-lg btn-login btn-block" type="submit">{{lang.login}}</button>
+                <div class="registration">
+                {% if loginError!="" %}
+                    <div class="alert alert-block alert-danger fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <strong> {{ loginError }}</strong>
+                    </div> 
+                {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{{ assets['admin'] }}js/jquery.js"></script>
+    <script src="{{ assets['admin'] }}js/bootstrap.min.js"></script>
+</body>
+
+{% endblock %}

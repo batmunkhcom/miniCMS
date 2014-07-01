@@ -1,0 +1,46 @@
+#!/usr/bin/env php
+<?php
+/**
+ * This file is part of the miniCMS package.
+ * (c) since 2005 BATMUNKH Moltov <contact@batmunkh.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+define('APPMODE', 'cli');
+
+define('DS', DIRECTORY_SEPARATOR);
+
+define('DIR_ABS', realpath('../../') . DS);
+define('DIR_CORE', realpath('../') . DS);
+define('DIR_LIB', DIR_CORE . 'MBM' . DS);
+define('DIR_CONFIG', DIR_CORE . 'config' . DS);
+define('DIR_MODULE', DIR_LIB . DS . 'Modules' . DS);
+
+$loader = require DIR_CORE . 'vendor/autoload.php';
+
+$db = new \MBM\Lib\Model();
+$entityManager = $db->getConnection('default');
+
+//doctrine2 config begins
+// Setup Autoloader (1)
+//Doctrine\ORM\Tools\Setup::registerAutoloadDirectory(DIR_LIB.'Entity');
+// Define application environment
+define('APPLICATION_ENV', "development");
+
+/*
+  defined('APPLICATION_ENV')
+  || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
+ */
+
+
+$em = $entityManager;
+
+$helperSet = new \Symfony\Component\Console\Helper\HelperSet(array(
+    'db' => new \Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper($em->getConnection()),
+    'em' => new \Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper($em)
+        ));
+
+$commands = array();
+
+\Doctrine\ORM\Tools\Console\ConsoleRunner::run($helperSet, $commands);
